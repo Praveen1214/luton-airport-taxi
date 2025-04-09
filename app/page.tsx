@@ -16,12 +16,12 @@ const BookingFlow = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [bookingData, setBookingData] = useState({
     // Trip details
-    pickups: [{ id: 1, location: "", locationDetails: null, zone: "" }],
-    dropoff: { id: 0, location: "", locationDetails: null, zone: "" },
+    pickups: [{ id: 1, location: "", locationDetails: undefined, zone: "" }],
+    dropoff: { id: 0, location: "", locationDetails: undefined, zone: "" },
     selectedDate: new Date(),
     returnBooking: false,
-    returnPickups: [{ id: 1, location: "", locationDetails: null, zone: "" }],
-    returnDropoff: { id: 0, location: "", locationDetails: null, zone: "" },
+    returnPickups: [{ id: 1, location: "", locationDetails: undefined, zone: "" }],
+    returnDropoff: { id: 0, location: "", locationDetails: undefined, zone: "" },
     returnSelectedDate: null,
 
     // Distance and pricing

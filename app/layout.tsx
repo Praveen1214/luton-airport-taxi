@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import {Inter,IBM_Plex_Serif} from "next/font/google";
 import "./globals.css";
+import Header from '@/components/common/header';
+import Footer from '@/components/common/footer';
 
 const inter = Inter({subsets: ["latin"],variable:'--font-inter'});
 const ibmPlexSerif = IBM_Plex_Serif({subsets: ["latin"],weight:['400','700'],variable:'--font-ibm-plex-serif'});
@@ -20,7 +22,9 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${ibmPlexSerif.variable} antialiased`}
       >
+        <Header />
         {children}
+        <Footer />
       </body>
     </html>
   );
