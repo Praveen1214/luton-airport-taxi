@@ -16,6 +16,9 @@ import C6 from "./images/c6.png";
 import Bag from "./images/bag.png";
 import LLA from "./images/LLA.png";
 import LA from "./images/LA.png";
+import StarCar from "./images/star-car.png";
+
+import Logo from "./logo/logo.png";
 
 export {
   HeroPlane,
@@ -36,4 +39,6 @@ export {
   Bag,
   LLA,
   LA,
+  StarCar,
+  Logo,
 };
