@@ -10,6 +10,7 @@ import Confirmation from "./steps/Confirmation";
 import StepIndicator from "./steps/StepIndicator";
 import AlertToast from "@/components/alertToast";
 import Loader from "@/components/common/Loader";
+import Services from "@/components/landing/Services";
 
 const BookingFlow = () => {
   const [currentStep, setCurrentStep] = useState(1);
@@ -254,40 +255,44 @@ const BookingFlow = () => {
   ];
 
   return (
-    <div className="relative min-h-screen bg-off-white">
-      <div className="absolute top-0 right-0 w-2/3 h-full pointer-events-none bg-gradient-to-l from-blue-50 to-transparent">
-        {" "}
-      </div>
-      <div className="relative z-10 py-6 mx-auto sm:px-6 lg:px-8">
-        {currentStep !== 1 && (
-          <StepIndicator steps={steps} currentStep={currentStep} />
-        )}
-        <div className="mt-8">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={currentStep}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.3 }}
-            >
-              {renderStep()}
-            </motion.div>
-          </AnimatePresence>
+    <>
+      <div className="relative min-h-screen bg-off-white">
+        <div className="absolute top-0 right-0 w-2/3 h-full pointer-events-none bg-gradient-to-l from-blue-50 to-transparent">
+          {" "}
         </div>
+        <div className="relative py-6 mx-auto sm:px-6 lg:px-8">
+          {currentStep !== 1 && (
+            <StepIndicator steps={steps} currentStep={currentStep} />
+          )}
+          <div className="mt-8">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={currentStep}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.3 }}
+              >
+                {renderStep()}
+              </motion.div>
+            </AnimatePresence>
+          </div>
+        </div>
+        <div className="relative w-full bg-gray-50">
+          <Services />
+        </div>
+        {alertConfig.isOpen && (
+          <AlertToast
+            open={alertConfig.isOpen}
+            onOpenChange={closeAlert}
+            title={alertConfig.title}
+            description={alertConfig.description}
+            type={alertConfig.type}
+            onConfirm={alertConfig.onConfirm}
+          />
+        )}
       </div>
-
-      {alertConfig.isOpen && (
-        <AlertToast
-          open={alertConfig.isOpen}
-          onOpenChange={closeAlert}
-          title={alertConfig.title}
-          description={alertConfig.description}
-          type={alertConfig.type}
-          onConfirm={alertConfig.onConfirm}
-        />
-      )}
-    </div>
+    </>
   );
 };
 
