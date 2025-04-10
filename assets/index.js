@@ -13,6 +13,9 @@ import C3 from "./images/c3.png";
 import C4 from "./images/c4.png";
 import C5 from "./images/c5.png";
 import C6 from "./images/c6.png";
+import Bag from "./images/bag.png";
+import LLA from "./images/LLA.png";
+import LA from "./images/LA.png";
 
 export {
   HeroPlane,
@@ -29,5 +32,8 @@ export {
   C3,
   C4,
   C5,
-  C6
+  C6,
+  Bag,
+  LLA,
+  LA,
 };
