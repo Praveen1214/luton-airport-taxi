@@ -48,12 +48,12 @@ const BookingSteps = () => {
   ];
 
   return (
-    <div className="px-4 py-16">
+    <div className="relative py-16">
       <h2 className="mb-12 text-3xl font-bold text-center md:text-4xl">
         Book a Taxi for Luton Airport in 3 Easy Steps
       </h2>
 
-      <div className="grid max-w-6xl grid-cols-1 gap-6 mx-auto md:grid-cols-3">
+      <div className="relative grid max-w-full grid-cols-1 gap-6 mx-auto md:grid-cols-3">
         {steps.map((step, index) => (
           <StepCard
             key={index}

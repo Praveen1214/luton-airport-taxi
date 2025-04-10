@@ -12,6 +12,7 @@ import AlertToast from "@/components/alertToast";
 import Loader from "@/components/common/Loader";
 import Services from "@/components/landing/Services";
 import BookingSteps from "@/components/landing/BookingSteps";
+import Stress from "@/components/landing/Stress";
 
 const BookingFlow = () => {
   const [currentStep, setCurrentStep] = useState(1);
@@ -282,8 +283,11 @@ const BookingFlow = () => {
         <div className="relative w-full">
           <Services />
         </div>
-        <div className="relative w-full">
+        <div className="container w-full ">
           <BookingSteps />
+        </div>
+        <div className="relative w-full">
+          <Stress />
         </div>
         {alertConfig.isOpen && (
           <AlertToast
