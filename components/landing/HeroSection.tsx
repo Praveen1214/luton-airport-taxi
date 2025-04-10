@@ -36,7 +36,6 @@ const HeroSection = () => {
           <div className="text-3xl font-semibold text-black-2"> 2.5K </div>
           <div className="text-sm text-gray-1"> Happy Customer </div>
           <div className="w-full h-px mt-4 bg-gray-4"></div>
-
         </div>
         <div className="mt-6">
           <Image
