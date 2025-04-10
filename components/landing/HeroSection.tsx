@@ -1,13 +1,15 @@
 "use client";
 
 import React from "react";
+import {HeroPlane} from '../../assets'
+import Image from "next/image";
 
 const HeroSection = () => {
   return (
     <div className="flex flex-col md:pr-8 lg:pr-16">
-      <h1 className="mb-4 text-4xl font-bold">
-        <span className="text-blue-500"> Airport Transfers </span> to and
-        <span className="text-teal-500"> from </span> Luton Airport
+      <h1 className="mb-4 text-5xl font-semibold">
+        <span className="text-blue-500"> Airport Transfers </span> to and<br/>
+        <span>from Luton Airport</span>
       </h1>
       <p className="mb-8 text-gray-600">
         Hassle free Luton Airport Transfer Service.Simple Online booking with
@@ -37,10 +39,11 @@ const HeroSection = () => {
       </div>
 
       <div className="hidden mt-8 md:block">
-        <img
-          src="/api/placeholder/300/180"
-          alt="airplane illustration"
-          className="w-full max-w-xs"
+        <Image
+          src={HeroPlane}
+          alt="Hero Plane"
+          className="h-44 w-44"
+          priority
         />
       </div>
     </div>
