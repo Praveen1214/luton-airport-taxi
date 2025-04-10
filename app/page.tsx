@@ -280,13 +280,15 @@ const BookingFlow = () => {
             </AnimatePresence>
           </div>
         </div>
-        <div className="relative w-full">
-          <Services />
+        <div className="bg-[#F5F7FB]">
+          <div className="container relative w-full px-4 mx-auto md:px-6 lg:px-8">
+            <Services />
+          </div>
         </div>
-        <div className="container w-full ">
+        <div className="container relative w-full px-4 mx-auto md:px-6 lg:px-8">
           <BookingSteps />
         </div>
-        <div className="relative w-full">
+        <div className="container relative w-full px-4 mx-auto md:px-6 lg:px-8">
           <Stress />
         </div>
         {alertConfig.isOpen && (

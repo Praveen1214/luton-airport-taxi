@@ -36,7 +36,7 @@ const Services = () => {
   ];
 
   return (
-    <div className="w-full py-8 bg-[#F5F7FB] mt-10">
+    <div className="w-full py-8 bg-[#F5F7FB] mt-10 relative">
       <div className="container px-4 mx-auto">
         <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
           {serviceItems.map((item, index) => (
