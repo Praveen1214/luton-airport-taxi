@@ -11,6 +11,7 @@ import StepIndicator from "./steps/StepIndicator";
 import AlertToast from "@/components/alertToast";
 import Loader from "@/components/common/Loader";
 import Services from "@/components/landing/Services";
+import BookingSteps from "@/components/landing/BookingSteps";
 
 const BookingFlow = () => {
   const [currentStep, setCurrentStep] = useState(1);
@@ -278,8 +279,11 @@ const BookingFlow = () => {
             </AnimatePresence>
           </div>
         </div>
-        <div className="relative w-full bg-gray-50">
+        <div className="relative w-full">
           <Services />
+        </div>
+        <div className="relative w-full">
+          <BookingSteps />
         </div>
         {alertConfig.isOpen && (
           <AlertToast

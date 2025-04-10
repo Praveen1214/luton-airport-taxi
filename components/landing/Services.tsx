@@ -1,5 +1,4 @@
 import React from "react";
-import { Clock, AlertCircle, Tag } from "lucide-react";
 import { AirPlane, Support, Note } from "../../assets";
 import Image from "next/image";
 
