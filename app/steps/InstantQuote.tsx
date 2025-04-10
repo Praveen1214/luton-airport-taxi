@@ -12,7 +12,7 @@ const AirportTransferPage = ({
   showAlert,
 }) => {
   return (
-    <div className="w-full mx-auto max-w-7xl bg-gray-50">
+    <div className="w-full mx-auto max-w-7xl bg-off-white">
       <div className="flex flex-col w-full gap-8 px-4 py-6 sm:px-6 md:flex-row md:items-start lg:px-8">
         {/* Hero section - hide on mobile */}
         <div className="hidden md:flex md:flex-col md:w-1/2 lg:w-3/5">
