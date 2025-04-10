@@ -254,8 +254,11 @@ const BookingFlow = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-off-white">
-      <div className="py-6 mx-auto sm:px-6 lg:px-8">
+    <div className="relative min-h-screen bg-off-white">
+      <div className="absolute top-0 right-0 w-2/3 h-full pointer-events-none bg-gradient-to-l from-blue-50 to-transparent">
+        {" "}
+      </div>
+      <div className="relative z-10 py-6 mx-auto sm:px-6 lg:px-8">
         {currentStep !== 1 && (
           <StepIndicator steps={steps} currentStep={currentStep} />
         )}
