@@ -7,6 +7,12 @@ import LandingStep1 from "./images/landing-step1.png";
 import LandingStep2 from "./images/landig-step2.png";
 import LandingStep3 from "./images/landing-step3.png";
 import LandingStress from "./images/landing-stress.png";
+import C1 from "./images/c1.png";
+import C2 from "./images/c2.png";
+import C3 from "./images/c3.png";
+import C4 from "./images/c4.png";
+import C5 from "./images/c5.png";
+import C6 from "./images/c6.png";
 
 export {
   HeroPlane,
@@ -18,4 +24,10 @@ export {
   LandingStep2,
   LandingStep3,
   LandingStress,
+  C1,
+  C2,
+  C3,
+  C4,
+  C5,
+  C6
 };
