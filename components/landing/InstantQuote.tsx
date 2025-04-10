@@ -461,9 +461,9 @@ const InstantQuote = ({
   };
 
   return (
-    <div className="w-full overflow-hidden bg-white rounded-lg shadow-sm">
-      <div className="p-4 text-center">
-        <h2 className="text-xl font-semibold"> Instant Quote </h2>
+    <div className="w-full overflow-hidden bg-white border-2 rounded-lg border-gray-5">
+      <div className="p-6 text-center">
+        <h2 className="text-xl font-bold"> Instant Quote </h2>
       </div>
 
       <div className="p-4 space-y-4">
@@ -547,18 +547,18 @@ const InstantQuote = ({
           <div className="flex items-center">
             <button
               onClick={() => toggleReturnBooking(!localData.returnBooking)}
-              className="flex items-center text-blue-500"
+              className="flex items-center text-gray-3"
             >
               <ArrowRightLeft className="w-4 h-4 mr-1" />
               <span className="text-sm">Add Return</span>
             </button>
           </div>
-          <div className="flex items-center">
+          {/* <div className="flex items-center">
             <span className="mr-1 text-sm text-gray-500">Via</span>
             <div className="flex items-center justify-center w-6 h-6 bg-gray-100 border border-gray-200 rounded-full">
               <button className="text-lg font-medium text-gray-500">+</button>
             </div>
-          </div>
+          </div> */}
         </div>
 
         {/* Return Journey Fields (conditional) */}
@@ -649,7 +649,7 @@ const InstantQuote = ({
         {/* Search Button */}
         <button
           onClick={handleSearch}
-          className="w-full py-3 text-white transition-colors bg-blue-500 rounded-lg hover:bg-blue-600"
+          className="w-full py-3 text-white transition-colors rounded-lg bg-primary hover:bg-btn-hover"
         >
           Search
         </button>
