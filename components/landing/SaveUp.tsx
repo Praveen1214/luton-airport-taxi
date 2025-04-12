@@ -20,7 +20,7 @@ const SaveUp = () => {
         </div>
         {/* Right Column - Text Content */}
         <div>
-          <div className="mb-3 font-semibold text-right text-blue-600">
+          <div className="mb-3 font-semibold text-right text-primary">
             SAVE UP TO 40 % BY PRE BOOKING
           </div>
           <h2 className="mb-6 text-3xl font-bold">

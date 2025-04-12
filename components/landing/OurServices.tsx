@@ -59,7 +59,7 @@ const OurServices = () => {
   return (
     <div className="container px-4 py-12 mx-auto">
       <div className="mb-12 text-center">
-        <span className="font-semibold tracking-wide text-blue-600">
+        <span className="font-semibold tracking-wide text-primary">
           NOT JUST AIRPORT TRANSFERS
         </span>
         <h2 className="mt-3 text-3xl font-bold md:text-4xl">

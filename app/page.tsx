@@ -17,6 +17,12 @@ import OurServices from "@/components/landing/OurServices";
 import SaveUp from "@/components/landing/SaveUp";
 import SaveUp2 from "@/components/landing/SaveUp2";
 import LAirPort from "@/components/landing/LAirPort";
+import Specialist from "@/components/landing/Specialist";
+import PopularRoutes from "@/components/landing/popularRoutes";
+import FeedBack from "@/components/landing/Feedback";
+import Companies from "@/components/landing/companies";
+import FAQ from "@/components/landing/FAQ";
+import Tips from "@/components/landing/Tips";
 
 const BookingFlow = () => {
   const [currentStep, setCurrentStep] = useState(1);
@@ -284,29 +290,54 @@ const BookingFlow = () => {
             </AnimatePresence>
           </div>
         </div>
-        <div className="bg-[#F5F7FB]">
-          <div className="container relative w-full px-4 mx-auto md:px-6 lg:px-8">
-            <Services />
-          </div>
-        </div>
-        <div className="container relative w-full px-4 mx-auto md:px-6 lg:px-8">
-          <BookingSteps />
-        </div>
-        <div className="container relative w-full px-4 mx-auto md:px-6 lg:px-8">
-          <Stress />
-        </div>
-        <div className="container relative w-full px-4 mx-auto md:px-6 lg:px-8">
-          <OurServices />
-        </div>
-        <div className="container relative w-full px-4 mx-auto md:px-6 lg:px-8">
-          <SaveUp />
-        </div>
-        <div className="container relative w-full px-4 mx-auto md:px-6 lg:px-8">
-          <SaveUp2 />
-        </div>
-        <div className="container relative w-full px-4 mx-auto md:px-6 lg:px-8">
-          <LAirPort />
-        </div>
+
+        {/* Only show these components when NOT on steps 2, 3, or 4 */}
+        {currentStep !== 2 && currentStep !== 3 && currentStep !== 4 && (
+          <>
+            <div className="bg-[#F5F7FB]">
+              <div className="container relative w-full px-4 mx-auto md:px-6 lg:px-8">
+                <Services />
+              </div>
+            </div>
+            <div className="container relative w-full px-4 mx-auto md:px-6 lg:px-8">
+              <BookingSteps />
+            </div>
+            <div className="container relative w-full px-4 mx-auto md:px-6 lg:px-8">
+              <Stress />
+            </div>
+            <div className="container relative w-full px-4 mx-auto md:px-6 lg:px-8">
+              <OurServices />
+            </div>
+            <div className="container relative w-full px-4 mx-auto md:px-6 lg:px-8">
+              <SaveUp />
+            </div>
+            <div className="container relative w-full px-4 mx-auto md:px-6 lg:px-8">
+              <SaveUp2 />
+            </div>
+            <div className="container relative w-full px-4 mx-auto md:px-6 lg:px-8">
+              <LAirPort />
+            </div>
+            <div className="container relative hidden w-full px-4 mx-auto md:px-6 lg:px-8 md:block">
+              <Specialist />
+            </div>
+            <div className="container relative w-full px-4 mx-auto md:px-6 lg:px-8">
+              <PopularRoutes />
+            </div>
+            <div className="container relative w-full px-4 mx-auto md:px-6 lg:px-8">
+              <FeedBack />
+            </div>
+            <div className="container relative w-full px-4 mx-auto md:px-6 lg:px-8">
+              <Companies />
+            </div>
+            <div className="container relative w-full px-4 mx-auto md:px-6 lg:px-8">
+              <FAQ />
+            </div>
+            <div className="container relative w-full px-4 mx-auto md:px-6 lg:px-8">
+              <Tips />
+            </div>
+          </>
+        )}
+
         {alertConfig.isOpen && (
           <AlertToast
             open={alertConfig.isOpen}

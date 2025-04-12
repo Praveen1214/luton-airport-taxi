@@ -29,7 +29,7 @@ const StepIndicator = ({ steps, currentStep }) => {
               <div
                 className={`flex items-center justify-center w-10 h-10 rounded-full transition-all duration-300 ${
                   isActive
-                    ? "bg-blue-500 text-white"
+                    ? "bg-primary text-white"
                     : "bg-white text-gray-400 border-2 border-gray-300"
                 }`}
               >
@@ -41,7 +41,7 @@ const StepIndicator = ({ steps, currentStep }) => {
               </div>
               <span
                 className={`mt-2 text-sm ${
-                  isActive ? "text-blue-500" : "text-gray-500"
+                  isActive ? "text-primary" : "text-gray-500"
                 }`}
               >
                 {step.label}

@@ -8,12 +8,12 @@ const Stress = () => {
       <div className="grid items-center grid-cols-1 gap-8 lg:grid-cols-2">
         {/* Left Column - Text Content */}
         <div>
-          <span className="font-semibold tracking-wide text-blue-600">
+          <span className="font-semibold tracking-wide text-primary">
             {" "}
             STRESS - FREE JOURNEY{" "}
           </span>
 
-          <h1 className="mt-4 mb-6 text-3xl font-bold md:text-4xl">
+          <h1 className="mt-4 mb-6 text-3xl font-bold md:text-3xl">
             Reliable Luton Airport Taxi Transfer Service
           </h1>
 

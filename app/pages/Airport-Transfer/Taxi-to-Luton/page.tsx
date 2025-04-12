@@ -6,14 +6,14 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { LutonDeparture, LondonLutonAirport, LutonTerminal } from "@/assets";
 import { testimonials } from "@/components/CustomerTestimonials";
-import { faqs } from "@/components/FaqSection";
+import FAQ from "@/components/landing/FAQ";
 import { routes } from "@/components/PopularRoutes";
 import { FaCarAlt, FaStar } from "react-icons/fa"; // install with: npm install react-icons
+import FeedBack from "@/components/landing/Feedback";
 
 export default function HomePage() {
   const scrollRef = useRef<HTMLDivElement>(null);
   const router = useRouter();
-
 
   const scroll = (direction: "left" | "right") => {
     const container = scrollRef.current;
@@ -27,11 +27,9 @@ export default function HomePage() {
     });
   };
 
-
   const handleClick = (slug: string) => {
     router.push(`/routes/${slug}`);
   };
-
 
   return (
     <main className="flex flex-col items-center justify-center w-full">
@@ -410,132 +408,50 @@ export default function HomePage() {
 
       {/* Reviews / Ratings Section */}
       <section className="max-w-6xl mx-auto px-4 py-12 md:py-16">
-        {/* Rating Header */}
-        <div className="flex items-center gap-4 mb-8">
-          <FaStar className="text-blue-600 text-4xl" />
-          <div className="text-2xl font-semibold text-gray-900 leading-tight">
-            4.7{" "}
-            <span className="text-lg text-gray-500 font-normal">Out of 5</span>
-            <p className="text-sm text-gray-500 font-medium">
-              +2.5 K Happy Customer
-            </p>
-          </div>
-        </div>
-
-        {/* Scrollable Testimonials */}
-        <div className="relative">
-          <div
-            ref={scrollRef}
-            className="overflow-x-auto no-scrollbar scroll-smooth"
-          >
-            <div className="flex gap-6 w-max">
-              {testimonials.map((t, i) => (
-                <div
-                  key={i}
-                  className="min-w-[280px] max-w-xs bg-white border border-gray-200 rounded-xl shadow-sm px-6 py-5"
-                >
-                  <div className="flex text-yellow-400 text-lg mb-3">
-                    {[...Array(5)].map((_, i) => (
-                      <FaStar key={i} />
-                    ))}
-                  </div>
-                  <p className="text-gray-700 mb-4 leading-relaxed text-sm">
-                    {t.feedback}
-                  </p>
-                  <hr className="mb-2" />
-                  <p className="font-semibold text-gray-900 text-sm">
-                    {t.name}
-                  </p>
-                  <p className="text-xs text-gray-500">{t.location}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Functional Arrow Controls */}
-          <div className="flex justify-center gap-4 mt-6">
-            <button
-              onClick={() => scroll("left")}
-              className="w-9 h-9 rounded-full border border-gray-300 flex items-center justify-center hover:bg-gray-100"
-            >
-              &lsaquo;
-            </button>
-            <button
-              onClick={() => scroll("right")}
-              className="w-9 h-9 rounded-full border border-gray-300 flex items-center justify-center hover:bg-gray-100"
-            >
-              &rsaquo;
-            </button>
-          </div>
-        </div>
+        <FeedBack/>
       </section>
 
-      <section className="max-w-6xl mx-auto px-4 py-12 md:py-16">
-        <div className="flex flex-col md:flex-row md:items-start gap-8 md:gap-12">
-          {/* Left Title */}
-          <div className="md:w-1/3">
-            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 leading-snug">
-              Explore FAQs <br />
-              for Quick <br />
-              Answers
-            </h2>
-          </div>
-
-          {/* Vertical Divider */}
-          <div className="hidden md:block w-px bg-gray-200 h-full mx-auto"></div>
-
-          {/* Right FAQs */}
-          <div className="md:w-2/3 space-y-6">
-            {faqs.map((faq, index) => (
-              <div key={index} className="border-b pb-4">
-                <h3 className="text-base md:text-lg font-semibold text-gray-900 mb-1">
-                  {faq.question}
-                </h3>
-                <p className="text-gray-600 text-sm md:text-base">
-                  {faq.answer}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
+      <section className="max-w-6xl mx-auto px-4">
+        <FAQ />
       </section>
+
       {/* Popular Routes Section */}
       <section className="max-w-7xl mx-auto px-4 py-16">
-      {/* Heading */}
-      <div className="text-center mb-10">
-        <p className="text-sm text-blue-600 font-medium">
-          Explore Our Top-Rated Destinations
-        </p>
-        <h2 className="text-3xl font-bold text-gray-900">Popular Routes</h2>
-      </div>
+        {/* Heading */}
+        <div className="text-center mb-10">
+          <p className="text-sm text-blue-600 font-medium">
+            Explore Our Top-Rated Destinations
+          </p>
+          <h2 className="text-3xl font-bold text-gray-900">Popular Routes</h2>
+        </div>
 
-      {/* Cards */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        {routes.map((route, i) => (
-          <div
-            key={i}
-            onClick={() => handleClick(route.slug)}
-            className="cursor-pointer border border-gray-200 bg-white rounded-xl px-4 py-5 shadow-sm flex flex-col gap-2 transition hover:shadow-md hover:border-blue-500"
-          >
-            {/* Route Line */}
-            <div className="flex justify-between items-center text-sm font-medium text-gray-900">
-              <span>{route.from}</span>
-              <span className="text-gray-400 text-xl font-bold tracking-wider">
-                {">>>"}
-              </span>
-              <span>{route.to}</span>
-            </div>
+        {/* Cards */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          {routes.map((route, i) => (
+            <div
+              key={i}
+              onClick={() => handleClick(route.slug)}
+              className="cursor-pointer border border-gray-200 bg-white rounded-xl px-4 py-5 shadow-sm flex flex-col gap-2 transition hover:shadow-md hover:border-blue-500"
+            >
+              {/* Route Line */}
+              <div className="flex justify-between items-center text-sm font-medium text-gray-900">
+                <span>{route.from}</span>
+                <span className="text-gray-400 text-xl font-bold tracking-wider">
+                  {">>>"}
+                </span>
+                <span>{route.to}</span>
+              </div>
 
-            {/* Info Row */}
-            <div className="flex items-center gap-2 text-sm text-gray-600 mt-1">
-              <FaCarAlt className="text-blue-600" />
-              <span>{route.duration}</span>
-              <span className="text-gray-400">· {route.distance}</span>
+              {/* Info Row */}
+              <div className="flex items-center gap-2 text-sm text-gray-600 mt-1">
+                <FaCarAlt className="text-blue-600" />
+                <span>{route.duration}</span>
+                <span className="text-gray-400">· {route.distance}</span>
+              </div>
             </div>
-          </div>
-        ))}
-      </div>
-    </section>
+          ))}
+        </div>
+      </section>
     </main>
   );
 }
