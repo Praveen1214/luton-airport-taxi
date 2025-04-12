@@ -38,8 +38,12 @@ import CY10 from "./images/cy10.png";
 import T1 from "./images/t1.png";
 import T2 from "./images/t2.png";
 import T3 from "./images/t3.png";
+import NV1 from "./images/nv1.png";
+import NV2 from "./images/nv2.png";
 
 import Logo from "./logo/logo.png";
+import LutonLoader from "./logo/luton-loader.png";
+import LogoWhite from "./logo/logo-white.png";
 
 export {
   HeroPlane,
@@ -83,4 +87,8 @@ export {
   T1,
   T2,
   T3,
+  LutonLoader,
+  LogoWhite,
+  NV1,
+  NV2,
 };
