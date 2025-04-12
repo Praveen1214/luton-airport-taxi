@@ -236,8 +236,8 @@ const VehicleSelection = ({
                     transition={{ duration: 0.3, delay: index * 0.1 }}
                     className={`border rounded-2xl p-5 shadow-sm transition-all cursor-pointer hover:shadow-md  ${
                       isSelected
-                      ? "border-blue-500 ring-2 ring-blue-200 bg-blue-50"
-                      : "border-gray-200 bg-white"
+                        ? "border-blue-500 ring-2 ring-blue-200 bg-blue-50"
+                        : "border-gray-200 bg-white"
                     }`}
                     onClick={() => handleVehicleSelect(index)}
                   >
