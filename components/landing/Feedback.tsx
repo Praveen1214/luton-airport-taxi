@@ -80,7 +80,7 @@ const FeedBack = () => {
     <div className="w-full py-12 overflow-hidden bg-white">
       <div className="max-w-6xl px-4 mx-auto">
         <div className="flex items-center mb-2">
-          <Star fill="#0047AB" color="#0047AB" size={28} className="mr-2" />
+          <Star fill="#005AF2" color="#005AF2" size={28} className="mr-2" />
           <span className="text-4xl font-bold text-gray-700"> 4.7 </span>
           <span className="ml-2 text-xl text-gray-500"> Out of </span>
           <span className="ml-2 text-4xl font-bold text-gray-700"> 5 </span>
@@ -104,7 +104,7 @@ const FeedBack = () => {
                   {" "}
                   {feedback.text}{" "}
                 </p>
-                <div>
+                <div className="py-4 border-t border-gray-200">
                   <p className="font-medium text-gray-900"> {feedback.name} </p>
                   <p className="text-sm text-gray-500"> {feedback.location} </p>
                 </div>
