@@ -13,13 +13,23 @@ const config = {
   theme: {
     container: {
       center: true,
-      padding: "2rem",
+      padding: "6rem",
       screens: {
-        "2xl": "1400px",
+        "2xl": "1350px",
       },
     },
     extend: {
       colors: {
+        primary: "#005AF2",
+        "btn-hover": "#4A87EF",
+        "black": "#040815",
+        "black-2": "#2B2B2B",
+        "gray-1": "#35405A",
+        "gray-2": "#58627A",
+        "gray-3": "#8A93A7",
+        "gray-4": "#C6CBDA",
+        "gray-5": "#F5F6FA",
+        "off-white": "#FFFFFF",
         fill: {
           1: "rgba(255, 255, 255, 0.10)",
         },

@@ -113,7 +113,6 @@ const VehicleSelection = ({
         });
 
         setVehiclePrices(calculatedPrices);
-
         // Auto-select the standard/default vehicle option if none is selected
         if (selectedVehicleIndex === -1 && calculatedPrices.length > 0) {
           const defaultIndex = calculatedPrices.findIndex((v) =>
@@ -207,159 +206,23 @@ const VehicleSelection = ({
   const bestValueIndex = getBestValueIndex();
 
   return (
-    <Card className="w-full max-w-4xl mx-auto bg-white shadow-md rounded-xl overflow-hidden">
+    <Card className="w-full max-w-4xl mx-auto overflow-hidden">
       <CardContent className="p-6">
-        <h2 className="text-2xl font-bold text-center text-gray-800 mb-6">
+        <h2 className="mb-6 text-2xl font-bold text-center text-gray-800">
           Select Your Vehicle
         </h2>
 
         {isLoading ? (
-          <div className="flex justify-center items-center py-12">
-            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600">
+          <div className="flex items-center justify-center py-12">
+            <div className="w-12 h-12 border-b-2 border-blue-600 rounded-full animate-spin">
               {" "}
             </div>
           </div>
         ) : (
           <>
-            <div className="mb-6">
-              <div className="bg-gray-50 rounded-lg p-4 border border-gray-200">
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-3">
-                  <div>
-                    <h3 className="font-medium text-gray-800">
-                      {" "}
-                      Journey Details{" "}
-                    </h3>
-                    <p className="text-sm text-gray-600 mt-1">
-                      {bookingData.returnBooking
-                        ? "Round-trip journey"
-                        : "One-way journey"}
-                    </p>
-                  </div>
-
-                  <div className="flex items-center mt-2 sm:mt-0">
-                    <Clock className="h-4 w-4 text-gray-600 mr-1" />
-                    <span className="text-sm text-gray-600">
-                      {bookingData.selectedDate?.toLocaleDateString("en-US", {
-                        weekday: "short",
-                        day: "numeric",
-                        month: "short",
-                        hour: "numeric",
-                        minute: "2-digit",
-                      })}
-                    </span>
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div>
-                    <p className="text-xs text-gray-500 uppercase font-medium">
-                      {" "}
-                      From{" "}
-                    </p>
-                    <p className="text-sm text-gray-800">
-                      {" "}
-                      {bookingData.pickups[0]?.location}{" "}
-                    </p>
-                    {bookingData.pickups.length > 1 && (
-                      <p className="text-xs text-blue-600 mt-1">
-                        +{bookingData.pickups.length - 1} additional pickup
-                        {bookingData.pickups.length > 2 ? "s" : ""}
-                      </p>
-                    )}
-                  </div>
-
-                  <div>
-                    <p className="text-xs text-gray-500 uppercase font-medium">
-                      {" "}
-                      To{" "}
-                    </p>
-                    <p className="text-sm text-gray-800">
-                      {" "}
-                      {bookingData.dropoff?.location}{" "}
-                    </p>
-                  </div>
-
-                  {bookingData.returnBooking && (
-                    <>
-                      <div className="col-span-2 border-t border-gray-200 pt-3 mt-1">
-                        {" "}
-                      </div>
-
-                      <div>
-                        <div className="flex items-center">
-                          <p className="text-xs text-gray-500 uppercase font-medium">
-                            {" "}
-                            Return From{" "}
-                          </p>
-                          <span className="ml-2 text-xs bg-blue-100 text-blue-800 px-2 py-0.5 rounded">
-                            {" "}
-                            Return{" "}
-                          </span>
-                        </div>
-                        <p className="text-sm text-gray-800">
-                          {" "}
-                          {bookingData.returnPickups[0]?.location}{" "}
-                        </p>
-                        {bookingData.returnPickups.length > 1 && (
-                          <p className="text-xs text-blue-600 mt-1">
-                            +{bookingData.returnPickups.length - 1} additional
-                            pickup
-                            {bookingData.returnPickups.length > 2 ? "s" : ""}
-                          </p>
-                        )}
-                      </div>
-
-                      <div>
-                        <p className="text-xs text-gray-500 uppercase font-medium">
-                          {" "}
-                          Return To{" "}
-                        </p>
-                        <p className="text-sm text-gray-800">
-                          {" "}
-                          {bookingData.returnDropoff?.location}{" "}
-                        </p>
-
-                        <div className="flex items-center mt-2">
-                          <Clock className="h-4 w-4 text-gray-600 mr-1" />
-                          <span className="text-xs text-gray-600">
-                            {bookingData.returnSelectedDate?.toLocaleDateString(
-                              "en-US",
-                              {
-                                weekday: "short",
-                                day: "numeric",
-                                month: "short",
-                                hour: "numeric",
-                                minute: "2-digit",
-                              }
-                            )}
-                          </span>
-                        </div>
-                      </div>
-                    </>
-                  )}
-
-                  <div className="col-span-1 md:col-span-2 mt-2">
-                    <div className="flex items-center justify-between text-sm">
-                      <div className="flex items-center">
-                        <BarChart4 className="h-4 w-4 text-blue-600 mr-1" />
-                        <span className="text-gray-700"> Total Distance: </span>
-                      </div>
-                      <span className="font-medium">
-                        {bookingData.returnBooking
-                          ? `${(
-                              parseFloat(bookingData.miles) +
-                              parseFloat(bookingData.returnMiles)
-                            ).toFixed(2)} miles (round-trip)`
-                          : `${bookingData.miles} miles`}
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
+            {/* 
             {/* Vehicle options */}
-            <div className="space-y-6 mb-10">
+            <div className="mb-10 space-y-6">
               {vehiclePrices.map((vehicle, index) => {
                 const isSelected = index === selectedVehicleIndex;
                 const isMostPopular = index === mostPopularIndex;
@@ -371,19 +234,19 @@ const VehicleSelection = ({
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.3, delay: index * 0.1 }}
-                    className={`border rounded-2xl p-5 shadow-sm transition-all cursor-pointer hover:shadow-md ${
+                    className={`border rounded-2xl p-5 shadow-sm transition-all cursor-pointer hover:shadow-md  ${
                       isSelected
-                        ? "border-blue-500 ring-2 ring-blue-200"
-                        : "border-gray-200"
+                        ? "border-blue-500 ring-2 ring-blue-200 bg-blue-50"
+                        : "border-gray-200 bg-white"
                     }`}
                     onClick={() => handleVehicleSelect(index)}
                   >
-                    <div className="flex flex-col sm:flex-row sm:items-center gap-6">
+                    <div className="flex flex-col gap-6 sm:flex-row sm:items-center">
                       {/* Left Side */}
-                      <div className="flex flex-1 items-start gap-5">
+                      <div className="flex items-start flex-1 gap-5">
                         {/* Image */}
-                        <div className="relative w-28 h-20 rounded-xl overflow-hidden border border-gray-200 bg-white flex-shrink-0 shadow-sm">
-                          <Image
+                        <div className="relative flex-shrink-0 h-20 overflow-hidden bg-white border border-gray-200 shadow-sm w-28 rounded-xl">
+                          {/* <Image
                             src={
                               vehicle.image
                                 ? `${process.env.NEXT_PUBLIC_API_URL}/${vehicle.image}`
@@ -393,7 +256,7 @@ const VehicleSelection = ({
                             fill
                             className="object-cover"
                             sizes="112px"
-                          />
+                          /> */}
                         </div>
 
                         {/* Vehicle Info */}
@@ -404,19 +267,19 @@ const VehicleSelection = ({
                               {vehicle.type}
                             </h3>
                             {isMostPopular && (
-                              <Badge className="bg-orange-100 text-orange-800 border border-orange-200">
+                              <Badge className="text-orange-800 bg-orange-100 border border-orange-200">
                                 Most Popular
                               </Badge>
                             )}
                             {isBestValue && (
-                              <Badge className="bg-blue-100 text-blue-800 border border-blue-200">
+                              <Badge className="text-blue-800 bg-blue-100 border border-blue-200">
                                 Best Value
                               </Badge>
                             )}
                           </div>
 
                           {/* Features */}
-                          <div className="grid grid-cols-2 gap-3 mb-2 text-gray-600 text-sm">
+                          <div className="grid grid-cols-2 gap-3 mb-2 text-sm text-gray-600">
                             <div className="flex items-center">
                               <Users className="h-4 w-4 mr-1.5 text-gray-400" />
                               {vehicle.seats} Passengers
@@ -427,7 +290,7 @@ const VehicleSelection = ({
                             </div>
                           </div>
 
-                          <div className="flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-gray-600">
+                          <div className="flex flex-wrap items-center text-sm text-gray-600 gap-x-5 gap-y-2">
                             <div className="flex items-center">
                               <Check className="h-4 w-4 text-green-500 mr-1.5" />
                               Free Waiting Time
@@ -444,19 +307,19 @@ const VehicleSelection = ({
                       <div className="flex flex-col items-end justify-between sm:min-w-[160px] gap-2">
                         {/* Price */}
                         <div className="text-right">
-                          <div className="text-2xl font-bold text-blue-600 leading-tight">
+                          <div className="text-2xl font-bold leading-tight text-blue-600">
                             £{vehicle.calculatedPrice.toFixed(2)}
                           </div>
 
                           <TooltipProvider>
                             <Tooltip>
                               <TooltipTrigger asChild>
-                                <div className="flex items-center justify-end text-xs text-gray-500 mt-1 cursor-help hover:text-gray-700 transition-colors">
+                                <div className="flex items-center justify-end mt-1 text-xs text-gray-500 transition-colors cursor-help hover:text-gray-700">
                                   <Info className="h-3.5 w-3.5 mr-1" />
                                   Price details
                                 </div>
                               </TooltipTrigger>
-                              <TooltipContent className="bg-white p-4 rounded-lg shadow-lg border border-gray-200 w-64">
+                              <TooltipContent className="w-64 p-4 bg-white border border-gray-200 rounded-lg shadow-lg">
                                 <div className="space-y-1.5 text-sm">
                                   <div className="flex justify-between">
                                     <span className="text-gray-600">
@@ -496,7 +359,7 @@ const VehicleSelection = ({
                         </div>
 
                         {/* Button */}
-                        <Button
+                        {/* <Button
                           variant={isSelected ? "default" : "outline"}
                           size="sm"
                           className={`w-full sm:w-auto ${
@@ -510,7 +373,7 @@ const VehicleSelection = ({
                           }}
                         >
                           {isSelected ? "Selected" : "Select"}
-                        </Button>
+                        </Button> */}
                       </div>
                     </div>
                   </motion.div>
@@ -531,11 +394,11 @@ const VehicleSelection = ({
 
               <Button
                 onClick={handleContinue}
-                className="bg-blue-600 hover:bg-blue-700 text-white flex items-center"
+                className="flex items-center text-white bg-primary hover:bg-blue-700"
                 disabled={selectedVehicleIndex === -1}
               >
-                Continue
-                <ArrowRight className="w-4 h-4 ml-2" />
+                Book Now
+                {/* <ArrowRight className="w-4 h-4 ml-2" /> */}
               </Button>
             </div>
           </>

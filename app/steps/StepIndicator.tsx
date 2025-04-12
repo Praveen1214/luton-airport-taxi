@@ -3,7 +3,7 @@ import { Check } from "lucide-react";
 
 const StepIndicator = ({ steps, currentStep }) => {
   return (
-    <div className="w-full max-w-4xl mx-auto px-4 py-6">
+    <div className="w-full max-w-4xl px-4 py-6 mx-auto">
       <div className="relative flex items-center justify-between">
         {/* Background line */}
         <div className="absolute top-[20px] left-0 right-0 h-0.5 bg-gray-200 z-0" />
@@ -24,12 +24,12 @@ const StepIndicator = ({ steps, currentStep }) => {
           return (
             <div
               key={step.number}
-              className="relative z-20 flex flex-col items-center text-center w-1/4"
+              className="relative z-20 flex flex-col items-center w-1/4 text-center"
             >
               <div
                 className={`flex items-center justify-center w-10 h-10 rounded-full transition-all duration-300 ${
                   isActive
-                    ? "bg-blue-500 text-white"
+                    ? "bg-primary text-white"
                     : "bg-white text-gray-400 border-2 border-gray-300"
                 }`}
               >
@@ -41,7 +41,7 @@ const StepIndicator = ({ steps, currentStep }) => {
               </div>
               <span
                 className={`mt-2 text-sm ${
-                  isActive ? "text-blue-500" : "text-gray-500"
+                  isActive ? "text-primary" : "text-gray-500"
                 }`}
               >
                 {step.label}
