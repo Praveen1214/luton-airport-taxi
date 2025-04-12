@@ -26,7 +26,7 @@ const FAQ = () => {
 
   return (
     <div className="w-full mt-16">
-      <div className="max-w-6xl px-4 py-16 mx-auto">
+      <div className="px-4 py-16 mx-auto">
         <div className="flex flex-col md:flex-row">
           {/* Left column - Title */}
           <div className="mb-8 md:w-1/3 md:mb-0 md:pr-12">
