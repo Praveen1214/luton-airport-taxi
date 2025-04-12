@@ -113,7 +113,6 @@ const VehicleSelection = ({
         });
 
         setVehiclePrices(calculatedPrices);
-
         // Auto-select the standard/default vehicle option if none is selected
         if (selectedVehicleIndex === -1 && calculatedPrices.length > 0) {
           const defaultIndex = calculatedPrices.findIndex((v) =>
@@ -207,7 +206,7 @@ const VehicleSelection = ({
   const bestValueIndex = getBestValueIndex();
 
   return (
-    <Card className="w-full max-w-4xl mx-auto overflow-hidden bg-white shadow-md rounded-xl">
+    <Card className="w-full max-w-4xl mx-auto overflow-hidden">
       <CardContent className="p-6">
         <h2 className="mb-6 text-2xl font-bold text-center text-gray-800">
           Select Your Vehicle
@@ -221,143 +220,7 @@ const VehicleSelection = ({
           </div>
         ) : (
           <>
-            <div className="mb-6">
-              <div className="p-4 border border-gray-200 rounded-lg bg-gray-50">
-                <div className="flex flex-col justify-between mb-3 sm:flex-row sm:items-center">
-                  <div>
-                    <h3 className="font-medium text-gray-800">
-                      {" "}
-                      Journey Details{" "}
-                    </h3>
-                    <p className="mt-1 text-sm text-gray-600">
-                      {bookingData.returnBooking
-                        ? "Round-trip journey"
-                        : "One-way journey"}
-                    </p>
-                  </div>
-
-                  <div className="flex items-center mt-2 sm:mt-0">
-                    <Clock className="w-4 h-4 mr-1 text-gray-600" />
-                    <span className="text-sm text-gray-600">
-                      {bookingData.selectedDate?.toLocaleDateString("en-US", {
-                        weekday: "short",
-                        day: "numeric",
-                        month: "short",
-                        hour: "numeric",
-                        minute: "2-digit",
-                      })}
-                    </span>
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-                  <div>
-                    <p className="text-xs font-medium text-gray-500 uppercase">
-                      {" "}
-                      From{" "}
-                    </p>
-                    <p className="text-sm text-gray-800">
-                      {" "}
-                      {bookingData.pickups[0]?.location}{" "}
-                    </p>
-                    {bookingData.pickups.length > 1 && (
-                      <p className="mt-1 text-xs text-blue-600">
-                        +{bookingData.pickups.length - 1} additional pickup
-                        {bookingData.pickups.length > 2 ? "s" : ""}
-                      </p>
-                    )}
-                  </div>
-
-                  <div>
-                    <p className="text-xs font-medium text-gray-500 uppercase">
-                      {" "}
-                      To{" "}
-                    </p>
-                    <p className="text-sm text-gray-800">
-                      {" "}
-                      {bookingData.dropoff?.location}{" "}
-                    </p>
-                  </div>
-
-                  {bookingData.returnBooking && (
-                    <>
-                      <div className="col-span-2 pt-3 mt-1 border-t border-gray-200">
-                        {" "}
-                      </div>
-
-                      <div>
-                        <div className="flex items-center">
-                          <p className="text-xs font-medium text-gray-500 uppercase">
-                            {" "}
-                            Return From{" "}
-                          </p>
-                          <span className="ml-2 text-xs bg-blue-100 text-blue-800 px-2 py-0.5 rounded">
-                            {" "}
-                            Return{" "}
-                          </span>
-                        </div>
-                        <p className="text-sm text-gray-800">
-                          {" "}
-                          {bookingData.returnPickups[0]?.location}{" "}
-                        </p>
-                        {bookingData.returnPickups.length > 1 && (
-                          <p className="mt-1 text-xs text-blue-600">
-                            +{bookingData.returnPickups.length - 1} additional
-                            pickup
-                            {bookingData.returnPickups.length > 2 ? "s" : ""}
-                          </p>
-                        )}
-                      </div>
-
-                      <div>
-                        <p className="text-xs font-medium text-gray-500 uppercase">
-                          {" "}
-                          Return To{" "}
-                        </p>
-                        <p className="text-sm text-gray-800">
-                          {" "}
-                          {bookingData.returnDropoff?.location}{" "}
-                        </p>
-
-                        <div className="flex items-center mt-2">
-                          <Clock className="w-4 h-4 mr-1 text-gray-600" />
-                          <span className="text-xs text-gray-600">
-                            {bookingData.returnSelectedDate?.toLocaleDateString(
-                              "en-US",
-                              {
-                                weekday: "short",
-                                day: "numeric",
-                                month: "short",
-                                hour: "numeric",
-                                minute: "2-digit",
-                              }
-                            )}
-                          </span>
-                        </div>
-                      </div>
-                    </>
-                  )}
-
-                  <div className="col-span-1 mt-2 md:col-span-2">
-                    <div className="flex items-center justify-between text-sm">
-                      <div className="flex items-center">
-                        <BarChart4 className="w-4 h-4 mr-1 text-blue-600" />
-                        <span className="text-gray-700"> Total Distance: </span>
-                      </div>
-                      <span className="font-medium">
-                        {bookingData.returnBooking
-                          ? `${(
-                              parseFloat(bookingData.miles) +
-                              parseFloat(bookingData.returnMiles)
-                            ).toFixed(2)} miles (round-trip)`
-                          : `${bookingData.miles} miles`}
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
+            {/* 
             {/* Vehicle options */}
             <div className="mb-10 space-y-6">
               {vehiclePrices.map((vehicle, index) => {
@@ -371,10 +234,10 @@ const VehicleSelection = ({
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.3, delay: index * 0.1 }}
-                    className={`border rounded-2xl p-5 shadow-sm transition-all cursor-pointer hover:shadow-md ${
+                    className={`border rounded-2xl p-5 shadow-sm transition-all cursor-pointer hover:shadow-md  ${
                       isSelected
-                        ? "border-blue-500 ring-2 ring-blue-200"
-                        : "border-gray-200"
+                      ? "border-blue-500 ring-2 ring-blue-200 bg-blue-50"
+                      : "border-gray-200 bg-white"
                     }`}
                     onClick={() => handleVehicleSelect(index)}
                   >
@@ -496,7 +359,7 @@ const VehicleSelection = ({
                         </div>
 
                         {/* Button */}
-                        <Button
+                        {/* <Button
                           variant={isSelected ? "default" : "outline"}
                           size="sm"
                           className={`w-full sm:w-auto ${
@@ -510,7 +373,7 @@ const VehicleSelection = ({
                           }}
                         >
                           {isSelected ? "Selected" : "Select"}
-                        </Button>
+                        </Button> */}
                       </div>
                     </div>
                   </motion.div>
@@ -531,11 +394,11 @@ const VehicleSelection = ({
 
               <Button
                 onClick={handleContinue}
-                className="flex items-center text-white bg-blue-600 hover:bg-blue-700"
+                className="flex items-center text-white bg-primary hover:bg-blue-700"
                 disabled={selectedVehicleIndex === -1}
               >
-                Continue
-                <ArrowRight className="w-4 h-4 ml-2" />
+                Book Now
+                {/* <ArrowRight className="w-4 h-4 ml-2" /> */}
               </Button>
             </div>
           </>
