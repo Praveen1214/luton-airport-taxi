@@ -17,6 +17,14 @@ import Bag from "./images/bag.png";
 import LLA from "./images/LLA.png";
 import LA from "./images/LA.png";
 import StarCar from "./images/star-car.png";
+import L1 from "./images/l1.png";
+import L2 from "./images/l2.png";
+import L3 from "./images/l3.png";
+import L4 from "./images/l4.png";
+import L5 from "./images/l5.png";
+import L6 from "./images/l6.png";
+import L7 from "./images/l7.png";
+import L8 from "./images/l8.png";
 
 import Logo from "./logo/logo.png";
 
@@ -41,4 +49,12 @@ export {
   LA,
   StarCar,
   Logo,
+  L1,
+  L2,
+  L3,
+  L4,
+  L5,
+  L6,
+  L7,
+  L8,
 };

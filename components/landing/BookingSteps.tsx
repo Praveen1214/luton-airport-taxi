@@ -14,7 +14,7 @@ const StepCard = ({ number, title, description, imageSrc }) => (
       />
     </div>
     <div className="flex items-start pt-4 border-t-2 border-gray-200">
-      <div className="mr-4 text-4xl font-bold text-blue-500"> {number} </div>
+      <div className="mr-4 text-4xl font-bold text-primary"> {number} </div>
       <div>
         <h3 className="mb-2 text-xl font-semibold"> {title} </h3>
         <p className="text-sm text-gray-600"> {description} </p>
