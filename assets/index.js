@@ -25,6 +25,16 @@ import L5 from "./images/l5.png";
 import L6 from "./images/l6.png";
 import L7 from "./images/l7.png";
 import L8 from "./images/l8.png";
+import CY1 from "./images/cy1.png";
+import CY2 from "./images/cy2.png";
+import CY3 from "./images/cy3.png";
+import CY4 from "./images/cy4.png";
+import CY5 from "./images/cy5.png";
+import CY6 from "./images/cy6.png";
+import CY7 from "./images/cy7.png";
+import CY8 from "./images/cy8.png";
+import CY9 from "./images/cy9.png";
+import CY10 from "./images/cy10.png";
 
 import Logo from "./logo/logo.png";
 
@@ -57,4 +67,14 @@ export {
   L6,
   L7,
   L8,
+  CY1,
+  CY2,
+  CY3,
+  CY4,
+  CY5,
+  CY6,
+  CY7,
+  CY8,
+  CY9,
+  CY10,
 };

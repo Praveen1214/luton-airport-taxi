@@ -20,6 +20,7 @@ import LAirPort from "@/components/landing/LAirPort";
 import Specialist from "@/components/landing/Specialist";
 import PopularRoutes from "@/components/landing/popularRoutes";
 import FeedBack from "@/components/landing/Feedback";
+import Companies from "@/components/landing/companies";
 
 const BookingFlow = () => {
   const [currentStep, setCurrentStep] = useState(1);
@@ -318,6 +319,9 @@ const BookingFlow = () => {
         </div>
         <div className="container relative w-full px-4 mx-auto md:px-6 lg:px-8">
           <FeedBack />
+        </div>
+        <div className="container relative w-full px-4 mx-auto md:px-6 lg:px-8">
+          <Companies />
         </div>
         {alertConfig.isOpen && (
           <AlertToast

@@ -77,8 +77,8 @@ const FeedBack = () => {
   };
 
   return (
-    <div className="w-full py-12 overflow-hidden bg-white">
-      <div className="max-w-6xl px-4 mx-auto">
+    <div className="w-full py-12 overflow-hidden">
+      <div className="px-4 mx-auto ">
         <div className="flex items-center mb-2">
           <Star fill="#005AF2" color="#005AF2" size={28} className="mr-2" />
           <span className="text-4xl font-bold text-gray-700"> 4.7 </span>
@@ -97,7 +97,7 @@ const FeedBack = () => {
             {feedbacks.map((feedback, index) => (
               <div
                 key={index}
-                className="flex flex-col p-4 border border-gray-200 rounded-lg shadow-sm w-72"
+                className="flex flex-col p-4 bg-white border border-gray-200 rounded-lg shadow-sm w-72"
               >
                 <div className="flex mb-2">{renderStars(feedback.stars)}</div>
                 <p className="flex-grow mb-6 text-gray-700">
