@@ -16,6 +16,9 @@ import C6 from "./images/c6.png";
 import Bag from "./images/bag.png";
 import LLA from "./images/LLA.png";
 import LA from "./images/LA.png";
+import LutonDeparture from "./images/LutonDeparture.png";
+import LondonLutonAirport from "./images/London-Luton-Airport.png"
+import LutonTerminal from "./images/TerminalCar2.png";
 
 export {
   HeroPlane,
@@ -36,4 +39,7 @@ export {
   Bag,
   LLA,
   LA,
+  LutonDeparture,
+  LondonLutonAirport,
+  LutonTerminal
 };
