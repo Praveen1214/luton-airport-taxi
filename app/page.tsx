@@ -21,6 +21,7 @@ import Specialist from "@/components/landing/Specialist";
 import PopularRoutes from "@/components/landing/popularRoutes";
 import FeedBack from "@/components/landing/Feedback";
 import Companies from "@/components/landing/companies";
+import FAQ from "@/components/landing/FAQ";
 
 const BookingFlow = () => {
   const [currentStep, setCurrentStep] = useState(1);
@@ -322,6 +323,9 @@ const BookingFlow = () => {
         </div>
         <div className="container relative w-full px-4 mx-auto md:px-6 lg:px-8">
           <Companies />
+        </div>
+        <div className="container relative w-full px-4 mx-auto md:px-6 lg:px-8">
+          <FAQ />
         </div>
         {alertConfig.isOpen && (
           <AlertToast
