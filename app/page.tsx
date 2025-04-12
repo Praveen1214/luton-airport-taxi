@@ -22,6 +22,7 @@ import PopularRoutes from "@/components/landing/popularRoutes";
 import FeedBack from "@/components/landing/Feedback";
 import Companies from "@/components/landing/companies";
 import FAQ from "@/components/landing/FAQ";
+import Tips from "@/components/landing/Tips";
 
 const BookingFlow = () => {
   const [currentStep, setCurrentStep] = useState(1);
@@ -326,6 +327,9 @@ const BookingFlow = () => {
         </div>
         <div className="container relative w-full px-4 mx-auto md:px-6 lg:px-8">
           <FAQ />
+        </div>
+        <div className="container relative w-full px-4 mx-auto md:px-6 lg:px-8">
+          <Tips />
         </div>
         {alertConfig.isOpen && (
           <AlertToast

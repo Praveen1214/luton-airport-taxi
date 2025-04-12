@@ -35,6 +35,9 @@ import CY7 from "./images/cy7.png";
 import CY8 from "./images/cy8.png";
 import CY9 from "./images/cy9.png";
 import CY10 from "./images/cy10.png";
+import T1 from "./images/t1.png";
+import T2 from "./images/t2.png";
+import T3 from "./images/t3.png";
 
 import Logo from "./logo/logo.png";
 
@@ -77,4 +80,7 @@ export {
   CY8,
   CY9,
   CY10,
+  T1,
+  T2,
+  T3,
 };
