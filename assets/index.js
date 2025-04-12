@@ -19,6 +19,7 @@ import LA from "./images/LA.png";
 import LutonDeparture from "./images/LutonDeparture.png";
 import LondonLutonAirport from "./images/London-Luton-Airport.png"
 import LutonTerminal from "./images/TerminalCar2.png";
+import ridebooking from "./images/ridebooking.png";
 
 export {
   HeroPlane,
@@ -41,5 +42,6 @@ export {
   LA,
   LutonDeparture,
   LondonLutonAirport,
-  LutonTerminal
+  LutonTerminal,
+  ridebooking
 };
