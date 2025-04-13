@@ -214,21 +214,21 @@ const PassengerDetails = ({
   };
 
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+    <div className="grid max-w-6xl grid-cols-1 gap-6 mx-auto lg:grid-cols-3">
       {/* Left side - Passenger details form */}
       <div className="lg:col-span-2">
-        <Card className="bg-white shadow-md rounded-xl overflow-hidden">
+        <Card className="overflow-hidden bg-white border rounded-xl">
           <CardContent className="p-6">
-            <h2 className="text-xl font-bold text-gray-800 mb-6">
+            <h2 className="mb-6 text-xl font-bold text-gray-800">
               {" "}
               Passenger Information{" "}
             </h2>
 
             {/* Passenger details */}
-            <div className="space-y-5 mb-8">
+            <div className="p-4 mb-8 space-y-5 bg-[#F5F6FA] rounded-lg">
               <div>
-                <label className="text-sm font-medium text-gray-700 flex items-center mb-2">
-                  <UserCircle className="w-4 h-4 mr-2 text-blue-600" />
+                <label className="flex items-center mb-2 text-sm font-medium text-gray-700">
+                  <UserCircle className="w-4 h-4 mr-2 text-primary" />
                   Full Name
                 </label>
                 <Input
@@ -237,13 +237,13 @@ const PassengerDetails = ({
                     handleInputChange("passengerName", e.target.value)
                   }
                   placeholder="Enter full name"
-                  className="border-gray-300 focus:ring-blue-500 focus:border-blue-500"
+                  className="bg-white border-gray-300 focus:ring-primary focus:border-primary"
                 />
               </div>
 
               <div>
-                <label className="text-sm font-medium text-gray-700 flex items-center mb-2">
-                  <Phone className="w-4 h-4 mr-2 text-blue-600" />
+                <label className="flex items-center mb-2 text-sm font-medium text-gray-700">
+                  <Phone className="w-4 h-4 mr-2 text-primary" />
                   Phone Number
                 </label>
                 <Input
@@ -252,21 +252,21 @@ const PassengerDetails = ({
                     handleInputChange("phoneNumber", e.target.value)
                   }
                   placeholder="Enter phone number"
-                  className="border-gray-300 focus:ring-blue-500 focus:border-blue-500"
+                  className="bg-white border-gray-300 focus:ring-primary focus:border-primary"
                 />
               </div>
 
               <div>
-                <label className="text-sm font-medium text-gray-700 flex items-center mb-2">
-                  <Mail className="w-4 h-4 mr-2 text-blue-600" />
+                <label className="flex items-center mb-2 text-sm font-medium text-gray-700">
+                  <Mail className="w-4 h-4 mr-2 text-primary" />
                   Email Address
                 </label>
-                <div className="flex flex-col sm:flex-row sm:items-center space-y-2 sm:space-y-0 sm:space-x-4">
+                <div className="flex flex-col space-y-2 sm:flex-row sm:items-center sm:space-y-0 sm:space-x-4">
                   <Input
                     value={formData.email}
                     onChange={(e) => handleInputChange("email", e.target.value)}
                     placeholder="Enter email address"
-                    className="border-gray-300 focus:ring-blue-500 focus:border-blue-500 flex-1"
+                    className="flex-1 bg-white border-gray-300 focus:ring-primary focus:border-primary"
                   />
                   <div className="flex items-center space-x-2">
                     <Checkbox
@@ -287,24 +287,24 @@ const PassengerDetails = ({
               </div>
 
               <div>
-                <label className="text-sm font-medium text-gray-700 flex items-center mb-2">
-                  <Car className="w-4 h-4 mr-2 text-blue-600" />
+                <label className="flex items-center mb-2 text-sm font-medium text-gray-700">
+                  <Car className="w-4 h-4 mr-2 text-primary" />
                   Selected Vehicle
                 </label>
-                <div className="p-3 bg-gray-50 border border-gray-200 rounded-md">
-                  <div className="flex justify-between items-center">
+                <div className="p-3 bg-white border border-gray-200 rounded-md">
+                  <div className="flex items-center justify-between">
                     <div>
                       <p className="font-medium text-gray-800">
                         {" "}
                         {bookingData.vehicleType}{" "}
                       </p>
-                      <div className="flex items-center text-sm text-gray-600 mt-1">
+                      <div className="flex items-center mt-1 text-sm text-gray-600">
                         <Users className="w-3.5 h-3.5 mr-1" />
                         <span>{bookingData.passengerCount} passengers </span>
                       </div>
                     </div>
                     <div className="text-right">
-                      <p className="font-medium text-blue-600">
+                      <p className="font-medium text-primary">
                         £{priceDetails.basePrice.toFixed(2)}{" "}
                       </p>
                       <p className="text-xs text-gray-500"> Base price </p>
@@ -315,8 +315,12 @@ const PassengerDetails = ({
             </div>
 
             {/* Additional services */}
-            <div className="mb-8">
-              <div className="flex items-center space-x-2 mb-4">
+            <div className="mb-8 space-y-5 bg-white rounded-md">
+              <h2 className="mb-6 text-xl font-bold text-gray-800">
+                {" "}
+                Additional Services Information{" "}
+              </h2>
+              <div className="flex items-center mb-4 space-x-2">
                 <Checkbox
                   id="additional-services"
                   checked={formData.additionalCharging}
@@ -338,17 +342,17 @@ const PassengerDetails = ({
                   animate={{ opacity: 1, height: "auto" }}
                   exit={{ opacity: 0, height: 0 }}
                   transition={{ duration: 0.3 }}
-                  className="p-4 border border-gray-200 rounded-lg bg-gray-50 space-y-4"
+                  className="p-4 space-y-4 rounded-lg bg-[#F5F6FA]"
                 >
-                  <h3 className="text-md font-semibold text-gray-700 mb-3">
+                  <h3 className="mb-3 font-semibold text-gray-700 text-md">
                     {" "}
                     Select Additional Services{" "}
                   </h3>
 
-                  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+                  <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
                     {/* Child seats */}
-                    <div className="bg-white p-3 rounded-md border border-gray-200">
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <div className="p-3 bg-white border border-gray-200 rounded-md">
+                      <label className="block mb-2 text-sm font-medium text-gray-700">
                         {" "}
                         Booster Seat{" "}
                       </label>
@@ -370,9 +374,9 @@ const PassengerDetails = ({
                             formData.additionalSelection.boosterSeat <= 0
                           }
                         >
-                          <Minus className="h-4 w-4 text-gray-600" />
+                          <Minus className="w-4 h-4 text-gray-600" />
                         </button>
-                        <span className="mx-3 w-8 text-center">
+                        <span className="w-8 mx-3 text-center">
                           {formData.additionalSelection.boosterSeat}
                         </span>
                         <button
@@ -387,7 +391,7 @@ const PassengerDetails = ({
                           }}
                           className="p-1 border border-gray-300 rounded-md hover:bg-gray-100"
                         >
-                          <Plus className="h-4 w-4 text-gray-600" />
+                          <Plus className="w-4 h-4 text-gray-600" />
                         </button>
                         <span className="ml-auto text-sm text-gray-600">
                           £{additionalChargeData.boosterSeat || 0} each
@@ -395,8 +399,8 @@ const PassengerDetails = ({
                       </div>
                     </div>
 
-                    <div className="bg-white p-3 rounded-md border border-gray-200">
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <div className="p-3 bg-white border border-gray-200 rounded-md">
+                      <label className="block mb-2 text-sm font-medium text-gray-700">
                         {" "}
                         Child Seat{" "}
                       </label>
@@ -416,9 +420,9 @@ const PassengerDetails = ({
                           className="p-1 border border-gray-300 rounded-md hover:bg-gray-100"
                           disabled={formData.additionalSelection.childSeat <= 0}
                         >
-                          <Minus className="h-4 w-4 text-gray-600" />
+                          <Minus className="w-4 h-4 text-gray-600" />
                         </button>
-                        <span className="mx-3 w-8 text-center">
+                        <span className="w-8 mx-3 text-center">
                           {formData.additionalSelection.childSeat}
                         </span>
                         <button
@@ -433,7 +437,7 @@ const PassengerDetails = ({
                           }}
                           className="p-1 border border-gray-300 rounded-md hover:bg-gray-100"
                         >
-                          <Plus className="h-4 w-4 text-gray-600" />
+                          <Plus className="w-4 h-4 text-gray-600" />
                         </button>
                         <span className="ml-auto text-sm text-gray-600">
                           £{additionalChargeData.childSeat || 0} each
@@ -441,8 +445,8 @@ const PassengerDetails = ({
                       </div>
                     </div>
 
-                    <div className="bg-white p-3 rounded-md border border-gray-200">
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <div className="p-3 bg-white border border-gray-200 rounded-md">
+                      <label className="block mb-2 text-sm font-medium text-gray-700">
                         {" "}
                         Infant Seat{" "}
                       </label>
@@ -464,9 +468,9 @@ const PassengerDetails = ({
                             formData.additionalSelection.infantSeat <= 0
                           }
                         >
-                          <Minus className="h-4 w-4 text-gray-600" />
+                          <Minus className="w-4 h-4 text-gray-600" />
                         </button>
-                        <span className="mx-3 w-8 text-center">
+                        <span className="w-8 mx-3 text-center">
                           {formData.additionalSelection.infantSeat}
                         </span>
                         <button
@@ -481,7 +485,7 @@ const PassengerDetails = ({
                           }}
                           className="p-1 border border-gray-300 rounded-md hover:bg-gray-100"
                         >
-                          <Plus className="h-4 w-4 text-gray-600" />
+                          <Plus className="w-4 h-4 text-gray-600" />
                         </button>
                         <span className="ml-auto text-sm text-gray-600">
                           £{additionalChargeData.infantSeat || 0} each
@@ -490,8 +494,8 @@ const PassengerDetails = ({
                     </div>
 
                     {/* Other services */}
-                    <div className="bg-white p-3 rounded-md border border-gray-200">
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <div className="p-3 bg-white border border-gray-200 rounded-md">
+                      <label className="block mb-2 text-sm font-medium text-gray-700">
                         {" "}
                         Meet & Greet{" "}
                       </label>
@@ -513,9 +517,9 @@ const PassengerDetails = ({
                             formData.additionalSelection.meetAndGreet <= 0
                           }
                         >
-                          <Minus className="h-4 w-4 text-gray-600" />
+                          <Minus className="w-4 h-4 text-gray-600" />
                         </button>
-                        <span className="mx-3 w-8 text-center">
+                        <span className="w-8 mx-3 text-center">
                           {formData.additionalSelection.meetAndGreet}
                         </span>
                         <button
@@ -530,7 +534,7 @@ const PassengerDetails = ({
                           }}
                           className="p-1 border border-gray-300 rounded-md hover:bg-gray-100"
                         >
-                          <Plus className="h-4 w-4 text-gray-600" />
+                          <Plus className="w-4 h-4 text-gray-600" />
                         </button>
                         <span className="ml-auto text-sm text-gray-600">
                           £{additionalChargeData.meetAndGreet || 0} each
@@ -538,8 +542,8 @@ const PassengerDetails = ({
                       </div>
                     </div>
 
-                    <div className="bg-white p-3 rounded-md border border-gray-200">
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <div className="p-3 bg-white border border-gray-200 rounded-md">
+                      <label className="block mb-2 text-sm font-medium text-gray-700">
                         {" "}
                         Waiting After Landing{" "}
                       </label>
@@ -563,9 +567,9 @@ const PassengerDetails = ({
                               .waitingTimeAfterLanding <= 0
                           }
                         >
-                          <Minus className="h-4 w-4 text-gray-600" />
+                          <Minus className="w-4 h-4 text-gray-600" />
                         </button>
-                        <span className="mx-3 w-8 text-center">
+                        <span className="w-8 mx-3 text-center">
                           {formData.additionalSelection.waitingTimeAfterLanding}
                         </span>
                         <button
@@ -581,7 +585,7 @@ const PassengerDetails = ({
                           }}
                           className="p-1 border border-gray-300 rounded-md hover:bg-gray-100"
                         >
-                          <Plus className="h-4 w-4 text-gray-600" />
+                          <Plus className="w-4 h-4 text-gray-600" />
                         </button>
                         <span className="ml-auto text-sm text-gray-600">
                           £{additionalChargeData.waitingTimeAfterLanding || 0}{" "}
@@ -590,8 +594,8 @@ const PassengerDetails = ({
                       </div>
                     </div>
 
-                    <div className="bg-white p-3 rounded-md border border-gray-200">
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <div className="p-3 bg-white border border-gray-200 rounded-md">
+                      <label className="block mb-2 text-sm font-medium text-gray-700">
                         {" "}
                         Wheelchair{" "}
                       </label>
@@ -613,9 +617,9 @@ const PassengerDetails = ({
                             formData.additionalSelection.wheelchair <= 0
                           }
                         >
-                          <Minus className="h-4 w-4 text-gray-600" />
+                          <Minus className="w-4 h-4 text-gray-600" />
                         </button>
-                        <span className="mx-3 w-8 text-center">
+                        <span className="w-8 mx-3 text-center">
                           {formData.additionalSelection.wheelchair}
                         </span>
                         <button
@@ -630,7 +634,7 @@ const PassengerDetails = ({
                           }}
                           className="p-1 border border-gray-300 rounded-md hover:bg-gray-100"
                         >
-                          <Plus className="h-4 w-4 text-gray-600" />
+                          <Plus className="w-4 h-4 text-gray-600" />
                         </button>
                         <span className="ml-auto text-sm text-gray-600">
                           £{additionalChargeData.wheelchair || 0} each
@@ -643,16 +647,16 @@ const PassengerDetails = ({
                   {formData.additionalSelection.additionalOptions?.length >
                     0 && (
                     <div className="mt-5">
-                      <h4 className="text-sm font-medium text-gray-700 mb-3">
+                      <h4 className="mb-3 text-sm font-medium text-gray-700">
                         {" "}
                         Other Additional Options{" "}
                       </h4>
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                      <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
                         {formData.additionalSelection.additionalOptions.map(
                           (option, index) => (
                             <div
                               key={option._id}
-                              className="bg-white p-3 rounded-md border border-gray-200 flex items-center"
+                              className="flex items-center p-3 bg-white border border-gray-200 rounded-md"
                             >
                               <Checkbox
                                 id={`option-${option._id}`}
@@ -667,7 +671,7 @@ const PassengerDetails = ({
                               />
                               <label
                                 htmlFor={`option-${option._id}`}
-                                className="text-sm ml-2 flex-grow cursor-pointer"
+                                className="flex-grow ml-2 text-sm cursor-pointer"
                               >
                                 {option.name}(£{option.price})
                               </label>
@@ -687,7 +691,7 @@ const PassengerDetails = ({
                                     className="p-1 border border-gray-300 rounded-md hover:bg-gray-100"
                                     disabled={option.quantity <= 1}
                                   >
-                                    <Minus className="h-3 w-3 text-gray-600" />
+                                    <Minus className="w-3 h-3 text-gray-600" />
                                   </button>
                                   <span className="mx-2 text-sm">
                                     {" "}
@@ -704,7 +708,7 @@ const PassengerDetails = ({
                                     }}
                                     className="p-1 border border-gray-300 rounded-md hover:bg-gray-100"
                                   >
-                                    <Plus className="h-3 w-3 text-gray-600" />
+                                    <Plus className="w-3 h-3 text-gray-600" />
                                   </button>
                                 </div>
                               )}
@@ -719,9 +723,9 @@ const PassengerDetails = ({
             </div>
 
             {/* Driver notes */}
-            <div className="mb-8">
-              <label className="text-sm font-medium text-gray-700 flex items-center mb-2">
-                <Notebook className="w-4 h-4 mr-2 text-blue-600" />
+            <div className="mb-8 p-4 space-y-5 bg-[#F5F6FA]  rounded-lg">
+              <label className="flex items-center mb-2 text-sm font-medium text-gray-700">
+                <Notebook className="w-4 h-4 mr-2 text-primary" />
                 Driver Notes(Optional)
               </label>
               <Textarea
@@ -730,7 +734,7 @@ const PassengerDetails = ({
                   handleInputChange("driverNotes", e.target.value)
                 }
                 placeholder="Any special instructions for the driver..."
-                className="border-gray-300 focus:ring-blue-500 focus:border-blue-500 min-h-24"
+                className="bg-white border-gray-300 focus:ring-primary focus:border-primary min-h-24"
               />
             </div>
           </CardContent>
@@ -750,15 +754,13 @@ const PassengerDetails = ({
       {/* Right side - Price summary and payment option */}
       <div className="space-y-4 md:space-y-6">
         <div className="space-y-6">
-          <Card className="bg-white shadow-md rounded-xl overflow-hidden">
+          <Card className="overflow-hidden bg-white border rounded-xl">
             <CardContent className="p-6">
-              <h2 className="text-lg md:text-xl font-semibold mb-4 md:mb-6 text-gray-800">
+              <h2 className="mb-4 text-lg font-bold text-gray-800 md:text-xl md:mb-6">
                 Payment Breakdown
               </h2>
 
-              <div className="flex justify-between items-center py-2 md:py-3 border-b">
-                
-
+              <div className="flex items-center justify-between py-2 md:py-3">
                 {priceDetails.paymentMethodFee > 0 && (
                   <div className="flex justify-between py-2">
                     <span className="text-gray-600"> Card payment fee: </span>
@@ -774,29 +776,27 @@ const PassengerDetails = ({
                     <span className="text-gray-600"> Included </span>
                   </div>
                 )}
-
-                
               </div>
-              <div className="flex justify-between items-center pt-3 md:pt-4 mt-1 md:mt-2">
-                <span className="font-semibold text-base md:text-lg">
+              <div className="flex justify-between p-4 space-y-5 bg-[#F5F6FA] rounded-lg">
+                <span className="text-base font-semibold md:text-lg">
                   Total Price
                 </span>
-                <span className="font-bold text-base md:text-lg text-blue-600">
+                <span className="text-base font-bold text-primary md:text-lg">
                   £{priceDetails.totalPrice.toFixed(2)}
                 </span>
               </div>
-              <p className="text-xs md:text-sm text-gray-500 mt-3 md:mt-4">
+              <p className="mt-3 text-xs text-gray-500 md:text-sm md:mt-4">
                 This is an approximate estimate.The trip cost and travel time
                 may differ due to traffic, route taken and waiting time.
               </p>
 
               {/* Service Guarantee - More visible on mobile */}
-              <div className="bg-blue-50 rounded-lg p-4 md:p-6 border border-blue-100 mt-5">
+              <div className="p-4 mt-5 border border-blue-100 rounded-lg bg-blue-50 md:p-6">
                 <div className="flex items-start space-x-3">
-                  <div className="text-blue-600 flex-shrink-0">
+                  <div className="flex-shrink-0 text-primary">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
-                      className="h-5 w-5 md:h-6 md:w-6"
+                      className="w-5 h-5 md:h-6 md:w-6"
                       fill="none"
                       viewBox="0 0 24 24"
                       stroke="currentColor"
@@ -810,10 +810,10 @@ const PassengerDetails = ({
                     </svg>
                   </div>
                   <div>
-                    <h3 className="font-medium text-gray-900 text-sm md:text-base">
+                    <h3 className="text-sm font-medium text-gray-900 md:text-base">
                       Our Service Guarantee
                     </h3>
-                    <p className="text-xs md:text-sm text-gray-600 mt-1">
+                    <p className="mt-1 text-xs text-gray-600 md:text-sm">
                       Fixed price, no hidden fees.Clean vehicles with
                       professional drivers. 24 / 7 customer support.
                     </p>
@@ -821,17 +821,19 @@ const PassengerDetails = ({
                 </div>
               </div>
             </CardContent>
+          </Card>
+          <div className="px-4">
             <button
               onClick={handleSubmit}
-              className="w-full px-6 py-3 md:px-8 bg-[#000000] text-white font-medium rounded-md hover:bg-gray-800 transition-colors text-sm md:text-base mt-5"
+              className="w-full px-6 py-3 mt-2 text-sm font-medium text-white transition-colors rounded-md md:px-8 bg-primary hover:bg-btn-hover md:text-base"
             >
               Continue Booking
             </button>
-          </Card>
+          </div>
 
-          {/* <Card className="bg-white shadow-md rounded-xl overflow-hidden">
+          {/* <Card className="overflow-hidden bg-white shadow-md rounded-xl">
             <CardContent className="p-6">
-              <h2 className="text-xl font-bold text-gray-800 mb-4">
+              <h2 className="mb-4 text-xl font-bold text-gray-800">
                 {" "}
                 Payment Method{" "}
               </h2>
@@ -843,11 +845,11 @@ const PassengerDetails = ({
                 }
                 className="space-y-3"
               >
-                <div className="flex items-center space-x-3 p-3 rounded-lg border border-gray-200 hover:bg-gray-50 cursor-pointer">
+                <div className="flex items-center p-3 space-x-3 border border-gray-200 rounded-lg cursor-pointer hover:bg-gray-50">
                   <RadioGroupItem value="cash" id="payment-cash" />
                   <Label
                     htmlFor="payment-cash"
-                    className="flex items-center cursor-pointer flex-1"
+                    className="flex items-center flex-1 cursor-pointer"
                   >
                     <Banknote className="w-5 h-5 mr-3 text-green-600" />
                     <div>
@@ -860,13 +862,13 @@ const PassengerDetails = ({
                   </Label>
                 </div>
 
-                <div className="flex items-center space-x-3 p-3 rounded-lg border border-gray-200 hover:bg-gray-50 cursor-pointer">
+                <div className="flex items-center p-3 space-x-3 border border-gray-200 rounded-lg cursor-pointer hover:bg-gray-50">
                   <RadioGroupItem value="card" id="payment-card" />
                   <Label
                     htmlFor="payment-card"
-                    className="flex items-center cursor-pointer flex-1"
+                    className="flex items-center flex-1 cursor-pointer"
                   >
-                    <CreditCard className="w-5 h-5 mr-3 text-blue-600" />
+                    <CreditCard className="w-5 h-5 mr-3 text-primary" />
                     <div>
                       <p className="font-medium"> Card Payment </p>
                       <p className="text-sm text-gray-500">
@@ -879,8 +881,6 @@ const PassengerDetails = ({
               </RadioGroup>
             </CardContent>
           </Card> */}
-
-         
         </div>
       </div>
     </div>
