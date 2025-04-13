@@ -16,6 +16,10 @@ import C6 from "./images/c6.png";
 import Bag from "./images/bag.png";
 import LLA from "./images/LLA.png";
 import LA from "./images/LA.png";
+import LutonDeparture from "./images/LutonDeparture.png";
+import LondonLutonAirport from "./images/London-Luton-Airport.png"
+import LutonTerminal from "./images/TerminalCar2.png";
+import ridebooking from "./images/ridebooking.png";
 import StarCar from "./images/star-car.png";
 import L1 from "./images/l1.png";
 import L2 from "./images/l2.png";
@@ -44,6 +48,16 @@ import NV2 from "./images/nv2.png";
 import Logo from "./logo/logo.png";
 import LutonLoader from "./logo/luton-loader.png";
 import LogoWhite from "./logo/logo-white.png";
+import SecurityCard from "./images/security-card.png";
+import UserTick from "./images/user-tick.png";
+import Drivng from "./images/driving.png";
+import Airport2 from "./images/airplane2.png";
+import MaskGroup from "./images/mask-group.png";
+import CambelPark from "./images/campbel-park.png";
+import ShopingCenter from "./images/shopping-center.png";
+import BletchleyPark from "./images/bletchley-park.png";
+import EsayTreveling from "./images/easy-traveling.png";
+import BusinessTravel from "./images/business-travel.png";
 
 export {
   HeroPlane,
@@ -64,6 +78,10 @@ export {
   Bag,
   LLA,
   LA,
+  LutonDeparture,
+  LondonLutonAirport,
+  LutonTerminal,
+  ridebooking,
   StarCar,
   Logo,
   L1,
@@ -91,4 +109,14 @@ export {
   LogoWhite,
   NV1,
   NV2,
+  SecurityCard,
+  UserTick,
+  Drivng,
+  Airport2,
+  MaskGroup,
+  ShopingCenter,
+  CambelPark,
+  BletchleyPark,
+  EsayTreveling,
+  BusinessTravel,
 };

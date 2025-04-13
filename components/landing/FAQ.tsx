@@ -25,7 +25,7 @@ const FAQ = () => {
   ];
 
   return (
-    <div className="w-full mt-16">
+    <div className="w-full mt-5">
       <div className="px-4 py-16 mx-auto">
         <div className="flex flex-col md:flex-row">
           {/* Left column - Title */}

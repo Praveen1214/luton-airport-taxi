@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import { LandingStep1, LandingStep2, LandingStep3 } from "../../assets";
+import { LandingStep1, LandingStep2, LandingStep3 } from "@/assets";
 
 const StepCard = ({ number, title, description, imageSrc }) => (
   <div className="p-6 transition-shadow duration-300 ease-in-out bg-white border-2 shadow-lg border-gray-5 rounded-2xl hover:shadow-xl">
