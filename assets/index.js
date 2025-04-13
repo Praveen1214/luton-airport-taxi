@@ -57,6 +57,7 @@ import CambelPark from "./images/campbel-park.png";
 import ShopingCenter from "./images/shopping-center.png";
 import BletchleyPark from "./images/bletchley-park.png";
 import EsayTreveling from "./images/easy-traveling.png";
+import BusinessTravel from "./images/business-travel.png";
 
 export {
   HeroPlane,
@@ -117,4 +118,5 @@ export {
   CambelPark,
   BletchleyPark,
   EsayTreveling,
+  BusinessTravel,
 };
