@@ -394,7 +394,7 @@ const VehicleSelection = ({
 
               <Button
                 onClick={handleContinue}
-                className="flex items-center text-white bg-primary hover:bg-blue-700"
+                className="flex items-center text-white bg-primary hover:bg-btn-hover"
                 disabled={selectedVehicleIndex === -1}
               >
                 Book Now
