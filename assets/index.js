@@ -59,6 +59,13 @@ import BletchleyPark from "./images/bletchley-park.png";
 import EsayTreveling from "./images/easy-traveling.png";
 import BusinessTravel from "./images/business-travel.png";
 
+import OS1 from './images/os1.png';
+import OS2 from './images/os2.png';
+import OS3 from './images/os3.png';
+import OS4 from './images/os4.png';
+import OS5 from './images/os5.png';
+import OS6 from './images/os6.png';
+
 export {
   HeroPlane,
   ThreeLines,
@@ -119,4 +126,10 @@ export {
   BletchleyPark,
   EsayTreveling,
   BusinessTravel,
+  OS1,
+  OS2,
+  OS3,
+  OS4,
+  OS5,
+  OS6,
 };

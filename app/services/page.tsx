@@ -1,17 +1,23 @@
+import AboutUs from "@/components/services/AboutUs";
 import Hero from "@/components/services/Hero";
+import OurServices from "@/components/services/OurServices";
 import React from "react";
 
 const Page = () => {
   return (
-    <>
-      <div className="relative min-h-screen bg-white">
-        <div className="absolute inset-0 w-full h-full bg-gradient-to-l from-blue-50 to-transparent">
-          <div className="container relative w-full h-full px-4 mx-auto md:px-6 lg:px-8">
-            <Hero />
+    <div className="min-h-screen bg-white">
+      <div className="w-full bg-gradient-to-l from-blue-50 to-transparent">
+        <div className="container px-4 py-8 mx-auto md:px-6 lg:px-8">
+          <Hero />
+          <div className="mt-20">
+            <AboutUs />
+          </div>
+          <div className="mt-20">
+            <OurServices />
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
