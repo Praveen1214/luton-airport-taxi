@@ -69,6 +69,10 @@ import OUR1 from './images/our1.png';
 import OUR2 from './images/our2.png';
 import OUR3 from './images/our3.png';
 import DriverJoin from './images/driver-join.png'
+import Dedi from './images/dedi.png'
+import Ben1 from './images/ben1.png'
+import Ben2 from './images/ben2.png'
+import Ben3 from './images/ben3.png'
 
 export {
   HeroPlane,
@@ -139,5 +143,9 @@ export {
   OUR1,
   OUR2,
   OUR3,
-  DriverJoin
+  DriverJoin,
+  Dedi,
+  Ben1,
+  Ben2,
+  Ben3,
 };
