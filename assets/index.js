@@ -68,6 +68,7 @@ import OS6 from './images/os6.png';
 import OUR1 from './images/our1.png';
 import OUR2 from './images/our2.png';
 import OUR3 from './images/our3.png';
+import DriverJoin from './images/driver-join.png'
 
 export {
   HeroPlane,
@@ -138,4 +139,5 @@ export {
   OUR1,
   OUR2,
   OUR3,
+  DriverJoin
 };

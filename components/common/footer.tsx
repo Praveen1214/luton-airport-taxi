@@ -65,7 +65,7 @@ export default function Footer() {
                 label: "Booking a Taxi Guide",
                 path: "/pages/Help-Information/Guide",
               },
-              { label: "Join as a Driver", path: "/driver/join" },
+              { label: "Join as a Driver", path: "/join" },
             ].map(({ label, path }) => (
               <Link
                 key={label}
@@ -93,13 +93,13 @@ export default function Footer() {
               },
               {
                 label: "Flight monitoring",
-                path: "/services/flight-monitoring",
+                path: "/pages/services/flight-monitoring",
               },
               { label: "Business travel", path: "/pages/services/businessTravel" },
-              { label: "Assisted Travel", path: "/services/assisted-travel" },
-              { label: "Baby Seat", path: "/services/baby-seat" },
-              { label: "Airport Transfer", path: "/services/airport-transfer" },
-              { label: "Meet & Greet", path: "/services/meet-and-greet" },
+              { label: "Assisted Travel", path: "/pages/services/assisted-travel" },
+              { label: "Baby Seat", path: "/pages/services/baby-seat" },
+              { label: "Airport Transfer", path: "/pages/services/airport-transfer" },
+              { label: "Meet & Greet", path: "/pages/services/meet-and-greet" },
             ].map(({ label, path }) => (
               <Link
                 key={label}
