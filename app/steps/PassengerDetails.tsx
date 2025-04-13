@@ -822,12 +822,14 @@ const PassengerDetails = ({
               </div>
             </CardContent>
           </Card>
-          <button
-            onClick={handleSubmit}
-            className="w-full px-6 py-3 mt-2 text-sm font-medium text-white transition-colors rounded-md md:px-8 bg-primary hover:bg-btn-hover md:text-base"
-          >
-            Continue Booking
-          </button>
+          <div className="px-4">
+            <button
+              onClick={handleSubmit}
+              className="w-full px-6 py-3 mt-2 text-sm font-medium text-white transition-colors rounded-md md:px-8 bg-primary hover:bg-btn-hover md:text-base"
+            >
+              Continue Booking
+            </button>
+          </div>
 
           {/* <Card className="overflow-hidden bg-white shadow-md rounded-xl">
             <CardContent className="p-6">
