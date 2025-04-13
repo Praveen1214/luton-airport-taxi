@@ -48,6 +48,15 @@ import NV2 from "./images/nv2.png";
 import Logo from "./logo/logo.png";
 import LutonLoader from "./logo/luton-loader.png";
 import LogoWhite from "./logo/logo-white.png";
+import SecurityCard from "./images/security-card.png";
+import UserTick from "./images/user-tick.png";
+import Drivng from "./images/driving.png";
+import Airport2 from "./images/airplane2.png";
+import MaskGroup from "./images/mask-group.png";
+import CambelPark from "./images/campbel-park.png";
+import ShopingCenter from "./images/shopping-center.png";
+import BletchleyPark from "./images/bletchley-park.png";
+import EsayTreveling from "./images/easy-traveling.png";
 
 export {
   HeroPlane,
@@ -99,4 +108,13 @@ export {
   LogoWhite,
   NV1,
   NV2,
+  SecurityCard,
+  UserTick,
+  Drivng,
+  Airport2,
+  MaskGroup,
+  ShopingCenter,
+  CambelPark,
+  BletchleyPark,
+  EsayTreveling,
 };

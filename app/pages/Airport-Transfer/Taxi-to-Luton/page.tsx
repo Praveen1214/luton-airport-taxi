@@ -342,65 +342,66 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Table of Prices Section */}
-      <section className="max-w-6xl mx-auto px-4 py-12 md:py-16">
-        {/* Heading */}
-        <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold text-gray-900 mb-2">
+     {/* Table of Prices */}
+     <section className="max-w-5xl mx-auto px-4 py-8 sm:py-12 md:py-16">
+        <div className="text-center mb-6 sm:mb-8 md:mb-12">
+          <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 mb-2">
             How much will a Taxi cost to Luton Airport
           </h2>
-          <p className="text-blue-600">
+          <p className="text-blue-600 text-sm sm:text-base">
             Here is the list of our estimated prices for taxi to/from Luton
             Airport
           </p>
         </div>
 
-        {/* Table */}
-        <div className="overflow-x-auto">
-          <table className="w-full table-auto border-collapse rounded-lg overflow-hidden">
-            <thead className="bg-white text-blue-600 text-left">
-              <tr>
-                <th className="px-20 py-4 font-semibold text-base">
-                  Airport Pick-up
-                </th>
-                <th className="px-20 py-4 font-semibold text-base">
-                  Journey Time
-                </th>
-                <th className="px-20 py-4 font-semibold text-base">
-                  Single Trip
-                </th>
-                <th className="px-20 py-4 font-semibold text-base">
-                  Return Trip
-                </th>
-              </tr>
-            </thead>
-            <tbody className="text-gray-700 text-center text-sm">
-              {[
-                "Milton Keynes",
-                "Watford",
-                "London",
-                "St Albans",
-                "Stevenage",
-                "Aylesbury",
-                "Hitchin",
-                "Bedford",
-              ].map((location, idx) => (
-                <tr
-                  key={location}
-                  className={idx % 2 === 0 ? "bg-gray-50" : "bg-white"}
-                >
-                  <td className="px-6 py-4 text-left">{location}</td>
-                  <td className="px-6 py-4">£130</td>
-                  <td className="px-6 py-4">£130</td>
-                  <td className="px-6 py-4">£130</td>
+        {/* Table with responsive design */}
+        <div className="overflow-x-auto -mx-4 sm:mx-0">
+          <div className="min-w-full inline-block align-middle px-4 sm:px-0">
+            <table className="min-w-full table-auto border-collapse rounded-lg overflow-hidden text-sm">
+              <thead className="bg-white text-blue-600 text-left">
+                <tr>
+                  <th className="px-3 sm:px-6 md:px-20 py-3 sm:py-4 font-semibold text-xs sm:text-sm md:text-base">
+                    Airport Pick-up
+                  </th>
+                  <th className="px-3 sm:px-6 md:px-20 py-3 sm:py-4 font-semibold text-xs sm:text-sm md:text-base">
+                    Journey Time
+                  </th>
+                  <th className="px-3 sm:px-6 md:px-20 py-3 sm:py-4 font-semibold text-xs sm:text-sm md:text-base">
+                    Single Trip
+                  </th>
+                  <th className="px-3 sm:px-6 md:px-20 py-3 sm:py-4 font-semibold text-xs sm:text-sm md:text-base">
+                    Return Trip
+                  </th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody className="text-gray-700 text-center text-xs sm:text-sm">
+                {[
+                  "Milton Keynes",
+                  "Watford",
+                  "London",
+                  "St Albans",
+                  "Stevenage",
+                  "Aylesbury",
+                  "Hitchin",
+                  "Bedford",
+                ].map((location, idx) => (
+                  <tr
+                    key={location}
+                    className={idx % 2 === 0 ? "bg-gray-50" : "bg-white"}
+                  >
+                    <td className="px-3 sm:px-6 py-3 sm:py-4 text-left">{location}</td>
+                    <td className="px-3 sm:px-6 py-3 sm:py-4">£130</td>
+                    <td className="px-3 sm:px-6 py-3 sm:py-4">£130</td>
+                    <td className="px-3 sm:px-6 py-3 sm:py-4">£130</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </div>
 
         {/* Footnote */}
-        <p className="mt-6 text-sm text-blue-600 bg-blue-50 p-3 rounded-md text-center max-w-xl mx-auto">
+        <p className="mt-4 sm:mt-6 text-xs sm:text-sm text-blue-600 bg-blue-50 p-3 rounded-md text-center max-w-5xl mx-auto">
           * These prices are based at non peak times travelling in a standard
           vehicle with 3 passengers and 2 luggage
         </p>

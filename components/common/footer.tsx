@@ -31,7 +31,7 @@ export default function Footer() {
           <h4 className="mb-4 text-lg font-bold">Popular Routes</h4>
           <div className="space-y-2">
             {[
-              { city: 'Milton Keynes', path: '/routes/milton-keynes' },
+              { city: 'Milton Keynes', path: '/pages/Popular-Routes/milton-keynes' },
               { city: 'Watford', path: '/routes/watford' },
               { city: 'St Albans', path: '/routes/st-albans' },
               { city: 'Stevenage', path: '/routes/stevenage' },
