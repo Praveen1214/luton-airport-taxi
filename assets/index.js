@@ -65,6 +65,9 @@ import OS3 from './images/os3.png';
 import OS4 from './images/os4.png';
 import OS5 from './images/os5.png';
 import OS6 from './images/os6.png';
+import OUR1 from './images/our1.png';
+import OUR2 from './images/our2.png';
+import OUR3 from './images/our3.png';
 
 export {
   HeroPlane,
@@ -132,4 +135,7 @@ export {
   OS4,
   OS5,
   OS6,
+  OUR1,
+  OUR2,
+  OUR3,
 };

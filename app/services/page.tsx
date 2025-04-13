@@ -1,5 +1,6 @@
 import AboutUs from "@/components/services/AboutUs";
 import Hero from "@/components/services/Hero";
+import Our from "@/components/services/Our";
 import OurServices from "@/components/services/OurServices";
 import React from "react";
 
@@ -14,6 +15,9 @@ const Page = () => {
           </div>
           <div className="mt-20">
             <OurServices />
+          </div>
+          <div className="mt-20">
+            <Our />
           </div>
         </div>
       </div>
