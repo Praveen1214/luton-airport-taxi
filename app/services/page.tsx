@@ -1,3 +1,6 @@
+"use client";
+
+import FeedBack from "@/components/landing/Feedback";
 import AboutUs from "@/components/services/AboutUs";
 import Hero from "@/components/services/Hero";
 import Our from "@/components/services/Our";
@@ -18,6 +21,9 @@ const Page = () => {
           </div>
           <div className="mt-20">
             <Our />
+          </div>
+          <div className="mt-20">
+            <FeedBack />
           </div>
         </div>
       </div>
