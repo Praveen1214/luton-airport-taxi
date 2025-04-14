@@ -211,14 +211,14 @@ export default function HomePage() {
               <h2 className="mb-4 text-xl font-semibold text-gray-900 sm:text-2xl md:text-3xl">
                 Milton Keynes to Luton Airport Taxi Time Interval
               </h2>
-              <p className="mb-4 text-sm leading-relaxed text-gray-700 sm:text-base">
+              <p className="mb-4 text-sm leading-relaxed text-justify text-gray-700 sm:text-base">
                 With our Milton Keynes to Luton Airport taxi, you can reach the
                 Luton airport within a nominal time. It is approximately 24.7
                 miles if we use the M1 motorway for traveling. An alternative
                 way is an A421 patch which is 23.1 miles away but it takes a
                 minimum of 33 minutes because of slow traffic.
               </p>
-              <p className="text-sm leading-relaxed text-gray-700 sm:text-base">
+              <p className="text-sm leading-relaxed text-justify text-gray-700 sm:text-base">
                 The interval from Milton Keynes to Luton Town via the M1 route
                 is approximately 29 minutes. The distance between Luton and
                 Milton Keynes is approximately 22.5 miles (36.2 km). Because of
@@ -275,7 +275,7 @@ export default function HomePage() {
               <h2 className="mb-4 text-xl font-semibold text-gray-900 sm:text-2xl md:text-3xl">
                 Traveling To And From Milton Keynes
               </h2>
-              <p className="mb-4 text-sm leading-relaxed text-gray-700 sm:text-base">
+              <p className="mb-4 text-sm leading-relaxed text-justify text-gray-700 sm:text-base">
                 Luton Airport Taxi is a leading taxi company in Luton. Our
                 Company is not only one of the best Luton airport taxi service
                 providers but also famous in surrounding areas such as
@@ -284,7 +284,7 @@ export default function HomePage() {
                 service. You can easily hire a taxi with an online booking
                 system.
               </p>
-              <p className="text-sm leading-relaxed text-gray-700 sm:text-base">
+              <p className="text-sm leading-relaxed text-justify text-gray-700 sm:text-base">
                 We have multiple and updated vehicles, which are equipped and
                 connected to the satellite system. Our Milton Keynes to Luton
                 airport taxi includes a baby seat, meet & greet, and more.
@@ -304,24 +304,24 @@ export default function HomePage() {
               Ways to travel to Milton Keynes
             </h2>
             {/* Paragraphs */}
-            <p className="text-sm leading-relaxed text-gray-700 sm:text-base">
+            <p className="text-sm leading-relaxed text-justify text-gray-700 sm:text-base">
               There are many ways to travel to Milton Keynes from Luton. Such as
               Local bus, Coach and Train. But Milton Keynes to or from Luton
               airport taxi is the best and reliable way for this.
             </p>
-            <p className="text-sm leading-relaxed text-gray-700 sm:text-base">
+            <p className="text-sm leading-relaxed text-justify text-gray-700 sm:text-base">
               Some of the public transport are listed below with some detail
               which you can utilize for traveling From Luton To Milton Keynes.
             </p>
             <h3 className="text-base font-semibold text-gray-900">
               Luton to Milton Keynes by Train
             </h3>
-            <p className="text-sm text-gray-700 sm:text-base">
+            <p className="text-sm text-justify text-gray-700 sm:text-base">
               Some people use the Luton airport taxi to Milton Keynes but some
               others prefer to train for traveling purposes. So here's you can
               travel to Milton Keynes by train
             </p>
-            <div className="px-4 py-4 text-xs leading-relaxed text-gray-700 bg-gray-100 rounded-lg sm:px-6 sm:py-5 sm:text-sm">
+            <div className="px-4 py-4 text-xs leading-relaxed text-justify text-gray-700 bg-gray-100 rounded-lg sm:px-6 sm:py-5 sm:text-sm">
               <ol className="space-y-2 list-decimal list-inside">
                 <li>
                   Go to Luton Train Station LU1 2LT and purchase a ticket to
@@ -422,7 +422,7 @@ export default function HomePage() {
           </div>
 
           {/* Footnote */}
-          <p className="max-w-5xl p-3 mx-auto mt-4 text-xs text-center rounded-md text-primary sm:mt-6 sm:text-sm bg-blue-50">
+          <p className="max-w-5xl p-3 mx-auto mt-4 text-xs text-center text-justify rounded-md text-primary sm:mt-6 sm:text-sm bg-blue-50">
             * These prices are based at non peak times travelling in a standard
             vehicle with 3 passengers and 2 luggage
           </p>
@@ -453,7 +453,7 @@ export default function HomePage() {
               <h3 className="mb-2 text-base font-medium text-gray-800 sm:text-lg">
                 Shopping Center
               </h3>
-              <p className="text-xs leading-relaxed text-gray-600 sm:text-sm">
+              <p className="text-xs leading-relaxed text-justify text-gray-600 sm:text-sm">
                 Milton Keynes is known for its famous shopping center: The
                 Centre:MK, one of the largest and most popular in the UK.
               </p>
@@ -473,7 +473,7 @@ export default function HomePage() {
               <h3 className="mb-2 text-base font-medium text-gray-800 sm:text-lg">
                 Campbell Park
               </h3>
-              <p className="text-xs leading-relaxed text-gray-600 sm:text-sm">
+              <p className="text-xs leading-relaxed text-justify text-gray-600 sm:text-sm">
                 Campbell Park in Milton Keynes is a public park named after the
                 first chairman of the Milton Keynes Development Corporation,
                 John Campbell.
@@ -494,7 +494,7 @@ export default function HomePage() {
               <h3 className="mb-2 text-base font-medium text-gray-800 sm:text-lg">
                 Bletchley Park
               </h3>
-              <p className="text-xs leading-relaxed text-gray-600 sm:text-sm">
+              <p className="text-xs leading-relaxed text-justify text-gray-600 sm:text-sm">
                 The British Government Code and Cypher School, including Alan
                 Turing, played a critical role cracking German military codes at
                 Bletchley Park during World War II.
