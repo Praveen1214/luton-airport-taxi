@@ -1,8 +1,11 @@
+"use client";
+
 import React from "react";
 import Hero from "../../components/join/hero";
 import JoinWithUs from "@/components/join/JoinWithUs";
 import Dedicate from "@/components/join/dedicate";
 import Benefit from "@/components/join/benifit";
+import JoinTeam from "@/components/join/joinTeam";
 
 const Page = () => {
   return (
@@ -19,6 +22,9 @@ const Page = () => {
         </div>
         <div className="mt-10">
           <Benefit />
+        </div>
+        <div className="mt-10">
+          <JoinTeam />
         </div>
       </div>
     </div>
