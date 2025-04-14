@@ -5,20 +5,9 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import {
-  Users,
-  Briefcase,
-  Check,
-  ArrowLeft,
-  Info,
-} from "lucide-react";
+import { Users, Briefcase, Check, ArrowLeft } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from "@/components/ui/tooltip";
+
 import { calculateTotalPrice } from "../calculations/calculateTotalPrice";
 
 const VehicleSelection = ({
@@ -180,27 +169,27 @@ const VehicleSelection = ({
     return vehiclePrices.length > 1 ? 1 : 0;
   };
 
-  const getBestValueIndex = () => {
-    // We'll consider the vehicle with the lowest price per seat as the best value
-    if (vehiclePrices.length === 0) return -1;
+  // const getBestValueIndex = () => {
+  //   // We'll consider the vehicle with the lowest price per seat as the best value
+  //   if (vehiclePrices.length === 0) return -1;
 
-    let bestIndex = 0;
-    let bestPricePerSeat =
-      vehiclePrices[0].calculatedPrice / vehiclePrices[0].seats;
+  //   let bestIndex = 0;
+  //   let bestPricePerSeat =
+  //     vehiclePrices[0].calculatedPrice / vehiclePrices[0].seats;
 
-    vehiclePrices.forEach((vehicle, index) => {
-      const pricePerSeat = vehicle.calculatedPrice / vehicle.seats;
-      if (pricePerSeat < bestPricePerSeat) {
-        bestPricePerSeat = pricePerSeat;
-        bestIndex = index;
-      }
-    });
+  //   vehiclePrices.forEach((vehicle, index) => {
+  //     const pricePerSeat = vehicle.calculatedPrice / vehicle.seats;
+  //     if (pricePerSeat < bestPricePerSeat) {
+  //       bestPricePerSeat = pricePerSeat;
+  //       bestIndex = index;
+  //     }
+  //   });
 
-    return bestIndex;
-  };
+  //   return bestIndex;
+  // };
 
   const mostPopularIndex = getMostPopularIndex();
-  const bestValueIndex = getBestValueIndex();
+  // const bestValueIndex = getBestValueIndex();
 
   return (
     <Card className="w-full max-w-4xl mx-auto overflow-hidden">
@@ -223,7 +212,7 @@ const VehicleSelection = ({
               {vehiclePrices.map((vehicle, index) => {
                 const isSelected = index === selectedVehicleIndex;
                 const isMostPopular = index === mostPopularIndex;
-                const isBestValue = index === bestValueIndex;
+                //  const isBestValue = index === bestValueIndex;
 
                 return (
                   <motion.div
@@ -238,139 +227,158 @@ const VehicleSelection = ({
                     }`}
                     onClick={() => handleVehicleSelect(index)}
                   >
-                    <div className="flex flex-col gap-6 sm:flex-row sm:items-center">
-                      {/* Left Side */}
-                      <div className="flex items-start flex-1 gap-5">
-                        {/* Image */}
-                        <div className="relative flex-shrink-0 h-20 overflow-hidden bg-white border border-gray-200 shadow-sm w-28 rounded-xl">
-                          <Image
-                            src={
-                              vehicle.image
-                                ? `${process.env.NEXT_PUBLIC_API_URL}/${vehicle.image}`
-                                : "/placeholder-vehicle.jpg"
-                            }
-                            alt={vehicle.type}
-                            fill
-                            className="object-cover"
-                            sizes="112px"
-                          />
+                    <div className="bg-white rounded-xl relative p-6 shadow-sm">
+                      {/* Most Popular Badge - Top Right (Desktop only) */}
+                      {isMostPopular && (
+                        <div className="absolute top-4 right-4 hidden md:block">
+                          <div className="flex items-center px-3 py-1 text-sm font-medium text-amber-700 rounded-full border">
+                            <Badge className="text-amber-700 bg-amber-100 border-amber-200">
+                              Most Popular
+                            </Badge>
+                          </div>
+                        </div>
+                      )}
+
+                      {/* Desktop Layout */}
+                      <div className="hidden md:flex md:items-center">
+                        {/* Vehicle Image - Left */}
+                        <div className="w-1/4 flex justify-center">
+                          <div className="relative h-24 w-40">
+                            <Image
+                              src={
+                                vehicle.image
+                                  ? `${process.env.NEXT_PUBLIC_API_URL}/${vehicle.image}`
+                                  : "/placeholder-vehicle.jpg"
+                              }
+                              alt={vehicle.type}
+                              fill
+                              className="object-contain"
+                              sizes="160px"
+                            />
+                          </div>
                         </div>
 
-                        {/* Vehicle Info */}
-                        <div className="flex-1">
-                          {/* Header */}
-                          <div className="flex flex-wrap items-center gap-2 mb-2">
-                            <h3 className="text-lg font-semibold text-gray-900">
-                              {vehicle.type}
-                            </h3>
-                            {isMostPopular && (
-                              <Badge className="text-orange-800 bg-orange-100 border border-orange-200">
-                                Most Popular
-                              </Badge>
-                            )}
-                            {isBestValue && (
-                              <Badge className="text-blue-800 bg-blue-100 border border-blue-200">
-                                Best Value
-                              </Badge>
-                            )}
-                          </div>
+                        {/* Vehicle Info - Center */}
+                        <div className="w-2/4 pl-4">
+                          {/* Title */}
+                          <h3 className="text-lg font-bold text-gray-900 mb-4 text-left">
+                            {vehicle.type}
+                          </h3>
 
                           {/* Features */}
-                          <div className="grid grid-cols-2 gap-3 mb-2 text-sm text-gray-600">
-                            <div className="flex items-center">
-                              <Users className="h-4 w-4 mr-1.5 text-gray-400" />
-                              {vehicle.seats} Passengers
+                          <div className="space-y-3">
+                            {/* Passenger & Luggage Row */}
+                            <div className="flex space-x-8 text-gray-600">
+                              <div className="flex items-center">
+                                <span className="flex items-center justify-center w-6 h-6 bg-gray-100 rounded-full mr-2">
+                                  <Users className="h-4 w-4 text-gray-400" />
+                                </span>
+                                <span>{vehicle.seats} Passengers</span>
+                              </div>
+                              <div className="flex items-center">
+                                <span className="flex items-center justify-center w-6 h-6 bg-gray-100 rounded-full mr-2">
+                                  <Briefcase className="h-4 w-4 text-gray-400" />
+                                </span>
+                                <span>
+                                  {vehicle.luggage || vehicle.seats} Suitcases
+                                </span>
+                              </div>
                             </div>
-                            <div className="flex items-center">
-                              <Briefcase className="h-4 w-4 mr-1.5 text-gray-400" />
-                              {vehicle.seats} Suitcases
+
+                            {/* Waiting Time */}
+                            <div className="flex items-center text-gray-600">
+                              <Check className="h-5 w-5 text-gray-500 mr-2" />
+                              <span>Free Waiting Time Included</span>
+                            </div>
+
+                            {/* Cancellation */}
+                            <div className="flex items-center text-gray-600">
+                              <Check className="h-5 w-5 text-gray-500 mr-2" />
+                              <span>Cancelling Cover</span>
                             </div>
                           </div>
+                        </div>
 
-                          <div className="flex flex-wrap items-center text-sm text-gray-600 gap-x-5 gap-y-2">
-                            <div className="flex items-center">
-                              <Check className="h-4 w-4 text-green-500 mr-1.5" />
-                              Free Waiting Time
-                            </div>
-                            <div className="flex items-center">
-                              <Check className="h-4 w-4 text-green-500 mr-1.5" />
-                              Free Cancellation (24h)
-                            </div>
+                        {/* Price - Right */}
+                        <div className="w-1/4 text-right">
+                          <div className="text-3xl font-bold text-indigo-900">
+                            £{vehicle.calculatedPrice?.toFixed(2) || "75.00"}
                           </div>
                         </div>
                       </div>
 
-                      {/* Right Side */}
-                      <div className="flex flex-col items-end justify-between sm:min-w-[160px] gap-2">
-                        {/* Price */}
-                        <div className="text-right">
-                          <div className="text-2xl font-bold leading-tight text-blue-600">
-                            £{vehicle.calculatedPrice.toFixed(2)}
-                          </div>
+                      {/* Mobile Layout - Updated to exactly match the design */}
+                      <div className="flex flex-col md:hidden">
+                        {/* Title */}
+                        <h3 className="text-2xl font-bold text-gray-800 mb-4">
+                          Standard Service
+                        </h3>
 
-                          <TooltipProvider>
-                            <Tooltip>
-                              <TooltipTrigger asChild>
-                                <div className="flex items-center justify-end mt-1 text-xs text-gray-500 transition-colors cursor-help hover:text-gray-700">
-                                  <Info className="h-3.5 w-3.5 mr-1" />
-                                  Price details
-                                </div>
-                              </TooltipTrigger>
-                              <TooltipContent className="w-64 p-4 bg-white border border-gray-200 rounded-lg shadow-lg">
-                                <div className="space-y-1.5 text-sm">
-                                  <div className="flex justify-between">
-                                    <span className="text-gray-600">
-                                      Base fare:
-                                    </span>
-                                    <span className="font-medium">
-                                      £
-                                      {(vehicle.calculatedPrice * 0.85).toFixed(
-                                        2
-                                      )}
-                                    </span>
-                                  </div>
-                                  {bookingData.returnBooking && (
-                                    <div className="flex justify-between">
-                                      <span className="text-gray-600">
-                                        Return fare:
-                                      </span>
-                                      <span className="font-medium">
-                                        £
-                                        {(
-                                          vehicle.calculatedPrice * 0.15
-                                        ).toFixed(2)}
-                                      </span>
-                                    </div>
-                                  )}
-                                  <div className="border-t border-gray-100 pt-1.5 mt-1.5" />
-                                  <div className="flex justify-between font-semibold">
-                                    <span>Total:</span>
-                                    <span>
-                                      £{vehicle.calculatedPrice.toFixed(2)}
-                                    </span>
-                                  </div>
-                                </div>
-                              </TooltipContent>
-                            </Tooltip>
-                          </TooltipProvider>
+                        {/* Vehicle Image */}
+                        <div className="w-full mb-6">
+                          <div className="relative h-36 w-full">
+                            <Image
+                              src={
+                                vehicle.image
+                                  ? `${process.env.NEXT_PUBLIC_API_URL}/${vehicle.image}`
+                                  : "/placeholder-vehicle.jpg"
+                              }
+                              alt={vehicle.type}
+                              fill
+                              className="object-contain"
+                              sizes="100%"
+                            />
+                          </div>
                         </div>
 
-                        {/* Button */}
-                        {/* <Button
-                          variant={isSelected ? "default" : "outline"}
-                          size="sm"
-                          className={`w-full sm:w-auto ${
-                            isSelected
-                              ? "bg-blue-600 hover:bg-blue-700 text-white"
-                              : "text-blue-600 border-blue-600 hover:bg-blue-50"
-                          }`}
-                          onClick={(e) => {
-                            e.stopPropagation();
-                            handleVehicleSelect(index);
-                          }}
-                        >
-                          {isSelected ? "Selected" : "Select"}
-                        </Button> */}
+                        {/* Bottom Area - Features and Button in same row */}
+                        <div className="flex justify-between items-center">
+                          {/* Features Column */}
+                          <div className="flex flex-col space-y-4">
+                            <div className="flex items-center text-gray-600">
+                              <span className="text-blue-500 mr-4">
+                                <Users className="h-5 w-5" />
+                              </span>
+                              <span>{vehicle.seats} max passengers</span>
+                            </div>
+                            <div className="flex items-center text-gray-600">
+                              <span className="text-blue-500 mr-4">
+                                <Briefcase className="h-5 w-5" />
+                              </span>
+                              <span>
+                                {vehicle.luggage || vehicle.seats} max suitcase
+                              </span>
+                            </div>
+                          </div>
+
+                          {/* Select Button */}
+                          <button
+                            className={`rounded-lg py-2 px-6 text-center flex flex-col items-center ${
+                              isSelected
+                                ? "bg-blue-600"
+                                : "border border-gray-200"
+                            }`}
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              handleVehicleSelect(index);
+                            }}
+                          >
+                            <div
+                              className={`font-medium ${
+                                isSelected ? "text-white" : "text-gray-800"
+                              }`}
+                            >
+                              Select
+                            </div>
+                            <div
+                              className={`font-bold text-xl ${
+                                isSelected ? "text-white" : "text-gray-800"
+                              }`}
+                            >
+                              £{vehicle.calculatedPrice?.toFixed(2) || "75.00"}
+                            </div>
+                          </button>
+                        </div>
                       </div>
                     </div>
                   </motion.div>
