@@ -6,6 +6,7 @@ import JoinWithUs from "@/components/join/JoinWithUs";
 import Dedicate from "@/components/join/dedicate";
 import Benefit from "@/components/join/benifit";
 import JoinTeam from "@/components/join/joinTeam";
+import Now from "@/components/join/now";
 
 const Page = () => {
   return (
@@ -25,6 +26,9 @@ const Page = () => {
         </div>
         <div className="mt-10">
           <JoinTeam />
+        </div>
+        <div className="mt-10">
+          <Now />
         </div>
       </div>
     </div>
