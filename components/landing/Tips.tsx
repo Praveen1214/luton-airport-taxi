@@ -38,7 +38,7 @@ const Tips = () => {
           {tips.map((tip, index) => (
             <Link key={index} href={tip.path}>
               <div
-                className={`bg-blue-25 rounded-lg overflow-hidden shadow-lg cursor-pointer transition-transform duration-200 hover:scale-[1.02] ${
+                className={`bg-blue-25 rounded-lg overflow-hidden cursor-pointer transition-transform duration-200 hover:scale-[1.02] ${
                   index === 0 ? "border-2 border-blue-200" : ""
                 }`}
               >

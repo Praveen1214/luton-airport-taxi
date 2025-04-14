@@ -3,8 +3,9 @@ import Image from "next/image";
 import { LandingStep1, LandingStep2, LandingStep3 } from "@/assets";
 
 const StepCard = ({ number, title, description, imageSrc }) => (
-  <div className="p-6 transition-shadow duration-300 ease-in-out bg-white border-2 shadow-lg border-gray-5 rounded-2xl hover:shadow-xl">
-    <div className="flex flex-col items-center mb-6">
+  <div className="p-6 transition-shadow duration-300 ease-in-out bg-white border-2  border-gray-5 rounded-2xl hover:shadow-xl">
+    {/* Image shown only on md and up */}
+    <div className="hidden md:flex flex-col items-center mb-6">
       <Image
         src={imageSrc}
         alt={title}
@@ -13,7 +14,8 @@ const StepCard = ({ number, title, description, imageSrc }) => (
         className="object-contain h-40"
       />
     </div>
-    <div className="flex items-start pt-4 border-t-2 border-gray-200">
+
+    <div className="flex items-start  pt-4 md:border-t-2 border-gray-200 ">
       <div className="mr-4 text-4xl font-bold text-primary"> {number} </div>
       <div>
         <h3 className="mb-2 text-xl font-semibold"> {title} </h3>
@@ -22,6 +24,7 @@ const StepCard = ({ number, title, description, imageSrc }) => (
     </div>
   </div>
 );
+
 
 const BookingSteps = () => {
   const steps = [
