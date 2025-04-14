@@ -2,8 +2,6 @@
 
 import React, { useEffect, useRef, useState } from "react";
 import { MapPin, ArrowRightLeft, Calendar, Clock, Flag } from "lucide-react";
-import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
@@ -367,36 +365,36 @@ const InstantQuote = ({
     localData.returnBooking,
   ]);
 
-  const removePickupLocation = (index) => {
-    if (localData.pickups.length > 1) {
-      updateLocalData({
-        pickups: localData.pickups.filter((_, i) => i !== index),
-      });
-    }
-  };
+  // const removePickupLocation = (index) => {
+  //   if (localData.pickups.length > 1) {
+  //     updateLocalData({
+  //       pickups: localData.pickups.filter((_, i) => i !== index),
+  //     });
+  //   }
+  // };
 
-  // Add/remove return pickup fields
-  const addReturnPickupLocation = () => {
-    updateLocalData({
-      returnPickups: [
-        ...localData.returnPickups,
-        {
-          id: localData.returnPickups.length + 1,
-          location: "",
-          locationDetails: null,
-          zone: "",
-        },
-      ],
-    });
-  };
+  // // Add/remove return pickup fields
+  // const addReturnPickupLocation = () => {
+  //   updateLocalData({
+  //     returnPickups: [
+  //       ...localData.returnPickups,
+  //       {
+  //         id: localData.returnPickups.length + 1,
+  //         location: "",
+  //         locationDetails: null,
+  //         zone: "",
+  //       },
+  //     ],
+  //   });
+  // };
 
-  const removeReturnPickupLocation = (index) => {
-    if (localData.returnPickups.length > 1) {
-      updateLocalData({
-        returnPickups: localData.returnPickups.filter((_, i) => i !== index),
-      });
-    }
-  };
+  // const removeReturnPickupLocation = (index) => {
+  //   if (localData.returnPickups.length > 1) {
+  //     updateLocalData({
+  //       returnPickups: localData.returnPickups.filter((_, i) => i !== index),
+  //     });
+  //   }
+  // };
 
   // Toggle return booking
   const toggleReturnBooking = (checked) => {

@@ -44,6 +44,7 @@ export function calculateTotalPrice(
   returnDate: Date | null
 ) {
   let totalPrice = 0;
+  
   const fixedPrice = tryGetFixedPrice(
     pickups,
     dropoff,
@@ -58,6 +59,7 @@ export function calculateTotalPrice(
   } else {
     // Compute base price from the distance-based logic
     const basePrice = calculateDistanceBasedPrice(
+
       distanceSlots,
       miles,
       vehicleType
@@ -78,6 +80,7 @@ export function calculateTotalPrice(
 
   const holidaySurchargePrice = calculateHolidaySurcharge(
     totalPrice,
+
     surcharges,
     travelDate,
     false
@@ -88,6 +91,7 @@ export function calculateTotalPrice(
     parkingCharges,
     pickups,
     dropoff,
+
     totalPrice,
     false
   );
@@ -102,6 +106,7 @@ export function calculateTotalPrice(
     const additionalCharge = calculateAdditionalCharges(
       additionalChargeData,
       additionalSelection,
+
       totalPrice
     );
     totalPrice =
@@ -112,6 +117,7 @@ export function calculateTotalPrice(
   if (returnBooking) {
     const returnBasePrice = calculateReturnCharge(
       returnBooking,
+
       returnPickups,
       returnDropoff,
       returnMiles,

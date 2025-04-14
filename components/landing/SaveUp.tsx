@@ -36,12 +36,12 @@ const SaveUp = () => {
             <p>
               With our advanced booking system, your Luton Airport transfer is
               guaranteed, eliminating last - minute rushes or concerns over
-              availability.This ensures that whether you're looking for taxis to
+              availability.This ensures that whether you are looking for taxis to
               Luton Airport or a Luton airport pickup, everything is set for
               your convenience.
             </p>
             <p>
-              Booking in advance with our Luton airport taxis isn't just smart;
+              Booking in advance with our Luton airport taxis is not just smart;
               it transforms your travel experience.Our Luton Airport taxi
               service not only provides cost savings but also sidesteps long
               queues and last - minute hassles.

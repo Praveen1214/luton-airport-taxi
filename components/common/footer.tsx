@@ -1,7 +1,6 @@
 // src/components/common/Footer.js
 import Link from "next/link";
 import Image from "next/image";
-import bookingGuide from "@/app/pages/Airport-Transfer/Taxi-From-Luton/page";
 import { LogoWhite, NV1, NV2 } from "../../assets";
 
 export default function Footer() {

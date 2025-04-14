@@ -58,6 +58,9 @@ import ShopingCenter from "./images/shopping-center.png";
 import BletchleyPark from "./images/bletchley-park.png";
 import EsayTreveling from "./images/easy-traveling.png";
 import BusinessTravel from "./images/business-travel.png";
+import AmericanExpress from "./images/american-express.png";
+import Visa from "./images/visa.png";
+import MasterCard from "./images/shopping.png"
 
 import OS1 from './images/os1.png';
 import OS2 from './images/os2.png';
@@ -149,6 +152,9 @@ export {
   BletchleyPark,
   EsayTreveling,
   BusinessTravel,
+  AmericanExpress,
+  Visa,
+  MasterCard,
   OS1,
   OS2,
   OS3,

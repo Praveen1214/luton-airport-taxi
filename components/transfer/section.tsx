@@ -1,5 +1,4 @@
 import React from "react";
-import { TR1 } from "../../assets";
 import Image from "next/image";
 
 const Section = ({ t1, t2, t3, st1, st2, st3, d1, d2, d3, image }) => {

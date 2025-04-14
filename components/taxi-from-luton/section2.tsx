@@ -28,7 +28,7 @@ const Section2 = () => {
             <p className="text-justify text-gray-600">
               Our taxi pick - up is conveniently located outside the airport
               terminal building(which is located on the ground floor of terminal
-              car park 2), making it easy to find and access.You'll be directed
+              car park 2), making it easy to find and access.You will be directed
               to our pick up by airport staff and can expect a short walk(around
               3 minutes) to our taxis.
             </p>

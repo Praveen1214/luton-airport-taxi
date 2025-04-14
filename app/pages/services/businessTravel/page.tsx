@@ -105,7 +105,7 @@ export default function BusinessTravel() {
               airport transfer services. Our team of professional drivers will
               ensure that you arrive at your destination on time and in style.
               With a range of luxurious vehicles at our disposal, we can cater
-              to any business travel needs, whether you're traveling alone or
+              to any business travel needs, whether you are traveling alone or
               with a group.
             </p>
           </div>

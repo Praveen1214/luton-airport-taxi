@@ -26,8 +26,8 @@ const SaveUp2 = () => {
             Airport service provides the same level of comfort and reliability.
             Experience Luton Airport pickups like never before: no long queues,
             no uncertainty, just swift and reliable taxi Luton Airport transfers
-            that cater to your schedule. Whether you're looking for a taxi for
-            Luton Airport or a pickup, we've got you covered. Our commitment is
+            that cater to your schedule. Whether you sre looking for a taxi for
+            Luton Airport or a pickup, we have got you covered. Our commitment is
             to offer top-tier taxis from Luton Airport and taxis to Luton
             Airport every single time, thanks to our expansive airport taxi
             service. Specifically designed to cater to a wide range of
@@ -36,7 +36,7 @@ const SaveUp2 = () => {
             are knowledgeable, we offer a meet and greet service where our
             driver will be waiting at the terminal with your name card to get
             you a taxi making your travel safe and hassle free. When it comes to
-            Airport Taxi Luton, we're the name you can trust for punctuality,
+            Airport Taxi Luton, we are the name you can trust for punctuality,
             luxury, and complete peace of mind.
           </p>
         </div>

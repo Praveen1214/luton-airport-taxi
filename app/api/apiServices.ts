@@ -131,7 +131,7 @@ export const fetchVehicles = async () => {
  * @param {Object} bookingData - Booking data
  * @returns {Promise<Object>} - Created booking response
  */
-export const createBooking = async (bookingData) => {
+export const createBooking = async (bookingData:any) => {
   try {
     const response = await axios.post(
       `${API_BASE_URL}/api/booking/addbooking`,

@@ -21,12 +21,12 @@ const LAirPort = () => {
               Your journey matters, from start to finish. Our taxi to Luton
               Airport ensures punctuality and comfort, while our taxis to Luton
               Airport meet the highest timeliness standards. Returning? Our taxi
-              from Luton Airport awaits. Whether it's an early flight or a
+              from Luton Airport awaits. Whether it is an early flight or a
               peak-hour dash, our Luton airport taxis and Luton Airport taxi
               service prioritize your needs. Additionally, our comprehensive
               airport taxi service and Luton Airport transfer service handle all
               your travel logistics. Need a Luton airport pickup or a taxi for
-              Luton Airport? We've got it covered. Remember, with our airport
+              Luton Airport? We have got it covered. Remember, with our airport
               taxi Luton offerings, every journey becomes a memorable experience
               be it the journey from your hotel to a restaurant for a fancy
               dinner or an emergency rush to the hospital, we are always
