@@ -154,7 +154,7 @@ Has Card Machine: ${formData.hasCardMachine ? "Yes" : "No"}
       <form onSubmit={handleSubmit}>
         {/* Personal Details Section */}
         <div className="mb-8">
-          <h3 className="mb-4 text-2xl font-medium">Personal Details</h3>
+          <h3 className="mb-4 text-xl font-medium">Personal Details</h3>
           <div className="p-4 mb-6 rounded-lg-lg bg-blue-50">
             <p className="text-sm text-primary">
               The names you enter should match the ones in you card identity.
