@@ -5,6 +5,9 @@ import React from "react";
 import { TR4 } from "../../../../assets";
 import Trasnfers from "@/components/transfer/trasnfers";
 import Section from "@/components/transfer/section";
+import FeedBack from "@/components/landing/Feedback";
+import FAQ from "@/components/landing/FAQ";
+import Tips from "@/components/landing/Tips";
 
 const Page = () => {
   return (
@@ -34,6 +37,15 @@ const Page = () => {
             image={TR4}
           />
         </div>
+        <div className="justify-center max-w-6xl px-4 mx-auto mt-10">
+          <FeedBack />
+        </div>
+        <div className="justify-center max-w-6xl px-4 mx-auto mt-10">
+          <FAQ />
+          </div>
+    < div className = "justify-center max-w-6xl px-4 mx-auto mt-10" >
+      <Tips />
+      </div>
       </div>
     </div>
   );

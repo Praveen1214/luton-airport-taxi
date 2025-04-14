@@ -5,6 +5,9 @@ import React from "react";
 import { TR5 } from "../../../../assets";
 import Trasnfers from "@/components/transfer/trasnfers";
 import Section from "@/components/transfer/section";
+import FeedBack from "@/components/landing/Feedback";
+import FAQ from "@/components/landing/FAQ";
+import Tips from "@/components/landing/Tips";
 
 const Page = () => {
   return (
@@ -33,6 +36,15 @@ const Page = () => {
             d3="Our assisted airport transfer services are available 24/7, so you can travel with peace of mind knowing that we're always here to assist you. Whether you're traveling for business or pleasure, we'll ensure that you arrive at your destination safely and on time."
             image={TR5}
           />
+        </div>
+        <div className="justify-center max-w-6xl px-4 mx-auto mt-10">
+          <FeedBack />
+        </div>
+        <div className="justify-center max-w-6xl px-4 mx-auto mt-10">
+          <FAQ />
+        </div>
+        <div className="justify-center max-w-6xl px-4 mx-auto mt-10">
+          <Tips />
         </div>
       </div>
     </div>

@@ -5,6 +5,9 @@ import React from "react";
 import { TR2 } from "../../../../assets";
 import Trasnfers from "@/components/transfer/trasnfers";
 import Section from "@/components/transfer/section";
+import FeedBack from "@/components/landing/Feedback";
+import FAQ from "@/components/landing/FAQ";
+import Tips from "@/components/landing/Tips";
 
 const Page = () => {
   return (
@@ -33,6 +36,15 @@ Our professional and courteous driver will be waiting for you at your designated
               d3="Our professional and courteous drivers are well-trained and experienced, ensuring that you will receive the highest level of service and attention to detail. We take pride in our commitment to providing our clients with a stress-free and enjoyable travel experience, and our meet and greet service is just one of the many ways we go above and beyond for our clients."
               image={TR2}
             />
+          </div>
+          <div className="justify-center max-w-6xl px-4 mx-auto mt-10">
+            <FeedBack />
+          </div>
+          <div className="justify-center max-w-6xl px-4 mx-auto mt-10">
+            <FAQ />
+          </div>
+          <div className="justify-center max-w-6xl px-4 mx-auto mt-10">
+            <Tips />
           </div>
         </div>
       </div>
