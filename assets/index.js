@@ -73,6 +73,13 @@ import Dedi from './images/dedi.png'
 import Ben1 from './images/ben1.png'
 import Ben2 from './images/ben2.png'
 import Ben3 from './images/ben3.png'
+import G1 from './images/g1.png'
+import G2 from './images/g2.png'
+import G3 from './images/g3.png'
+import G4 from './images/g4.png'
+import G5 from './images/g5.png'
+import G6 from './images/g6.png'
+import G7 from './images/g7.png'
 
 export {
   HeroPlane,
@@ -148,4 +155,11 @@ export {
   Ben1,
   Ben2,
   Ben3,
+  G1,
+  G2,
+  G3,
+  G4,
+  G5,
+  G6,
+  G7,
 };

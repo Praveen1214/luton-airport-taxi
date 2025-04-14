@@ -11,6 +11,8 @@ import step4Image from "@/assets/images/ridebooking.png";
 import step5Image from "@/assets/images/ridebooking.png";
 import step6Image from "@/assets/images/ridebooking.png";
 
+import { G1, G2, G3, G4, G5, G6, G7 } from "../../../../assets";
+
 import { ridebooking } from "@/assets";
 import { faqs } from "@/components/FaqSection";
 import FAQ from "@/components/landing/FAQ";
@@ -62,17 +64,20 @@ const Page = () => {
               stepNumber={1}
               title={
                 <>
-                  Open the{" "}
-                  <a
-                    href="https://rideluton.com"
-                    className="text-prbg-primary hover:underline"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Rideluton.com
-                  </a>{" "}
-                  website and select type of services <strong>One way</strong>{" "}
-                  or <strong>Roundtrip</strong>.
+                  <strong>
+                    Open the{" "}
+                    <a
+                      href="https://rideluton.com"
+                      className="text-prbg-primary hover:underline"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Rideluton.com
+                    </a>{" "}
+                    website
+                  </strong>{" "}
+                  and select type of services <strong>One way</strong> or{" "}
+                  <strong>Roundtrip</strong>.
                 </>
               }
               src={step1Image}
@@ -83,14 +88,14 @@ const Page = () => {
               stepNumber={2}
               title={
                 <>
-                  Enter your <strong>Pickup Location</strong>,{" "}
+                  <strong>Enter your Pickup Location</strong>,{" "}
                   <strong>Drop-off Location</strong>, <strong>Date</strong>,{" "}
                   <strong>Time</strong>, <strong>Number of Passengers</strong>,
-                  and <strong>Luggage</strong> details — then click the{" "}
+                  and <strong>Luggage</strong> details then click the{" "}
                   <strong>Search</strong> button.
                 </>
               }
-              src={step2Image}
+              src={G1}
               imageAlt="Step 2 – Fill out trip details"
             />
 
@@ -98,12 +103,11 @@ const Page = () => {
               stepNumber={3}
               title={
                 <>
-                  Browse the <strong>available vehicles</strong> displayed and
-                  choose the one that best fits your needs (e.g., standard
-                  sedan, executive car, MPV).
+                  <strong>Select Package or Car Type</strong> according to the
+                  number of passengers and luggage you will be carrying.
                 </>
               }
-              src={step3Image}
+              src={G2}
               imageAlt="Step 3 – Choose vehicle type"
             />
 
@@ -111,12 +115,13 @@ const Page = () => {
               stepNumber={4}
               title={
                 <>
-                  <strong>Review</strong> your selection to ensure the pickup
-                  and drop-off details, price, and any additional requirements
-                  (like a child seat) are correct.
+                  <strong>
+                    Fill out all form details and additional services,
+                  </strong>{" "}
+                  required to assist you with your trip
                 </>
               }
-              src={step4Image}
+              src={G3}
               imageAlt="Step 4 – Review booking details"
             />
 
@@ -124,12 +129,12 @@ const Page = () => {
               stepNumber={5}
               title={
                 <>
-                  Enter your <strong>Contact Information</strong> (name, email,
-                  phone number) and any special instructions you have for the
-                  driver.
+                  <strong>Check Your Booking.</strong> After selecting a car
+                  services, review your booking and make sure to read the
+                  information of the package you choose.
                 </>
               }
-              src={step5Image}
+              src={G4}
               imageAlt="Step 5 – Provide personal details"
             />
 
@@ -137,13 +142,23 @@ const Page = () => {
               stepNumber={6}
               title={
                 <>
-                  Finally, <strong>Confirm your booking</strong> and proceed
-                  with the payment. You will receive a confirmation email or SMS
-                  with your booking details.
+                  <strong>Select your preferred payment method,</strong> either
+                  by Credit/DebitCard payment or by paying the driver in cash
                 </>
               }
-              src={step6Image}
-              imageAlt="Step 6 – Confirm and pay"
+              src={G5}
+              imageAlt="Step 5 – Provide personal details"
+            />
+            <StepCard
+              stepNumber={7}
+              title={
+                <>
+                  You will receive both an instant <strong>Email</strong>{" "}
+                  confirmation and online payment receipts.
+                </>
+              }
+              src={G6}
+              imageAlt="Step 5 – Provide personal details"
             />
           </div>
           <div className="max-w-4xl mt-20 mr-auto space-y-6 text-base text-gray-800 md:text-lg">
@@ -168,7 +183,7 @@ const Page = () => {
 
             <div className="mb-8 overflow-hidden shadow-md rounded-xl">
               <Image
-                src={ridebooking}
+                src={G7}
                 alt="London Luton Airport"
                 width={1000}
                 height={500}
@@ -178,7 +193,7 @@ const Page = () => {
 
             {/* Card Grid */}
 
-            <section className="max-w-5xl px-4 py-12 mx-auto mb-5 md:py-16">
+            <section className="max-w-6xl px-4 py-12 mx-auto mb-5 md:py-16">
               <div className="overflow-x-auto shadow-sm rounded-xl">
                 <table className="w-full overflow-hidden text-sm text-center border border-gray-200 rounded-xl">
                   <thead className="font-semibold text-btnbg-btn-hover bg-blue-50">
