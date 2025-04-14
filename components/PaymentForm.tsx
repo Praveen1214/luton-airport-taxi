@@ -10,7 +10,7 @@ import {
   useElements,
 } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
-import { CheckCircle, AlertCircle, CreditCard, Lock, ArrowRight, Shield } from 'lucide-react';
+import { CheckCircle, AlertCircle, Lock, ArrowRight, Shield } from 'lucide-react';
 import type { StripeElementChangeEvent } from '@stripe/stripe-js';
 import  MasterCard  from '@/assets/images/shopping.png';
 import  Visa  from '@/assets/images/visa.png';

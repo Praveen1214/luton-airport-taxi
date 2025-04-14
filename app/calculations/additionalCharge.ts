@@ -4,7 +4,15 @@
  * Calculates the total price of any selected additional items (child seats, meet & greet, etc.).
  */
 export function calculateAdditionalCharges(
-  additionalChargeData: unknown,
+  additionalChargeData: {
+    boosterSeat?: number;
+    childSeat?: number;
+    infantSeat?: number;
+    meetAndGreet?: number;
+    waitingTimeAfterLanding?: number;
+    waypoint?: number;
+    wheelchair?: number;
+  },
   additionalSelection: {
     boosterSeat: number;
     childSeat: number;

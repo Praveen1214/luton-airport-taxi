@@ -5,10 +5,9 @@ import { useRef } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import { testimonials } from "@/components/CustomerTestimonials";
 import FAQ from "@/components/landing/FAQ";
 import { routes } from "@/components/PopularRoutes";
-import { FaCarAlt, FaStar } from "react-icons/fa"; // install with: npm install react-icons
+import { FaCarAlt } from "react-icons/fa"; // install with: npm install react-icons
 import FeedBack from "@/components/landing/Feedback";
 import { CheckCircle } from "lucide-react";
 
@@ -296,7 +295,7 @@ export default function HomePage() {
           </h3>
           <p className="text-gray-700 text-sm sm:text-base">
             Some people use the Luton airport taxi to Milton Keynes but some
-            others prefer to train for traveling purposes. So here's you can
+            others prefer to train for traveling purposes. So here is you can
             travel to Milton Keynes by train
           </p>
           <div className="bg-gray-100 rounded-lg px-4 sm:px-6 py-4 sm:py-5 text-gray-700 text-xs sm:text-sm leading-relaxed">

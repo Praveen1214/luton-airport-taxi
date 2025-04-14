@@ -1,31 +1,18 @@
 // app/page.tsx
 "use client";
-import { useRef } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { LutonDeparture, LondonLutonAirport, LutonTerminal } from "@/assets";
-import { testimonials } from "@/components/CustomerTestimonials";
 import FAQ from "@/components/landing/FAQ";
 import { routes } from "@/components/PopularRoutes";
-import { FaCarAlt, FaStar } from "react-icons/fa"; // install with: npm install react-icons
+import { FaCarAlt } from "react-icons/fa"; // install with: npm install react-icons
 import FeedBack from "@/components/landing/Feedback";
 
 export default function HomePage() {
-  const scrollRef = useRef<HTMLDivElement>(null);
   const router = useRouter();
 
-  const scroll = (direction: "left" | "right") => {
-    const container = scrollRef.current;
-    if (!container) return;
-
-    const scrollAmount = 320; // adjust if needed
-
-    container.scrollBy({
-      left: direction === "left" ? -scrollAmount : scrollAmount,
-      behavior: "smooth",
-    });
-  };
+  
 
   const handleClick = (slug: string) => {
     router.push(`/routes/${slug}`);
@@ -69,12 +56,12 @@ export default function HomePage() {
               smooth and comfortable as possible, which is why we go to great
               lengths to make the trip as smooth and comfortable as possible.
               Our drivers are very experienced and our vehicles are well taken
-              care of, so you'll have a comfortable ride to and from Luton
-              airport to wherever you're going. Plus, our prices are low-cost.
+              care of, so you will have a comfortable ride to and from Luton
+              airport to wherever you are going. Plus, our prices are low-cost.
               The most cost-effective and time- saving way to book a cab is to
-              book in advance on our website. However, if you haven't pre-booked
+              book in advance on our website. However, if you have not pre-booked
               a taxi, you can still book with us on the spot, and our average
-              pick-up time is just 11 minutes. Whether you're looking to book a
+              pick-up time is just 11 minutes. Whether you are looking to book a
               cab to and from Luton airport or any other destination, our taxis
               from and to Luton airport are available at your service. In the
               Luton area, we are recognized as one of the best taxi and cab
@@ -146,7 +133,7 @@ export default function HomePage() {
               <p className="text-gray-600 leading-relaxed">
                 Our taxi pick-up is conveniently located outside the airport
                 terminal building (which is located on the ground floor of
-                terminal car park 2), making it easy to find and access. You'll
+                terminal car park 2), making it easy to find and access. You will
                 be directed to our pick up by airport staff and can expect a
                 short walk (around 3 minutes) to our taxis.
               </p>
@@ -181,7 +168,7 @@ export default function HomePage() {
             <p className="text-gray-600 text-lg mb-8">
               We understand that finding your driver can be a daunting task,
               especially in a busy and unfamiliar environment like an airport.
-              Here's what you can expect when using our taxi service:
+              Here is what you can expect when using our taxi service:
             </p>
 
             <div className="space-y-6">
@@ -293,7 +280,7 @@ export default function HomePage() {
               taxi by going left and walking past the buses, taxis, and parking
               lifts for a few minutes. Your designated driver will be waiting at
               the designated spot to pick you up. If you have any concerns or
-              questions, don't worry! Our team is here to assist you. We have a
+              questions, don not worry! Our team is here to assist you. We have a
               dedicated phone number for you to reach us anytime for help. We
               want to ensure your trip is smooth and enjoyable, and our drivers
               are always ready to assist. Simply give us a call, and we’ll be
@@ -306,7 +293,7 @@ export default function HomePage() {
             <p className="text-gray-600 text-lg mb-4">
               Upon arrival at Luton Airport, there are several procedures to
               follow before you can leave the airport. The specific process may
-              vary depending on your arrival terminal and flight details. Here's
+              vary depending on your arrival terminal and flight details. Here is
               a general overview:
             </p>
 
@@ -315,8 +302,8 @@ export default function HomePage() {
                 Disembark from the plane and follow signs to the arrivals area.
               </li>
               <li>
-                If you're arriving from outside the UK, proceed to immigration
-                control where you'll need to present your passport and travel
+                If you are arriving from outside the UK, proceed to immigration
+                control where you will need to present your passport and travel
                 documents for clearance.
               </li>
               <li>
@@ -325,7 +312,7 @@ export default function HomePage() {
               </li>
               <li>
                 If required, proceed to the customs control area to declare any
-                goods or items you're bringing into the UK.
+                goods or items you are bringing into the UK.
               </li>
               <li>
                 Once you’ve cleared customs, follow the signs to the airport
@@ -333,7 +320,7 @@ export default function HomePage() {
                 or walk to the exit.
               </li>
               <li>
-                Upon exiting the terminal building, you'll have various
+                Upon exiting the terminal building, you will have various
                 transport options like taxis, buses, or trains to continue your
                 journey.
               </li>
@@ -342,8 +329,8 @@ export default function HomePage() {
         </div>
       </section>
 
-     {/* Table of Prices */}
-     <section className="max-w-5xl mx-auto px-4 py-8 sm:py-12 md:py-16">
+  {/* Table of Prices */}
+  <section className="max-w-5xl mx-auto px-4 py-8 sm:py-12 md:py-16">
         <div className="text-center mb-6 sm:mb-8 md:mb-12">
           <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 mb-2">
             How much will a Taxi cost to Luton Airport

@@ -1,12 +1,14 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import axios from "axios"; // Ensure you have axios installed and imported
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Textarea } from "@/components/ui/textarea";
 import { motion } from "framer-motion";
+
 import {
   UserCircle,
   Users,
@@ -20,7 +22,6 @@ import {
   CreditCard,
 } from "lucide-react";
 import { Label } from "@/components/ui/label";
-import axios from "axios";
 import { StripePaymentWrapper } from "@/components/PaymentForm";
 
 const PassengerDetails = ({
@@ -42,15 +43,18 @@ const PassengerDetails = ({
     paymentType: bookingData.paymentType || "cash",
   });
 
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [bookingComplete, setBookingComplete] = useState(false);
-  const [, /* bookingReference */ setBookingReference] = useState("");
+  const [/*isSubmitting*/, setIsSubmitting] = useState(false);
+  const [/*bookingComplete*/, setBookingComplete] = useState(false);
+  const [/*bookingReference*/, setBookingReference] = useState("");
   const [showPaymentModal, setShowPaymentModal] = useState(false);
-  const [countdown, setCountdown] = useState(15);
+  const [/*isProcessingPayment*/, setIsProcessingPayment] = useState(false);
   const [paymentType, setPaymentType] = useState<"card" | "cash">(
     bookingData.paymentType
   );
-  const [isProcessingPayment, setIsProcessingPayment] = useState(false);
+
+  // This will hold the final booking data we send to the backend
+  // so that we can reuse it after card payment success.
+  const [finalBookingData, setFinalBookingData] = useState(null);
 
   const [priceDetails, setPriceDetails] = useState({
     basePrice: 0,
@@ -85,7 +89,8 @@ const PassengerDetails = ({
       additionalServicesPrice +=
         additionalSelection.childSeat * (additionalChargeData.childSeat || 0);
       additionalServicesPrice +=
-        additionalSelection.infantSeat * (additionalChargeData.infantSeat || 0);
+        additionalSelection.infantSeat *
+        (additionalChargeData.infantSeat || 0);
 
       // Other services
       additionalServicesPrice +=
@@ -120,6 +125,7 @@ const PassengerDetails = ({
       totalPrice,
     });
 
+    // Update the overall booking data so total price is available to parent
     updateBookingData({
       totalPrice: totalPrice.toFixed(2),
     });
@@ -206,28 +212,24 @@ const PassengerDetails = ({
     });
   };
 
-  // This will finalize the booking (API call, etc.)
-  const processBookingConfirmation = async () => {
+  /**
+   * Actually calls your backend to create the booking.
+   * Remove the simulation and replace with your real endpoint.
+   */
+  const processBookingConfirmation = async (dataToSend) => {
     try {
-      // Uncomment the next line in real usage:
-      // const response = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/api/booking/addbooking`, formattedBookingData);
+      // MAKE THE REAL API CALL HERE:
+      const response = await axios.post(
+        `${process.env.NEXT_PUBLIC_API_URL}/api/booking/addbooking`,
+        dataToSend
+      );
 
-      // For demonstration, simulate an API response:
-      const randomRef = `#${Math.floor(1000000 + Math.random() * 9000000)}`;
-      setBookingReference(randomRef);
+      // If your API returns a booking reference or ID, save it:
+      const { bookingReference } = response.data;
+      setBookingReference(bookingReference || "N/A");
       setBookingComplete(true);
 
-      // Auto-redirect countdown
-      const timer = setInterval(() => {
-        setCountdown((prev) => {
-          if (prev <= 1) {
-            clearInterval(timer);
-            return 0;
-          }
-          return prev - 1;
-        });
-      }, 1000);
-
+      // Return true if success
       return true;
     } catch (error) {
       console.error("Error creating booking:", error);
@@ -245,8 +247,8 @@ const PassengerDetails = ({
     console.log("Stripe Payment success details:", stripeResult);
     setIsProcessingPayment(true);
     try {
-      // Now finalize the booking
-      const success = await processBookingConfirmation();
+      // Use the final booking data that we stored in state
+      const success = await processBookingConfirmation(finalBookingData);
       if (success) {
         setShowPaymentModal(false);
         showAlert({
@@ -254,9 +256,10 @@ const PassengerDetails = ({
           description: "Your card payment has been confirmed!",
           type: "success",
           onConfirm: () => {
-            window.location.reload();
+            setBookingComplete(true);
           },
         });
+        goToNextStep();
       }
     } catch (error) {
       console.error("Error finishing payment or booking:", error);
@@ -270,11 +273,12 @@ const PassengerDetails = ({
     }
   };
 
-  // Process final booking submission
-  const handleCreateBooking = async (passengerFormData) => {
+  // Process final booking submission (both card & cash flows).
+  const handleCreateBooking = async (passengerFormData: any) => {
     setIsSubmitting(true);
 
     try {
+      // Build up the data you want to send to your server:
       const formattedBookingData = {
         dateTime:
           bookingData.selectedDate?.toISOString() || new Date().toISOString(),
@@ -352,26 +356,31 @@ const PassengerDetails = ({
         },
       };
 
-      // Sync data so we don't lose any
+      // Make sure we sync so that all form data is also stored in parent if needed
       syncPassengerData();
 
-      // If user selects "card", open payment modal.
-      // If "cash", directly finalize booking.
+      // Save the final booking data to state so we can use it in the card payment callback
+      setFinalBookingData(formattedBookingData);
+
+      // If user selects "card", open payment modal; if "cash", finalize directly.
       if (paymentType === "card") {
         setShowPaymentModal(true);
-        // Remove the old setTimeout approach here
       } else {
-        await processBookingConfirmation();
-        showAlert({
-          title: "Booking Successful",
-          description: bookingData.returnBooking
-            ? "Your outbound + return booking was created successfully!"
-            : "Your booking was created successfully!",
-          type: "success",
-          onConfirm: () => {
-            window.location.reload();
-          },
-        });
+        // Handle cash flow: create the booking right away
+        const success = await processBookingConfirmation(formattedBookingData);
+        if (success) {
+          showAlert({
+            title: "Booking Successful",
+            description: bookingData.returnBooking
+              ? "Your outbound + return booking was created successfully!"
+              : "Your booking was created successfully!",
+            type: "success",
+            onConfirm: () => {
+              setBookingComplete(true);
+            },
+          });
+          goToNextStep();
+        }
       }
 
       return true;
@@ -813,8 +822,7 @@ const PassengerDetails = ({
                   </div>
 
                   {/* Additional options */}
-                  {formData.additionalSelection.additionalOptions?.length >
-                    0 && (
+                  {formData.additionalSelection.additionalOptions?.length > 0 && (
                     <div className="mt-5">
                       <h4 className="mb-3 text-sm font-medium text-gray-700">
                         Other Additional Options
@@ -893,7 +901,7 @@ const PassengerDetails = ({
             <div className="mb-8 p-4 space-y-5 bg-[#F5F6FA]  rounded-lg">
               <label className="flex items-center mb-2 text-sm font-medium text-gray-700">
                 <Notebook className="w-4 h-4 mr-2 text-primary" />
-                Driver Notes(Optional)
+                Driver Notes (Optional)
               </label>
               <Textarea
                 value={formData.driverNotes}
@@ -927,16 +935,14 @@ const PassengerDetails = ({
                 Payment Breakdown
               </h2>
 
-              <div className="flex items-center justify-between py-2 md:py-3">
-                {priceDetails.paymentMethodFee > 0 && (
-                  <div className="flex justify-between py-2 w-full">
-                    <span className="text-gray-600">Card payment fee:</span>
-                    <span className="font-medium">
-                      £{priceDetails.paymentMethodFee.toFixed(2)}
-                    </span>
-                  </div>
-                )}
-              </div>
+              {priceDetails.paymentMethodFee > 0 && (
+                <div className="flex justify-between py-2 w-full">
+                  <span className="text-gray-600">Card payment fee:</span>
+                  <span className="font-medium">
+                    £{priceDetails.paymentMethodFee.toFixed(2)}
+                  </span>
+                </div>
+              )}
 
               {bookingData.returnBooking && (
                 <div className="flex justify-between py-2">
@@ -1067,10 +1073,12 @@ const PassengerDetails = ({
               onClick={async () => {
                 if (!validateForm()) return;
                 const bookingSuccess = await handleCreateBooking(formData);
-                // If paymentType === "card", bookingSuccess just triggers the modal
-                // If "cash", bookingSuccess finalizes immediately.
+
+                // If paymentType === "card", handleCreateBooking
+                // simply opens the payment modal. If "cash", it tries
+                // to finalize the booking right away.
                 if (!bookingSuccess) {
-                  // Show error or handle accordingly
+                  console.log("Booking creation failed.");
                 }
               }}
             >
@@ -1081,7 +1089,7 @@ const PassengerDetails = ({
 
         {showPaymentModal && (
           <div className="fixed inset-0 z-50 flex items-center justify-center">
-            {/* Backdrop with blur */}
+            {/* Backdrop */}
             <div className="absolute inset-0 bg-black bg-opacity-50 backdrop-blur-sm"></div>
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
@@ -1114,7 +1122,7 @@ const PassengerDetails = ({
                 </svg>
               </button>
               <div className="flex flex-col md:flex-row">
-                {/* LEFT SIDE: Branding & Details */}
+                {/* LEFT SIDE: Branding & (optional) subscription details */}
                 <div className="hidden md:flex md:w-1/2 flex-col items-center justify-center bg-gradient-to-br from-blue-50 to-blue-100 p-8">
                   <img
                     src="/path/to/car-image.jpg"
@@ -1122,13 +1130,11 @@ const PassengerDetails = ({
                     className="w-40 h-auto mb-6 rounded shadow-md"
                   />
                   <h2 className="text-2xl font-extrabold text-gray-800 mb-2">
-                    Subscribe to ReCar Rental
+                    Secure Payment
                   </h2>
-                  <p className="text-xl text-gray-700 font-semibold mb-1">
-                    €203.20
-                  </p>
-                  <p className="text-sm text-gray-500">Billed monthly</p>
+                  <p className="text-sm text-gray-500">Powered by Stripe</p>
                 </div>
+
                 {/* RIGHT SIDE: Payment Content */}
                 <div className="w-full md:w-1/2 p-6 flex flex-col justify-center">
                   <div className="text-center mb-6">
@@ -1136,6 +1142,7 @@ const PassengerDetails = ({
                       className="h-12 w-12 text-blue-600 mx-auto mb-4"
                       aria-hidden="true"
                     />
+                    <h3 className="text-xl font-bold">Card Details</h3>
                   </div>
 
                   {/* Stripe Payment Form */}

@@ -12,7 +12,6 @@ import step5Image from "@/assets/images/ridebooking.png";
 import step6Image from "@/assets/images/ridebooking.png";
 
 import { ridebooking } from "@/assets";
-import { faqs } from "@/components/FaqSection";
 import FAQ from "@/components/landing/FAQ";
 
 const Page = () => {

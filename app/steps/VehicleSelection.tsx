@@ -10,10 +10,7 @@ import {
   Briefcase,
   Check,
   ArrowLeft,
-  ArrowRight,
-  Clock,
   Info,
-  BarChart4,
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import {
@@ -246,7 +243,7 @@ const VehicleSelection = ({
                       <div className="flex items-start flex-1 gap-5">
                         {/* Image */}
                         <div className="relative flex-shrink-0 h-20 overflow-hidden bg-white border border-gray-200 shadow-sm w-28 rounded-xl">
-                          {/* <Image
+                          <Image
                             src={
                               vehicle.image
                                 ? `${process.env.NEXT_PUBLIC_API_URL}/${vehicle.image}`
@@ -256,7 +253,7 @@ const VehicleSelection = ({
                             fill
                             className="object-cover"
                             sizes="112px"
-                          /> */}
+                          />
                         </div>
 
                         {/* Vehicle Info */}

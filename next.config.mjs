@@ -1,21 +1,23 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   typescript: {
-    ignoreBuildErrors: true,
+    ignoreBuildErrors: true, 
   },
   images: {
     remotePatterns: [
       {
-        protocol: "https",
-        hostname: "avatars.githubusercontent.com",
-        port: "",
-        pathname: "/**",
+        protocol: 'https',
+        hostname: 'avatars.githubusercontent.com',
+        port: '',
+        pathname: '/**',
       },
       {
-        protocol: "https",
-        hostname: "luton-backend-production.up.railway.app",
-        pathname: "/uploads/**",
+        protocol: 'https',
+        hostname: 'luton-backend-production.up.railway.app',
+        pathname: '/uploads/**',
       },
     ],
   },
 };
+
+export default nextConfig;
