@@ -16,7 +16,10 @@ export default function Header() {
         <Link href="/services" className="hover:text-primary">
           Services
         </Link>
-        <Link href="/contact" className="hover:text-primary">
+        <Link
+          href="/pages/Help-Information/contact"
+          className="hover:text-primary"
+        >
           Contact Us
         </Link>
       </nav>

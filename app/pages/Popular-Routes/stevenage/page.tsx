@@ -49,11 +49,11 @@ export default function HomePage() {
       <section className="w-full px-4 py-8 text-center md:py-20 bg-gradient-to-l from-blue-50 to-transparent">
         <div className="max-w-6xl mx-auto ">
           <h1 className="mb-4 text-2xl font-bold sm:text-3xl md:text-5xl">
-            Luton To Milton Keynes Taxi Transfers
+            Luton To Stevenage Taxi Transfers
           </h1>
           <p className="max-w-xl mx-auto mb-6 text-sm text-gray-700 sm:text-base">
-            Save up to 40% by pre-booking your taxi to and from Luton airport
-            transfer with us
+            Save Up to 40 % By Pre Booking Your Stevenage Airport Transfer With
+            Us
           </p>
           <Button className="px-4 py-2 text-sm font-medium text-white bg-primary hover:bg-btn-hover sm:px-6 sm:py-3 sm:text-sm">
             Book Now
@@ -209,21 +209,22 @@ export default function HomePage() {
             {/* Left Column */}
             <div className="w-full md:w-2/3">
               <h2 className="mb-4 text-xl font-semibold text-gray-900 sm:text-2xl md:text-3xl">
-                Milton Keynes to Luton Airport Taxi Time Interval
+                Stevenage to Luton Airport Taxi Time Interval
               </h2>
               <p className="mb-4 text-sm leading-relaxed text-justify text-gray-700 sm:text-base">
-                With our Milton Keynes to Luton Airport taxi, you can reach the
-                Luton airport within a nominal time. It is approximately 24.7
-                miles if we use the M1 motorway for traveling. An alternative
-                way is an A421 patch which is 23.1 miles away but it takes a
-                minimum of 33 minutes because of slow traffic.
+                With our Stevenage to Luton Airport taxi, you can reach to the
+                Luton airport within 31 minutes time interval.It is
+                approximately 24.7 miles if we use the M1 motorway for
+                traveling.An alternative way is an A421 path which is 23.1 miles
+                away but it takes a minimum of 33 minutes because of slow
+                traffic.
               </p>
               <p className="text-sm leading-relaxed text-justify text-gray-700 sm:text-base">
-                The interval from Milton Keynes to Luton Town via the M1 route
-                is approximately 29 minutes. The distance between Luton and
-                Milton Keynes is approximately 22.5 miles (36.2 km). Because of
-                the fast and casual traffic of the M1 Motorway, it is not hard
-                to cover this distance in this time.
+                The interval from Stevenage to Luton Town via taxi or your own
+                car is approximately 29 minutes.The distance between Luton and
+                Stevenage is approximately 22.5 miles which are equal to 36.2
+                km.Because of the fast and casual traffic of M1 Motorway, it's
+                not hard to cover this distance at this time.
               </p>
             </div>
 
@@ -273,24 +274,23 @@ export default function HomePage() {
             {/* Right Column: Text */}
             <div className="w-full md:w-2/3">
               <h2 className="mb-4 text-xl font-semibold text-gray-900 sm:text-2xl md:text-3xl">
-                Traveling To And From Milton Keynes
+                Traveling To And From Stevenage
               </h2>
               <p className="mb-4 text-sm leading-relaxed text-justify text-gray-700 sm:text-base">
-                Luton Airport Taxi is a leading taxi company in Luton. Our
-                Company is not only one of the best Luton airport taxi service
+                Luton Airport Taxi is a leading taxi company in Luton.Our
+                Compony is not only one of the best Luton airport taxi service
                 providers but also famous in surrounding areas such as
-                Bedfordshire and Milton Keynes. Our Milton Keynes to Luton
-                airport taxi is a sound, secure, accurate, and cheap taxi
-                service. You can easily hire a taxi with an online booking
-                system.
+                Bedfordshire and Stevenage.Our Stevenage to Luton airport taxi
+                is a sound, secure, accurate, and cheap taxi service.You can
+                easily hire a taxi with an online booking system.
               </p>
               <p className="text-sm leading-relaxed text-justify text-gray-700 sm:text-base">
                 We have multiple and updated vehicles, which are equipped and
-                connected to the satellite system. Our Milton Keynes to Luton
-                airport taxi includes a baby seat, meet & greet, and more.
-                Beware of booking with those service providers which are ranking
-                and having 200% expensive prices. So, book Milton Keynes to
-                Luton airport taxi with us now to save your time and money.
+                connected to the satellite system.Our Stevenage to Luton airport
+                taxi includes a baby seat, meet & greet, and more.Beware of
+                booking with those service providers which are ranking and
+                having 200 % expensive prices.So, book Stevenage to Luton
+                airport taxi with us now to save your time and money.
               </p>
             </div>
           </div>
@@ -301,43 +301,41 @@ export default function HomePage() {
           <div className="max-w-6xl mx-auto space-y-4 sm:space-y-6">
             {/* Heading */}
             <h2 className="text-xl font-bold text-gray-900 sm:text-2xl md:text-3xl">
-              Ways to travel to Milton Keynes
+              Ways to travel to Stevenage
             </h2>
             {/* Paragraphs */}
             <p className="text-sm leading-relaxed text-justify text-gray-700 sm:text-base">
-              There are many ways to travel to Milton Keynes from Luton. Such as
-              Local bus, Coach and Train. But Milton Keynes to or from Luton
-              airport taxi is the best and reliable way for this.
+              There are many ways to travel to Stevenage from Luton.Such as
+              Local bus, Coach and Train.But Stevenage to or from Luton airport
+              taxi is the best and reliable way for this.
             </p>
             <p className="text-sm leading-relaxed text-justify text-gray-700 sm:text-base">
               Some of the public transport are listed below with some detail
-              which you can utilize for traveling From Luton To Milton Keynes.
+              which you can utilize for traveling From Luton To Stevenage.
             </p>
             <h3 className="text-base font-semibold text-gray-900">
-              Luton to Milton Keynes by Train
+              Luton to Stevenage by Train
             </h3>
             <p className="text-sm text-justify text-gray-700 sm:text-base">
-              Some people use the Luton airport taxi to Milton Keynes but some
-              others prefer to train for traveling purposes. So here's you can
-              travel to Milton Keynes by train
+              Some people use the Luton airport taxi to Stevenage but some
+              others prefer to train for traveling purposes.So here's you can
+              travel to Stevenage by train
             </p>
             <div className="px-4 py-4 text-xs leading-relaxed text-justify text-gray-700 bg-gray-100 rounded-lg sm:px-6 sm:py-5 sm:text-sm">
               <ol className="space-y-2 list-decimal list-inside">
                 <li>
-                  Go to Luton Train Station LU1 2LT and purchase a ticket to
-                  Milton Keynes
+                  Go to Luton Train Station LU1 2Lt and purchase a ticket to
+                  Stevenage
                 </li>
                 <li>
                   Another way is to go to Luton Airport Parkway Station LU1 3JH
                   to purchase tickets
                 </li>
                 <li>
-                  Enjoy your journey in a train, also you can do the same with
-                  Luton airport taxi to Milton Keynes
+                  Enjoy Your journey in a train, also you can do the same with
+                  Luton airport taxi to Stevenage
                 </li>
-                <li>
-                  Get off at Central Railway Station MK9 1LA of Milton Keynes
-                </li>
+                <li>Get off at Central Railway Station MK9 1LA of Stevenage</li>
               </ol>
             </div>
             <div className="flex items-start gap-2 p-3 text-xs rounded-md text-primary sm:text-sm bg-blue-50 rounded-tl-xl">
@@ -355,7 +353,7 @@ export default function HomePage() {
                 />
               </svg>
               <p>
-                Every 15–30 minutes a train leaves to Milton Keynes from Luton
+                Every 15 - 30 minutes a train leaves to Stevenage from Luton
               </p>
             </div>
           </div>
