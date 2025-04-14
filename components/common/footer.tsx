@@ -68,7 +68,7 @@ export default function Footer() {
           <h4 className="mb-4 text-lg font-bold">Help & Information</h4>
           <div className="space-y-2">
             {[
-              { label: "About Us", path: "/pages/Help-Information/about" },
+              { label: "About Us", path: "/services" },
               { label: "Contact Us", path: "/pages/Help-Information/contact" },
               {
                 label: "Booking a Taxi Guide",
