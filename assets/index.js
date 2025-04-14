@@ -62,6 +62,36 @@ import AmericanExpress from "./images/american-express.png";
 import Visa from "./images/visa.png";
 import MasterCard from "./images/shopping.png"
 
+import OS1 from './images/os1.png';
+import OS2 from './images/os2.png';
+import OS3 from './images/os3.png';
+import OS4 from './images/os4.png';
+import OS5 from './images/os5.png';
+import OS6 from './images/os6.png';
+import OUR1 from './images/our1.png';
+import OUR2 from './images/our2.png';
+import OUR3 from './images/our3.png';
+import DriverJoin from './images/driver-join.png'
+import Dedi from './images/dedi.png'
+import Ben1 from './images/ben1.png'
+import Ben2 from './images/ben2.png'
+import Ben3 from './images/ben3.png'
+import G1 from './images/g1.png'
+import G2 from './images/g2.png'
+import G3 from './images/g3.png'
+import G4 from './images/g4.png'
+import G5 from './images/g5.png'
+import G6 from './images/g6.png'
+import G7 from './images/g7.png'
+import AB1 from './images/ab1.png'
+import AB2 from './images/ab2.png'
+import AB3 from './images/ab3.png'
+import TR1 from './images/tr1.png'
+import TR2 from './images/tr2.png'
+import TR3 from './images/tr3.png'
+import TR4 from './images/tr4.png'
+import TR5 from './images/tr5.png'
+
 export {
   HeroPlane,
   ThreeLines,
@@ -125,4 +155,33 @@ export {
   AmericanExpress,
   Visa,
   MasterCard,
+  OS1,
+  OS2,
+  OS3,
+  OS4,
+  OS5,
+  OS6,
+  OUR1,
+  OUR2,
+  OUR3,
+  DriverJoin,
+  Dedi,
+  Ben1,
+  Ben2,
+  Ben3,
+  G1,
+  G2,
+  G3,
+  G4,
+  G5,
+  G6,
+  G7,
+  AB1,
+  AB2,
+  AB3,
+  TR1,
+  TR2,
+  TR3,
+  TR4,
+  TR5,
 };
