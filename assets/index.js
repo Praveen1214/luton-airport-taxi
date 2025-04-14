@@ -82,6 +82,7 @@ import G6 from './images/g6.png'
 import G7 from './images/g7.png'
 import AB1 from './images/ab1.png'
 import AB2 from './images/ab2.png'
+import AB3 from './images/ab3.png'
 
 export {
   HeroPlane,
@@ -166,4 +167,5 @@ export {
   G7,
   AB1,
   AB2,
+  AB3,
 };
