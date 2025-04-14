@@ -66,8 +66,8 @@ const PopularRoutes = () => {
 
       <h2 className="mb-8 text-3xl font-bold text-center">Popular Routes</h2>
 
-      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-4">
-        {routes.map((route, index) => (
+      <div className="grid grid-cols-2 gap-4 sm:gap-6 md:grid-cols-4">
+      {routes.map((route, index) => (
           <Link key={index} href={route.path}>
             <div className="relative overflow-hidden shadow-md rounded-2xl h-52 group cursor-pointer">
               {/* Background Image */}
