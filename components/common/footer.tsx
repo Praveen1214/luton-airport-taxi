@@ -35,13 +35,22 @@ export default function Footer() {
                 city: "Milton Keynes",
                 path: "/pages/Popular-Routes/milton-keynes",
               },
-              { city: "Watford", path: "/routes/watford" },
-              { city: "St Albans", path: "/routes/st-albans" },
-              { city: "Stevenage", path: "/routes/stevenage" },
-              { city: "London", path: "/routes/london" },
-              { city: "Ayelscbury", path: "/routes/ayelsbury" },
-              { city: "Bedford", path: "/routes/bedford" },
-              { city: "Luton", path: "/routes/luton" },
+              { city: "Watford", path: "/pages/Popular-Routes/wat-ford" },
+              {
+                city: "St Albans",
+                path: "/pages/Popular-Routes/st-albans",
+              },
+              {
+                city: "Stevenage",
+                path: "/pages/Popular-Routes/stevenage",
+              },
+              { city: "London", path: "/pages/Popular-Routes/london" },
+              {
+                city: "Ayelscbury",
+                path: "/pages/Popular-Routes/ayelscbury",
+              },
+              { city: "Bedford", path: "/pages/Popular-Routes/bedford" },
+              { city: "Luton", path: "/pages/Popular-Routes/luton" },
             ].map(({ city, path }) => (
               <Link
                 key={city}
@@ -89,16 +98,25 @@ export default function Footer() {
               },
               {
                 label: "Taxi to Luton Luton Airport",
-              path: "/pages/Airport-Transfer/Taxi-to-Luton",
+                path: "/pages/Airport-Transfer/Taxi-to-Luton",
               },
               {
                 label: "Flight monitoring",
                 path: "/pages/services/flight-monitoring",
               },
-              { label: "Business travel", path: "/pages/services/businessTravel" },
-              { label: "Assisted Travel", path: "/pages/services/assisted-travel" },
+              {
+                label: "Business travel",
+                path: "/pages/services/businessTravel",
+              },
+              {
+                label: "Assisted Travel",
+                path: "/pages/services/assisted-travel",
+              },
               { label: "Baby Seat", path: "/pages/services/baby-seat" },
-              { label: "Airport Transfer", path: "/pages/services/airport-transfer" },
+              {
+                label: "Airport Transfer",
+                path: "/pages/services/airport-transfer",
+              },
               { label: "Meet & Greet", path: "/pages/services/meet-and-greet" },
             ].map(({ label, path }) => (
               <Link
