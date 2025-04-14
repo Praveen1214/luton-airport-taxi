@@ -42,7 +42,7 @@ interface BookingData {
   phoneNumber: string;
   email: string;
   sendSmsToEmail: boolean;
-  paymentType: "card" | "cash";
+  paymentType: 'card' | 'cash';
   miles: string;
   returnMiles?: string;
   totalPrice: number;
@@ -96,15 +96,13 @@ const Confirmation: React.FC<ConfirmationProps> = ({
   // const router = useRouter();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [bookingComplete, setBookingComplete] = useState(false);
-  const [, /*bookingReference*/ setBookingReference] = useState("");
+  const [/*bookingReference*/, setBookingReference] = useState("");
   const [showPaymentModal, setShowPaymentModal] = useState(false);
   const [countdown, setCountdown] = useState(15);
-  const [paymentType, setPaymentType] = useState<"card" | "cash">(
-    bookingData.paymentType
-  );
+  const [paymentType, setPaymentType] = useState<"card" | "cash">(bookingData.paymentType);
   const [isProcessingPayment, setIsProcessingPayment] = useState(false);
 
-  const [priceDetails /*setPriceDetails*/] = useState({
+  const [priceDetails, /*setPriceDetails*/] = useState({
     basePrice: bookingData.totalPrice,
     additionalServicesPrice: 0,
     paymentMethodFee: 0,
@@ -241,7 +239,7 @@ const Confirmation: React.FC<ConfirmationProps> = ({
         setTimeout(() => {
           setShowPaymentModal(false);
           processBookingConfirmation();
-        }, 3000);
+        }, 30000);
       } else {
         processBookingConfirmation();
       }
@@ -262,8 +260,21 @@ const Confirmation: React.FC<ConfirmationProps> = ({
 
   // Handle redirection to bookings page
   const handleViewBookings = () => {
+    //reload page
+    // router.push("/bookings");
     window.location.reload();
+   
   };
+
+  // Copy booking reference to clipboard
+  // const copyReferenceToClipboard = () => {
+  //   navigator.clipboard.writeText(bookingReference);
+  //   showAlert({
+  //     title: "Copied!",
+  //     description: "Booking reference copied to clipboard",
+  //     type: "success",
+  //   });
+  // };
 
   useEffect(() => {
     if (bookingComplete && countdown === 0) {
@@ -286,6 +297,7 @@ const Confirmation: React.FC<ConfirmationProps> = ({
 
   return (
     <>
+    
       {bookingComplete ? (
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
@@ -295,13 +307,13 @@ const Confirmation: React.FC<ConfirmationProps> = ({
         >
           {/* Stripe Payment Component - Show only when card payment is selected */}
           {paymentType === "card" && (
-            <div className="p-6 mx-auto mb-6 bg-white shadow-md rounded-xl">
-              <div className="flex items-center justify-between mb-6">
+            <div className="bg-white rounded-xl p-6 shadow-md mb-6 mx-auto">
+              <div className="flex justify-between items-center mb-6">
                 <h2 className="text-xl font-semibold text-gray-800">
                   Payment Details
                 </h2>
                 <div className="flex items-center">
-                  <span className="mr-2 text-sm text-gray-500">
+                  <span className="text-sm text-gray-500 mr-2">
                     Secure Payment
                   </span>
                   <svg
@@ -323,13 +335,13 @@ const Confirmation: React.FC<ConfirmationProps> = ({
               </div>
 
               {isProcessingPayment ? (
-                <div className="flex flex-col items-center justify-center py-10">
-                  <div className="w-12 h-12 mb-4 border-b-2 border-blue-600 rounded-full animate-spin"></div>
+                <div className="flex flex-col justify-center items-center py-10">
+                  <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mb-4"></div>
                   <p className="text-gray-600">Processing your payment...</p>
                 </div>
               ) : (
                 <>
-                  <div className="p-4 mb-6 border border-blue-100 rounded-lg bg-blue-50">
+                  <div className="bg-blue-50 border border-blue-100 rounded-lg p-4 mb-6">
                     <div className="flex items-start">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -349,8 +361,8 @@ const Confirmation: React.FC<ConfirmationProps> = ({
                       </svg>
                       <p className="text-sm text-blue-800">
                         Your card will be charged £
-                        {priceDetails?.basePrice || 0} after confirming payment
-                        details
+                        {(priceDetails?.basePrice || 0)} after confirming
+                        payment details
                       </p>
                     </div>
                   </div>
@@ -367,10 +379,10 @@ const Confirmation: React.FC<ConfirmationProps> = ({
                 </>
               )}
 
-              <div className="flex items-center justify-between mt-6">
+              <div className="flex justify-between items-center mt-6">
                 <button
                   onClick={() => goToPrevStep()}
-                  className="flex items-center px-6 py-2 text-gray-700 transition-colors border border-gray-300 rounded-md hover:bg-gray-50"
+                  className="px-6 py-2 border border-gray-300 rounded-md text-gray-700 hover:bg-gray-50 transition-colors flex items-center"
                   disabled={isProcessingPayment}
                 >
                   <svg
@@ -415,197 +427,414 @@ const Confirmation: React.FC<ConfirmationProps> = ({
           )}
         </motion.div>
       ) : (
-        <Card className="w-full max-w-6xl mx-auto overflow-hidden bg-white shadow-md rounded-xl">
-          <CardContent className="p-6">
-            <div className="grid grid-cols-1 gap-6 lg:grid-cols-1">
-              {/* Right Column - Payment Method & Navigation */}
-              <div className="space-y-6">
-                {/* Payment Method Selection */}
-                <div className="p-4 bg-white shadow-sm rounded-xl sm:p-6">
-                  <h2 className="mb-4 text-xl font-semibold text-gray-800 sm:mb-6">
-                    Payment Method
-                  </h2>
-                  <div className="space-y-3 sm:space-y-4">
-                    <h2 className="text-3xl font-semibold">
-                      Total Price:{" "}
-                      <span className="text-primary">
-                        £ {bookingData.totalPrice}
-                      </span>{" "}
-                    </h2>
-                    <div
-                      className={`flex items-center p-3 sm:p-4 border rounded-xl transition-colors duration-200 relative bg-white ${
-                        paymentType === "card"
-                          ? "border-blue-400 ring-2 ring-blue-50"
-                          : "border-gray-200 hover:border-blue-300"
-                      }`}
-                    >
-                      <input
-                        type="radio"
-                        id="card-payment"
-                        name="payment-method"
-                        className="w-4 h-4 text-blue-500 sm:w-5 sm:h-5 focus:ring-blue-400"
-                        checked={paymentType === "card"}
-                        onChange={() => setPaymentType("card")}
-                      />
-                      <label
-                        htmlFor="card-payment"
-                        className="flex items-center w-full ml-3 cursor-pointer"
-                      >
-                        <div className="flex items-center justify-center w-8 h-8 mr-3 text-blue-500 rounded-full sm:w-10 sm:h-10 bg-blue-50">
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            className="w-5 h-5 sm:w-6 sm:h-6"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            strokeWidth="2"
-                            aria-hidden="true"
-                          >
-                            <rect x="2" y="5" width="20" height="14" rx="2" />
-                            <path d="M2 10H22" />
-                            <path d="M6 15H8" strokeLinecap="round" />
-                          </svg>
-                        </div>
-                        <div>
-                          <p className="text-sm font-medium text-gray-800 sm:text-base">
-                            Pay by card
-                          </p>
-                          <p className="text-xs text-gray-500 sm:text-sm">
-                            Credit or debit card
-                          </p>
-                        </div>
-                      </label>
+        
+        <Card className="w-full mx-auto bg-white shadow-md rounded-xl overflow-hidden">
+        <CardContent className="p-6">
+          <h2 className="text-2xl font-bold text-center text-gray-800 mb-6">
+            Review & Confirm
+          </h2>
+      
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            {/* Left Column - Booking Summary */}
+            <div className="space-y-6">
+              {/* Booking Summary */}
+              <div className="bg-gray-50 rounded-lg p-5 border border-gray-200">
+                <h3 className="text-md font-semibold text-gray-800 mb-4">
+                  Booking Summary
+                </h3>
+      
+                <div className="space-y-4">
+                  {/* Journey details */}
+                  <div className="flex flex-col sm:flex-row sm:items-start justify-between pb-4 border-b border-gray-200">
+                    <div className="mb-2 sm:mb-0">
+                      <p className="text-sm font-medium text-gray-700 flex items-center">
+                        <Calendar className="h-4 w-4 mr-2 text-blue-600" aria-hidden="true" />
+                        Date &amp; Time
+                      </p>
+                      <p className="text-sm text-gray-600 mt-1 ml-6">
+                        {formatDate(bookingData.selectedDate)}
+                      </p>
                     </div>
-
-                    <div
-                      className={`flex items-center p-3 sm:p-4 border rounded-xl transition-colors duration-200 relative bg-white ${
-                        paymentType === "cash"
-                          ? "border-blue-400 ring-2 ring-blue-50"
-                          : "border-gray-200 hover:border-blue-300"
-                      }`}
-                    >
-                      <input
-                        type="radio"
-                        id="cash-payment"
-                        name="payment-method"
-                        className="w-4 h-4 text-blue-500 sm:w-5 sm:h-5 focus:ring-blue-400"
-                        checked={paymentType === "cash"}
-                        onChange={() => setPaymentType("cash")}
-                      />
-                      <label
-                        htmlFor="cash-payment"
-                        className="flex items-center w-full ml-3 cursor-pointer"
-                      >
-                        <div className="flex items-center justify-center w-8 h-8 mr-3 text-green-500 rounded-full sm:w-10 sm:h-10 bg-green-50">
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            className="w-5 h-5 sm:w-6 sm:h-6"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            strokeWidth="2"
-                            aria-hidden="true"
-                          >
-                            <path d="M2 10C2 7.79086 3.79086 6 6 6H18C20.2091 6 22 7.79086 22 10V14C22 16.2091 20.2091 18 18 18H6C3.79086 18 2 16.2091 2 14V10Z" />
-                            <path d="M12 14C13.1046 14 14 13.1046 14 12C14 10.8954 13.1046 10 12 10C10.8954 10 10 10.8954 10 12C10 13.1046 10.8954 14 12 14Z" />
-                            <path d="M17 10C17 8.89543 16.1046 8 15 8C13.8954 8 13 8.89543 13 10" />
-                            <path d="M7 14C7 15.1046 7.89543 16 9 16C10.1046 16 11 15.1046 11 14" />
-                          </svg>
-                        </div>
-                        <div>
-                          <p className="text-sm font-medium text-gray-800 sm:text-base">
-                            Pay in cash
-                          </p>
-                          <p className="text-xs text-gray-500 sm:text-sm">
-                            Pay directly to driver
-                          </p>
-                        </div>
-                      </label>
+      
+                    {bookingData.returnBooking && (
+                      <div>
+                        <p className="text-sm font-medium text-gray-700 flex items-center">
+                          <Calendar className="h-4 w-4 mr-2 text-blue-600" aria-hidden="true" />
+                          Return Date &amp; Time
+                        </p>
+                        <p className="text-sm text-gray-600 mt-1 ml-6">
+                          {formatDate(bookingData.returnSelectedDate)}
+                        </p>
+                      </div>
+                    )}
+                  </div>
+      
+                  {/* Locations */}
+                  <div className="pb-4 border-b border-gray-200">
+                    <div className="mb-3">
+                      <p className="text-sm font-medium text-gray-700 flex items-center">
+                        <MapPin className="h-4 w-4 mr-2 text-blue-600" aria-hidden="true" />
+                        Pickup Location
+                      </p>
+                      <p className="text-sm text-gray-600 mt-1 ml-6">
+                        {bookingData.pickups[0]?.location}
+                      </p>
+                      {bookingData.pickups.length > 1 && (
+                        <p className="text-xs text-blue-600 mt-1 ml-6">
+                          +{bookingData.pickups.length - 1} additional pickup
+                          {bookingData.pickups.length > 2 ? "s" : ""}
+                        </p>
+                      )}
+                    </div>
+      
+                    <div>
+                      <p className="text-sm font-medium text-gray-700 flex items-center">
+                        <MapPin className="h-4 w-4 mr-2 text-blue-600" aria-hidden="true" />
+                        Dropoff Location
+                      </p>
+                      <p className="text-sm text-gray-600 mt-1 ml-6">
+                        {bookingData.dropoff?.location}
+                      </p>
+                    </div>
+                  </div>
+      
+                  {/* Vehicle & Passenger details */}
+                  <div className="pb-4 border-b border-gray-200">
+                    <div className="mb-3">
+                      <p className="text-sm font-medium text-gray-700 flex items-center">
+                        <Car className="h-4 w-4 mr-2 text-blue-600" aria-hidden="true" />
+                        Vehicle
+                      </p>
+                      <p className="text-sm text-gray-600 mt-1 ml-6">
+                        {bookingData.vehicleType}
+                      </p>
+                    </div>
+      
+                    <div>
+                      <p className="text-sm font-medium text-gray-700 flex items-center">
+                        <Users className="h-4 w-4 mr-2 text-blue-600" aria-hidden="true" />
+                        Passengers
+                      </p>
+                      <p className="text-sm text-gray-600 mt-1 ml-6">
+                        {bookingData.passengerCount} passenger(s)
+                      </p>
+                    </div>
+                  </div>
+      
+                  {/* Contact Information */}
+                  <div className="pb-4 border-b border-gray-200">
+                    <div className="mb-3">
+                      <p className="text-sm font-medium text-gray-700 flex items-center">
+                        <UserCircle className="h-4 w-4 mr-2 text-blue-600" aria-hidden="true" />
+                        Passenger Name
+                      </p>
+                      <p className="text-sm text-gray-600 mt-1 ml-6">
+                        {bookingData.passengerName}
+                      </p>
+                    </div>
+      
+                    <div className="mb-3">
+                      <p className="text-sm font-medium text-gray-700 flex items-center">
+                        <Phone className="h-4 w-4 mr-2 text-blue-600" aria-hidden="true" />
+                        Contact Number
+                      </p>
+                      <p className="text-sm text-gray-600 mt-1 ml-6">
+                        {bookingData.phoneNumber}
+                      </p>
+                    </div>
+      
+                    <div>
+                      <p className="text-sm font-medium text-gray-700 flex items-center">
+                        <Mail className="h-4 w-4 mr-2 text-blue-600" aria-hidden="true" />
+                        Email Address
+                      </p>
+                      <p className="text-sm text-gray-600 mt-1 ml-6">
+                        {bookingData.email}
+                      </p>
+                    </div>
+                  </div>
+      
+                  {/* Additional Services */}
+                  {bookingData.additionalCharging && (
+                    <div className="pb-4 border-b border-gray-200">
+                      <p className="text-sm font-medium text-gray-700 mb-2">
+                        Additional Services
+                      </p>
+                      <ul className="space-y-1 ml-6">
+                        {bookingData.additionalSelection.boosterSeat > 0 && (
+                          <li className="text-sm text-gray-600">
+                            {bookingData.additionalSelection.boosterSeat} × Booster Seat
+                          </li>
+                        )}
+                        {bookingData.additionalSelection.childSeat > 0 && (
+                          <li className="text-sm text-gray-600">
+                            {bookingData.additionalSelection.childSeat} × Child Seat
+                          </li>
+                        )}
+                        {bookingData.additionalSelection.infantSeat > 0 && (
+                          <li className="text-sm text-gray-600">
+                            {bookingData.additionalSelection.infantSeat} × Infant Seat
+                          </li>
+                        )}
+                        {bookingData.additionalSelection.meetAndGreet > 0 && (
+                          <li className="text-sm text-gray-600">
+                            {bookingData.additionalSelection.meetAndGreet} × Meet &amp; Greet
+                          </li>
+                        )}
+                        {bookingData.additionalSelection.waitingTimeAfterLanding > 0 && (
+                          <li className="text-sm text-gray-600">
+                            {bookingData.additionalSelection.waitingTimeAfterLanding} × Waiting After Landing
+                          </li>
+                        )}
+                        {bookingData.additionalSelection.wheelchair > 0 && (
+                          <li className="text-sm text-gray-600">
+                            {bookingData.additionalSelection.wheelchair} × Wheelchair
+                          </li>
+                        )}
+                        {bookingData.additionalSelection.additionalOptions
+                          .filter((opt) => opt.selected)
+                          .map((opt) => (
+                            <li key={opt._id} className="text-sm text-gray-600">
+                              {opt.quantity} × {opt.name}
+                            </li>
+                          ))}
+                      </ul>
+                    </div>
+                  )}
+      
+                  {/* Payment Information */}
+                  <div className="pb-4">
+                    <div className="mb-3">
+                      <p className="text-sm font-medium text-gray-700 flex items-center">
+                        {bookingData.paymentType === "card" ? (
+                          <CreditCard className="h-4 w-4 mr-2 text-blue-600" aria-hidden="true" />
+                        ) : (
+                          <Banknote className="h-4 w-4 mr-2 text-blue-600" aria-hidden="true" />
+                        )}
+                        Payment Method
+                      </p>
+                      <p className="text-sm text-gray-600 mt-1 ml-6 capitalize">
+                        {bookingData.paymentType}
+                      </p>
+                    </div>
+      
+                    <div>
+                      <p className="text-sm font-medium text-gray-700">Total Price</p>
+                      <p className="text-xl font-bold text-blue-600 mt-1 ml-6">
+                        £{bookingData.totalPrice}
+                      </p>
                     </div>
                   </div>
                 </div>
-
-                {/* Navigation Buttons */}
-                <div className="flex justify-between pt-4">
-                  <Button
-                    variant="outline"
-                    onClick={goToPrevStep}
-                    className="flex items-center"
-                    disabled={isSubmitting}
-                  >
-                    <ArrowLeft className="w-4 h-4 mr-2" aria-hidden="true" />
-                    Back
-                  </Button>
-                  <Button
-                    className="w-full px-6 py-6 md:px-8 bg-[#000000] text-white font-medium rounded-md hover:bg-gray-800 transition-colors text-md md:text-base"
-                    onClick={async () => {
-                      const bookingSuccess = await handleCreateBooking();
-                      if (bookingSuccess) {
-                        if (paymentType === "card") {
-                          goToNextStep();
-                        } else if (paymentType === "cash") {
-                          showAlert({
-                            title: "Booking Successful",
-                            description: bookingData.returnBooking
-                              ? "Your outbound + return booking was created successfully!"
-                              : "Your booking was created successfully!",
-                            type: "success",
-                            onConfirm: () => {
-                              window.location.reload();
-                            },
-                          });
-                        }
-                      }
-                    }}
-                  >
-                    Confirm and Book
-                  </Button>
+              </div>
+      
+              {/* Driver Notes (if any) */}
+              {bookingData.driverNotes && (
+                <div className="bg-yellow-50 rounded-lg p-4 border border-yellow-200">
+                  <p className="text-sm font-medium text-gray-700 flex items-center mb-2">
+                    <Clipboard className="h-4 w-4 mr-2 text-amber-600" aria-hidden="true" />
+                    Notes for the Driver
+                  </p>
+                  <p className="text-sm text-gray-600 ml-6">
+                    {bookingData.driverNotes}
+                  </p>
                 </div>
+
+                
+              )}
+              <Button
+                  variant="outline"
+                  onClick={goToPrevStep}
+                  className="flex items-center"
+                  disabled={isSubmitting}
+                >
+                  <ArrowLeft className="w-4 h-4 mr-2" aria-hidden="true" />
+                  Back
+                </Button>
+            </div>
+      
+            {/* Right Column - Payment Method & Navigation */}
+            <div className="space-y-6">
+              {/* Payment Method Selection */}
+              <div className="bg-white rounded-xl p-4 sm:p-6 shadow-sm">
+                <h2 className="text-xl font-semibold mb-4 sm:mb-6 text-gray-800">
+                  Payment Method
+                </h2>
+                <div className="space-y-3 sm:space-y-4">
+                  <div
+                    className={`flex items-center p-3 sm:p-4 border rounded-xl transition-colors duration-200 relative bg-white ${
+                      paymentType === "card"
+                        ? "border-blue-400 ring-2 ring-blue-50"
+                        : "border-gray-200 hover:border-blue-300"
+                    }`}
+                  >
+                    <input
+                      type="radio"
+                      id="card-payment"
+                      name="payment-method"
+                      className="w-4 h-4 sm:w-5 sm:h-5 text-blue-500 focus:ring-blue-400"
+                      checked={paymentType === "card"}
+                      onChange={() => setPaymentType("card")}
+                    />
+                    <label
+                      htmlFor="card-payment"
+                      className="ml-3 flex items-center w-full cursor-pointer"
+                    >
+                      <div className="w-8 h-8 sm:w-10 sm:h-10 mr-3 bg-blue-50 rounded-full flex items-center justify-center text-blue-500">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="w-5 h-5 sm:w-6 sm:h-6"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          aria-hidden="true"
+                        >
+                          <rect x="2" y="5" width="20" height="14" rx="2" />
+                          <path d="M2 10H22" />
+                          <path d="M6 15H8" strokeLinecap="round" />
+                        </svg>
+                      </div>
+                      <div>
+                        <p className="font-medium text-gray-800 text-sm sm:text-base">
+                          Pay by card
+                        </p>
+                        <p className="text-xs sm:text-sm text-gray-500">
+                          Credit or debit card
+                        </p>
+                      </div>
+                    </label>
+                  </div>
+      
+                  <div
+                    className={`flex items-center p-3 sm:p-4 border rounded-xl transition-colors duration-200 relative bg-white ${
+                      paymentType === "cash"
+                        ? "border-blue-400 ring-2 ring-blue-50"
+                        : "border-gray-200 hover:border-blue-300"
+                    }`}
+                  >
+                    <input
+                      type="radio"
+                      id="cash-payment"
+                      name="payment-method"
+                      className="w-4 h-4 sm:w-5 sm:h-5 text-blue-500 focus:ring-blue-400"
+                      checked={paymentType === "cash"}
+                      onChange={() => setPaymentType("cash")}
+                    />
+                    <label
+                      htmlFor="cash-payment"
+                      className="ml-3 flex items-center w-full cursor-pointer"
+                    >
+                      <div className="w-8 h-8 sm:w-10 sm:h-10 mr-3 bg-green-50 rounded-full flex items-center justify-center text-green-500">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="w-5 h-5 sm:w-6 sm:h-6"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          aria-hidden="true"
+                        >
+                          <path
+                            d="M2 10C2 7.79086 3.79086 6 6 6H18C20.2091 6 22 7.79086 22 10V14C22 16.2091 20.2091 18 18 18H6C3.79086 18 2 16.2091 2 14V10Z"
+                          />
+                          <path
+                            d="M12 14C13.1046 14 14 13.1046 14 12C14 10.8954 13.1046 10 12 10C10.8954 10 10 10.8954 10 12C10 13.1046 10.8954 14 12 14Z"
+                          />
+                          <path
+                            d="M17 10C17 8.89543 16.1046 8 15 8C13.8954 8 13 8.89543 13 10"
+                          />
+                          <path
+                            d="M7 14C7 15.1046 7.89543 16 9 16C10.1046 16 11 15.1046 11 14"
+                          />
+                        </svg>
+                      </div>
+                      <div>
+                        <p className="font-medium text-gray-800 text-sm sm:text-base">
+                          Pay in cash
+                        </p>
+                        <p className="text-xs sm:text-sm text-gray-500">
+                          Pay directly to driver
+                        </p>
+                      </div>
+                    </label>
+                  </div>
+                </div>
+              </div>
+      
+              {/* Navigation Buttons */}
+              <div className="flex justify-between pt-4">
+                
+                <Button
+                  className="w-full px-6 py-6 md:px-8 bg-[#000000] text-white font-medium rounded-md hover:bg-gray-800 transition-colors text-md md:text-base"
+                  onClick={async () => {
+                    const bookingSuccess = await handleCreateBooking();
+                    if (bookingSuccess) {
+                      if (paymentType === "card") {
+                        goToNextStep();
+                      } else if (paymentType === "cash") {
+                        showAlert({
+                          title: "Booking Successful",
+                          description: bookingData.returnBooking
+                            ? "Your outbound + return booking was created successfully!"
+                            : "Your booking was created successfully!",
+                          type: "success",
+                          onConfirm: () => {
+                            window.location.reload();
+                          },
+                        });
+                      }
+                    }
+                  }}
+                >
+                  Confirm and Book
+                </Button>
               </div>
             </div>
-
-            {/* Payment Modal */}
-            {showPaymentModal && (
-              <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 2.5 }}
-                  className="w-full max-w-md p-6 mx-4 bg-white rounded-xl"
-                >
-                  <div className="mb-6 text-center">
-                    <CreditCard
-                      className="w-10 h-10 mx-auto mb-4 text-blue-600"
-                      aria-hidden="true"
-                    />
-                    <h3 className="text-xl font-bold text-gray-800">
-                      Processing Payment
-                    </h3>
-                    <p className="mt-2 text-gray-600">
-                      Please wait while we process your payment...
-                    </p>
+          </div>
+      
+          {/* Payment Modal */}
+          {showPaymentModal && (
+            <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 2.5 }}
+                className="bg-white rounded-xl p-6 max-w-md w-full mx-4"
+              >
+                <div className="text-center mb-6">
+                  <CreditCard className="h-10 w-10 text-blue-600 mx-auto mb-4" aria-hidden="true" />
+                  <h3 className="text-xl font-bold text-gray-800">
+                    Processing Payment
+                  </h3>
+                  <p className="text-gray-600 mt-2">
+                    Please wait while we process your payment...
+                  </p>
+                </div>
+      
+                <div className="flex justify-center mb-6">
+                  <div className="h-2 w-full bg-gray-200 rounded-full overflow-hidden">
+                    <motion.div
+                      initial={{ width: "0%" }}
+                      animate={{ width: "100%" }}
+                      transition={{ duration: 2.5 }}
+                      className="h-full bg-blue-600"
+                    ></motion.div>
                   </div>
+                </div>
+      
+                <div className="text-center text-sm text-gray-500">
+                  <p>Amount: £{bookingData.totalPrice}</p>
+                  <p>Do not close this window</p>
+                </div>
+                
+              </motion.div>
+            </div>
+          )}
+        </CardContent>
+      </Card>
+      
 
-                  <div className="flex justify-center mb-6">
-                    <div className="w-full h-2 overflow-hidden bg-gray-200 rounded-full">
-                      <motion.div
-                        initial={{ width: "0%" }}
-                        animate={{ width: "100%" }}
-                        transition={{ duration: 2.5 }}
-                        className="h-full bg-blue-600"
-                      ></motion.div>
-                    </div>
-                  </div>
-
-                  <div className="text-sm text-center text-gray-500">
-                    <p>Amount: £{bookingData.totalPrice}</p>
-                    <p>Do not close this window</p>
-                  </div>
-                </motion.div>
-              </div>
-            )}
-          </CardContent>
-        </Card>
       )}
     </>
   );

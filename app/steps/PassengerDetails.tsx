@@ -17,24 +17,20 @@ import {
   Minus,
   Notebook,
   Car,
+  CreditCard,
 } from "lucide-react";
 import { Label } from "@/components/ui/label";
+import axios from "axios";
+import { StripePaymentWrapper } from "@/components/PaymentForm";
 
 const PassengerDetails = ({
   bookingData,
   updateBookingData,
-  // distanceSlots,
-  // fixedPrice,
-  // nightSurchargeSettings,
-  // surcharges,
-  // parkingCharges,
   additionalChargeData,
   goToNextStep,
   goToPrevStep,
   showAlert,
 }) => {
-  // const [isLoading, setIsLoading] = useState(false);
-
   const [formData, setFormData] = useState({
     passengerName: bookingData.passengerName || "",
     phoneNumber: bookingData.phoneNumber || "",
@@ -46,6 +42,16 @@ const PassengerDetails = ({
     paymentType: bookingData.paymentType || "cash",
   });
 
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [bookingComplete, setBookingComplete] = useState(false);
+  const [, /* bookingReference */ setBookingReference] = useState("");
+  const [showPaymentModal, setShowPaymentModal] = useState(false);
+  const [countdown, setCountdown] = useState(15);
+  const [paymentType, setPaymentType] = useState<"card" | "cash">(
+    bookingData.paymentType
+  );
+  const [isProcessingPayment, setIsProcessingPayment] = useState(false);
+
   const [priceDetails, setPriceDetails] = useState({
     basePrice: 0,
     additionalServicesPrice: 0,
@@ -53,9 +59,10 @@ const PassengerDetails = ({
     totalPrice: 0,
   });
 
-  // Update price calculation when form data changes
+  // Calculate price whenever relevant data changes
   useEffect(() => {
     calculateUpdatedPrice();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [
     formData.additionalCharging,
     formData.additionalSelection,
@@ -63,12 +70,11 @@ const PassengerDetails = ({
   ]);
 
   const calculateUpdatedPrice = () => {
-    // Start with the base price
     const basePrice = parseFloat(bookingData.price) || 0;
     let additionalServicesPrice = 0;
     let paymentMethodFee = 0;
 
-    // Calculate additional services cost if enabled
+    // Additional services
     if (formData.additionalCharging && additionalChargeData) {
       const { additionalSelection } = formData;
 
@@ -99,16 +105,14 @@ const PassengerDetails = ({
         .reduce((sum, opt) => sum + opt.price * opt.quantity, 0);
     }
 
-    // Apply payment method fee
+    // Payment method fee
     if (formData.paymentType === "card") {
-      // Assuming a 2.5% fee for card payments
+      // 2.5% fee for card
       paymentMethodFee = (basePrice + additionalServicesPrice) * 0.025;
     }
 
-    // Calculate total price
     const totalPrice = basePrice + additionalServicesPrice + paymentMethodFee;
 
-    // Update price details state
     setPriceDetails({
       basePrice,
       additionalServicesPrice,
@@ -116,7 +120,6 @@ const PassengerDetails = ({
       totalPrice,
     });
 
-    // Update total price in booking data
     updateBookingData({
       totalPrice: totalPrice.toFixed(2),
     });
@@ -161,7 +164,6 @@ const PassengerDetails = ({
       });
       return false;
     }
-
     if (!formData.phoneNumber.trim()) {
       showAlert({
         title: "Missing Information",
@@ -170,7 +172,6 @@ const PassengerDetails = ({
       });
       return false;
     }
-
     if (!formData.email.trim()) {
       showAlert({
         title: "Missing Information",
@@ -179,7 +180,6 @@ const PassengerDetails = ({
       });
       return false;
     }
-
     // Simple email validation
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(formData.email)) {
@@ -190,14 +190,10 @@ const PassengerDetails = ({
       });
       return false;
     }
-
     return true;
   };
 
-  const handleSubmit = () => {
-    if (!validateForm()) return;
-
-    // Update the booking data with passenger details
+  const syncPassengerData = () => {
     updateBookingData({
       passengerName: formData.passengerName,
       phoneNumber: formData.phoneNumber,
@@ -206,11 +202,190 @@ const PassengerDetails = ({
       additionalCharging: formData.additionalCharging,
       additionalSelection: formData.additionalSelection,
       driverNotes: formData.driverNotes,
-      paymentType: formData.paymentType,
+      paymentType: paymentType,
     });
+  };
 
-    // Move to the next step
-    goToNextStep();
+  // This will finalize the booking (API call, etc.)
+  const processBookingConfirmation = async () => {
+    try {
+      // Uncomment the next line in real usage:
+      // const response = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/api/booking/addbooking`, formattedBookingData);
+
+      // For demonstration, simulate an API response:
+      const randomRef = `#${Math.floor(1000000 + Math.random() * 9000000)}`;
+      setBookingReference(randomRef);
+      setBookingComplete(true);
+
+      // Auto-redirect countdown
+      const timer = setInterval(() => {
+        setCountdown((prev) => {
+          if (prev <= 1) {
+            clearInterval(timer);
+            return 0;
+          }
+          return prev - 1;
+        });
+      }, 1000);
+
+      return true;
+    } catch (error) {
+      console.error("Error creating booking:", error);
+      showAlert({
+        title: "Booking Error",
+        description: "Failed to create your booking. Please try again.",
+        type: "error",
+      });
+      return false;
+    }
+  };
+
+  // Called after the Stripe payment is successful
+  const handlePaymentSuccess = async (stripeResult: any) => {
+    console.log("Stripe Payment success details:", stripeResult);
+    setIsProcessingPayment(true);
+    try {
+      // Now finalize the booking
+      const success = await processBookingConfirmation();
+      if (success) {
+        setShowPaymentModal(false);
+        showAlert({
+          title: "Booking Successful",
+          description: "Your card payment has been confirmed!",
+          type: "success",
+          onConfirm: () => {
+            window.location.reload();
+          },
+        });
+      }
+    } catch (error) {
+      console.error("Error finishing payment or booking:", error);
+      showAlert({
+        title: "Payment/Booking Error",
+        description: "Something went wrong with your card payment.",
+        type: "error",
+      });
+    } finally {
+      setIsProcessingPayment(false);
+    }
+  };
+
+  // Process final booking submission
+  const handleCreateBooking = async (passengerFormData) => {
+    setIsSubmitting(true);
+
+    try {
+      const formattedBookingData = {
+        dateTime:
+          bookingData.selectedDate?.toISOString() || new Date().toISOString(),
+        returnBooking: bookingData.returnBooking,
+        pickup: {
+          locations: bookingData.pickups.map((p) => ({
+            address: p.location,
+            latitude: p.locationDetails?.lat || 0,
+            longitude: p.locationDetails?.lon || 0,
+            zone: p.zone || "",
+          })),
+        },
+        dropOff: {
+          address: bookingData.dropoff.location,
+          latitude: bookingData.dropoff.locationDetails?.lat || 0,
+          longitude: bookingData.dropoff.locationDetails?.lon || 0,
+          zone: bookingData.dropoff.zone || "",
+        },
+        vehicleType: bookingData.vehicleType,
+        passenger: {
+          name: passengerFormData.passengerName,
+          count: parseInt(bookingData.passengerCount) || 1,
+        },
+        contact: {
+          phone: passengerFormData.phoneNumber,
+          email: passengerFormData.email,
+          sendSmsToEmail: passengerFormData.sendSmsToEmail,
+        },
+        payment: {
+          type: passengerFormData.paymentType,
+          miles: bookingData.returnBooking
+            ? (
+                parseFloat(bookingData.miles) +
+                parseFloat(bookingData.returnMiles || "0")
+              ).toFixed(2)
+            : bookingData.miles,
+          price: bookingData.totalPrice,
+        },
+        driverNotes: passengerFormData.driverNotes,
+        driverCharge: "0.00",
+        returnDetails: bookingData.returnBooking
+          ? {
+              dateTime: bookingData.returnSelectedDate?.toISOString(),
+              pickups: bookingData.returnPickups.map((p) => ({
+                address: p.location,
+                latitude: p.locationDetails?.lat || 0,
+                longitude: p.locationDetails?.lon || 0,
+                zone: p.zone || "",
+              })),
+              dropOff: {
+                address: bookingData.returnDropoff.location,
+                latitude: bookingData.returnDropoff.locationDetails?.lat || 0,
+                longitude: bookingData.returnDropoff.locationDetails?.lon || 0,
+                zone: bookingData.returnDropoff.zone || "",
+              },
+            }
+          : null,
+        additionalCharge: bookingData.additionalCharging,
+        additionalChargeDetails: {
+          boosterSeat: bookingData.additionalSelection.boosterSeat || 0,
+          childSeat: bookingData.additionalSelection.childSeat || 0,
+          infantSeat: bookingData.additionalSelection.infantSeat || 0,
+          meetAndGreet: bookingData.additionalSelection.meetAndGreet || 0,
+          waitingTimeAfterLanding:
+            bookingData.additionalSelection.waitingTimeAfterLanding || 0,
+          waypoint: 0,
+          wheelchair: bookingData.additionalSelection.wheelchair || 0,
+          additionalOption: bookingData.additionalSelection.additionalOptions
+            .filter((opt) => opt.selected)
+            .map((opt) => ({
+              name: opt.name,
+              price: opt.price,
+              quantity: opt.quantity,
+            })),
+        },
+      };
+
+      // Sync data so we don't lose any
+      syncPassengerData();
+
+      // If user selects "card", open payment modal.
+      // If "cash", directly finalize booking.
+      if (paymentType === "card") {
+        setShowPaymentModal(true);
+        // Remove the old setTimeout approach here
+      } else {
+        await processBookingConfirmation();
+        showAlert({
+          title: "Booking Successful",
+          description: bookingData.returnBooking
+            ? "Your outbound + return booking was created successfully!"
+            : "Your booking was created successfully!",
+          type: "success",
+          onConfirm: () => {
+            window.location.reload();
+          },
+        });
+      }
+
+      return true;
+    } catch (error) {
+      console.error("Error creating booking:", error);
+      showAlert({
+        title: "Booking Error",
+        description: "Failed to create your booking. Please try again.",
+        type: "error",
+      });
+      return false;
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -220,8 +395,7 @@ const PassengerDetails = ({
         <Card className="overflow-hidden bg-white border rounded-xl">
           <CardContent className="p-6">
             <h2 className="mb-6 text-xl font-bold text-gray-800">
-              {" "}
-              Passenger Information{" "}
+              Passenger Information
             </h2>
 
             {/* Passenger details */}
@@ -295,19 +469,18 @@ const PassengerDetails = ({
                   <div className="flex items-center justify-between">
                     <div>
                       <p className="font-medium text-gray-800">
-                        {" "}
-                        {bookingData.vehicleType}{" "}
+                        {bookingData.vehicleType}
                       </p>
                       <div className="flex items-center mt-1 text-sm text-gray-600">
                         <Users className="w-3.5 h-3.5 mr-1" />
-                        <span>{bookingData.passengerCount} passengers </span>
+                        <span>{bookingData.passengerCount} passengers</span>
                       </div>
                     </div>
                     <div className="text-right">
                       <p className="font-medium text-primary">
-                        £{priceDetails.basePrice.toFixed(2)}{" "}
+                        £{priceDetails.basePrice.toFixed(2)}
                       </p>
-                      <p className="text-xs text-gray-500"> Base price </p>
+                      <p className="text-xs text-gray-500">Base price</p>
                     </div>
                   </div>
                 </div>
@@ -317,8 +490,7 @@ const PassengerDetails = ({
             {/* Additional services */}
             <div className="mb-8 space-y-5 bg-white rounded-md">
               <h2 className="mb-6 text-xl font-bold text-gray-800">
-                {" "}
-                Additional Services Information{" "}
+                Additional Services Information
               </h2>
               <div className="flex items-center mb-4 space-x-2">
                 <Checkbox
@@ -345,16 +517,14 @@ const PassengerDetails = ({
                   className="p-4 space-y-4 rounded-lg bg-[#F5F6FA]"
                 >
                   <h3 className="mb-3 font-semibold text-gray-700 text-md">
-                    {" "}
-                    Select Additional Services{" "}
+                    Select Additional Services
                   </h3>
 
                   <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
-                    {/* Child seats */}
+                    {/* Booster Seat */}
                     <div className="p-3 bg-white border border-gray-200 rounded-md">
                       <label className="block mb-2 text-sm font-medium text-gray-700">
-                        {" "}
-                        Booster Seat{" "}
+                        Booster Seat
                       </label>
                       <div className="flex items-center">
                         <button
@@ -399,10 +569,10 @@ const PassengerDetails = ({
                       </div>
                     </div>
 
+                    {/* Child Seat */}
                     <div className="p-3 bg-white border border-gray-200 rounded-md">
                       <label className="block mb-2 text-sm font-medium text-gray-700">
-                        {" "}
-                        Child Seat{" "}
+                        Child Seat
                       </label>
                       <div className="flex items-center">
                         <button
@@ -445,10 +615,10 @@ const PassengerDetails = ({
                       </div>
                     </div>
 
+                    {/* Infant Seat */}
                     <div className="p-3 bg-white border border-gray-200 rounded-md">
                       <label className="block mb-2 text-sm font-medium text-gray-700">
-                        {" "}
-                        Infant Seat{" "}
+                        Infant Seat
                       </label>
                       <div className="flex items-center">
                         <button
@@ -493,11 +663,10 @@ const PassengerDetails = ({
                       </div>
                     </div>
 
-                    {/* Other services */}
+                    {/* Meet & Greet */}
                     <div className="p-3 bg-white border border-gray-200 rounded-md">
                       <label className="block mb-2 text-sm font-medium text-gray-700">
-                        {" "}
-                        Meet & Greet{" "}
+                        Meet & Greet
                       </label>
                       <div className="flex items-center">
                         <button
@@ -542,10 +711,10 @@ const PassengerDetails = ({
                       </div>
                     </div>
 
+                    {/* Waiting After Landing */}
                     <div className="p-3 bg-white border border-gray-200 rounded-md">
                       <label className="block mb-2 text-sm font-medium text-gray-700">
-                        {" "}
-                        Waiting After Landing{" "}
+                        Waiting After Landing
                       </label>
                       <div className="flex items-center">
                         <button
@@ -594,10 +763,10 @@ const PassengerDetails = ({
                       </div>
                     </div>
 
+                    {/* Wheelchair */}
                     <div className="p-3 bg-white border border-gray-200 rounded-md">
                       <label className="block mb-2 text-sm font-medium text-gray-700">
-                        {" "}
-                        Wheelchair{" "}
+                        Wheelchair
                       </label>
                       <div className="flex items-center">
                         <button
@@ -648,8 +817,7 @@ const PassengerDetails = ({
                     0 && (
                     <div className="mt-5">
                       <h4 className="mb-3 text-sm font-medium text-gray-700">
-                        {" "}
-                        Other Additional Options{" "}
+                        Other Additional Options
                       </h4>
                       <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
                         {formData.additionalSelection.additionalOptions.map(
@@ -694,8 +862,7 @@ const PassengerDetails = ({
                                     <Minus className="w-3 h-3 text-gray-600" />
                                   </button>
                                   <span className="mx-2 text-sm">
-                                    {" "}
-                                    {option.quantity}{" "}
+                                    {option.quantity}
                                   </span>
                                   <button
                                     type="button"
@@ -762,21 +929,22 @@ const PassengerDetails = ({
 
               <div className="flex items-center justify-between py-2 md:py-3">
                 {priceDetails.paymentMethodFee > 0 && (
-                  <div className="flex justify-between py-2">
-                    <span className="text-gray-600"> Card payment fee: </span>
+                  <div className="flex justify-between py-2 w-full">
+                    <span className="text-gray-600">Card payment fee:</span>
                     <span className="font-medium">
-                      £{priceDetails.paymentMethodFee.toFixed(2)}{" "}
+                      £{priceDetails.paymentMethodFee.toFixed(2)}
                     </span>
                   </div>
                 )}
-
-                {bookingData.returnBooking && (
-                  <div className="flex justify-between py-2">
-                    <span className="text-gray-600"> Return journey: </span>
-                    <span className="text-gray-600"> Included </span>
-                  </div>
-                )}
               </div>
+
+              {bookingData.returnBooking && (
+                <div className="flex justify-between py-2">
+                  <span className="text-gray-600">Return journey:</span>
+                  <span className="text-gray-600">Included</span>
+                </div>
+              )}
+
               <div className="flex justify-between p-4 space-y-5 bg-[#F5F6FA] rounded-lg">
                 <span className="text-base font-semibold md:text-lg">
                   Total Price
@@ -786,102 +954,204 @@ const PassengerDetails = ({
                 </span>
               </div>
               <p className="mt-3 text-xs text-gray-500 md:text-sm md:mt-4">
-                This is an approximate estimate.The trip cost and travel time
-                may differ due to traffic, route taken and waiting time.
+                This is an approximate estimate. The trip cost and travel time
+                may differ due to traffic, route taken, and waiting time.
               </p>
+            </CardContent>
+          </Card>
 
-              {/* Service Guarantee - More visible on mobile */}
-              <div className="p-4 mt-5 border border-blue-100 rounded-lg bg-blue-50 md:p-6">
-                <div className="flex items-start space-x-3">
-                  <div className="flex-shrink-0 text-primary">
+          {/* Payment Method Selection */}
+          <div className="bg-white rounded-xl p-4 sm:p-6 shadow-sm">
+            <h2 className="text-xl font-semibold mb-4 sm:mb-6 text-gray-800">
+              Payment Method
+            </h2>
+            <div className="space-y-3 sm:space-y-4">
+              {/* Pay by Card */}
+              <div
+                className={`flex items-center p-3 sm:p-4 border rounded-xl transition-colors duration-200 relative bg-white ${
+                  paymentType === "card"
+                    ? "border-blue-400 ring-2 ring-blue-50"
+                    : "border-gray-200 hover:border-blue-300"
+                }`}
+              >
+                <input
+                  type="radio"
+                  id="card-payment"
+                  name="payment-method"
+                  className="w-4 h-4 sm:w-5 sm:h-5 text-blue-500 focus:ring-blue-400"
+                  checked={paymentType === "card"}
+                  onChange={() => setPaymentType("card")}
+                />
+                <label
+                  htmlFor="card-payment"
+                  className="ml-3 flex items-center w-full cursor-pointer"
+                >
+                  <div className="w-8 h-8 sm:w-10 sm:h-10 mr-3 bg-blue-50 rounded-full flex items-center justify-center text-blue-500">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
-                      className="w-5 h-5 md:h-6 md:w-6"
-                      fill="none"
+                      className="w-5 h-5 sm:w-6 sm:h-6"
                       viewBox="0 0 24 24"
+                      fill="none"
                       stroke="currentColor"
+                      strokeWidth="2"
+                      aria-hidden="true"
                     >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
-                      />
+                      <rect x="2" y="5" width="20" height="14" rx="2" />
+                      <path d="M2 10H22" />
+                      <path d="M6 15H8" strokeLinecap="round" />
                     </svg>
                   </div>
                   <div>
-                    <h3 className="text-sm font-medium text-gray-900 md:text-base">
-                      Our Service Guarantee
-                    </h3>
-                    <p className="mt-1 text-xs text-gray-600 md:text-sm">
-                      Fixed price, no hidden fees.Clean vehicles with
-                      professional drivers. 24 / 7 customer support.
+                    <p className="font-medium text-gray-800 text-sm sm:text-base">
+                      Pay by card
                     </p>
+                    <p className="text-xs sm:text-sm text-gray-500">
+                      Credit or debit card
+                    </p>
+                  </div>
+                </label>
+              </div>
+
+              {/* Pay in Cash */}
+              <div
+                className={`flex items-center p-3 sm:p-4 border rounded-xl transition-colors duration-200 relative bg-white ${
+                  paymentType === "cash"
+                    ? "border-blue-400 ring-2 ring-blue-50"
+                    : "border-gray-200 hover:border-blue-300"
+                }`}
+              >
+                <input
+                  type="radio"
+                  id="cash-payment"
+                  name="payment-method"
+                  className="w-4 h-4 sm:w-5 sm:h-5 text-blue-500 focus:ring-blue-400"
+                  checked={paymentType === "cash"}
+                  onChange={() => setPaymentType("cash")}
+                />
+                <label
+                  htmlFor="cash-payment"
+                  className="ml-3 flex items-center w-full cursor-pointer"
+                >
+                  <div className="w-8 h-8 sm:w-10 sm:h-10 mr-3 bg-green-50 rounded-full flex items-center justify-center text-green-500">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="w-5 h-5 sm:w-6 sm:h-6"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      aria-hidden="true"
+                    >
+                      <path d="M2 10C2 7.79086 3.79086 6 6 6H18C20.2091 6 22 7.79086 22 10V14C22 16.2091 20.2091 18 18 18H6C3.79086 18 2 16.2091 2 14V10Z" />
+                      <path d="M12 14C13.1046 14 14 13.1046 14 12C14 10.8954 13.1046 10 12 10C10.8954 10 10 10.8954 10 12C10 13.1046 10.8954 14 12 14Z" />
+                      <path d="M17 10C17 8.89543 16.1046 8 15 8C13.8954 8 13 8.89543 13 10" />
+                      <path d="M7 14C7 15.1046 7.89543 16 9 16C10.1046 16 11 15.1046 11 14" />
+                    </svg>
+                  </div>
+                  <div>
+                    <p className="font-medium text-gray-800 text-sm sm:text-base">
+                      Pay in cash
+                    </p>
+                    <p className="text-xs sm:text-sm text-gray-500">
+                      Pay directly to driver
+                    </p>
+                  </div>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          {/* Confirm and Book */}
+          <div className="flex justify-between pt-4">
+            <Button
+              onClick={async () => {
+                if (!validateForm()) return;
+                const bookingSuccess = await handleCreateBooking(formData);
+                // If paymentType === "card", bookingSuccess just triggers the modal
+                // If "cash", bookingSuccess finalizes immediately.
+                if (!bookingSuccess) {
+                  // Show error or handle accordingly
+                }
+              }}
+            >
+              Confirm and Book
+            </Button>
+          </div>
+        </div>
+
+        {showPaymentModal && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center">
+            {/* Backdrop with blur */}
+            <div className="absolute inset-0 bg-black bg-opacity-50 backdrop-blur-sm"></div>
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.4 }}
+              className="relative z-10 w-full max-w-4xl bg-white rounded-xl shadow-2xl overflow-hidden transform transition-all"
+              role="dialog"
+              aria-modal="true"
+              aria-labelledby="payment-modal-title"
+            >
+              {/* Accessible Close Button */}
+              <button
+                onClick={() => setShowPaymentModal(false)}
+                className="absolute top-3 right-3 p-2 rounded-full hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-400"
+                aria-label="Close payment modal"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-6 w-6 text-gray-600"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                </svg>
+              </button>
+              <div className="flex flex-col md:flex-row">
+                {/* LEFT SIDE: Branding & Details */}
+                <div className="hidden md:flex md:w-1/2 flex-col items-center justify-center bg-gradient-to-br from-blue-50 to-blue-100 p-8">
+                  <img
+                    src="/path/to/car-image.jpg"
+                    alt="Car Image"
+                    className="w-40 h-auto mb-6 rounded shadow-md"
+                  />
+                  <h2 className="text-2xl font-extrabold text-gray-800 mb-2">
+                    Subscribe to ReCar Rental
+                  </h2>
+                  <p className="text-xl text-gray-700 font-semibold mb-1">
+                    €203.20
+                  </p>
+                  <p className="text-sm text-gray-500">Billed monthly</p>
+                </div>
+                {/* RIGHT SIDE: Payment Content */}
+                <div className="w-full md:w-1/2 p-6 flex flex-col justify-center">
+                  <div className="text-center mb-6">
+                    <CreditCard
+                      className="h-12 w-12 text-blue-600 mx-auto mb-4"
+                      aria-hidden="true"
+                    />
+                  </div>
+
+                  {/* Stripe Payment Form */}
+                  <div className="flex justify-center">
+                    <StripePaymentWrapper
+                      amount={Math.round(priceDetails.totalPrice * 100)}
+                      onSuccess={(result) => {
+                        handlePaymentSuccess(result);
+                      }}
+                    />
                   </div>
                 </div>
               </div>
-            </CardContent>
-          </Card>
-          <div className="px-4">
-            <button
-              onClick={handleSubmit}
-              className="w-full px-6 py-3 mt-2 text-sm font-medium text-white transition-colors rounded-md md:px-8 bg-primary hover:bg-btn-hover md:text-base"
-            >
-              Continue Booking
-            </button>
+            </motion.div>
           </div>
-
-          {/* <Card className="overflow-hidden bg-white shadow-md rounded-xl">
-            <CardContent className="p-6">
-              <h2 className="mb-4 text-xl font-bold text-gray-800">
-                {" "}
-                Payment Method{" "}
-              </h2>
-
-              <RadioGroup
-                value={formData.paymentType}
-                onValueChange={(value) =>
-                  handleInputChange("paymentType", value)
-                }
-                className="space-y-3"
-              >
-                <div className="flex items-center p-3 space-x-3 border border-gray-200 rounded-lg cursor-pointer hover:bg-gray-50">
-                  <RadioGroupItem value="cash" id="payment-cash" />
-                  <Label
-                    htmlFor="payment-cash"
-                    className="flex items-center flex-1 cursor-pointer"
-                  >
-                    <Banknote className="w-5 h-5 mr-3 text-green-600" />
-                    <div>
-                      <p className="font-medium"> Cash </p>
-                      <p className="text-sm text-gray-500">
-                        {" "}
-                        Pay in cash to the driver{" "}
-                      </p>
-                    </div>
-                  </Label>
-                </div>
-
-                <div className="flex items-center p-3 space-x-3 border border-gray-200 rounded-lg cursor-pointer hover:bg-gray-50">
-                  <RadioGroupItem value="card" id="payment-card" />
-                  <Label
-                    htmlFor="payment-card"
-                    className="flex items-center flex-1 cursor-pointer"
-                  >
-                    <CreditCard className="w-5 h-5 mr-3 text-primary" />
-                    <div>
-                      <p className="font-medium"> Card Payment </p>
-                      <p className="text-sm text-gray-500">
-                        {" "}
-                        2.5 % processing fee applies{" "}
-                      </p>
-                    </div>
-                  </Label>
-                </div>
-              </RadioGroup>
-            </CardContent>
-          </Card> */}
-        </div>
+        )}
       </div>
     </div>
   );
