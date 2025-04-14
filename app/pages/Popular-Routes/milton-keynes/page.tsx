@@ -317,7 +317,7 @@ export default function HomePage() {
             </h3>
             <p className="text-sm text-justify text-gray-700 sm:text-base">
               Some people use the Luton airport taxi to Milton Keynes but some
-              others prefer to train for traveling purposes. So here's you can
+              others prefer to train for traveling purposes. So here is you can
               travel to Milton Keynes by train
             </p>
             <div className="px-4 py-4 text-xs leading-relaxed text-justify text-gray-700 bg-gray-100 rounded-lg sm:px-6 sm:py-5 sm:text-sm">

@@ -5,10 +5,9 @@ import { useRef } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import { testimonials } from "@/components/CustomerTestimonials";
 import FAQ from "@/components/landing/FAQ";
 import { routes } from "@/components/PopularRoutes";
-import { FaCarAlt, FaStar } from "react-icons/fa"; // install with: npm install react-icons
+import { FaCarAlt } from "react-icons/fa"; // install with: npm install react-icons
 import FeedBack from "@/components/landing/Feedback";
 import { CheckCircle } from "lucide-react";
 
@@ -21,7 +20,6 @@ import MaskGroup from "@/assets/images/mask-group.png";
 import ShopingCenter from "@/assets/images/shopping-center.png";
 import campbellPark from "@/assets/images/campbel-park.png";
 import bletchleyPark from "@/assets/images/bletchley-park.png";
-import EasyTreveling from "@/assets/images/easy-traveling.png";
 
 export default function HomePage() {
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -224,7 +222,7 @@ export default function HomePage() {
                 own car is approximately 29 minutes.The distance between Luton
                 and Milton Keynes is approximately 22.5 miles which are equal to
                 36.2 km.Because of the fast and casual traffic of M1 Motorway,
-                it's not hard to cover this distance at this time.
+                it is not hard to cover this distance at this time.
               </p>
             </div>
 
@@ -273,7 +271,7 @@ export default function HomePage() {
             </h3>
             <p className="text-sm text-justify text-gray-700 sm:text-base">
               Some people use the Luton airport taxi to Milton Keynes but some
-              others prefer to train for traveling purposes.So here's you can
+              others prefer to train for traveling purposes.So here is you can
               travel to Milton Keynes by train
             </p>
             <div className="px-4 py-4 text-xs leading-relaxed text-justify text-gray-700 bg-gray-100 rounded-lg sm:px-6 sm:py-5 sm:text-sm">

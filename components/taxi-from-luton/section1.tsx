@@ -22,19 +22,19 @@ const LutonAirportTaxi = () => {
             smooth and comfortable as possible, which is why we go to great
             lengths to make the trip as smooth and comfortable as possible. Our
             drivers are very experienced and our vehicles are well taken care
-            of, so you'll have a comfortable ride to and from Luton airport to
-            wherever you're going.
+            of, so you will have a comfortable ride to and from Luton airport to
+            wherever you are going.
           </p>
 
           <p className="mb-6 text-justify text-gray-600">
             Plus, our prices are low-cost. The most cost-effective and time-
             saving way to book a cab is to book in advance on our website.
-            However, if you haven't pre-booked a taxi, you can still book with
+            However, if you have not pre-booked a taxi, you can still book with
             us on the spot, and our average pick-up time is just 11 minutes.
           </p>
 
           <p className="text-justify text-gray-600">
-            Whether you're looking to book a cab to and from Luton airport or
+            Whether you are looking to book a cab to and from Luton airport or
             any other destination, our taxis from and to Luton airport are
             available at your service. In the Luton area, we are recognized as
             one of the best taxi and cab services due to our customer-centric

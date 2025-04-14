@@ -30,7 +30,7 @@ const Section4 = () => {
           <p className="text-justify text-gray-600">
             Upon arrival at Luton Airport, there are several procedures to
             follow before you can leave the airport. The specific process may
-            vary depending on your arrival terminal and flight details. Here's a
+            vary depending on your arrival terminal and flight details. Here is a
             general overview
           </p>
         </div>
@@ -52,10 +52,10 @@ const Section4 = () => {
             by going left and walking past the buses, taxis, and parking lifts
             for a few minutes. Your designated driver will be waiting at the
             designated spot to pick you up. If you have any concerns or
-            questions, don't worry! Our team is here to assist you. We have a
+            questions, do not worry! Our team is here to assist you. We have a
             dedicated phone number for you to reach us anytime for help. We want
             to ensure your trip is smooth and enjoyable, and our drivers are
-            always ready to assist. Simply give us a call, and we'll be
+            always ready to assist. Simply give us a call, and we will be
             delighted to help you!
           </p>
         </div>
@@ -67,8 +67,8 @@ const Section4 = () => {
               Disembark from the plane and follow signs to the arrivals area.
             </li>
             <li>
-              If you're arriving from outside the UK, proceed to immigration
-              control where you'll need to present your passport and travel
+              If you are arriving from outside the UK, proceed to immigration
+              control where you will need to present your passport and travel
               documents for clearance.
             </li>
             <li>
@@ -77,15 +77,15 @@ const Section4 = () => {
             </li>
             <li>
               If required, proceed to the customs control area to declare any
-              goods or items you're bringing into the UK.
+              goods or items you are bringing into the UK.
             </li>
             <li>
-              Once you've cleared customs, follow the signs to the airport exit.
+              Once you have cleared customs, follow the signs to the airport exit.
               Depending on the terminal, you may need to take a shuttle or walk
               to the exit.
             </li>
             <li>
-              Upon exiting the terminal building, you'll have various transport
+              Upon exiting the terminal building, you will have various transport
               options like taxis, buses, or trains to continue your journey.
             </li>
           </ol>

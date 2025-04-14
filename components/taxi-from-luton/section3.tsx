@@ -27,7 +27,7 @@ const Section3 = () => {
           <p className="mb-8 text-justify text-gray-600">
             We understand that finding your driver can be a daunting task,
             especially in a busy and unfamiliar environment like an
-            airport.Here's what you can expect when using our taxi service:
+            airport.Here is what you can expect when using our taxi service:
           </p>
 
           <div className="mb-8">
@@ -41,7 +41,7 @@ const Section3 = () => {
               sign displaying your name(if you booked a meet and greet service),
               making it easy to spot them.If you have not booked a meet - and -
               greet service, your driver will be waiting for you at the
-              designated pickup and drop - off area located just a minute's walk
+              designated pickup and drop - off area located just a minutes walk
               from the terminal.
             </p>
           </div>
@@ -68,7 +68,7 @@ const Section3 = () => {
               driver will be there to greet you, assist with your luggage, and
               provide any necessary information for your journey.If you have pre
               - paid online, we kindly request your feedback on our service upon
-              completion of your trip.For those who haven't pre-booked, we offer
+              completion of your trip.For those who have not pre-booked, we offer
               convenient payment options at the end of your journey, including
               cash, credit card, and American Express.
             </p>

@@ -1,14 +1,9 @@
 "use client";
 
 import React, { useRef } from "react";
-import html2canvas from "html2canvas";
 import {
-  Calendar,
-  MapPin,
   Users,
   Check,
-  Clock,
-  ArrowLeft,
   CheckCircle,
   Luggage,
 } from "lucide-react";
@@ -234,7 +229,7 @@ const BookingSummary: React.FC<BookingSummaryProps> = ({ bookingData }) => {
                   Time
                 </div>
                 <div className="text-gray-600 text-sm">
-                  {bookingData.selectedTime || "11:00AM"}
+                  {formatTime(bookingData.selectedTime)}
                 </div>
               </div>
             </div>

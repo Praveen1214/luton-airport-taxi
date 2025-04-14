@@ -5,15 +5,10 @@ import Image from "next/image";
 import StepCard from "@/components/StepCard";
 
 import step1Image from "@/assets/images/ridebooking.png";
-import step2Image from "@/assets/images/ridebooking.png";
-import step3Image from "@/assets/images/ridebooking.png";
-import step4Image from "@/assets/images/ridebooking.png";
-import step5Image from "@/assets/images/ridebooking.png";
-import step6Image from "@/assets/images/ridebooking.png";
+
 
 import { G1, G2, G3, G4, G5, G6, G7 } from "../../../../assets";
 
-import { ridebooking } from "@/assets";
 import FAQ from "@/components/landing/FAQ";
 
 const Page = () => {
