@@ -8,13 +8,14 @@ import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Textarea } from "@/components/ui/textarea";
 import { motion } from "framer-motion";
+import PhoneInput from "react-phone-input-2";
+import "react-phone-input-2/lib/style.css"; // or choose other themes like 'style.css', 'bootstrap.css'
 
 import {
   UserCircle,
   Users,
   Phone,
   Mail,
-  ArrowLeft,
   Plus,
   Minus,
   Notebook,
@@ -29,7 +30,7 @@ const PassengerDetails = ({
   updateBookingData,
   additionalChargeData,
   goToNextStep,
-  goToPrevStep,
+  // goToPrevStep,
   showAlert,
 }) => {
   const [formData, setFormData] = useState({
@@ -43,11 +44,11 @@ const PassengerDetails = ({
     paymentType: bookingData.paymentType || "cash",
   });
 
-  const [/*isSubmitting*/, setIsSubmitting] = useState(false);
-  const [/*bookingComplete*/, setBookingComplete] = useState(false);
-  const [/*bookingReference*/, setBookingReference] = useState("");
+  const [, /*isSubmitting*/ setIsSubmitting] = useState(false);
+  const [, /*bookingComplete*/ setBookingComplete] = useState(false);
+  const [, /*bookingReference*/ setBookingReference] = useState("");
   const [showPaymentModal, setShowPaymentModal] = useState(false);
-  const [/*isProcessingPayment*/, setIsProcessingPayment] = useState(false);
+  const [, /*isProcessingPayment*/ setIsProcessingPayment] = useState(false);
   const [paymentType, setPaymentType] = useState<"card" | "cash">(
     bookingData.paymentType
   );
@@ -89,8 +90,7 @@ const PassengerDetails = ({
       additionalServicesPrice +=
         additionalSelection.childSeat * (additionalChargeData.childSeat || 0);
       additionalServicesPrice +=
-        additionalSelection.infantSeat *
-        (additionalChargeData.infantSeat || 0);
+        additionalSelection.infantSeat * (additionalChargeData.infantSeat || 0);
 
       // Other services
       additionalServicesPrice +=
@@ -429,13 +429,15 @@ const PassengerDetails = ({
                   <Phone className="w-4 h-4 mr-2 text-primary" />
                   Phone Number
                 </label>
-                <Input
+
+                <PhoneInput
+                  country={"gb"}
                   value={formData.phoneNumber}
-                  onChange={(e) =>
-                    handleInputChange("phoneNumber", e.target.value)
-                  }
-                  placeholder="Enter phone number"
-                  className="bg-white border-gray-300 focus:ring-primary focus:border-primary"
+                  onChange={(phone) => handleInputChange("phoneNumber", phone)}
+                  enableSearch
+                  inputClass="!w-full !pl-14 !pr-3 !py-2 !text-sm !rounded-md !border !border-gray-300 focus:!border-primary focus:!ring-1 focus:!ring-primary !bg-white"
+                  containerClass="!w-full"
+                  buttonClass="!bg-transparent !border-r !border-gray-300"
                 />
               </div>
 
@@ -822,7 +824,8 @@ const PassengerDetails = ({
                   </div>
 
                   {/* Additional options */}
-                  {formData.additionalSelection.additionalOptions?.length > 0 && (
+                  {formData.additionalSelection.additionalOptions?.length >
+                    0 && (
                     <div className="mt-5">
                       <h4 className="mb-3 text-sm font-medium text-gray-700">
                         Other Additional Options
@@ -915,14 +918,14 @@ const PassengerDetails = ({
           </CardContent>
         </Card>
         <div className="flex justify-between pt-4">
-          <Button
+          {/* <Button
             variant="outline"
             onClick={goToPrevStep}
             className="flex items-center"
           >
             <ArrowLeft className="w-4 h-4 mr-2" />
             Back
-          </Button>
+          </Button> */}
         </div>
       </div>
 
@@ -1067,16 +1070,13 @@ const PassengerDetails = ({
             </div>
           </div>
 
-          {/* Confirm and Book */}
-          <div className="flex justify-between pt-4">
+          <div className="pt-6 px-4">
             <Button
+              className="w-full h-12 text-md text-white"
               onClick={async () => {
                 if (!validateForm()) return;
                 const bookingSuccess = await handleCreateBooking(formData);
 
-                // If paymentType === "card", handleCreateBooking
-                // simply opens the payment modal. If "cash", it tries
-                // to finalize the booking right away.
                 if (!bookingSuccess) {
                   console.log("Booking creation failed.");
                 }
