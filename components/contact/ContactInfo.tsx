@@ -5,7 +5,7 @@ const ContactInfo = () => {
     {
       icon: (
         <svg
-          className="w-5 h-5 text-blue-600"
+          className="w-5 h-5 text-primary"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
@@ -37,7 +37,7 @@ const ContactInfo = () => {
     {
       icon: (
         <svg
-          className="w-5 h-5 text-blue-600"
+          className="w-5 h-5 text-primary"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
@@ -63,7 +63,7 @@ const ContactInfo = () => {
     {
       icon: (
         <svg
-          className="w-5 h-5 text-blue-600"
+          className="w-5 h-5 text-primary"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
@@ -106,7 +106,7 @@ const ContactInfo = () => {
             <a
               key={index}
               href={link.url}
-              className="block mt-1 text-sm text-blue-600 hover:text-blue-800"
+              className="block mt-1 text-sm text-primary hover:text-btn-hover"
             >
               {link.text.split("\n").map((line, i) => (
                 <React.Fragment key={i}>
