@@ -105,22 +105,28 @@ export default function Footer() {
               },
               {
                 label: "Flight monitoring",
-                path: "/pages/services/flight-monitoring",
+                path: "/pages/Airport-Transfer/Flight-Monitoring",
               },
               {
                 label: "Business travel",
-                path: "/pages/services/businessTravel",
+                path: "/pages/Airport-Transfer/Business-Travel",
               },
               {
                 label: "Assisted Travel",
-                path: "/pages/services/assisted-travel",
+                path: "/pages/Airport-Transfer/Assisted-Travel",
               },
-              { label: "Baby Seat", path: "/pages/services/baby-seat" },
+              {
+                label: "Baby Seat",
+                path: "/pages/Airport-Transfer/Baby-Seat",
+              },
               {
                 label: "Airport Transfer",
-                path: "/pages/services/airport-transfer",
+                path: "/pages/Airport-Transfer/airport-transfer",
               },
-              { label: "Meet & Greet", path: "/pages/services/meet-and-greet" },
+              {
+                label: "Meet & Greet",
+                path: "/pages/Airport-Transfer/MeetGreet",
+              },
             ].map(({ label, path }) => (
               <Link
                 key={label}
