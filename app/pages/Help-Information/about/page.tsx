@@ -1,5 +1,6 @@
 import Hero from "@/components/about/Hero";
 import Section1 from "@/components/about/section1";
+import Section2 from "@/components/about/section2";
 import React from "react";
 
 const Page = () => {
@@ -11,6 +12,9 @@ const Page = () => {
         </div>
         <div className="mt-10">
           <Section1 />
+        </div>
+        <div className="mt-10">
+          <Section2 />
         </div>
       </div>
     </div>

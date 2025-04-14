@@ -15,7 +15,7 @@ const LutonAirportTaxi = () => {
             Affordable taxi service to Luton airport to any destination
           </p>
 
-          <p className="mb-6 text-gray-600">
+          <p className="mb-6 text-justify text-gray-600">
             Welcome to our taxi service from and to Luton Airport, where we
             provide a reliable, efficient, and stress-free transportation
             service. It is important to us that your travel experience is as
@@ -26,14 +26,14 @@ const LutonAirportTaxi = () => {
             wherever you're going.
           </p>
 
-          <p className="mb-6 text-gray-600">
+          <p className="mb-6 text-justify text-gray-600">
             Plus, our prices are low-cost. The most cost-effective and time-
             saving way to book a cab is to book in advance on our website.
             However, if you haven't pre-booked a taxi, you can still book with
             us on the spot, and our average pick-up time is just 11 minutes.
           </p>
 
-          <p className="text-gray-600">
+          <p className="text-justify text-gray-600">
             Whether you're looking to book a cab to and from Luton airport or
             any other destination, our taxis from and to Luton airport are
             available at your service. In the Luton area, we are recognized as
@@ -55,7 +55,7 @@ const LutonAirportTaxi = () => {
             </div>
 
             <div className="p-6">
-              <p className="text-gray-600">
+              <p className="text-justify text-gray-600">
                 We guarantee a smooth taxi ride to Luton Airport when you book
                 with us. We are the best at providing taxis and transfers to
                 Luton Airport. When your flight arrives at Luton Airport, your
