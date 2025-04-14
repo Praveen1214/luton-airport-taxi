@@ -68,13 +68,16 @@ export default function Footer() {
           <h4 className="mb-4 text-lg font-bold">Help & Information</h4>
           <div className="space-y-2">
             {[
-              { label: "About Us", path: "/about" },
-              { label: "Contact Us", path: "/contact" },
+              { label: "About Us", path: "/pages/Help-Information/about" },
+              { label: "Contact Us", path: "/pages/Help-Information/contact" },
               {
                 label: "Booking a Taxi Guide",
                 path: "/pages/Help-Information/Guide",
               },
-              { label: "Join as a Driver", path: "/join" },
+              {
+                label: "Join as a Driver",
+                path: "/pages/Help-Information/join",
+              },
             ].map(({ label, path }) => (
               <Link
                 key={label}

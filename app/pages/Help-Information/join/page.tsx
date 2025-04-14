@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import Hero from "../../components/join/hero";
+import Hero from "../../../../components/join/hero";
 import JoinWithUs from "@/components/join/JoinWithUs";
 import Dedicate from "@/components/join/dedicate";
 import Benefit from "@/components/join/benifit";
