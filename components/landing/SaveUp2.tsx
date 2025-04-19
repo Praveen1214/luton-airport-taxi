@@ -17,27 +17,30 @@ const SaveUp2 = () => {
             Taxi From Luton Airport
           </h1>
 
-          <p className="leading-relaxed text-justify text-gray-700">
-            Land and leave in luxury with our Luton Airport Taxi Service. As you
-            touch down at Luton, our taxi from Luton Airport service is at your
-            beck and call. Our professional drivers, paired with our fleet of
-            comfortable Luton Airport taxis, ensure your onward journey is
-            relaxing and efficient. For travelers headed back, our taxi to Luton
-            Airport service provides the same level of comfort and reliability.
-            Experience Luton Airport pickups like never before: no long queues,
-            no uncertainty, just swift and reliable taxi Luton Airport transfers
-            that cater to your schedule. Whether you sre looking for a taxi for
-            Luton Airport or a pickup, we have got you covered. Our commitment is
-            to offer top-tier taxis from Luton Airport and taxis to Luton
-            Airport every single time, thanks to our expansive airport taxi
-            service. Specifically designed to cater to a wide range of
-            travelers, our Luton Airport transfer service makes your transition
-            from the airport smooth as we. We offer a swift pick up, our drivers
-            are knowledgeable, we offer a meet and greet service where our
-            driver will be waiting at the terminal with your name card to get
-            you a taxi making your travel safe and hassle free. When it comes to
-            Airport Taxi Luton, we are the name you can trust for punctuality,
-            luxury, and complete peace of mind.
+          <p className="leading-relaxed text-justify text-gray-700 mb-4">
+            If you are searching for a taxi transfer from Luton Airport to
+            anywhere in the country, we are surely the service for you.
+          </p>
+
+          <p className="leading-relaxed text-justify text-gray-700 mb-4">
+            We offer something others can’t. Our dedication and honesty with
+            customers is unmatched. Besides, we are cheaper than anyone else and
+            upfront about fees and costs. Whether you need immediate Luton
+            Airport pickup after landing or to schedule a driver, we’ve got you
+            covered.
+          </p>
+
+          <p className="leading-relaxed text-justify text-gray-700 mb-4">
+            Moreover, if you need our driver to find you at the airport, we
+            offer an excellent meet & greet service. Our driver will go into the
+            terminal and meet you directly to help you with your luggage,
+            instead of carrying it yourself.{" "}
+          </p>
+
+          <p className="leading-relaxed text-justify text-gray-700 mb-4">
+            If it’s your first time in Luton, you can check out our Luton
+            Airport Guide or for a more detailed version, visit the official
+            Luton Airport Arrivals section.
           </p>
         </div>
 

@@ -303,19 +303,21 @@ const BookingFlow = () => {
               <BookingSteps />
             </div>
             <div className="container relative w-full px-4 mx-auto md:px-6 lg:px-8">
-              <Stress />
+              <SaveUp2 />
             </div>
+
+            <div className="container relative w-full px-4 mx-auto md:px-6 lg:px-8">
+              <LAirPort />
+            </div>
+
             <div className="container relative w-full px-4 mx-auto md:px-6 lg:px-8">
               <OurServices />
             </div>
             <div className="container relative w-full px-4 mx-auto md:px-6 lg:px-8">
+              <Stress />
+            </div>
+            <div className="container relative w-full px-4 mx-auto md:px-6 lg:px-8">
               <SaveUp />
-            </div>
-            <div className="container relative w-full px-4 mx-auto md:px-6 lg:px-8">
-              <SaveUp2 />
-            </div>
-            <div className="container relative w-full px-4 mx-auto md:px-6 lg:px-8">
-              <LAirPort />
             </div>
             <div className="container relative hidden w-full px-4 mx-auto md:px-6 lg:px-8 md:block">
               <Specialist />
