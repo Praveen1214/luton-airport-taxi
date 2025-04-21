@@ -28,9 +28,10 @@ export default function RootLayout({
         className={`${inter.variable} ${ibmPlexSerif.variable} antialiased`}
       >
         <Header />
-        <main className="max-w-screen-xl w-full mx-auto px-4 sm:px-6 lg:px-8">
+        <main className="w-full lg:px-8 lg:max-w-screen-xl lg:mx-auto">
           {children}
         </main>
+
         <Footer />
       </body>
     </html>
