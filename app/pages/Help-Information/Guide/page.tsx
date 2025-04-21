@@ -15,7 +15,7 @@ const Page = () => {
   return (
     <main className="flex flex-col items-center justify-center w-full">
       {/* Hero Section */}
-      <section className="w-full py-12 md:py-20 bg-gradient-to-l from-blue-50 to-transparent">
+      <section className="w-full py-12 md:py-20 bg-gradient from-blue-50 to-transparent">
         <div className="max-w-6xl px-4 mx-auto mb-20 text-center">
           <h1 className="mb-4 text-3xl font-bold md:text-5xl">
             Booking Taxi Guide
