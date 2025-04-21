@@ -11,6 +11,7 @@ import Image from "next/image";
 import { Logo } from "../../assets";
 
 interface BookingData {
+  refId: string;
   selectedDate: string;
   selectedTime: string;
   returnBooking?: boolean;
@@ -83,7 +84,7 @@ const BookingSummary: React.FC<BookingSummaryProps> = ({ bookingData }) => {
   }
 
   // Default values for the example booking
-  const bookingCode = "#9987251";
+  const bookingCode = bookingData.refId || "LAT1234567890";
   const serviceType = bookingData.returnBooking ? "RETURN" : "ONE WAY";
 
   // Default values for names if not provided in bookingData
