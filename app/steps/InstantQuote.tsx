@@ -15,7 +15,7 @@ const AirportTransferPage = ({
     <div className="w-full mx-auto max-w-7xl">
       <div className="flex flex-col w-full gap-8 px-4 py-6 sm:px-6 md:flex-row md:items-start lg:px-8">
         {/* Hero section - hide on mobile */}
-        <div className="hidden md:flex md:flex-col md:w-1/2 lg:w-3/5">
+        <div className="hidden md:flex md:flex-col md:w-1/2 lg:w-3/5 bg-blue">
           <HeroSection />
         </div>
 
@@ -25,7 +25,7 @@ const AirportTransferPage = ({
         </div>
 
         {/* Instant Quote Component */}
-        <div className="w-full md:w-1/2 lg:w-2/5">
+        <div className="w-full md:w-1/2 lg:w-2/5 ">
           <InstantQuote
             bookingData={bookingData}
             updateBookingData={updateBookingData}

@@ -45,7 +45,7 @@ export default function HomePage() {
   return (
     <main className="flex flex-col w-full">
       {/* Hero Section */}
-      <section className="w-full px-4 py-8 text-center md:py-20 bg-gradient-to-l from-blue-50 to-transparent">
+      <section className="w-full px-4 py-8 text-center md:py-20 bg-gradient from-blue-50 to-transparent">
         <div className="max-w-6xl mx-auto ">
           <h1 className="mb-4 text-2xl font-bold sm:text-3xl md:text-5xl">
             Luton To St Albans Taxi Transfers

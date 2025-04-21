@@ -99,13 +99,7 @@ const VehicleSelection = ({
         });
 
         setVehiclePrices(calculatedPrices);
-        // Auto-select the standard/default vehicle option if none is selected
-        if (selectedVehicleIndex === -1 && calculatedPrices.length > 0) {
-          const defaultIndex = calculatedPrices.findIndex((v) =>
-            v.type.toLowerCase().includes("standard")
-          );
-          setSelectedVehicleIndex(defaultIndex !== -1 ? defaultIndex : 0);
-        }
+        
       } catch (error) {
         console.error("Error calculating vehicle prices:", error);
         showAlert({
@@ -156,11 +150,18 @@ const VehicleSelection = ({
         description: "Please select a vehicle type to continue.",
         type: "warning",
       });
+  
+      // Optional: scroll to vehicle list
+      document
+        .querySelector("#vehicle-list")
+        ?.scrollIntoView({ behavior: "smooth" });
+  
       return;
     }
-
+  
     goToNextStep();
   };
+  
 
   // Determine most popular and best value vehicles
   const getMostPopularIndex = () => {
@@ -208,7 +209,7 @@ const VehicleSelection = ({
           <>
             {/* 
             {/* Vehicle options */}
-            <div className="mb-10 space-y-6">
+            <div id="vehicle-list" className="mb-10 space-y-6">
               {vehiclePrices.map((vehicle, index) => {
                 const isSelected = index === selectedVehicleIndex;
                 const isMostPopular = index === mostPopularIndex;
@@ -400,10 +401,9 @@ const VehicleSelection = ({
               <Button
                 onClick={handleContinue}
                 className="flex items-center text-white bg-primary hover:bg-btn-hover"
-                disabled={selectedVehicleIndex === -1}
+                // disabled={selectedVehicleIndex === -1}
               >
                 Book Now
-                {/* <ArrowRight className="w-4 h-4 ml-2" /> */}
               </Button>
             </div>
           </>

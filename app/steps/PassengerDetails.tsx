@@ -13,7 +13,6 @@ import "react-phone-input-2/lib/style.css"; // or choose other themes like 'styl
 
 import {
   UserCircle,
-  Users,
   Phone,
   Mail,
   Plus,
@@ -21,6 +20,7 @@ import {
   Notebook,
   Car,
   CreditCard,
+  ArrowLeft,
 } from "lucide-react";
 import { Label } from "@/components/ui/label";
 import { StripePaymentWrapper } from "@/components/PaymentForm";
@@ -30,7 +30,7 @@ const PassengerDetails = ({
   updateBookingData,
   additionalChargeData,
   goToNextStep,
-  // goToPrevStep,
+  goToPrevStep,
   showAlert,
 }) => {
   const [formData, setFormData] = useState({
@@ -42,6 +42,8 @@ const PassengerDetails = ({
     additionalSelection: bookingData.additionalSelection,
     driverNotes: bookingData.driverNotes || "",
     paymentType: bookingData.paymentType || "cash",
+    flightNumber: bookingData.flightNumber || "",
+    arrivingFrom: bookingData.arrivingFrom || "",
   });
 
   const [, /*isSubmitting*/ setIsSubmitting] = useState(false);
@@ -472,11 +474,11 @@ const PassengerDetails = ({
               </div>
 
               <div>
-                <label className="flex items-center mb-2 text-sm font-medium text-gray-700">
+                {/* <label className="flex items-center mb-2 text-sm font-medium text-gray-700">
                   <Car className="w-4 h-4 mr-2 text-primary" />
                   Selected Vehicle
-                </label>
-                <div className="p-3 bg-white border border-gray-200 rounded-md">
+                </label> */}
+                {/* <div className="p-3 bg-white border border-gray-200 rounded-md">
                   <div className="flex items-center justify-between">
                     <div>
                       <p className="font-medium text-gray-800">
@@ -494,7 +496,33 @@ const PassengerDetails = ({
                       <p className="text-xs text-gray-500">Base price</p>
                     </div>
                   </div>
-                </div>
+                </div> */}
+
+                <label className="flex items-center mb-2 text-sm font-medium text-gray-700">
+                  <Car className="w-4 h-4 mr-2 text-primary" />
+                  Flight Number
+                </label>
+                <Input
+                  value={formData.flightNumber}
+                  onChange={(e) =>
+                    handleInputChange("flightNumber", e.target.value)
+                  }
+                  placeholder="Enter flight number"
+                  className="bg-white border-gray-300 focus:ring-primary focus:border-primary mb-4"
+                />
+
+                <label className="flex items-center mb-2 text-sm font-medium text-gray-700">
+                  Arriving from
+                </label>
+
+                <Input
+                  value={formData.arrivingFrom}
+                  onChange={(e) =>
+                    handleInputChange("arrivingFrom", e.target.value)
+                  }
+                  placeholder="Enter arriving from"
+                  className="bg-white border-gray-300 focus:ring-primary focus:border-primary"
+                />
               </div>
             </div>
 
@@ -917,16 +945,6 @@ const PassengerDetails = ({
             </div>
           </CardContent>
         </Card>
-        <div className="flex justify-between pt-4">
-          {/* <Button
-            variant="outline"
-            onClick={goToPrevStep}
-            className="flex items-center"
-          >
-            <ArrowLeft className="w-4 h-4 mr-2" />
-            Back
-          </Button> */}
-        </div>
       </div>
 
       {/* Right side - Price summary and payment option */}
@@ -1084,6 +1102,16 @@ const PassengerDetails = ({
             >
               Confirm and Book
             </Button>
+            <div className="flex justify-between pt-4">
+              <Button
+                variant="outline"
+                onClick={goToPrevStep}
+              className="w-full h-12 text-md text-black"
+              >
+                <ArrowLeft className="w-4 h-4 mr-2" />
+                Back
+              </Button>
+            </div>
           </div>
         </div>
 

@@ -11,7 +11,7 @@ import StepIndicator from "./steps/StepIndicator";
 import AlertToast from "@/components/alertToast";
 import Loader from "@/components/common/Loader";
 import Services from "@/components/landing/Services";
-import BookingSteps from "@/components/landing/BookingSteps";
+// import BookingSteps from "@/components/landing/BookingSteps";
 import Stress from "@/components/landing/Stress";
 import OurServices from "@/components/landing/OurServices";
 import SaveUp from "@/components/landing/SaveUp";
@@ -262,14 +262,14 @@ const BookingFlow = () => {
   const steps = [
     { number: 1, label: "Booking" },
     { number: 2, label: "Quotation" },
-    { number: 3, label: "Passenger Details" },
+    { number: 3, label: "Details" },
     { number: 4, label: "Confirm" },
   ];
 
   return (
     <>
-      <div className="relative min-h-screen bg-off-white">
-        <div className="absolute top-0 right-0 w-2/3 h-full pointer-events-none bg-gradient-to-l from-blue-50 to-transparent">
+      <div className="relative min-h-screen">
+        <div className="absolute top-0 right-0 w-2/3 h-full pointer-events-none bg-gradient from-blue-50 to-transparent">
           {" "}
         </div>
         <div className="relative py-6 mx-auto sm:px-6 lg:px-8">
@@ -299,9 +299,9 @@ const BookingFlow = () => {
                 <Services />
               </div>
             </div>
-            <div className="container relative w-full px-4 mx-auto md:px-6 lg:px-8">
+            {/* <div className="container relative w-full px-4 mx-auto md:px-6 lg:px-8">
               <BookingSteps />
-            </div>
+            </div> */}
             <div className="container relative w-full px-4 mx-auto md:px-6 lg:px-8">
               <SaveUp2 />
             </div>
