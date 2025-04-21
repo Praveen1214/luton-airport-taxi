@@ -211,6 +211,8 @@ const PassengerDetails = ({
       additionalSelection: formData.additionalSelection,
       driverNotes: formData.driverNotes,
       paymentType: paymentType,
+      flightNumber: formData.flightNumber,
+      arrivingFrom: formData.arrivingFrom,
     });
   };
 
@@ -285,6 +287,8 @@ const PassengerDetails = ({
         dateTime:
           bookingData.selectedDate?.toISOString() || new Date().toISOString(),
         returnBooking: bookingData.returnBooking,
+        flightNumber: passengerFormData.flightNumber,
+        arrivingFrom: passengerFormData.arrivingFrom,
         pickup: {
           locations: bookingData.pickups.map((p) => ({
             address: p.location,
@@ -502,7 +506,7 @@ const PassengerDetails = ({
                   <Car className="w-4 h-4 mr-2 text-primary" />
                   Flight Number
                 </label>
-                <Input
+                <Input 
                   value={formData.flightNumber}
                   onChange={(e) =>
                     handleInputChange("flightNumber", e.target.value)
