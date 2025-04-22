@@ -9,7 +9,12 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Textarea } from "@/components/ui/textarea";
 import { motion } from "framer-motion";
 import PhoneInput from "react-phone-input-2";
-import "react-phone-input-2/lib/style.css"; // or choose other themes like 'style.css', 'bootstrap.css'
+import "react-phone-input-2/lib/style.css";
+// ➊ NEW – price breakdown helper
+import {
+  getPriceBreakdown,
+  PriceBreakdown,
+} from "@/app/calculations/getPriceBreakdown";
 
 import {
   UserCircle,
@@ -32,6 +37,11 @@ const PassengerDetails = ({
   goToNextStep,
   goToPrevStep,
   showAlert,
+  distanceSlots,
+  fixedPriceList,
+  nightSurchargeSettings,
+  surcharges,
+  parkingCharges,
 }) => {
   const [formData, setFormData] = useState({
     passengerName: bookingData.passengerName || "",
@@ -59,79 +69,142 @@ const PassengerDetails = ({
   // so that we can reuse it after card payment success.
   const [finalBookingData, setFinalBookingData] = useState(null);
 
-  const [priceDetails, setPriceDetails] = useState({
-    basePrice: 0,
-    additionalServicesPrice: 0,
-    paymentMethodFee: 0,
-    totalPrice: 0,
-  });
+  // const [priceDetails, setPriceDetails] = useState({
+  //   basePrice: 0,
+  //   additionalServicesPrice: 0,
+  //   paymentMethodFee: 0,
+  //   totalPrice: 0,
+  // });
 
-  // Calculate price whenever relevant data changes
+  // // Calculate price whenever relevant data changes
+  // useEffect(() => {
+  //   calculateUpdatedPrice();
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, [
+  //   formData.additionalCharging,
+  //   formData.additionalSelection,
+  //   formData.paymentType,
+  // ]);
+
+  // const calculateUpdatedPrice = () => {
+  //   const basePrice = parseFloat(bookingData.price) || 0;
+  //   let additionalServicesPrice = 0;
+  //   let paymentMethodFee = 0;
+
+  //   // Additional services
+  //   if (formData.additionalCharging && additionalChargeData) {
+  //     const { additionalSelection } = formData;
+
+  //     // Child seats
+  //     additionalServicesPrice +=
+  //       additionalSelection.boosterSeat *
+  //       (additionalChargeData.boosterSeat || 0);
+  //     additionalServicesPrice +=
+  //       additionalSelection.childSeat * (additionalChargeData.childSeat || 0);
+  //     additionalServicesPrice +=
+  //       additionalSelection.infantSeat * (additionalChargeData.infantSeat || 0);
+
+  //     // Other services
+  //     additionalServicesPrice +=
+  //       additionalSelection.meetAndGreet *
+  //       (additionalChargeData.meetAndGreet || 0);
+  //     additionalServicesPrice +=
+  //       additionalSelection.waitingTimeAfterLanding *
+  //       (additionalChargeData.waitingTimeAfterLanding || 0);
+  //     additionalServicesPrice +=
+  //       additionalSelection.waypoint * (additionalChargeData.waypoint || 0);
+  //     additionalServicesPrice +=
+  //       additionalSelection.wheelchair * (additionalChargeData.wheelchair || 0);
+
+  //     // Additional options
+  //     additionalServicesPrice += additionalSelection.additionalOptions
+  //       .filter((opt) => opt.selected)
+  //       .reduce((sum, opt) => sum + opt.price * opt.quantity, 0);
+  //   }
+
+  //   // Payment method fee
+  //   if (formData.paymentType === "card") {
+  //     // 2.5% fee for card
+  //     paymentMethodFee = (basePrice + additionalServicesPrice) * 0.025;
+  //   }
+
+  //   const totalPrice = basePrice + additionalServicesPrice + paymentMethodFee;
+
+  //   setPriceDetails({
+  //     basePrice,
+  //     additionalServicesPrice,
+  //     paymentMethodFee,
+  //     totalPrice,
+  //   });
+
+  //   // Update the overall booking data so total price is available to parent
+  //   updateBookingData({
+  //     totalPrice: totalPrice.toFixed(2),
+  //   });
+  // };
+  /* ---------- live price breakdown ---------- */
+  const buildBreakdown = (): PriceBreakdown =>
+    getPriceBreakdown(
+      distanceSlots,
+      parseFloat(bookingData.miles),
+      bookingData.vehicleType,
+      bookingData.pickups,
+      bookingData.dropoff,
+      fixedPriceList,
+      nightSurchargeSettings,
+      bookingData.selectedDate,
+      surcharges,
+      parkingCharges,
+      additionalChargeData,
+      formData.additionalSelection,
+      formData.additionalCharging,
+      paymentType,
+      bookingData.returnBooking,
+      bookingData.returnPickups,
+      bookingData.returnDropoff,
+      parseFloat(bookingData.returnMiles || "0"),
+      bookingData.returnSelectedDate
+    );
+
+  const [priceDetails, setPriceDetails] = useState<PriceBreakdown>(
+    buildBreakdown()
+  );
+  const lastTotalRef = React.useRef<number>(priceDetails.total);
+
+
+  /* recalc whenever something price‑relevant changes */
   useEffect(() => {
-    calculateUpdatedPrice();
+    setPriceDetails(buildBreakdown());
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [
-    formData.additionalCharging,
     formData.additionalSelection,
-    formData.paymentType,
+    formData.additionalCharging,
+    paymentType,
+    bookingData.selectedDate,
   ]);
 
-  const calculateUpdatedPrice = () => {
-    const basePrice = parseFloat(bookingData.price) || 0;
-    let additionalServicesPrice = 0;
-    let paymentMethodFee = 0;
+  const Row = ({
+    label,
+    value,
+    note,
+  }: {
+    label: string;
+    value?: number;
+    note?: string;
+  }) => (
+    <div className="flex justify-between py-2 w-full">
+      <span className="text-gray-600">{label}:</span>
+      <span className="font-medium">{note ?? `£${value!.toFixed(2)}`}</span>
+    </div>
+  );
 
-    // Additional services
-    if (formData.additionalCharging && additionalChargeData) {
-      const { additionalSelection } = formData;
-
-      // Child seats
-      additionalServicesPrice +=
-        additionalSelection.boosterSeat *
-        (additionalChargeData.boosterSeat || 0);
-      additionalServicesPrice +=
-        additionalSelection.childSeat * (additionalChargeData.childSeat || 0);
-      additionalServicesPrice +=
-        additionalSelection.infantSeat * (additionalChargeData.infantSeat || 0);
-
-      // Other services
-      additionalServicesPrice +=
-        additionalSelection.meetAndGreet *
-        (additionalChargeData.meetAndGreet || 0);
-      additionalServicesPrice +=
-        additionalSelection.waitingTimeAfterLanding *
-        (additionalChargeData.waitingTimeAfterLanding || 0);
-      additionalServicesPrice +=
-        additionalSelection.waypoint * (additionalChargeData.waypoint || 0);
-      additionalServicesPrice +=
-        additionalSelection.wheelchair * (additionalChargeData.wheelchair || 0);
-
-      // Additional options
-      additionalServicesPrice += additionalSelection.additionalOptions
-        .filter((opt) => opt.selected)
-        .reduce((sum, opt) => sum + opt.price * opt.quantity, 0);
+  /* keep parent in sync */
+  useEffect(() => {
+    if (priceDetails.total !== lastTotalRef.current) {
+      lastTotalRef.current = priceDetails.total;
+      updateBookingData({ totalPrice: priceDetails.total.toFixed(2) });
     }
-
-    // Payment method fee
-    if (formData.paymentType === "card") {
-      // 2.5% fee for card
-      paymentMethodFee = (basePrice + additionalServicesPrice) * 0.025;
-    }
-
-    const totalPrice = basePrice + additionalServicesPrice + paymentMethodFee;
-
-    setPriceDetails({
-      basePrice,
-      additionalServicesPrice,
-      paymentMethodFee,
-      totalPrice,
-    });
-
-    // Update the overall booking data so total price is available to parent
-    updateBookingData({
-      totalPrice: totalPrice.toFixed(2),
-    });
-  };
+  }, [priceDetails.total]);
 
   const handleInputChange = (field, value) => {
     setFormData((prev) => ({ ...prev, [field]: value }));
@@ -254,15 +327,16 @@ const PassengerDetails = ({
       // Use the final booking data that we stored in state
       const success = await processBookingConfirmation(finalBookingData);
       if (success) {
-        setShowPaymentModal(false);
-        showAlert({
-          title: "Booking Successful",
-          description: "Your card payment has been confirmed!",
-          type: "success",
-          onConfirm: () => {
-            setBookingComplete(true);
-          },
-        });
+        setBookingComplete(true);
+
+        // setShowPaymentModal(false);
+        // showAlert({
+        //   title: "Booking Successful",
+        //   description: "Your card payment has been confirmed!",
+        //   type: "success",
+        //   onConfirm: () => {
+        //   },
+        // });
         goToNextStep();
       }
     } catch (error) {
@@ -375,16 +449,18 @@ const PassengerDetails = ({
         // Handle cash flow: create the booking right away
         const success = await processBookingConfirmation(formattedBookingData);
         if (success) {
-          showAlert({
-            title: "Booking Successful",
-            description: bookingData.returnBooking
-              ? "Your outbound + return booking was created successfully!"
-              : "Your booking was created successfully!",
-            type: "success",
-            onConfirm: () => {
-              setBookingComplete(true);
-            },
-          });
+          // showAlert({
+          //   title: "Booking Successful",
+          //   description: bookingData.returnBooking
+          //     ? "Your outbound + return booking was created successfully!"
+          //     : "Your booking was created successfully!",
+          //   type: "success",
+          //   onConfirm: () => {
+          //     setBookingComplete(true);
+          //   },
+          // });
+          setBookingComplete(true);
+
           goToNextStep();
         }
       }
@@ -506,7 +582,7 @@ const PassengerDetails = ({
                   <Car className="w-4 h-4 mr-2 text-primary" />
                   Flight Number
                 </label>
-                <Input 
+                <Input
                   value={formData.flightNumber}
                   onChange={(e) =>
                     handleInputChange("flightNumber", e.target.value)
@@ -960,30 +1036,39 @@ const PassengerDetails = ({
                 Payment Breakdown
               </h2>
 
-              {priceDetails.paymentMethodFee > 0 && (
-                <div className="flex justify-between py-2 w-full">
-                  <span className="text-gray-600">Card payment fee:</span>
-                  <span className="font-medium">
-                    £{priceDetails.paymentMethodFee.toFixed(2)}
-                  </span>
-                </div>
+              <Row label="Base / fixed fare" value={priceDetails.baseOrFixed} />
+
+              {!!priceDetails.night && (
+                <Row label="Night‑time surcharge" value={priceDetails.night} />
+              )}
+              {!!priceDetails.holiday && (
+                <Row label="Holiday surcharge" value={priceDetails.holiday} />
+              )}
+              {!!priceDetails.parking && (
+                <Row label="Parking charge" value={priceDetails.parking} />
+              )}
+              {!!priceDetails.additional && (
+                <Row label="Additional items" value={priceDetails.additional} />
+              )}
+              {!!priceDetails.paymentFee && (
+                <Row
+                  label="Payment‑method fee"
+                  value={priceDetails.paymentFee}
+                />
+              )}
+              {!!priceDetails.returnLeg && (
+                <Row label="Return journey" value={priceDetails.returnLeg} />
               )}
 
-              {bookingData.returnBooking && (
-                <div className="flex justify-between py-2">
-                  <span className="text-gray-600">Return journey:</span>
-                  <span className="text-gray-600">Included</span>
-                </div>
-              )}
-
-              <div className="flex justify-between p-4 space-y-5 bg-[#F5F6FA] rounded-lg">
+              <div className="flex justify-between p-4 bg-[#F5F6FA] rounded-lg">
                 <span className="text-base font-semibold md:text-lg">
                   Total Price
                 </span>
                 <span className="text-base font-bold text-primary md:text-lg">
-                  £{priceDetails.totalPrice.toFixed(2)}
+                  £{priceDetails.total.toFixed(2)}
                 </span>
               </div>
+
               <p className="mt-3 text-xs text-gray-500 md:text-sm md:mt-4">
                 This is an approximate estimate. The trip cost and travel time
                 may differ due to traffic, route taken, and waiting time.
@@ -1110,7 +1195,7 @@ const PassengerDetails = ({
               <Button
                 variant="outline"
                 onClick={goToPrevStep}
-              className="w-full h-12 text-md text-black"
+                className="w-full h-12 text-md text-black"
               >
                 <ArrowLeft className="w-4 h-4 mr-2" />
                 Back
@@ -1180,7 +1265,7 @@ const PassengerDetails = ({
                   {/* Stripe Payment Form */}
                   <div className="flex justify-center">
                     <StripePaymentWrapper
-                      amount={Math.round(priceDetails.totalPrice * 100)}
+                      amount={Math.round(priceDetails.total * 100)}
                       onSuccess={(result) => {
                         handlePaymentSuccess(result);
                       }}

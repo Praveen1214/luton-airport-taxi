@@ -5,13 +5,16 @@
  * depending on the pickups & dropoff provided.
  */
 export function calculateParkingChargeForRoute(
-  parkingCharges: [],
-  pickups: { location: string }[],
-  dropoff: { location: string },
-  // totalPrice: number,
-  // returnBooking: boolean
+  parkingCharges: any[] = [], // ← default to empty array
+  pickups: { location: string }[] = [],
+  dropoff: { location: string } = { location: "" }
 ): number {
   let total = 0;
+
+  if (!Array.isArray(parkingCharges)) {
+    console.warn("Invalid parkingCharges passed to calculateParkingChargeForRoute");
+    return 0;
+  }
 
   for (const pc of parkingCharges) {
     if (pc.status !== "Active") continue;
@@ -20,33 +23,26 @@ export function calculateParkingChargeForRoute(
     const locType = pc.locationType;
     const pcPrice = parseFloat(pc.price) || 0;
 
-    const pickupLocation = pickups[0].location;
-    const dropoffLocation = dropoff.location;
+    const pickupLocation = pickups[0]?.location || "";
+    const dropoffLocation = dropoff?.location || "";
 
-    const doesPickupMatch = chargeAddresses.some((parkingAddr) =>
-      pickupLocation.includes(parkingAddr)
+    const doesPickupMatch = chargeAddresses.some((addr) =>
+      pickupLocation.includes(addr)
     );
-    const doesDropoffMatch = chargeAddresses.some((parkingAddr) =>
-      dropoffLocation.includes(parkingAddr)
+    const doesDropoffMatch = chargeAddresses.some((addr) =>
+      dropoffLocation.includes(addr)
     );
 
-    if (locType === "Any") {
-      if (doesPickupMatch || doesDropoffMatch) {
-        total += pcPrice;
-      }
-    } else if (locType === "Pickup") {
-      if (doesPickupMatch) {
-        total += pcPrice;
-      }
-    } else if (locType === "Dropoff") {
-      if (doesDropoffMatch) {
-        total += pcPrice;
-      }
+    if (
+      (locType === "Any" && (doesPickupMatch || doesDropoffMatch)) ||
+      (locType === "Pickup" && doesPickupMatch) ||
+      (locType === "Dropoff" && doesDropoffMatch)
+    ) {
+      total += pcPrice;
     }
   }
-  console.log("Parking charge: ", total.toFixed(2));
-  
-  
 
+  console.log("Parking charge: ", total.toFixed(2));
   return total;
 }
+
