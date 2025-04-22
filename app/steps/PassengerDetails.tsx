@@ -23,7 +23,6 @@ import {
   Plus,
   Minus,
   Notebook,
-  Car,
   CreditCard,
   ArrowLeft,
 } from "lucide-react";
@@ -354,6 +353,7 @@ const PassengerDetails = ({
   // Process final booking submission (both card & cash flows).
   const handleCreateBooking = async (passengerFormData: any) => {
     setIsSubmitting(true);
+    const breakdown = buildBreakdown();
 
     try {
       // Build up the data you want to send to your server:
@@ -434,6 +434,16 @@ const PassengerDetails = ({
               quantity: opt.quantity,
             })),
         },
+        priceBreakdown: breakdown, // ✅ Add this line
+        finalPrice: breakdown.total,
+        basePrice: breakdown.baseOrFixed,
+        fixedBasePrice: breakdown.baseOrFixed, // Or keep separate logic if needed
+        holidayCharge: breakdown.holiday,
+        nightCharge: breakdown.night,
+        parkingBaseCharge: breakdown.parking,
+        returnCharge: breakdown.returnLeg,
+        additionalBaseCharge: breakdown.additional,
+        paymentMethodCharge: breakdown.paymentFee,
       };
 
       // Make sure we sync so that all form data is also stored in parent if needed
@@ -579,7 +589,6 @@ const PassengerDetails = ({
                 </div> */}
 
                 <label className="flex items-center mb-2 text-sm font-medium text-gray-700">
-                  <Car className="w-4 h-4 mr-2 text-primary" />
                   Flight Number
                 </label>
                 <Input

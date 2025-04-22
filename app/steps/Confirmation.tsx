@@ -64,10 +64,10 @@ function formatDate(dateString: string) {
 }
 
 // Format time separately for cleaner display
-function formatTime(timeString: string) {
-  if (!timeString) return "";
-  return timeString;
-}
+// function formatTime(timeString: string) {
+//   if (!timeString) return "";
+//   return timeString;
+// }
 
 type BookingSummaryProps = {
   bookingData?: BookingData;
@@ -166,10 +166,10 @@ const BookingSummary: React.FC<BookingSummaryProps> = ({
           </p>
           <p className="text-gray-600 mt-1">
             Reservation Number:{" "}
-            <span className="text-blue-600">{bookingData.refId}</span>
+            <span className="text-blue-600">{bookingCode}</span>
             </p>
         </div>
-    
+
         <div className="max-w-5xl mx-auto">
           {/* Main Card */}
           <div className="bg-white rounded-lg border border-gray-200 overflow-hidden">
@@ -270,16 +270,16 @@ const BookingSummary: React.FC<BookingSummaryProps> = ({
                       {formatDate(bookingData.selectedDate)}
                     </div>
                   </div>
-                  <div className="p-4 rounded-lg">
+                  {/* <div className="p-4 rounded-lg">
                     <div className="text-sm font-medium text-gray-500 mb-1">
                       Time
                     </div>
                     <div className="text-gray-800 font-medium">
                       {formatTime(bookingData.selectedTime)}
                     </div>
-                  </div>
+                  </div> */}
                 </div>
-    
+
                 {/* Journey Details */}
                 <div className="bg-gray-50 p-4 rounded-lg mb-6">
                   <h3 className="font-medium text-gray-800 mb-4">Journey Details</h3>
