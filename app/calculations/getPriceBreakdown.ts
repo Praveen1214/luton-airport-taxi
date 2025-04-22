@@ -1,4 +1,5 @@
 // app/calculations/getPriceBreakdown.ts
+
 import { calculateDistanceBasedPrice }     from "./distanceBasePrice";
 import { tryGetFixedPrice }                from "./fixedPrice";
 import { calculateBookingNightSurcharge }  from "./nightCharge";
@@ -8,7 +9,6 @@ import { calculateAdditionalCharges }      from "./additionalCharge";
 import { getPaymentMethodCharges }         from "./paymentMethodCharges";
 import { calculateReturnCharge }           from "./returnCharge";
 
-/** Shape of the data your React component will render */
 export interface PriceBreakdown {
   baseOrFixed : number;
   night       : number;
@@ -20,23 +20,19 @@ export interface PriceBreakdown {
   total       : number;
 }
 
-/**
- * Build a full price breakdown.
- * Pass the **same arguments** you currently forward to `calculateTotalPrice`.
- */
 export function getPriceBreakdown(
-  distanceSlots        : unknown[],
-  miles                : number,
-  vehicleType          : string,
-  pickups              : { location: string; zone: string }[],
-  dropoff              : { location: string; zone: string },
-  fixedPriceList       : unknown[],
-  nightSurchargeSettings: unknown,
-  travelDate           : Date | null,
-  surcharges           : unknown[],
-  parkingCharges       : unknown[],
-  additionalChargeData : unknown,
-  additionalSelection  : {
+  distanceSlots          : unknown[],
+  miles                  : number,
+  vehicleType            : string,
+  pickups                : { location: string; zone: string }[],
+  dropoff                : { location: string; zone: string },
+  fixedPriceList         : unknown[],
+  nightSurchargeSettings : unknown,
+  travelDate             : Date | null,
+  surcharges             : unknown[],
+  parkingCharges         : unknown[],
+  additionalChargeData   : unknown,
+  additionalSelection    : {
     boosterSeat   : number;
     childSeat     : number;
     infantSeat    : number;
@@ -52,13 +48,13 @@ export function getPriceBreakdown(
       quantity : number;
     }>;
   },
-  additionalCharging   : boolean,
-  paymentType          : string,
-  returnBooking        : boolean,
-  returnPickups        : unknown[],
-  returnDropoff        : unknown,
-  returnMiles          : number,
-  returnDate           : Date | null
+  additionalCharging     : boolean,
+  paymentType            : string,
+  returnBooking          : boolean,
+  returnPickups          : unknown[],
+  returnDropoff          : unknown,
+  returnMiles            : number,
+  returnDate             : Date | null
 ): PriceBreakdown {
   const bd: PriceBreakdown = {
     baseOrFixed : 0,
@@ -71,56 +67,69 @@ export function getPriceBreakdown(
     total       : 0,
   };
 
-  /* ----------  fixed or base price ---------- */
-  const fixedPrice = tryGetFixedPrice(pickups, dropoff, vehicleType,   fixedPriceList ?? [] 
-  );
+  // Step 1: Base or Fixed Price
+  const fixedPrice = tryGetFixedPrice(pickups, dropoff, vehicleType, fixedPriceList ?? []);
+  const basePrice = fixedPrice !== null
+    ? parseFloat(fixedPrice.toFixed(2))
+    : parseFloat(calculateDistanceBasedPrice(distanceSlots, miles, vehicleType).toFixed(2));
+  bd.baseOrFixed = basePrice;
 
-  if (fixedPrice !== null) {
-    bd.baseOrFixed = parseFloat(fixedPrice.toFixed(2));
-  } else {
-    const base = calculateDistanceBasedPrice(distanceSlots, miles, vehicleType);
-    bd.baseOrFixed = parseFloat(base.toFixed(2));
-  }
-  let running = bd.baseOrFixed;
+  let running = basePrice;
 
-  /* ----------  night surcharge ---------- */
+  // Step 2: Night Surcharge (based on basePrice)
   const afterNight = calculateBookingNightSurcharge(
-    running, nightSurchargeSettings, travelDate, vehicleType, false
+    basePrice,
+    nightSurchargeSettings,
+    travelDate,
+    vehicleType,
+    false
   );
-  bd.night  = parseFloat((afterNight - running).toFixed(2));
-  running   = afterNight;
+  bd.night = parseFloat((afterNight - basePrice).toFixed(2));
+  running = afterNight;
 
-  /* ----------  holiday surcharge ---------- */
+  // Step 3: Holiday Surcharge (also based ONLY on basePrice)
   const afterHoliday = calculateHolidaySurcharge(
-    running, surcharges, travelDate, false
+    basePrice,
+    surcharges,
+    travelDate,
+    false
   );
-  bd.holiday = parseFloat((afterHoliday - running).toFixed(2));
-  running    = afterHoliday;
+  bd.holiday = parseFloat((afterHoliday - basePrice).toFixed(2));
+  running += bd.holiday;
 
-  /* ----------  parking charge ---------- */
+  // Step 4: Parking Charges
   bd.parking = calculateParkingChargeForRoute(parkingCharges, pickups, dropoff);
-  running   += bd.parking;
+  running += bd.parking;
 
-  /* ----------  payment method fee ---------- */
+  // Step 5: Payment Method Fee
   bd.paymentFee = getPaymentMethodCharges(paymentType, running);
-  running      += bd.paymentFee;
+  running += bd.paymentFee;
 
-  /* ----------  additional items ---------- */
+  // Step 6: Additional Charges (if applicable)
   if (additionalCharging) {
     bd.additional = calculateAdditionalCharges(additionalChargeData, additionalSelection);
-    running      += bd.additional;
+    running += bd.additional;
   }
 
-  /* ----------  return leg ---------- */
+  // Step 7: Return Leg (if applicable)
   if (returnBooking) {
     bd.returnLeg = calculateReturnCharge(
-      returnBooking, returnPickups, returnDropoff, returnMiles, returnDate,
-      vehicleType, fixedPriceList, distanceSlots, nightSurchargeSettings,
-      surcharges, parkingCharges
+      returnBooking,
+      returnPickups,
+      returnDropoff,
+      returnMiles,
+      returnDate,
+      vehicleType,
+      fixedPriceList,
+      distanceSlots,
+      nightSurchargeSettings,
+      surcharges,
+      parkingCharges
     );
     running += bd.returnLeg;
   }
 
+  // Final Total
   bd.total = parseFloat(running.toFixed(2));
   return bd;
 }

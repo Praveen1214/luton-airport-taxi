@@ -7,6 +7,7 @@ import { calculateParkingChargeForRoute } from "./parkingCharges";
 import { calculateAdditionalCharges } from "./additionalCharge";
 import { getPaymentMethodCharges } from "./paymentMethodCharges";
 import { calculateReturnCharge } from "./returnCharge";
+
 export function calculateTotalPrice(
   distanceSlots: unknown[],
   miles: number,
@@ -44,7 +45,8 @@ export function calculateTotalPrice(
   returnDate: Date | null
 ) {
   let totalPrice = 0;
-  
+  let basePrice = 0; // ✅ NEW: store base price separately
+
   const fixedPrice = tryGetFixedPrice(
     pickups,
     dropoff,
@@ -54,19 +56,17 @@ export function calculateTotalPrice(
 
   if (fixedPrice !== null) {
     console.log("Fixed price: ", fixedPrice.toFixed(2));
-    totalPrice = parseFloat(fixedPrice.toFixed(2));
-    // return Math.round(fixedPrice * 100) / 100;
+    basePrice = parseFloat(fixedPrice.toFixed(2)); // ✅ store it
+    totalPrice = basePrice;
   } else {
-    // Compute base price from the distance-based logic
-    const basePrice = calculateDistanceBasedPrice(
-
+    const calculatedBase = calculateDistanceBasedPrice(
       distanceSlots,
       miles,
       vehicleType
     );
-    totalPrice = parseFloat(basePrice.toFixed(2));
+    basePrice = parseFloat(calculatedBase.toFixed(2)); // ✅ store it
+    totalPrice = basePrice;
     console.log("Base price: ", basePrice.toFixed(2));
-    // return Math.round(basePrice * 100) / 100;
   }
 
   const nightSurchargePrice = calculateBookingNightSurcharge(
@@ -78,20 +78,19 @@ export function calculateTotalPrice(
   );
   totalPrice = parseFloat(nightSurchargePrice.toFixed(2));
 
+  // ✅ FIXED: Use basePrice (not nightSurchargePrice) for holiday calculation
   const holidaySurchargePrice = calculateHolidaySurcharge(
-    totalPrice,
-
+    basePrice, // ✅ corrected line
     surcharges,
     travelDate,
     false
   );
-  totalPrice = parseFloat(holidaySurchargePrice.toFixed(2));
+  totalPrice += parseFloat((holidaySurchargePrice - basePrice).toFixed(2)); // ✅ add only the surcharge portion
 
   const parkingCharge = calculateParkingChargeForRoute(
     parkingCharges,
     pickups,
     dropoff,
-
     totalPrice,
     false
   );
@@ -106,18 +105,14 @@ export function calculateTotalPrice(
     const additionalCharge = calculateAdditionalCharges(
       additionalChargeData,
       additionalSelection,
-
       totalPrice
     );
-    totalPrice =
-      parseFloat(totalPrice.toFixed(2)) +
-      parseFloat(additionalCharge.toFixed(2));
+    totalPrice += parseFloat(additionalCharge.toFixed(2));
   }
 
   if (returnBooking) {
     const returnBasePrice = calculateReturnCharge(
       returnBooking,
-
       returnPickups,
       returnDropoff,
       returnMiles,
@@ -127,10 +122,9 @@ export function calculateTotalPrice(
       distanceSlots,
       nightSurchargeSettings,
       surcharges,
-      parkingCharges,
+      parkingCharges
     );
-    totalPrice =
-      parseFloat(totalPrice.toFixed(2)) + parseFloat(returnBasePrice);
+    totalPrice += parseFloat(returnBasePrice.toFixed(2));
   }
 
   console.log("Total price: ", totalPrice.toFixed(2));
