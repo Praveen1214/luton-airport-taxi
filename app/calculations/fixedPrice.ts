@@ -8,9 +8,13 @@ export function tryGetFixedPrice(
     pickups: { location: string; zone: string }[],
     dropoff: { location: string; zone: string },
     vehicleType: string,
-    fixedPriceList: []
+    fixedPriceList: any,                 // keep the same signature
 ): number | null {
     // For example, your code often checks if there's exactly 1 pickup
+    if (!Array.isArray(fixedPriceList) || fixedPriceList.length === 0) {
+        return null;
+      }
+      
     if (pickups.length !== 1) return null;
 
     const pickupZone = pickups[0].zone;
