@@ -7,12 +7,14 @@ import Dedicate from "@/components/join/dedicate";
 import Benefit from "@/components/join/benifit";
 import JoinTeam from "@/components/join/joinTeam";
 import Now from "@/components/join/now";
+import InstantQuoteGlobal from "@/app/InstantQuoteGlobal";
 
 const Page = () => {
   return (
     <div className="min-h-screen bg-white ">
       <div className="w-full bg-gradient from-blue-50 to-transparent">
         <div className="container px-4 py-8 mx-auto md:px-6 lg:px-8">
+          <InstantQuoteGlobal />
           <Hero />
         </div>
         <div className="mt-10">

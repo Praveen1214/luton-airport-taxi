@@ -8,12 +8,14 @@ import Section from "@/components/transfer/section";
 import FeedBack from "@/components/landing/Feedback";
 import FAQ from "@/components/landing/FAQ";
 import Tips from "@/components/landing/Tips";
+import InstantQuoteGlobal from "@/app/InstantQuoteGlobal";
 
 const Page = () => {
   return (
     <div className="min-h-screen bg-white ">
       <div className="w-full bg-gradient from-blue-50 to-transparent">
         <div className="container px-4 py-8 mx-auto md:px-6 lg:px-8">
+          <InstantQuoteGlobal />
           <Hero
             name="Business Travel"
             description1="Save Up to 40% By Pre Booking You Luton"
@@ -41,10 +43,10 @@ const Page = () => {
           </div>
           <div className="justify-center max-w-6xl px-4 mx-auto mt-10">
             <FAQ />
-            </div>
-    < div className = "justify-center max-w-6xl px-4 mx-auto mt-10" >
-      <Tips />
-      </div>
+          </div>
+          <div className="justify-center max-w-6xl px-4 mx-auto mt-10">
+            <Tips />
+          </div>
         </div>
       </div>
     </div>

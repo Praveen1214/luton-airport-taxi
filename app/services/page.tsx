@@ -6,13 +6,16 @@ import Hero from "@/components/services/Hero";
 import Our from "@/components/services/Our";
 import OurServices from "@/components/services/OurServices";
 import React from "react";
+import InstantQuoteGlobal from "../InstantQuoteGlobal";
 
 const Page = () => {
   return (
     <div className="min-h-screen bg-white ">
       <div className="w-full bg-gradient from-blue-50 to-transparent">
         <div className="container px-4 py-8 mx-auto md:px-6 lg:px-8">
+          <InstantQuoteGlobal />
           <Hero />
+
           <div className="mt-10">
             <AboutUs />
           </div>

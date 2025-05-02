@@ -6,14 +6,15 @@ import StepCard from "@/components/StepCard";
 
 import step1Image from "@/assets/images/ridebooking.png";
 
-
 import { G1, G2, G3, G4, G5, G6, G7 } from "../../../../assets";
 
 import FAQ from "@/components/landing/FAQ";
+import InstantQuoteGlobal from "@/app/InstantQuoteGlobal";
 
 const Page = () => {
   return (
     <main className="flex flex-col items-center justify-center w-full">
+      <InstantQuoteGlobal />
       {/* Hero Section */}
       <section className="w-full py-12 md:py-20 bg-gradient from-blue-50 to-transparent">
         <div className="max-w-6xl px-4 mx-auto mb-20 text-center">

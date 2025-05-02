@@ -20,6 +20,7 @@ import MaskGroup from "@/assets/images/mask-group.png";
 import ShopingCenter from "@/assets/images/shopping-center.png";
 import campbellPark from "@/assets/images/campbel-park.png";
 import bletchleyPark from "@/assets/images/bletchley-park.png";
+import InstantQuoteGlobal from "@/app/InstantQuoteGlobal";
 
 export default function HomePage() {
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -43,6 +44,7 @@ export default function HomePage() {
 
   return (
     <main className="flex flex-col w-full">
+      <InstantQuoteGlobal />
       {/* Hero Section */}
       <section className="w-full px-4 py-8 text-center md:py-20 bg-gradient from-blue-50 to-transparent">
         <div className="max-w-6xl mx-auto ">

@@ -21,6 +21,7 @@ import ShopingCenter from "@/assets/images/shopping-center.png";
 import campbellPark from "@/assets/images/campbel-park.png";
 import bletchleyPark from "@/assets/images/bletchley-park.png";
 import EasyTreveling from "@/assets/images/easy-traveling.png";
+import InstantQuoteGlobal from "@/app/InstantQuoteGlobal";
 
 export default function HomePage() {
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -44,6 +45,7 @@ export default function HomePage() {
 
   return (
     <main className="flex flex-col w-full">
+      <InstantQuoteGlobal />
       {/* Hero Section */}
       <section className="w-full px-4 py-8 text-center md:py-20 bg-gradient from-blue-50 to-transparent">
         <div className="max-w-6xl mx-auto ">
@@ -315,8 +317,8 @@ export default function HomePage() {
             </h3>
             <p className="text-sm text-justify text-gray-700 sm:text-base">
               Some people use the Luton airport taxi to London but some others
-              prefer to train for traveling purposes.So here is you can travel to
-              London by train
+              prefer to train for traveling purposes.So here is you can travel
+              to London by train
             </p>
             <div className="px-4 py-4 text-xs leading-relaxed text-justify text-gray-700 bg-gray-100 rounded-lg sm:px-6 sm:py-5 sm:text-sm">
               <ol className="space-y-2 list-decimal list-inside">
