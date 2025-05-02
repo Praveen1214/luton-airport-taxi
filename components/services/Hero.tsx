@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 const Hero = () => {
@@ -13,9 +14,11 @@ const Hero = () => {
         <p className="mb-8 text-sm text-gray-600 md:text-base">
           Airport Transfer With Us
         </p>
-        <button className="px-6 py-2 font-medium text-white transition duration-300 rounded bg-primary hover:bg-btn-hover">
-          Book Now
-        </button>
+        <Link href="/">
+          <button className="px-6 py-2 font-medium text-white transition duration-300 rounded bg-primary hover:bg-btn-hover">
+            Book Now
+          </button>
+        </Link>
       </div>
     </div>
   );
