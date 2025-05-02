@@ -1,14 +1,8 @@
-'use client';
+"use client";
 import React, { useState } from "react";
 import { ChevronDown, ChevronUp } from "lucide-react";
 
 const FAQ = () => {
-  const [openIndex, setOpenIndex] = useState(null);
-
-  const toggleFAQ = (index) => {
-    setOpenIndex(openIndex === index ? null : index);
-  };
-
   const faqs = [
     {
       question: "Can I get a taxi from Luton Airport?",
@@ -32,14 +26,25 @@ const FAQ = () => {
     },
   ];
 
+  // All FAQs open by default
+  const [openIndexes, setOpenIndexes] = useState(faqs.map((_, i) => i));
+
+  const toggleFAQ = (index) => {
+    if (openIndexes.includes(index)) {
+      setOpenIndexes(openIndexes.filter((i) => i !== index)); // Close
+    } else {
+      setOpenIndexes([...openIndexes, index]); // Open
+    }
+  };
+
   return (
     <div className="w-full px-4 py-16 mx-auto">
       <div className="flex flex-col md:flex-row">
         {/* Left column - Title */}
         <div className="mb-8 md:w-1/3 md:mb-0 md:pr-12">
-          <h2 className="text-3xl font-bold text-gray-800">Explore FAQs</h2>
-          <h2 className="text-3xl font-bold text-gray-800">for Quick</h2>
-          <h2 className="text-3xl font-bold text-gray-800">Answers</h2>
+          <h2 className="text-3xl font-bold text-gray-800"> Explore FAQs </h2>
+          <h2 className="text-3xl font-bold text-gray-800">for Quick </h2>
+          <h2 className="text-3xl font-bold text-gray-800"> Answers </h2>
         </div>
 
         {/* Right column - Accordion FAQs */}
@@ -55,7 +60,7 @@ const FAQ = () => {
                     {faq.question}
                   </h3>
                   <span className="text-gray-500">
-                    {openIndex === index ? (
+                    {openIndexes.includes(index) ? (
                       <ChevronUp size={20} />
                     ) : (
                       <ChevronDown size={20} />
@@ -63,8 +68,8 @@ const FAQ = () => {
                   </span>
                 </div>
 
-                {openIndex === index && (
-                  <p className="mt-2 text-sm text-gray-600 text-justify transition-all duration-300">
+                {openIndexes.includes(index) && (
+                  <p className="mt-2 text-sm text-justify text-gray-600 transition-all duration-300">
                     {faq.answer}
                   </p>
                 )}
