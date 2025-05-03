@@ -2,8 +2,8 @@ import React from "react";
 
 export default function PrivacyPolicy() {
   return (
-    <div className="max-w-4xl mx-auto px-4 py-10 text-gray-800">
-      <h1 className="text-3xl font-bold mb-6">Privacy Policy</h1>
+    <div className="max-w-4xl px-4 py-10 mx-auto text-gray-800">
+      <h1 className="mb-6 text-3xl font-bold">Privacy Policy</h1>
 
       <p className="mb-4">
         Luton Airport Taxi (UK), and any other member of the LAT group companies, as applicable (together with its
@@ -16,7 +16,7 @@ export default function PrivacyPolicy() {
         how and for which purposes we collect, store, use and disclose the following types of personal data:
       </p>
 
-      <ol className="list-decimal pl-6 space-y-4 mb-6">
+      <ol className="pl-6 mb-6 space-y-4 list-decimal">
         <li>
           <strong>User data</strong> relating to individuals who are registered to the Services and use them either
           independently or on behalf of our corporate customers, to book, send and receive taxi rides and courier
@@ -39,7 +39,7 @@ export default function PrivacyPolicy() {
 
       <p className="mb-4">Specifically, this Privacy Policy describes our practices regarding:</p>
 
-      <ul className="list-disc pl-6 space-y-2">
+      <ul className="pl-6 space-y-2 list-disc">
         <li>Data Collection</li>
         <li>Data Uses</li>
         <li>Data Location and Retention</li>

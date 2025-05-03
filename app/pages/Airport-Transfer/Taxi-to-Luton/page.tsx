@@ -11,6 +11,7 @@ import React from "react";
 import { FaCarAlt } from "react-icons/fa";
 import { useRouter } from "next/navigation";
 import { routes } from "@/components/PopularRoutes";
+import InstantQuoteGlobal from "@/app/InstantQuoteGlobal";
 
 const Page = () => {
   const router = useRouter();
@@ -21,6 +22,7 @@ const Page = () => {
     <div className="min-h-screen bg-white ">
       <div className="w-full bg-gradient from-blue-50 to-transparent">
         <div className="container px-4 py-8 mx-auto md:px-6 lg:px-8">
+          <InstantQuoteGlobal />
           <Hero
             name="Book a low-cost Taxi From  Luton Airport"
             description1="Save up to 40% by pre-booking your taxi to "

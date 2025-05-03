@@ -120,7 +120,7 @@ export default function Footer() {
               },
               {
                 label: "Airport Transfer",
-                path: "/pages/Airport-Transfer/airport-transfer",
+                path: "/pages/Airport-Transfer/Airport",
               },
               {
                 label: "Meet & Greet",

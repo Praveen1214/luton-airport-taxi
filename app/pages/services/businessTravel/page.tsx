@@ -5,79 +5,82 @@ import Image from "next/image";
 import BusinessTravelimg from "@/assets/images/business-travel.png";
 import FAQ from "@/components/landing/FAQ";
 import Tips from "@/components/landing/Tips";
+import Link from "next/link";
 
 export default function BusinessTravel() {
   return (
     <main className="bg-white">
       {/* Hero Section */}
       <section className="w-full py-2 md:py-24 lg:py-32 bg-gray-50">
-        <div className="container mx-auto px-4 text-center">
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+        <div className="container px-4 mx-auto text-center">
+          <h1 className="mb-4 text-3xl font-bold text-gray-900 md:text-4xl lg:text-5xl">
             Business Travel
           </h1>
-          <p className="text-lg md:text-xl text-gray-700 mb-8">
+          <p className="mb-8 text-lg text-gray-700 md:text-xl">
             Save Up to 40% By Pre Booking Your Luton Airport Transfer With Us
           </p>
-          <Button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 text-base rounded-md">
-            Book Now
-          </Button>
+          <Link href="/">
+            <Button className="px-8 py-4 text-base text-white bg-blue-600 rounded-md hover:bg-blue-700">
+              Book Now
+            </Button>
+          </Link>
         </div>
       </section>
 
       {/* Why Book a Transfer Section */}
-      <section className="max-w-7xl mx-auto px-4 bg-white">
+      <section className="px-4 mx-auto bg-white max-w-7xl">
         {/* Outer container with background & rounded corners */}
         <div className="bg-[#F8FAFF] rounded-xl shadow-sm p-6 md:p-12">
           {/* Section Title */}
-          <h2 className="text-2xl md:text-3xl font-bold text-center text-gray-900 mb-10">
+          <h2 className="mb-10 text-2xl font-bold text-center text-gray-900 md:text-3xl">
             Why Book a Transfer
           </h2>
 
           {/* Top Three Features */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+          <div className="grid grid-cols-1 gap-6 mb-12 md:grid-cols-3">
             {/* Single Feature Card */}
-            <div className="flex items-center p-4 bg-white rounded-xl shadow">
-              <div className="w-12 h-12 rounded-full bg-blue-50 flex items-center justify-center mr-4">
-                <CreditCard className="h-6 w-6 text-blue-600" />
+            <div className="flex items-center p-4 bg-white shadow rounded-xl">
+              <div className="flex items-center justify-center w-12 h-12 mr-4 rounded-full bg-blue-50">
+                <CreditCard className="w-6 h-6 text-blue-600" />
               </div>
-              <span className="font-medium text-gray-800 text-lg">
+              <span className="text-lg font-medium text-gray-800">
                 Price Guarantee
               </span>
             </div>
 
-            <div className="flex items-center p-4 bg-white rounded-xl shadow">
-              <div className="w-12 h-12 rounded-full bg-blue-50 flex items-center justify-center mr-4">
-                <Users className="h-6 w-6 text-blue-600" />
+            <div className="flex items-center p-4 bg-white shadow rounded-xl">
+              <div className="flex items-center justify-center w-12 h-12 mr-4 rounded-full bg-blue-50">
+                <Users className="w-6 h-6 text-blue-600" />
               </div>
-              <span className="font-medium text-gray-800 text-lg">
+              <span className="text-lg font-medium text-gray-800">
                 Flexible Services
               </span>
             </div>
 
-            <div className="flex items-center p-4 bg-white rounded-xl shadow">
-              <div className="w-12 h-12 rounded-full bg-blue-50 flex items-center justify-center mr-4">
-                <Clock className="h-6 w-6 text-blue-600" />
+            <div className="flex items-center p-4 bg-white shadow rounded-xl">
+              <div className="flex items-center justify-center w-12 h-12 mr-4 rounded-full bg-blue-50">
+                <Clock className="w-6 h-6 text-blue-600" />
               </div>
-              <span className="font-medium text-gray-800 text-lg">
+              <span className="text-lg font-medium text-gray-800">
                 Vehicle Flexibility
               </span>
             </div>
           </div>
 
           {/* Detailed Features */}
-          <div className="flex flex-col md:flex-row items-start">
+          <div className="flex flex-col items-start md:flex-row">
             {/* Left Column: Heading / Subtext */}
-            <div className="md:w-1/3 mb-8 md:mb-0">
-              <h3 className="text-2xl font-bold text-gray-900 mb-2">
+            <div className="mb-8 md:w-1/3 md:mb-0">
+              <h3 className="mb-2 text-2xl font-bold text-gray-900">
                 Why Book With Us
               </h3>
-              <p className="text-blue-600 font-medium cursor-pointer">
+              <p className="font-medium text-blue-600 cursor-pointer">
                 Our Features
               </p>
             </div>
 
             {/* Right Column: List of Features */}
-            <div className="md:w-2/3 grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 gap-4 md:w-2/3 md:grid-cols-2">
               <FeatureItem label="24 Hours Service" />
               <FeatureItem label="Flight Monitoring" />
               <FeatureItem label="Fully Licensed Drivers" />
@@ -90,16 +93,16 @@ export default function BusinessTravel() {
       </section>
 
       {/* Business Travel Info Section */}
-      <section className="max-w-7xl mx-auto px-4 bg-white">
-        <div className="flex flex-col md:flex-row items-center">
+      <section className="px-4 mx-auto bg-white max-w-7xl">
+        <div className="flex flex-col items-center md:flex-row">
           <div className="md:w-1/2 md:pr-8">
-            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">
+            <h2 className="mb-2 text-2xl font-bold text-gray-900 md:text-3xl">
               Business Travel
             </h2>
-            <p className="text-blue-600 mb-4">
+            <p className="mb-4 text-blue-600">
               Drive your way to the airport: Self-drive hire made easy
             </p>
-            <p className="text-gray-600 mb-4">
+            <p className="mb-4 text-gray-600">
               We understand that time is of the essence when it comes to
               business travel, which is why we offer reliable and efficient
               airport transfer services. Our team of professional drivers will
@@ -110,22 +113,22 @@ export default function BusinessTravel() {
             </p>
           </div>
           <div className="md:w-1/2">
-            <div className="relative rounded-lg overflow-hidden shadow-lg">
+            <div className="relative overflow-hidden rounded-lg shadow-lg">
               <Image
                 src={BusinessTravelimg}
                 alt="Business Travel"
                 width={600}
                 height={400}
-                className="object-cover w-full h-64 md:h-96 transition-transform duration-300 ease-in-out"
+                className="object-cover w-full h-64 transition-transform duration-300 ease-in-out md:h-96"
               />
               <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/70 to-transparent">
-                <h3 className="text-2xl font-bold text-white mb-2">
+                <h3 className="mb-2 text-2xl font-bold text-white">
                   Business Travel
                 </h3>
-                <p className="text-white text-sm mb-1">
+                <p className="mb-1 text-sm text-white">
                   Watford To Luton Airport
                 </p>
-                <p className="text-blue-400 font-medium">Fast & Reliable</p>
+                <p className="font-medium text-blue-400">Fast & Reliable</p>
               </div>
             </div>
           </div>
@@ -133,14 +136,14 @@ export default function BusinessTravel() {
       </section>
 
       {/* Bottom Sections */}
-      <section className="max-w-7xl mx-auto px-4 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <section className="px-4 mx-auto bg-white max-w-7xl">
+        <div className="container px-4 mx-auto">
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
             <div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-2">
+              <h3 className="mb-2 text-2xl font-bold text-gray-900">
                 Executive Business Travel
               </h3>
-              <p className="text-blue-600 mb-6">
+              <p className="mb-6 text-blue-600">
                 Business Travel Made Easy with our Services
               </p>
               <p className="text-gray-600">
@@ -150,10 +153,10 @@ export default function BusinessTravel() {
               </p>
             </div>
             <div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-2">
+              <h3 className="mb-2 text-2xl font-bold text-gray-900">
                 Business Account
               </h3>
-              <p className="text-blue-600 mb-6">
+              <p className="mb-6 text-blue-600">
                 Let Us Handle Your Airport Transfers
               </p>
               <p className="text-gray-600">
@@ -165,17 +168,15 @@ export default function BusinessTravel() {
           </div>
         </div>
       </section>
-       {/* FAQ Section */}
-       <section className="max-w-7xl mx-auto px-4 bg-white">
+      {/* FAQ Section */}
+      <section className="px-4 mx-auto bg-white max-w-7xl">
         <FAQ />
       </section>
 
       {/* Tips Section */}
-      <section className="max-w-7xl mx-auto px-4 bg-white">
+      <section className="px-4 mx-auto bg-white max-w-7xl">
         <Tips />
       </section>
-
-
     </main>
   );
 }
@@ -184,8 +185,8 @@ export default function BusinessTravel() {
 function FeatureItem({ label }) {
   return (
     <div className="flex items-center mb-4">
-      <div className="w-6 h-6 rounded-full bg-blue-100 flex items-center justify-center mr-3">
-        <Check className="h-4 w-4 text-blue-600" />
+      <div className="flex items-center justify-center w-6 h-6 mr-3 bg-blue-100 rounded-full">
+        <Check className="w-4 h-4 text-blue-600" />
       </div>
       <span className="text-gray-700">{label}</span>
     </div>

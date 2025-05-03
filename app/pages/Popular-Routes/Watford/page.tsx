@@ -21,6 +21,7 @@ import ShopingCenter from "@/assets/images/shopping-center.png";
 import campbellPark from "@/assets/images/campbel-park.png";
 import bletchleyPark from "@/assets/images/bletchley-park.png";
 import EasyTreveling from "@/assets/images/easy-traveling.png";
+import InstantQuoteGlobal from "@/app/InstantQuoteGlobal";
 
 export default function HomePage() {
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -44,6 +45,7 @@ export default function HomePage() {
 
   return (
     <main className="flex flex-col w-full">
+      <InstantQuoteGlobal />
       {/* Hero Section */}
       <section className="w-full px-4 py-8 text-center md:py-20 bg-gradient from-blue-50 to-transparent">
         <div className="max-w-6xl mx-auto ">
@@ -350,9 +352,7 @@ export default function HomePage() {
                   d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
                 />
               </svg>
-              <p>
-                Every 15-30 minutes a train leaves to Watford from Luton
-              </p>
+              <p>Every 15-30 minutes a train leaves to Watford from Luton</p>
             </div>
           </div>
         </section>
