@@ -10,20 +10,6 @@ import Confirmation from "./steps/Confirmation";
 import StepIndicator from "./steps/StepIndicator";
 import AlertToast from "@/components/alertToast";
 import Loader from "@/components/common/Loader";
-import Services from "@/components/landing/Services";
-// import BookingSteps from "@/components/landing/BookingSteps";
-import Stress from "@/components/landing/Stress";
-import OurServices from "@/components/landing/OurServices";
-import SaveUp from "@/components/landing/SaveUp";
-import SaveUp2 from "@/components/landing/SaveUp2";
-import LAirPort from "@/components/landing/LAirPort";
-import Specialist from "@/components/landing/Specialist";
-import PopularRoutes from "@/components/landing/popularRoutes";
-import FeedBack from "@/components/landing/Feedback";
-import Companies from "@/components/landing/companies";
-import FAQ from "@/components/landing/FAQ";
-import Tips from "@/components/landing/Tips";
-
 const InstantQuoteGlobal = () => {
   const [currentStep, setCurrentStep] = useState(1);
   const [isLoading, setIsLoading] = useState(false);
