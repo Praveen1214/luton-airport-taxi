@@ -22,13 +22,13 @@ export function getPaymentMethodCharges(
 
   // Calculate the charge: (totalPrice * percentage / 100).
   const charge = totalPrice * (percentage / 100);
-  const totalCharge = totalPrice + charge;
+  // const totalCharge = totalPrice + charge;
 
-  console.log(
-    "Payment method charges: (",
-    percentage + "%" + " * ",
-    totalPrice.toFixed(2) + ") + " + totalPrice.toFixed(2) + " = ",
-    totalCharge.toFixed(2)
-  );
+  // console.log(
+  //   "Payment method charges: (",
+  //   percentage + "%" + " * ",
+  //   totalPrice.toFixed(2) + ") + " + totalPrice.toFixed(2) + " = ",
+  //   totalCharge.toFixed(2)
+  // );
   return charge;
 }

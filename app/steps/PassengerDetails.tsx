@@ -182,20 +182,20 @@ const PassengerDetails = ({
     bookingData.selectedDate,
   ]);
 
-  const Row = ({
-    label,
-    value,
-    note,
-  }: {
-    label: string;
-    value?: number;
-    note?: string;
-  }) => (
-    <div className="flex justify-between py-2 w-full">
-      <span className="text-gray-600">{label}:</span>
-      <span className="font-medium">{note ?? `£${value!.toFixed(2)}`}</span>
-    </div>
-  );
+  // const Row = ({
+  //   label,
+  //   value,
+  //   note,
+  // }: {
+  //   label: string;
+  //   value?: number;
+  //   note?: string;
+  // }) => (
+  //   <div className="flex justify-between py-2 w-full">
+  //     <span className="text-gray-600">{label}:</span>
+  //     <span className="font-medium">{note ?? `£${value!.toFixed(2)}`}</span>
+  //   </div>
+  // );
 
   /* keep parent in sync */
   useEffect(() => {
@@ -1041,7 +1041,7 @@ const PassengerDetails = ({
         <div className="space-y-6">
           <Card className="overflow-hidden bg-white border rounded-xl">
             <CardContent className="p-6">
-              <h2 className="mb-4 text-lg font-bold text-gray-800 md:text-xl md:mb-6">
+              {/* <h2 className="mb-4 text-lg font-bold text-gray-800 md:text-xl md:mb-6">
                 Payment Breakdown
               </h2>
 
@@ -1067,7 +1067,7 @@ const PassengerDetails = ({
               )}
               {!!priceDetails.returnLeg && (
                 <Row label="Return journey" value={priceDetails.returnLeg} />
-              )}
+              )} */}
 
               <div className="flex justify-between p-4 bg-[#F5F6FA] rounded-lg">
                 <span className="text-base font-semibold md:text-lg">

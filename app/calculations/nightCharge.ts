@@ -63,16 +63,16 @@ export function calculateBookingNightSurcharge(
           finalPrice.toFixed(2)
         );
       } else {
-        console.log(
-          "Return Night surcharge price: ",
-          factor + " * ",
-          basePrice.toFixed(2) + " = ",
-          finalPrice.toFixed(2)
-        );
+        // console.log(
+        //   "Return Night surcharge price: ",
+        //   factor + " * ",
+        //   basePrice.toFixed(2) + " = ",
+        //   finalPrice.toFixed(2)
+        // );
       }
     }
     if (!isInRange) {
-      console.log("No night surcharge applied.");
+      // console.log("No night surcharge applied.");
     }
   }
   return finalPrice;

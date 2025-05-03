@@ -70,9 +70,9 @@ export function calculateAdditionalCharges(
       total += opt.price * q;
     }
   });
-  console.log(
-    "Additional charges: "
+  // console.log(
+  //   "Additional charges: "
    
-  );
+  // );
   return total;
 }

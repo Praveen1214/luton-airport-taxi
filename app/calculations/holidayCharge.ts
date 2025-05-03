@@ -48,16 +48,16 @@ export function calculateHolidaySurcharge(
             finalPrice.toFixed(2)
           );
         } else {
-          console.log(
-            "Return Holiday surcharge price: ",
-            factorVal + " * ",
-            basePrice.toFixed(2) + " = ",
-            finalPrice.toFixed(2)
-          );
+          // console.log(
+          //   "Return Holiday surcharge price: ",
+          //   factorVal + " * ",
+          //   basePrice.toFixed(2) + " = ",
+          //   finalPrice.toFixed(2)
+          // );
         }
       }
     } else {
-      console.log("No holiday surcharge applied.");
+      // console.log("No holiday surcharge applied.");
       
     }
   }

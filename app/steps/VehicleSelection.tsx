@@ -318,7 +318,7 @@ const VehicleSelection = ({
                         {/* Vehicle Image */}
                         <div className="w-full mb-6">
                           <div className="relative h-36 w-full">
-                            <Image
+                            {/* <Image
                               src={
                                 vehicle.image
                                   ? `${process.env.NEXT_PUBLIC_API_URL}/${vehicle.image}`
@@ -328,7 +328,7 @@ const VehicleSelection = ({
                               fill
                               className="object-contain"
                               sizes="100%"
-                            />
+                            /> */}
                           </div>
                         </div>
 

@@ -127,6 +127,6 @@ export function calculateTotalPrice(
     totalPrice += parseFloat(returnBasePrice.toFixed(2));
   }
 
-  console.log("Total price: ", totalPrice.toFixed(2));
+  // console.log("Total price: ", totalPrice.toFixed(2));
   return totalPrice.toFixed(2);
 }

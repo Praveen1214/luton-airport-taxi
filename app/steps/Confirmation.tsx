@@ -95,13 +95,13 @@ const BookingSummary: React.FC<BookingSummaryProps> = ({
 
 
 
-  const Row = ({ label, value }: { label: string; value?: number }) =>
-    value ? (
-      <div className="flex justify-between py-1">
-        <span className="text-gray-600 text-sm">{label}</span>
-        <span className="font-medium text-sm">£{value.toFixed(2)}</span>
-      </div>
-    ) : null;
+  // const Row = ({ label, value }: { label: string; value?: number }) =>
+  //   value ? (
+  //     <div className="flex justify-between py-1">
+  //       <span className="text-gray-600 text-sm">{label}</span>
+  //       <span className="font-medium text-sm">£{value.toFixed(2)}</span>
+  //     </div>
+  //   ) : null;
 
   if (!bookingData) {
     return (
@@ -389,7 +389,7 @@ const BookingSummary: React.FC<BookingSummaryProps> = ({
     
                 {/* Payment Breakdown */}
                 <div className="bg-blue-50 rounded-lg p-4 mb-6">
-                  <h3 className="font-medium text-gray-800 mb-4">Payment Breakdown</h3>
+                  {/* <h3 className="font-medium text-gray-800 mb-4">Payment Breakdown</h3>
     
                   <Row label="Base / fixed fare" value={priceDetails.baseOrFixed} />
                   <Row label="Night‑time surcharge" value={priceDetails.night} />
@@ -399,9 +399,9 @@ const BookingSummary: React.FC<BookingSummaryProps> = ({
                   <Row label="Payment‑method fee" value={priceDetails.paymentFee} />
                   {bookingData.returnBooking && (
                     <Row label="Return journey" value={priceDetails.returnLeg} />
-                  )}
+                  )} */}
     
-                  <div className="flex justify-between mt-4 pt-3 border-t border-gray-200">
+                  <div className="flex justify-between mt-4 border-gray-200">
                     <span className="font-semibold text-gray-800">Total</span>
                     <span className="font-bold text-lg text-blue-600">
                       £{priceDetails.total.toFixed(2)}

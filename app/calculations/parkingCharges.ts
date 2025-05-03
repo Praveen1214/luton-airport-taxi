@@ -42,7 +42,7 @@ export function calculateParkingChargeForRoute(
     }
   }
 
-  console.log("Parking charge: ", total.toFixed(2));
+  // console.log("Parking charge: ", total.toFixed(2));
   return total;
 }
 
