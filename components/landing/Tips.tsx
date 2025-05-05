@@ -15,15 +15,15 @@ const tips = [
     title: "Taxi To Luton Airport",
     description:
       "Luton Airport Taxi: The Ultimate Transfer Solution to the Airport",
-      path: "/pages/Airport-Transfer/Taxi-to-Luton",
-    },
+    path: "/pages/Airport-Transfer/Taxi-to-Luton",
+  },
   {
     image: T3,
     title: "Booking a Taxi Guide",
     description:
       "Book Your Luton Airport Taxi in Advance: The Easy Way to Start Your Trip",
-      path: "/pages/Help-Information/Guide",
-    },
+    path: "/pages/Help-Information/Guide",
+  },
 ];
 
 const Tips = () => {
@@ -38,9 +38,7 @@ const Tips = () => {
           {tips.map((tip, index) => (
             <Link key={index} href={tip.path}>
               <div
-                className={`bg-blue-25 rounded-lg overflow-hidden cursor-pointer transition-transform duration-200 hover:scale-[1.02] ${
-                  index === 0 ? "border-2 border-blue-200" : ""
-                }`}
+                className={`bg-blue-25 rounded-lg overflow-hidden cursor-pointer transition-transform duration-200 hover:scale-[1.02] `}
               >
                 <Image
                   src={tip.image}

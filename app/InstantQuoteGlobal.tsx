@@ -231,7 +231,7 @@ const InstantQuoteGlobal = () => {
 
     switch (currentStep) {
       case 1:
-        return <InstantQuote {...commonProps} />;
+        return <InstantQuote {...commonProps} page="" />;
       case 2:
         return <VehicleSelection {...commonProps} />;
       case 3:
@@ -255,7 +255,7 @@ const InstantQuoteGlobal = () => {
   return (
     <>
       <div className="relative min-h-screen -mb-80">
-        <div className="absolute top-0 right-0 w-2/3 h-full pointer-events-none bg-gradient from-blue-50 to-transparent">
+        <div className="absolute top-0 right-0 w-full h-full pointer-events-none bg-gradient from-blue-50 to-transparent">
           {" "}
         </div>
         <div className="relative py-6 mx-auto sm:px-6 lg:px-8">
