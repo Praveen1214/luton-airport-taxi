@@ -245,7 +245,7 @@ const BookingFlow = () => {
 
     switch (currentStep) {
       case 1:
-        return <InstantQuote {...commonProps} />;
+        return <InstantQuote {...commonProps} page="home" />;
       case 2:
         return <VehicleSelection {...commonProps} />;
       case 3:

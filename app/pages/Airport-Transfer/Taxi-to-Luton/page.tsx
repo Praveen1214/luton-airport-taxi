@@ -22,14 +22,20 @@ const Page = () => {
     <div className="min-h-screen bg-white ">
       <div className="w-full bg-gradient from-blue-50 to-transparent">
         <div className="container px-4 py-8 mx-auto md:px-6 lg:px-8">
-          <InstantQuoteGlobal />
-          <Hero
-            name="Book a low-cost Taxi From  Luton Airport"
-            description1="Save up to 40% by pre-booking your taxi to "
-            description2="and from Luton airport transfer with us"
-          />
+          <div className="flex flex-col items-start justify-between md:flex-row">
+            <div className="w-full md:mr-12">
+              <Hero
+                name="Airport Transfer"
+                description1="Save Up to 40% By Pre Booking You Luton"
+                description2="Airport Transfer With Us"
+              />
+            </div>
+            <div className="w-full mt-8 md:mt-0">
+              <InstantQuoteGlobal />
+            </div>
+          </div>
         </div>
-        <div className="mt-10">
+        <div className="mt-32">
           <Section1 />
         </div>
         <div className="mt-10">

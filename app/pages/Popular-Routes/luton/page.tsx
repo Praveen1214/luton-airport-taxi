@@ -44,22 +44,28 @@ export default function HomePage() {
 
   return (
     <main className="flex flex-col w-full">
-      <InstantQuoteGlobal />
+      <div className="flex flex-col items-start justify-between md:flex-row">
+        <div className="w-full md:mr-12">
+          <div className="max-w-6xl mx-auto mt-44">
+            <h1 className="mb-4 text-2xl font-bold sm:text-3xl md:text-5xl">
+              Luton Taxi Transfers
+            </h1>
+            <p className="max-w-xl mx-auto mb-6 text-sm text-gray-700 sm:text-base">
+              Save Up to 40 % By Pre Booking Your Luton Taci Transfers Airport
+              Transfer With Us
+            </p>
+            <Button className="px-4 py-2 text-sm font-medium text-white bg-primary hover:bg-btn-hover sm:px-6 sm:py-3 sm:text-sm">
+              Book Now
+            </Button>
+          </div>
+        </div>
+        <div className="w-full mt-8 md:mt-0">
+          <InstantQuoteGlobal />
+        </div>
+      </div>
+
       {/* Hero Section */}
       <section className="w-full px-4 py-8 text-center md:py-20 bg-gradient from-blue-50 to-transparent">
-        <div className="max-w-6xl mx-auto ">
-          <h1 className="mb-4 text-2xl font-bold sm:text-3xl md:text-5xl">
-            Luton Taxi Transfers
-          </h1>
-          <p className="max-w-xl mx-auto mb-6 text-sm text-gray-700 sm:text-base">
-            Save Up to 40 % By Pre Booking Your Luton Taci Transfers Airport
-            Transfer With Us
-          </p>
-          <Button className="px-4 py-2 text-sm font-medium text-white bg-primary hover:bg-btn-hover sm:px-6 sm:py-3 sm:text-sm">
-            Book Now
-          </Button>
-        </div>
-
         {/* Why Book and Why Book With Us */}
         <section className="px-4 py-10 mx-auto mt-6 max-w-7xl sm:px-8 sm:py-16 bg-blue-50 sm:mt-10 rounded-xl">
           {/* Container using flex instead of grid */}
