@@ -66,7 +66,7 @@ export function calculateTotalPrice(
     );
     basePrice = parseFloat(calculatedBase.toFixed(2)); // ✅ store it
     totalPrice = basePrice;
-    console.log("Base price: ", basePrice.toFixed(2));
+    // console.log("Base price: ", basePrice.toFixed(2));
   }
 
   const nightSurchargePrice = calculateBookingNightSurcharge(

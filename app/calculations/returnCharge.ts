@@ -37,7 +37,7 @@ export function calculateReturnCharge(
       vehicleType
     );
     totalPrice = parseFloat(basePrice.toFixed(2));
-    console.log("Return Base price: ", basePrice.toFixed(2));
+    // console.log("Return Base price: ", basePrice.toFixed(2));
     // return Math.round(basePrice * 100) / 100;
   }
 

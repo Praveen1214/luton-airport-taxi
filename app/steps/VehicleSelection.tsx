@@ -245,7 +245,7 @@ const VehicleSelection = ({
                         {/* Vehicle Image - Left */}
                         <div className="w-1/4 flex justify-center">
                           <div className="relative h-24 w-40">
-                            <Image
+                            {/* <Image
                               src={
                                 vehicle.image
                                   ? `${process.env.NEXT_PUBLIC_API_URL}/${vehicle.image}`
@@ -255,7 +255,7 @@ const VehicleSelection = ({
                               fill
                               className="object-contain"
                               sizes="160px"
-                            />
+                            /> */}
                           </div>
                         </div>
 
