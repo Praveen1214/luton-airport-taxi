@@ -396,7 +396,7 @@ const BookingSummary: React.FC<BookingSummaryProps> = ({
     
                 {/* Payment Breakdown */}
                 <div className="bg-gray-50 rounded-lg p-4 mb-6">
-                  <h3 className="font-medium text-gray-800 mb-4">Payment Breakdown</h3>
+                  {/* <h3 className="font-medium text-gray-800 mb-4">Payment Breakdown</h3>
     
                   <Row label="Base / fixed fare" value={priceDetails.baseOrFixed} />
                   <Row label="Night‑time surcharge" value={priceDetails.night} />
@@ -406,7 +406,7 @@ const BookingSummary: React.FC<BookingSummaryProps> = ({
                   <Row label="Payment‑method fee" value={priceDetails.paymentFee} />
                   {bookingData.returnBooking && (
                     <Row label="Return journey" value={priceDetails.returnLeg} />
-                  )}
+                  )} */}
     
                   <div className="flex justify-between mt-4 pt-3 border-t border-gray-200">
                     <span className="font-semibold text-gray-800">Total</span>

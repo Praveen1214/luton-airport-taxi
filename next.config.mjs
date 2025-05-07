@@ -13,7 +13,7 @@ const nextConfig = {
       },
       {
         protocol: 'https',
-        hostname: 'luton-backend-production.up.railway.app',
+        hostname: 'luton-backend-production-303a.up.railway.app',
         pathname: '/uploads/**',
       },
     ],
