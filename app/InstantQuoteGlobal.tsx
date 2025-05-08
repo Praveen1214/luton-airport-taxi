@@ -10,7 +10,17 @@ import Confirmation from "./steps/Confirmation";
 import StepIndicator from "./steps/StepIndicator";
 import AlertToast from "@/components/alertToast";
 import Loader from "@/components/common/Loader";
-const InstantQuoteGlobal = () => {
+
+/** ───────────────────────────────────────────────────────────────
+ * Props:  allow the parent page to know which step is active
+ * ─────────────────────────────────────────────────────────────── */
+interface InstantQuoteGlobalProps {
+  onStepChange?: (step: number) => void;
+}
+
+const InstantQuoteGlobal: React.FC<InstantQuoteGlobalProps> = ({
+  onStepChange = () => {},
+}) => {
   const [currentStep, setCurrentStep] = useState(1);
   const [isLoading, setIsLoading] = useState(false);
   const [bookingData, setBookingData] = useState({
@@ -86,8 +96,20 @@ const InstantQuoteGlobal = () => {
   const [additionalChargeData, setAdditionalChargeData] = useState(null);
   const [vehicles, setVehicles] = useState([]);
 
-  // Show alert toast
-  const showAlert = ({ title, description, type, onConfirm }) => {
+  /** ────────────────────────────────────────────────────────────
+   * Helpers: alert toast
+   * ─────────────────────────────────────────────────────────── */
+  const showAlert = ({
+    title,
+    description,
+    type,
+    onConfirm,
+  }: {
+    title: string;
+    description: string;
+    type: "warning" | "error" | "success";
+    onConfirm?: () => void;
+  }) => {
     setAlertConfig({
       isOpen: true,
       title,
@@ -97,41 +119,47 @@ const InstantQuoteGlobal = () => {
     });
   };
 
-  // Close alert toast
   const closeAlert = () => {
     setAlertConfig((prev) => ({ ...prev, isOpen: false }));
   };
 
-  // Handle moving to next step
+  /** ────────────────────────────────────────────────────────────
+   * Step navigation  (notify parent on every change)
+   * ─────────────────────────────────────────────────────────── */
   const goToNextStep = () => {
     if (currentStep < 4) {
-      setCurrentStep(currentStep + 1);
+      const next = currentStep + 1;
+      setCurrentStep(next);
+      onStepChange(next); // ← notify parent
       window.scrollTo(0, 0);
     }
   };
 
-  // Handle moving to previous step
   const goToPrevStep = () => {
     if (currentStep > 1) {
-      setCurrentStep(currentStep - 1);
+      const prev = currentStep - 1;
+      setCurrentStep(prev);
+      onStepChange(prev); // ← notify parent
       window.scrollTo(0, 0);
     }
   };
 
-  // Update booking data
-  const updateBookingData = (newData) => {
+  const updateBookingData = (newData: Record<string, any>) => {
     setBookingData((prevData) => ({
       ...prevData,
       ...newData,
     }));
   };
 
-  // Load all required data from APIs
+  /** ────────────────────────────────────────────────────────────
+   * Load initial data once
+   * ─────────────────────────────────────────────────────────── */
   useEffect(() => {
+    onStepChange(1); // notify the parent on mount
+
     const loadInitialData = async () => {
       setIsLoading(true);
       try {
-        // Import and execute all API fetch functions
         const {
           fetchZones,
           fetchAllPricing,
@@ -143,7 +171,6 @@ const InstantQuoteGlobal = () => {
           fetchVehicles,
         } = await import("./api/apiServices");
 
-        // Fetch all data in parallel
         const [
           zonesData,
           pricingData,
@@ -164,9 +191,6 @@ const InstantQuoteGlobal = () => {
           fetchVehicles(),
         ]);
 
-        console.log("price", pricingData);
-
-        // Set all data to state
         setZones(zonesData.data || []);
         setDistanceSlots(pricingData || []);
         setFixedPrice(fixedPricesData || []);
@@ -176,10 +200,9 @@ const InstantQuoteGlobal = () => {
         setAdditionalChargeData(additionalChargesData || null);
         setVehicles(vehiclesData || []);
 
-        // Initialize additional options if available
         if (additionalChargesData?.additionalOptions?.length) {
           const mappedOpts = additionalChargesData.additionalOptions.map(
-            (opt) => ({
+            (opt: any) => ({
               _id: opt._id,
               name: opt.name,
               price: opt.price,
@@ -211,24 +234,26 @@ const InstantQuoteGlobal = () => {
     loadInitialData();
   }, []);
 
-  // Render appropriate step component based on current step
-  const renderStep = () => {
-    const commonProps = {
-      bookingData,
-      updateBookingData,
-      zones,
-      distanceSlots,
-      fixedPrice,
-      surcharges,
-      nightSurchargeSettings,
-      parkingCharges,
-      additionalChargeData,
-      vehicles,
-      goToNextStep,
-      goToPrevStep,
-      showAlert,
-    };
+  /** ────────────────────────────────────────────────────────────
+   * Render correct step
+   * ─────────────────────────────────────────────────────────── */
+  const commonProps = {
+    bookingData,
+    updateBookingData,
+    zones,
+    distanceSlots,
+    fixedPrice,
+    surcharges,
+    nightSurchargeSettings,
+    parkingCharges,
+    additionalChargeData,
+    vehicles,
+    goToNextStep,
+    goToPrevStep,
+    showAlert,
+  };
 
+  const renderStep = () => {
     switch (currentStep) {
       case 1:
         return <InstantQuote {...commonProps} page="" />;
@@ -239,7 +264,7 @@ const InstantQuoteGlobal = () => {
       case 4:
         return <Confirmation {...commonProps} />;
       default:
-        return <InstantQuote {...commonProps} />;
+        return <InstantQuote {...commonProps} page="" />;
     }
   };
 
@@ -258,10 +283,12 @@ const InstantQuoteGlobal = () => {
         <div className="absolute top-0 right-0 w-full h-full pointer-events-none bg-gradient from-blue-50 to-transparent">
           {" "}
         </div>
-        <div className="relative py-6 mx-auto sm:px-6 lg:px-8">
+
+        <div className="relative py-6 mx-auto mb-96 sm:px-6 lg:px-8">
           {currentStep !== 1 && (
             <StepIndicator steps={steps} currentStep={currentStep} />
           )}
+
           <div className="mt-8">
             <AnimatePresence mode="wait">
               <motion.div
@@ -276,6 +303,7 @@ const InstantQuoteGlobal = () => {
             </AnimatePresence>
           </div>
         </div>
+
         {alertConfig.isOpen && (
           <AlertToast
             open={alertConfig.isOpen}
