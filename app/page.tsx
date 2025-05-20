@@ -294,11 +294,11 @@ const BookingFlow = () => {
         {/* Only show these components when NOT on steps 2, 3, or 4 */}
         {currentStep !== 2 && currentStep !== 3 && currentStep !== 4 && (
           <>
-            <div className="bg-[#F5F7FB]">
+            {/* <div className="bg-[#F5F7FB]">
               <div className="container relative w-full px-4 mx-auto md:px-6 lg:px-8">
                 <Services />
               </div>
-            </div>
+            </div> */}
             {/* <div className="container relative w-full px-4 mx-auto md:px-6 lg:px-8">
               <BookingSteps />
             </div> */}
