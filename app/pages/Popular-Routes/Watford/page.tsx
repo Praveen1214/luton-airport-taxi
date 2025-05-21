@@ -71,7 +71,7 @@ export default function HomePage() {
       {quoteStep === 1 && (
         <>
           {/* Hero Section */}
-          <section className="w-full px-4 py-8 text-center md:py-20 bg-gradient from-blue-50 to-transparent md:-mt-16">
+          <section className="w-full px-4 py-8 text-center md:py-20 bg-gradient from-blue-50 to-transparent md:-mt-16 mt-60">
             {/* Why Book and Why Book With Us */}
             <section className="px-4 py-10 mx-auto mt-6 max-w-7xl sm:px-8 sm:py-16 bg-blue-50 sm:mt-10 rounded-xl">
               {/* Container using flex instead of grid */}

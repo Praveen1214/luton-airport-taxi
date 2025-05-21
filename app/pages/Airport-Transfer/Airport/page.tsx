@@ -43,7 +43,7 @@ const Page: React.FC = () => {
         {/* ───── Everything below only on step‑1 ───── */}
         {quoteStep === 1 && (
           <>
-            <div className="mt-32">
+            <div className="mt-64 md:mt-32">
               <Trasnfers />
             </div>
 
