@@ -48,7 +48,7 @@ export default function HomePage() {
     <main className="flex flex-col w-full">
       <div className="flex flex-col items-start justify-between md:flex-row">
         {quoteStep === 1 && (
-          <div className="w-full md:mr-12">
+          <div className="w-full px-10 -mt-28 md:mr-12">
             <div className="max-w-6xl mx-auto mt-44">
               <h1 className="mb-4 text-2xl font-bold sm:text-3xl md:text-5xl">
                 Luton To Watford Taxi Transfers
@@ -70,7 +70,7 @@ export default function HomePage() {
       {quoteStep === 1 && (
         <>
           {/* Hero Section */}
-          <section className="w-full px-4 py-8 text-center md:py-20 bg-gradient from-blue-50 to-transparent">
+          <section className="w-full px-4 py-8 text-center md:-mt-36 md:py-20 bg-gradient from-blue-50 to-transparent">
             {/* Why Book and Why Book With Us */}
             <section className="px-4 py-10 mx-auto mt-6 max-w-7xl sm:px-8 sm:py-16 bg-blue-50 sm:mt-10 rounded-xl">
               {/* Container using flex instead of grid */}
@@ -210,6 +210,117 @@ export default function HomePage() {
                       <span>Meet & Greet</span>
                     </li>
                   </ul>
+                </div>
+              </div>
+            </section>
+
+            <section className="max-w-6xl px-4 py-8 mx-auto sm:py-12 md:py-16">
+              <div className="flex flex-col-reverse items-start justify-between gap-6 md:flex-row sm:gap-8">
+                {/* Left Column: Image - On mobile, this appears below the text */}
+                <div className="flex-shrink-0 w-full mt-6 md:w-1/3 md:mt-0">
+                  {/* <div className="p-4 border-gray-200 rounded-xl bg-blue-50">
+                    <Image
+                      src={EasyTreveling}
+                      alt="Luton Airport Taxi"
+                      className="w-full h-auto rounded-tl-2xl"
+                    />
+                    <div className="mt-4 text-center">
+                      <h3 className="text-base font-semibold text-gray-900 sm:text-lg">
+                        Luton Airport Taxi
+                      </h3>
+                      <p className="text-xs font-medium text-primary sm:text-sm">
+                        Fast & Reliable
+                      </p>
+                    </div>
+                  </div> */}
+                </div>
+
+                {/* Right Column: Text */}
+                <div className="w-full md:w-2/3">
+                  <h2 className="mb-4 text-xl font-semibold text-gray-900 sm:text-2xl md:text-3xl">
+                    Watford Taxi Service
+                  </h2>
+
+                  <p className="mb-4 text-sm leading-relaxed text-justify text-gray-700 sm:text-base">
+                    Looking for a reliable{" "}
+                    <strong> Watford taxi to Luton Airport </strong>? At
+                    <strong> LutonAirportTaxi.co.uk, </strong> we provide
+                    direct, door-to-door airport transfers from anywhere in
+                    Watford to Luton — available 24/7 with fixed fares,
+                    experienced drivers, and full customer support.
+                  </p>
+
+                  <p className="mb-4 text-sm leading-relaxed text-justify text-gray-700 sm:text-base">
+                    Watford is one of Hertfordshire’s busiest commuter towns,
+                    known for its strong transport links, shopping, and
+                    entertainment.With key locations like{" "}
+                    <strong> Watford Junction, Intu Shopping Centre </strong>,
+                    and the <strong>Warner Bros. Studio Tour</strong>, it’s a
+                    hub for both residents and visitors.And thanks to its
+                    proximity to the M1 and M25, getting from Watford to{" "}
+                    <strong> London Luton Airport </strong> is quick and
+                    straightforward — especially with a private taxi.
+                  </p>
+
+                  <p className="mb-6 text-sm leading-relaxed text-justify text-gray-700 sm:text-base">
+                    Our typical journey time from{" "}
+                    <strong> Watford to Luton Airport </strong> is around{" "}
+                    <strong>30 to 40 minutes</strong>, depending on the pickup
+                    point and traffic.Whether you're based in{" "}
+                    <strong>North Watford, Croxley</strong>, or the{" "}
+                    <strong>town centre</strong>, our drivers know the routes
+                    and always plan ahead to keep your journey on time.
+                  </p>
+
+                  <div className="items-start justify-start text-start">
+                    <h3 className="mb-2 text-lg font-semibold text-gray-800">
+                      {" "}
+                      You’ll benefit from:{" "}
+                    </h3>
+                    <ul className="pl-6 space-y-1 text-sm text-gray-700 list-disc sm:text-base">
+                      <li>Fixed prices confirmed upfront </li>
+                      <li>
+                        {" "}
+                        Door - to - door transport, no waiting or walking{" "}
+                      </li>
+                      <li> Free child seats when requested </li>
+                      <li> Flight tracking for perfect timing </li>
+                      <li> Meet & amp; greet and luggage support available </li>
+                      <li>
+                        {" "}
+                        Accessible vehicles through our{" "}
+                        <a
+                          href="#"
+                          className="text-blue-600 underline hover:text-blue-800"
+                        >
+                          {" "}
+                          Wheelchair Taxi{" "}
+                        </a>{" "}
+                        service
+                      </li>
+                      <li>
+                        Group transfers with our{" "}
+                        <a
+                          href="#"
+                          className="text-blue-600 underline hover:text-blue-800"
+                        >
+                          {" "}
+                          Minibus Hire{" "}
+                        </a>{" "}
+                        options
+                      </li>
+                      <li>
+                        Executive upgrades via our{" "}
+                        <a
+                          href="#"
+                          className="text-blue-600 underline hover:text-blue-800"
+                        >
+                          {" "}
+                          Chauffeur Service{" "}
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
                 </div>
               </div>
             </section>

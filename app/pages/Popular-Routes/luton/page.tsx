@@ -47,7 +47,7 @@ export default function HomePage() {
     <main className="flex flex-col w-full">
       <div className="flex flex-col items-start justify-between md:flex-row">
         {quoteStep === 1 && (
-          <div className="w-full md:mr-12">
+      <div className="w-full px-10 md:mr-12 -mt-28">
             <div className="max-w-6xl mx-auto mt-44">
               <h1 className="mb-4 text-2xl font-bold sm:text-3xl md:text-5xl">
                 Luton Taxi Transfers
@@ -70,7 +70,7 @@ export default function HomePage() {
       {quoteStep === 1 && (
         <>
           {/* Hero Section */}
-          <section className="w-full px-4 py-8 text-center md:py-20 bg-gradient from-blue-50 to-transparent">
+  < section className ="w-full px-4 py-8 text-center md:py-20 bg-gradient from-blue-50 to-transparent md:-mt-36">
             {/* Why Book and Why Book With Us */}
             <section className="px-4 py-10 mx-auto mt-6 max-w-7xl sm:px-8 sm:py-16 bg-blue-50 sm:mt-10 rounded-xl">
               {/* Container using flex instead of grid */}
