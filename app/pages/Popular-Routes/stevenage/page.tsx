@@ -214,6 +214,58 @@ export default function HomePage() {
               </div>
             </section>
 
+            <section className="max-w-6xl px-4 py-8 mx-auto sm:py-12 md:py-16">
+              <div className="flex flex-col-reverse items-start justify-between gap-6 md:flex-row sm:gap-8">
+                {/* Left Column: Image - On mobile, this appears below the text */}
+                <div className="flex-shrink-0 w-full mt-6 md:w-1/3 md:mt-0">
+                  {/* <div className="p-4 border-gray-200 rounded-xl bg-blue-50">
+                    <Image
+                      src={EasyTreveling}
+                      alt="Luton Airport Taxi"
+                      className="w-full h-auto rounded-tl-2xl"
+                    />
+                    <div className="mt-4 text-center">
+                      <h3 className="text-base font-semibold text-gray-900 sm:text-lg">
+                        Luton Airport Taxi
+                      </h3>
+                      <p className="text-xs font-medium text-primary sm:text-sm">
+                        Fast & Reliable
+                      </p>
+                    </div>
+                  </div> */}
+                </div>
+
+                {/* Right Column: Text */}
+                <div className="w-full md:w-2/3">
+                  <h2 className="mb-4 text-xl font-semibold text-gray-900 sm:text-2xl md:text-3xl">
+                    Stevenage Taxi
+                  </h2>
+                  <p className="mb-4 text-sm leading-relaxed text-justify text-gray-700 sm:text-base">
+                    At <strong>LutonAirportTaxi.co.uk</strong>, we provide fast,
+                    reliable, and fixed - price{" "}
+                    <strong>
+                      airport taxi transfers from Stevenage to Luton Airport.
+                    </strong>{" "}
+                    Whether you're flying for work, leisure, or need a return
+                    pickup, our 24/7 service ensures you get there safely and on
+                    time — without the stress of public transport or confusing
+                    connections.
+                  </p>
+                  <p className="mb-4 text-sm leading-relaxed text-justify text-gray-700 sm:text-base">
+                    Located just <strong>1 mile from Luton Airport</strong>, we
+                    dispatch vehicles across <strong>Hertfordshire</strong>,
+                    including regular pickups in{" "}
+                    <strong>
+                      Stevenage town centre, Old Town, Great Ashby
+                    </strong>
+                    , and <strong>Chells</strong>.Our local drivers know the
+                    routes, shortcuts, and traffic conditions, ensuring
+                    efficient pickups no matter where you are.
+                  </p>
+                </div>
+              </div>
+            </section>
+
             {/* Milton Keynes to Luton Airport Taxi Time Interval */}
             <section className="max-w-6xl px-4 py-8 mx-auto sm:py-12 md:py-16">
               <div className="flex flex-col items-start justify-between gap-6 md:flex-row sm:gap-8">
@@ -306,6 +358,246 @@ export default function HomePage() {
                     Stevenage to Luton airport taxi with us now to save your
                     time and money.
                   </p>
+                </div>
+              </div>
+            </section>
+
+            <section className="max-w-6xl px-4 py-8 mx-auto sm:py-12 md:py-16">
+              <div className="flex flex-col items-start justify-between gap-6 md:flex-row sm:gap-8">
+                {/* Left Column */}
+                <div className="w-full md:w-2/3">
+                  <h2 className="mb-4 text-xl font-semibold text-gray-900 sm:text-2xl md:text-3xl">
+                    Stevenage to Luton Airport Transfers – Reliable and Direct
+                  </h2>
+                  <p className="mb-4 text-sm leading-relaxed text-justify text-gray-700 sm:text-base">
+                    Stevenage is around <strong>18 miles</strong> from Luton
+                    Airport — a typical journey takes{" "}
+                    <strong>25–35 minutes</strong>, depending on traffic.Unlike
+                    trains or buses, we offer a{" "}
+                    <strong>door - to - door service</strong> that starts at
+                    your front door and ends right at the airport terminal.
+                  </p>
+
+                  <div className="items-start justify-start text-start">
+                    <h3 className="mb-2 text-lg font-semibold text-gray-800">
+                      {" "}
+                      <div className="items-start justify-start text-start">
+                        <h3 className="mb-2 text-lg font-semibold text-gray-800">
+                          {" "}
+                          We offer:{" "}
+                        </h3>
+                      </div>{" "}
+                    </h3>
+                    <ul className="pl-6 space-y-1 text-sm text-gray-700 list-disc sm:text-base">
+                      <li>Fixed fares with no surge pricing </li>
+                      <li>Meet & Greet at the terminal(optional) </li>
+                      <li>Luggage assistance and child seats available </li>
+                      <li>
+                        {" "}
+                        <a className="font-semibold text-primary" href="">
+                          Minibus Hire
+                        </a>{" "}
+                        for larger families or corporate groups{" "}
+                      </li>
+                      <li>
+                        <a className="font-semibold text-primary" href="">
+                          Wheelchair Accessible Taxis
+                        </a>{" "}
+                        for passengers with mobility needs{" "}
+                      </li>
+                      <li>
+                        {" "}
+                        <a className="font-semibold text-primary" href="">
+                          {" "}
+                          Chauffeur Service
+                        </a>{" "}
+                        for a premium travel experience{" "}
+                      </li>
+                      <li>
+                        {" "}
+                        <li>
+                          {" "}
+                          Flight monitoring to ensure on - time pickups and drop
+                          - offs{" "}
+                        </li>{" "}
+                      </li>
+                    </ul>
+                  </div>
+                  <br />
+
+                  <p className="text-sm leading-relaxed text-justify text-gray-700 sm:text-base">
+                    You’ll never need to carry your bags through stations or
+                    rely on limited service hours — we’re available 24 / 7 and
+                    always on schedule.
+                  </p>
+                </div>
+
+                {/* Right Column */}
+                <div className="flex-shrink-0 w-full mt-6 md:w-1/3 md:mt-0">
+                  {/* <div className="p-4 rounded-lg bg-blue-50">
+                    <Image
+                      src={MaskGroup}
+                      alt="Luton Airport Taxi"
+                      className="w-full h-auto rounded-md"
+                    />
+                    <div className="mt-4 text-center">
+                      <h3 className="text-base font-semibold text-gray-900 sm:text-lg">
+                        Luton Airport Taxi
+                      </h3>
+                      <p className="text-xs font-medium text-primary sm:text-sm">
+                        Fast & Reliable
+                      </p>
+                    </div>
+                  </div> */}
+                </div>
+              </div>
+            </section>
+
+            <section className="max-w-6xl px-4 py-8 mx-auto sm:py-12 md:py-16">
+              <div className="flex flex-col-reverse items-start justify-between gap-6 md:flex-row sm:gap-8">
+                {/* Left Column: Image - On mobile, this appears below the text */}
+                <div className="flex-shrink-0 w-full mt-6 md:w-1/3 md:mt-0">
+                  {/* <div className="p-4 border-gray-200 rounded-xl bg-blue-50">
+                    <Image
+                      src={EasyTreveling}
+                      alt="Luton Airport Taxi"
+                      className="w-full h-auto rounded-tl-2xl"
+                    />
+                    <div className="mt-4 text-center">
+                      <h3 className="text-base font-semibold text-gray-900 sm:text-lg">
+                        Luton Airport Taxi
+                      </h3>
+                      <p className="text-xs font-medium text-primary sm:text-sm">
+                        Fast & Reliable
+                      </p>
+                    </div>
+                  </div> */}
+                </div>
+
+                {/* Right Column: Text */}
+                <div className="w-full md:w-2/3">
+                  <h2 className="mb-4 text-xl font-semibold text-gray-900 sm:text-2xl md:text-3xl">
+                    Why Our Airport Taxi Service is Better Than Public Transport
+                  </h2>
+                  <p className="mb-4 text-sm leading-relaxed text-justify text-gray-700 sm:text-base">
+                    Public transport between Stevenage and Luton Airport
+                    typically involves multiple changes.Trains may require
+                    transfers at <strong>Hitchin</strong> or{" "}
+                    <strong>Luton Airport Parkway</strong>, followed by a
+                    shuttle bus to the terminal.Travel times can stretch well
+                    over an hour, with long waits between services.
+                  </p>
+                  <div className="items-start justify-start text-start">
+                    <h3 className="mb-2 text-lg font-semibold text-gray-800">
+                      {" "}
+                      Our service gives you:{" "}
+                    </h3>
+                    <ul className="pl-6 space-y-1 text-sm text-gray-700 list-disc sm:text-base">
+                      <li>One vehicle — no changes, no waiting </li>
+                      <li> Flexible pickup times </li>
+                      <li>More luggage space </li>
+                      <li>
+                        Safer, private travel — perfect for families and
+                        business clients{" "}
+                      </li>
+                    </ul>
+                  </div>{" "}
+                  <br />
+                  <p className="mb-6 text-sm leading-relaxed text-justify text-gray-700 sm:text-base">
+                    With our taxi, you arrive relaxed and ready — not flustered
+                    or late.
+                  </p>
+                </div>
+              </div>
+            </section>
+
+            <section className="max-w-4xl px-4 py-8 mx-auto sm:py-12 md:py-16">
+              <div className="space-y-6">
+                {/* Heading */}
+                <h2 className="text-xl font-bold text-gray-900 sm:text-2xl md:text-3xl">
+                  Travel Times from Stevenage to Luton Airport
+                </h2>
+
+                {/* Table */}
+                <div className="overflow-x-auto">
+                  <table className="min-w-full text-sm text-left text-gray-700">
+                    <thead className="text-xs text-gray-500 uppercase border-b">
+                      <tr>
+                        <th className="py-2 pr-4"> Pickup Area </th>
+                        <th className="py-2"> Approx.Travel Time </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr className="border-b">
+                        <td className="py-2 pr-4"> Stevenage Town Centre </td>
+                        <td className="py-2"> 30 minutes </td>
+                      </tr>
+                      <tr className="border-b">
+                        <td className="py-2 pr-4"> Great Ashby </td>
+                        <td className="py-2"> 35 minutes </td>
+                      </tr>
+                      <tr className="border-b">
+                        <td className="py-2 pr-4"> Chells </td>
+                        <td className="py-2"> 28 minutes </td>
+                      </tr>
+                      <tr className="border-b">
+                        <td className="py-2 pr-4"> Stevenage Old Town </td>
+                        <td className="py-2"> 30 minutes </td>
+                      </tr>
+                      <tr>
+                        <td className="py-2 pr-4"> Broadwater </td>
+                        <td className="py-2"> 32 minutes </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+                {/* Footer note */}
+                <p className="text-sm leading-relaxed text-gray-700">
+                  We monitor live traffic data and flight updates to ensure your
+                  ride is perfectly timed.
+                </p>
+              </div>
+            </section>
+
+            <section className="max-w-6xl px-4 py-8 mx-auto sm:py-12 md:py-16">
+              <div className="flex flex-col items-start justify-between gap-6 md:flex-row sm:gap-8">
+                {/* Left Column */}
+                <div className="w-full md:w-2/3">
+                  <h2 className="mb-4 text-xl font-semibold text-gray-900 sm:text-2xl md:text-3xl">
+                    Book Your Stevenage to Luton Airport Taxi Today
+                  </h2>
+                  <p className="mb-4 text-sm leading-relaxed text-justify text-gray-700 sm:text-base">
+                    With fast dispatch, experienced drivers, and fixed fares,
+                    we’re the go - to provider for{" "}
+                    <strong>Stevenage to Luton Airport taxis.</strong> Use our
+                    easy online booking tool or contact our team to reserve your
+                    journey — anytime, day or night
+                  </p>
+                  <p className="text-sm leading-relaxed text-justify text-gray-700 sm:text-base">
+                    Choose <strong>LutonAirportTaxi.co.uk</strong> and enjoy a
+                    better way to travel. <strong>Book now</strong> for a stress
+                    - free transfer from Stevenage to Luton Airport.
+                  </p>
+                </div>
+
+                {/* Right Column */}
+                <div className="flex-shrink-0 w-full mt-6 md:w-1/3 md:mt-0">
+                  {/* <div className="p-4 rounded-lg bg-blue-50">
+                    <Image
+                      src={MaskGroup}
+                      alt="Luton Airport Taxi"
+                      className="w-full h-auto rounded-md"
+                    />
+                    <div className="mt-4 text-center">
+                      <h3 className="text-base font-semibold text-gray-900 sm:text-lg">
+                        Luton Airport Taxi
+                      </h3>
+                      <p className="text-xs font-medium text-primary sm:text-sm">
+                        Fast & Reliable
+                      </p>
+                    </div>
+                  </div> */}
                 </div>
               </div>
             </section>

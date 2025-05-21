@@ -214,6 +214,54 @@ export default function HomePage() {
               </div>
             </section>
 
+            <section className="max-w-6xl px-4 py-8 mx-auto sm:py-12 md:py-16">
+              <div className="flex flex-col-reverse items-start justify-between gap-6 md:flex-row sm:gap-8">
+                {/* Left Column: Image - On mobile, this appears below the text */}
+                <div className="flex-shrink-0 w-full mt-6 md:w-1/3 md:mt-0">
+                  {/* <div className="p-4 border-gray-200 rounded-xl bg-blue-50">
+                    <Image
+                      src={EasyTreveling}
+                      alt="Luton Airport Taxi"
+                      className="w-full h-auto rounded-tl-2xl"
+                    />
+                    <div className="mt-4 text-center">
+                      <h3 className="text-base font-semibold text-gray-900 sm:text-lg">
+                        Luton Airport Taxi
+                      </h3>
+                      <p className="text-xs font-medium text-primary sm:text-sm">
+                        Fast & Reliable
+                      </p>
+                    </div>
+                  </div> */}
+                </div>
+
+                {/* Right Column: Text */}
+                <div className="w-full md:w-2/3">
+                  <h2 className="mb-4 text-xl font-semibold text-gray-900 sm:text-2xl md:text-3xl">
+                    St Albans Taxi
+                  </h2>
+                  <p className="mb-4 text-sm leading-relaxed text-justify text-gray-700 sm:text-base">
+                    Looking for a reliable{" "}
+                    <strong>St Albans taxi to Luton Airport</strong> ? At
+                    <strong>LutonAirportTaxi.co.uk</strong>, we provide direct,
+                    affordable, and punctual airport transfers from{" "}
+                    <strong>St Albans</strong> to{" "}
+                    <strong>London Luton Airport</strong> — with fixed fares, 24
+                    / 7 availability, and a team of local drivers who know the
+                    routes inside out.
+                  </p>
+                  <p className="mb-4 text-sm leading-relaxed text-justify text-gray-700 sm:text-base">
+                    Our company is located just{" "}
+                    <strong>1 mile from Luton Airport</strong>, giving us a
+                    major advantage when it comes to quick dispatch and flexible
+                    booking.Whether you're heading out on holiday, travelling
+                    for work, or arriving back in the UK, we offer a smooth,
+                    door-to-door service with no delays or hidden costs.
+                  </p>
+                </div>
+              </div>
+            </section>
+
             {/* Milton Keynes to Luton Airport Taxi Time Interval */}
             <section className="max-w-6xl px-4 py-8 mx-auto sm:py-12 md:py-16">
               <div className="flex flex-col items-start justify-between gap-6 md:flex-row sm:gap-8">
@@ -304,6 +352,296 @@ export default function HomePage() {
                     more. Beware of booking with those service providers which
                     are ranking and having 200% expensive prices. So, book St
                     Albans
+                  </p>
+                </div>
+              </div>
+            </section>
+
+            <section className="max-w-6xl px-4 py-8 mx-auto sm:py-12 md:py-16">
+              <div className="flex flex-col items-start justify-between gap-6 md:flex-row sm:gap-8">
+                {/* Left Column */}
+                <div className="w-full md:w-2/3">
+                  <h2 className="mb-4 text-xl font-semibold text-gray-900 sm:text-2xl md:text-3xl">
+                    St Albans to Luton Airport – Door - to - Door Transfers
+                  </h2>
+                  <p className="mb-4 text-sm leading-relaxed text-justify text-gray-700 sm:text-base">
+                    With over 20 years of experience, we’ve helped thousands of
+                    customers from St Albans city centre, Fleetville,
+                    Marshalswick, and surrounding villages reach the airport
+                    quickly and comfortably.Our average journey time is 25 to 35
+                    minutes, and our drivers always plan ahead using live
+                    traffic data to avoid congestion.
+                  </p>
+
+                  <div className="items-start justify-start text-start">
+                    <h3 className="mb-2 text-lg font-semibold text-gray-800">
+                      {" "}
+                      <div className="items-start justify-start text-start">
+                        <h3 className="mb-2 text-lg font-semibold text-gray-800">
+                          {" "}
+                          You’ll enjoy:{" "}
+                        </h3>
+                      </div>{" "}
+                    </h3>
+                    <ul className="pl-6 space-y-1 text-sm text-gray-700 list-disc sm:text-base">
+                      <li>Fixed pricing agreed upfront </li>
+                      <li>Meet & Greet available at the terminal </li>
+                      <li>Free child seats upon request </li>
+                      <li>
+                        {" "}
+                        <a className="font-semibold text-primary" href="">
+                          Minibus Hire
+                        </a>{" "}
+                        for families and groups{" "}
+                      </li>
+                      <li>
+                        <a className="font-semibold text-primary" href="">
+                          Wheelchair Taxi
+                        </a>{" "}
+                        service with accessible vehicles{" "}
+                      </li>
+                      <li>
+                        {" "}
+                        <a className="font-semibold text-primary" href="">
+                          {" "}
+                          Chauffeur Service
+                        </a>{" "}
+                        for executive travel{" "}
+                      </li>
+                      <li>
+                        {" "}
+                        <li>24 / 7 customer support </li>{" "}
+                      </li>
+                    </ul>
+                  </div>
+                  <br />
+
+                  <p className="text-sm leading-relaxed text-justify text-gray-700 sm:text-base">
+                    No trains, no changes, no dragging luggage.Just a straight,
+                    comfortable ride to the terminal.
+                  </p>
+                </div>
+
+                {/* Right Column */}
+                <div className="flex-shrink-0 w-full mt-6 md:w-1/3 md:mt-0">
+                  {/* <div className="p-4 rounded-lg bg-blue-50">
+                    <Image
+                      src={MaskGroup}
+                      alt="Luton Airport Taxi"
+                      className="w-full h-auto rounded-md"
+                    />
+                    <div className="mt-4 text-center">
+                      <h3 className="text-base font-semibold text-gray-900 sm:text-lg">
+                        Luton Airport Taxi
+                      </h3>
+                      <p className="text-xs font-medium text-primary sm:text-sm">
+                        Fast & Reliable
+                      </p>
+                    </div>
+                  </div> */}
+                </div>
+              </div>
+            </section>
+
+            <section className="max-w-6xl px-4 py-8 mx-auto sm:py-12 md:py-16">
+              <div className="flex flex-col-reverse items-start justify-between gap-6 md:flex-row sm:gap-8">
+                {/* Left Column: Image - On mobile, this appears below the text */}
+                <div className="flex-shrink-0 w-full mt-6 md:w-1/3 md:mt-0">
+                  {/* <div className="p-4 border-gray-200 rounded-xl bg-blue-50">
+                    <Image
+                      src={EasyTreveling}
+                      alt="Luton Airport Taxi"
+                      className="w-full h-auto rounded-tl-2xl"
+                    />
+                    <div className="mt-4 text-center">
+                      <h3 className="text-base font-semibold text-gray-900 sm:text-lg">
+                        Luton Airport Taxi
+                      </h3>
+                      <p className="text-xs font-medium text-primary sm:text-sm">
+                        Fast & Reliable
+                      </p>
+                    </div>
+                  </div> */}
+                </div>
+
+                {/* Right Column: Text */}
+                <div className="w-full md:w-2/3">
+                  <h2 className="mb-4 text-xl font-semibold text-gray-900 sm:text-2xl md:text-3xl">
+                    Why Choose Luton Airport Taxi for St Albans Transfers ?
+                  </h2>
+                  <p className="mb-4 text-sm leading-relaxed text-justify text-gray-700 sm:text-base">
+                    We’re not just based near the airport — we serve{" "}
+                    <strong>St Albans daily</strong> with local drivers familiar
+                    with the entire area, from
+                    <strong>Verulamium Park</strong> to{" "}
+                    <strong>St Albans Cathedral</strong>, the{" "}
+                    <strong>Abbey Station</strong>, and all major residential
+                    zones.Our drivers are polite, punctual, and trained to
+                    assist with luggage and personal travel needs.
+                  </p>
+                  <p className="text-sm leading-relaxed text-justify text-gray-700 sm:text-base">
+                    Many of our bookings come from regular customers travelling
+                    between St Albans and Luton for business or family
+                    holidays.Whether you're being picked up early in the morning
+                    or late at night, we’re ready when you are.
+                  </p>
+                </div>
+              </div>
+            </section>
+
+            <section className="max-w-4xl px-4 py-8 mx-auto sm:py-12 md:py-16">
+              <div className="space-y-6">
+                {/* Heading */}
+                <h2 className="text-xl font-bold text-gray-900 sm:text-2xl md:text-3xl">
+                  Travel Times from St Albans to Luton Airport
+                </h2>
+
+                {/* Table */}
+                <div className="overflow-x-auto">
+                  <table className="min-w-full text-sm text-left text-gray-700">
+                    <thead className="text-xs text-gray-500 uppercase border-b">
+                      <tr>
+                        <th className="py-2 pr-4"> Pickup Area </th>
+                        <th className="py-2"> Estimated Travel Time </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr className="border-b">
+                        <td className="py-2 pr-4"> Marshalswick </td>
+                        <td className="py-2"> 28 minutes </td>
+                      </tr>
+                      <tr className="border-b">
+                        <td className="py-2 pr-4"> London Colney </td>
+                        <td className="py-2"> 35 minutes </td>
+                      </tr>
+                      <tr className="border-b">
+                        <td className="py-2 pr-4"> Fleetville </td>
+                        <td className="py-2"> 25 minutes </td>
+                      </tr>
+                      <tr className="border-b">
+                        <td className="py-2 pr-4">
+                          {" "}
+                          Harpenden(via St Albans booking)
+                        </td>
+                        <td className="py-2"> 20 minutes </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+                {/* Footer note */}
+                <p className="text-sm leading-relaxed text-gray-700">
+                  We monitor flights and traffic in real time to make sure
+                  you're always on time for your departure — and never waiting
+                  on arrival.
+                </p>
+              </div>
+            </section>
+
+            <section className="max-w-6xl px-4 py-8 mx-auto sm:py-12 md:py-16">
+              <div className="flex flex-col items-start justify-between gap-6 md:flex-row sm:gap-8">
+                {/* Left Column */}
+                <div className="w-full md:w-2/3">
+                  <h2 className="mb-4 text-xl font-semibold text-gray-900 sm:text-2xl md:text-3xl">
+                    St Albans to Luton: Why a Taxi Beats Public Transport
+                  </h2>
+                  <p className="mb-4 text-sm leading-relaxed text-justify text-gray-700 sm:text-base">
+                    Public transport options often involve indirect train routes
+                    or unreliable coach services.Most require a change at{" "}
+                    <strong>Luton Airport Parkway</strong>, followed by a
+                    shuttle to the terminal.
+                  </p>
+
+                  <div className="items-start justify-start text-start">
+                    <h3 className="mb-2 text-lg font-semibold text-gray-800">
+                      {" "}
+                      <div className="items-start justify-start text-start">
+                        <h3 className="mb-2 text-lg font-semibold text-gray-800">
+                          {" "}
+                          With our airport taxi from St Albans, you get:{" "}
+                        </h3>
+                      </div>{" "}
+                    </h3>
+                    <ul className="pl-6 space-y-1 text-sm text-gray-700 list-disc sm:text-base">
+                      <li>One vehicle for the entire journey </li>
+                      <li>Space for your luggage and family </li>
+                      <li>No waiting for train times or bus schedules </li>
+
+                      <li>
+                        {" "}
+                        <li>
+                          Support from a professional, helpful driver{" "}
+                        </li>{" "}
+                      </li>
+                    </ul>
+                  </div>
+                  <br />
+
+                  <p className="text-sm leading-relaxed text-justify text-gray-700 sm:text-base">
+                    No trains, no changes, no dragging luggage.Just a straight,
+                    comfortable ride to the terminal.
+                  </p>
+                </div>
+
+                {/* Right Column */}
+                <div className="flex-shrink-0 w-full mt-6 md:w-1/3 md:mt-0">
+                  {/* <div className="p-4 rounded-lg bg-blue-50">
+                    <Image
+                      src={MaskGroup}
+                      alt="Luton Airport Taxi"
+                      className="w-full h-auto rounded-md"
+                    />
+                    <div className="mt-4 text-center">
+                      <h3 className="text-base font-semibold text-gray-900 sm:text-lg">
+                        Luton Airport Taxi
+                      </h3>
+                      <p className="text-xs font-medium text-primary sm:text-sm">
+                        Fast & Reliable
+                      </p>
+                    </div>
+                  </div> */}
+                </div>
+              </div>
+            </section>
+
+            <section className="max-w-6xl px-4 py-8 mx-auto sm:py-12 md:py-16">
+              <div className="flex flex-col-reverse items-start justify-between gap-6 md:flex-row sm:gap-8">
+                {/* Left Column: Image - On mobile, this appears below the text */}
+                <div className="flex-shrink-0 w-full mt-6 md:w-1/3 md:mt-0">
+                  {/* <div className="p-4 border-gray-200 rounded-xl bg-blue-50">
+                    <Image
+                      src={EasyTreveling}
+                      alt="Luton Airport Taxi"
+                      className="w-full h-auto rounded-tl-2xl"
+                    />
+                    <div className="mt-4 text-center">
+                      <h3 className="text-base font-semibold text-gray-900 sm:text-lg">
+                        Luton Airport Taxi
+                      </h3>
+                      <p className="text-xs font-medium text-primary sm:text-sm">
+                        Fast & Reliable
+                      </p>
+                    </div>
+                  </div> */}
+                </div>
+
+                {/* Right Column: Text */}
+                <div className="w-full md:w-2/3">
+                  <h2 className="mb-4 text-xl font-semibold text-gray-900 sm:text-2xl md:text-3xl">
+                    Book Your St Albans Airport Taxi Today
+                  </h2>
+                  <p className="mb-4 text-sm leading-relaxed text-justify text-gray-700 sm:text-base">
+                    Booking your{" "}
+                    <strong>St Albans to Luton Airport taxi</strong> is easy —
+                    just use our online form for an instant quote, or call our
+                    team for tailored bookings.We’re available 24 / 7, with
+                    vehicles to suit solo travellers, families, and business
+                    clients alike.
+                  </p>
+                  <p className="text-sm leading-relaxed text-justify text-gray-700 sm:text-base">
+                    Let <strong>LutonAirportTaxi.co.uk</strong> make your next
+                    airport journey easier, faster, and more comfortable.{" "}
+                    <strong>Book now</strong> and travel with confidence.
                   </p>
                 </div>
               </div>

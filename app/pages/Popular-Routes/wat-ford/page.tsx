@@ -240,7 +240,6 @@ export default function HomePage() {
                   <h2 className="mb-4 text-xl font-semibold text-gray-900 sm:text-2xl md:text-3xl">
                     Watford Taxi Service
                   </h2>
-
                   <p className="mb-4 text-sm leading-relaxed text-justify text-gray-700 sm:text-base">
                     Looking for a reliable{" "}
                     <strong> Watford taxi to Luton Airport </strong>? At
@@ -249,7 +248,6 @@ export default function HomePage() {
                     Watford to Luton — available 24/7 with fixed fares,
                     experienced drivers, and full customer support.
                   </p>
-
                   <p className="mb-4 text-sm leading-relaxed text-justify text-gray-700 sm:text-base">
                     Watford is one of Hertfordshire’s busiest commuter towns,
                     known for its strong transport links, shopping, and
@@ -261,7 +259,6 @@ export default function HomePage() {
                     <strong> London Luton Airport </strong> is quick and
                     straightforward — especially with a private taxi.
                   </p>
-
                   <p className="mb-6 text-sm leading-relaxed text-justify text-gray-700 sm:text-base">
                     Our typical journey time from{" "}
                     <strong> Watford to Luton Airport </strong> is around{" "}
@@ -271,7 +268,6 @@ export default function HomePage() {
                     <strong>town centre</strong>, our drivers know the routes
                     and always plan ahead to keep your journey on time.
                   </p>
-
                   <div className="items-start justify-start text-start">
                     <h3 className="mb-2 text-lg font-semibold text-gray-800">
                       {" "}
@@ -320,7 +316,12 @@ export default function HomePage() {
                         </a>
                       </li>
                     </ul>
-                  </div>
+                  </div>{" "}
+                  <br />
+                  <p className="mb-6 text-sm leading-relaxed text-justify text-gray-700 sm:text-base">
+                    We don’t just get you to the airport — we make your journey
+                    comfortable, efficient, and stress - free.
+                  </p>
                 </div>
               </div>
             </section>
@@ -341,6 +342,7 @@ export default function HomePage() {
                     miles away but it takes a minimum of 33 minutes because of
                     slow traffic.
                   </p>
+
                   <p className="text-sm leading-relaxed text-justify text-gray-700 sm:text-base">
                     The interval from Watford to Luton Town via taxi or your own
                     car is approximately 29 minutes. The distance between Luton
@@ -415,6 +417,102 @@ export default function HomePage() {
                     ranking and having 200% expensive prices. So, book Watford
                     to Luton airport taxi with us now to save your time and
                     money.
+                  </p>
+                </div>
+              </div>
+            </section>
+
+            <section className="max-w-6xl px-4 py-8 mx-auto sm:py-12 md:py-16">
+              <div className="flex flex-col items-start justify-between gap-6 md:flex-row sm:gap-8">
+                {/* Left Column */}
+                <div className="w-full md:w-2/3">
+                  <h2 className="mb-4 text-xl font-semibold text-gray-900 sm:text-2xl md:text-3xl">
+                    Taxi from Watford to Luton Airport vs Public Transport
+                  </h2>
+                  <p className="mb-4 text-sm leading-relaxed text-justify text-gray-700 sm:text-base">
+                    Public transport from Watford to Luton usually requires
+                    multiple changes, whether you're using the train, coach, or
+                    bus. That means delays, dragging luggage through stations,
+                    and extra time.
+                  </p>
+
+                  <div className="items-start justify-start text-start">
+                    <h3 className="mb-2 text-lg font-semibold text-gray-800">
+                      {" "}
+                      With our private airport taxi, you’ll enjoy:{" "}
+                    </h3>
+                    <ul className="pl-6 space-y-1 text-sm text-gray-700 list-disc sm:text-base">
+                      <li>A direct journey with no transfers </li>
+                      <li>Flexible pickup times </li>
+                      <li>Guaranteed vehicle space for you and your bags </li>
+                      <li>Personal service and help from your driver </li>
+                    </ul>
+                  </div>
+                  <br />
+                  <p className="text-sm leading-relaxed text-justify text-gray-700 sm:text-base">
+                    It’s especially ideal for families, business travellers, or
+                    anyone who values convenience and reliability.
+                  </p>
+                </div>
+
+                {/* Right Column */}
+                <div className="flex-shrink-0 w-full mt-6 md:w-1/3 md:mt-0">
+                  {/* <div className="p-4 rounded-lg bg-blue-50">
+                    <Image
+                      src={MaskGroup}
+                      alt="Luton Airport Taxi"
+                      className="w-full h-auto rounded-md"
+                    />
+                    <div className="mt-4 text-center">
+                      <h3 className="text-base font-semibold text-gray-900 sm:text-lg">
+                        Luton Airport Taxi
+                      </h3>
+                      <p className="text-xs font-medium text-primary sm:text-sm">
+                        Fast & Reliable
+                      </p>
+                    </div>
+                  </div> */}
+                </div>
+              </div>
+            </section>
+
+            <section className="max-w-6xl px-4 py-8 mx-auto sm:py-12 md:py-16">
+              <div className="flex flex-col-reverse items-start justify-between gap-6 md:flex-row sm:gap-8">
+                {/* Left Column: Image - On mobile, this appears below the text */}
+                <div className="flex-shrink-0 w-full mt-6 md:w-1/3 md:mt-0">
+                  {/* <div className="p-4 border-gray-200 rounded-xl bg-blue-50">
+                    <Image
+                      src={EasyTreveling}
+                      alt="Luton Airport Taxi"
+                      className="w-full h-auto rounded-tl-2xl"
+                    />
+                    <div className="mt-4 text-center">
+                      <h3 className="text-base font-semibold text-gray-900 sm:text-lg">
+                        Luton Airport Taxi
+                      </h3>
+                      <p className="text-xs font-medium text-primary sm:text-sm">
+                        Fast & Reliable
+                      </p>
+                    </div>
+                  </div> */}
+                </div>
+
+                {/* Right Column: Text */}
+                <div className="w-full md:w-2/3">
+                  <h2 className="mb-4 text-xl font-semibold text-gray-900 sm:text-2xl md:text-3xl">
+                    Book Your Watford to Luton Airport Taxi Now
+                  </h2>
+                  <p className="mb-4 text-sm leading-relaxed text-justify text-gray-700 sm:text-base">
+                    Booking your <strong>airport taxi from Watford</strong> is
+                    quick and simple.Use our online form to get a quote and
+                    confirm instantly, or call us if you have specific needs.Our
+                    drivers operate 24 hours a day and cover all of Watford and
+                    surrounding areas.
+                  </p>
+                  <p className="text-sm leading-relaxed text-justify text-gray-700 sm:text-base">
+                    Choose <strong>LutonAirportTaxi.co.uk</strong> for your next
+                    trip — and enjoy a smoother way to travel between Watford
+                    and Luton Airport.
                   </p>
                 </div>
               </div>
