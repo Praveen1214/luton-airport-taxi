@@ -220,23 +220,43 @@ export default function HomePage() {
                 {/* Left Column */}
                 <div className="w-full md:w-2/3">
                   <h2 className="mb-4 text-xl font-semibold text-gray-900 sm:text-2xl md:text-3xl">
-                    Milton Keynes to Luton Airport Taxi Time Interval
+                    Luton Airport Taxi Transfer
                   </h2>
                   <p className="mb-4 text-sm leading-relaxed text-justify text-gray-700 sm:text-base">
-                    With our Milton Keynes to Luton Airport taxi, you can reach
-                    to the Luton airport within 31 minutes time interval.It is
-                    approximately 24.7 miles if we use the M1 motorway for
-                    traveling.An alternative way is an A421 path which is 23.1
-                    miles away but it takes a minimum of 33 minutes because of
-                    slow traffic.
+                    Welcome to <strong>Luton Airport Taxi</strong>, the trusted
+                    provider of airport transfers in and around{" "}
+                    <strong>Luton,</strong> serving thousands of travellers each
+                    year with dependable, punctual transport.Based just minutes
+                    from <strong>London Luton Airport(LTN)</strong>, we offer
+                    professional <strong>airport taxi transfers</strong> that
+                    are fast, reliable, and tailored to your needs—whether
+                    you’re flying out, landing back home, or connecting through
+                    one of London’s major hubs.
                   </p>
                   <p className="text-sm leading-relaxed text-justify text-gray-700 sm:text-base">
-                    The interval from Milton Keynes to Luton Town via taxi or
-                    your own car is approximately 29 minutes.The distance
-                    between Luton and Milton Keynes is approximately 22.5 miles
-                    which are equal to 36.2 km.Because of the fast and casual
-                    traffic of M1 Motorway, it is not hard to cover this
-                    distance at this time.
+                    Our company is built on a simple goal: to deliver smooth,
+                    safe, and stress - free transport to and from Luton Airport
+                    at fixed, transparent prices.We specialise in{" "}
+                    <strong>door - to - door transfers</strong>, with options
+                    ranging from <strong>cheap taxi to Luton Airport</strong> to
+                    luxury{" "}
+                    <strong>
+                      chauffeur service, wheelchair accessible taxi
+                    </strong>
+                    , and <strong>minibus hire with driver</strong> for larger
+                    groups.
+                  </p>
+                  <br />
+                  <p className="text-sm leading-relaxed text-justify text-gray-700 sm:text-base">
+                    Located in <strong>Bedfordshire</strong>, just 35 miles
+                    north of Central London, <strong>Luton</strong> is one of
+                    the UK’s key airport towns, with strong rail and road links
+                    across the country.<strong>London Luton Airport </strong> is
+                    the fifth busiest in the UK, serving over 16 million
+                    passengers annually and offering routes across Europe and
+                    beyond.Whether you’re arriving or departing,
+                    <strong>Luton Airport Taxi</strong> is your dedicated
+                    partner in ground transport.
                   </p>
                 </div>
 
@@ -257,6 +277,444 @@ export default function HomePage() {
                       </p>
                     </div>
                   </div>
+                </div>
+              </div>
+            </section>
+
+            <section className="max-w-6xl px-4 py-8 mx-auto sm:py-12 md:py-16">
+              <div className="flex flex-col-reverse items-start justify-between gap-6 md:flex-row sm:gap-8">
+                {/* Left Column: Image - On mobile, this appears below the text */}
+                <div className="flex-shrink-0 w-full mt-6 md:w-1/3 md:mt-0">
+                  {/* <div className="p-4 border-gray-200 rounded-xl bg-blue-50">
+                    <Image
+                      src={EasyTreveling}
+                      alt="Luton Airport Taxi"
+                      className="w-full h-auto rounded-tl-2xl"
+                    />
+                    <div className="mt-4 text-center">
+                      <h3 className="text-base font-semibold text-gray-900 sm:text-lg">
+                        Luton Airport Taxi
+                      </h3>
+                      <p className="text-xs font-medium text-primary sm:text-sm">
+                        Fast & Reliable
+                      </p>
+                    </div>
+                  </div> */}
+                </div>
+
+                {/* Right Column: Text */}
+                <div className="w-full md:w-2/3">
+                  <h2 className="mb-4 text-xl font-semibold text-gray-900 sm:text-2xl md:text-3xl">
+                    Airport Transfers with Service at Heart
+                  </h2>
+                  <p className="mb-4 text-sm leading-relaxed text-justify text-gray-700 sm:text-base">
+                    <strong>Airport transfers</strong> are the core of what we
+                    do.We understand that airport travel can be
+                    stressful—unpredictable traffic, long queues, and expensive
+                    parking can easily turn a simple journey into a
+                    headache.That’s where we come in.
+                  </p>
+                  <p className="text-sm leading-relaxed text-justify text-gray-700 sm:text-base">
+                    With <strong>Luton Airport Taxi</strong>, you avoid the
+                    hassle of navigating busy terminals or paying inflated
+                    airport parking rates.We offer direct, private transfers
+                    from your doorstep to the airport—and back again.Whether
+                    it’s a hotel, office, or home address, we plan every journey
+                    to ensure you arrive at Luton Airport on time, every time.
+                  </p>
+                  <br />
+                  <p className="text-sm leading-relaxed text-justify text-gray-700 sm:text-base">
+                    Our drivers are fully licensed, experienced, and locally
+                    based.They know the fastest routes, current traffic
+                    conditions, and the airport layout inside and out.All our
+                    services are supported by a professional dispatch team that
+                    tracks flights in real time, adjusting pickups when delays
+                    or early arrivals occur.
+                  </p>
+                </div>
+              </div>
+            </section>
+
+            <section className="max-w-6xl px-4 py-8 mx-auto sm:py-12 md:py-16">
+              <div className="flex flex-col items-start justify-between gap-6 md:flex-row sm:gap-8">
+                {/* Left Column */}
+                <div className="w-full md:w-2/3">
+                  <h2 className="mb-4 text-xl font-semibold text-gray-900 sm:text-2xl md:text-3xl">
+                    Fast Booking and Real - Time Tracking
+                  </h2>
+                  <p className="mb-4 text-sm leading-relaxed text-justify text-gray-700 sm:text-base">
+                    Our <strong>airport taxi booking</strong> system is quick,
+                    simple, and secure.Get an instant quote online, select your
+                    vehicle, choose any optional extras, and confirm your
+                    journey—all in just a few clicks.From solo business
+                    travellers to large families, we offer flexible vehicle
+                    options to suit every need.
+                  </p>
+                  <p className="text-sm leading-relaxed text-justify text-gray-700 sm:text-base">
+                    We track every inbound and outbound flight at Luton
+                    Airport.This ensures your driver is always on time, no
+                    matter how early or late your plane lands.For departures,
+                    our team calculates the best pickup time using real-time
+                    traffic data and recommends arriving three hours before your
+                    flight to allow time for check -in, security, and boarding.
+                  </p>
+                </div>
+
+                {/* Right Column */}
+                <div className="flex-shrink-0 w-full mt-6 md:w-1/3 md:mt-0">
+                  {/* <div className="p-4 rounded-lg bg-blue-50">
+                    <Image
+                      src={MaskGroup}
+                      alt="Luton Airport Taxi"
+                      className="w-full h-auto rounded-md"
+                    />
+                    <div className="mt-4 text-center">
+                      <h3 className="text-base font-semibold text-gray-900 sm:text-lg">
+                        Luton Airport Taxi
+                      </h3>
+                      <p className="text-xs font-medium text-primary sm:text-sm">
+                        Fast & Reliable
+                      </p>
+                    </div>
+                  </div> */}
+                </div>
+              </div>
+            </section>
+
+            <section className="max-w-6xl px-4 py-8 mx-auto sm:py-12 md:py-16">
+              <div className="flex flex-col-reverse items-start justify-between gap-6 md:flex-row sm:gap-8">
+                {/* Left Column: Image - On mobile, this appears below the text */}
+                <div className="flex-shrink-0 w-full mt-6 md:w-1/3 md:mt-0">
+                  {/* <div className="p-4 border-gray-200 rounded-xl bg-blue-50">
+                    <Image
+                      src={EasyTreveling}
+                      alt="Luton Airport Taxi"
+                      className="w-full h-auto rounded-tl-2xl"
+                    />
+                    <div className="mt-4 text-center">
+                      <h3 className="text-base font-semibold text-gray-900 sm:text-lg">
+                        Luton Airport Taxi
+                      </h3>
+                      <p className="text-xs font-medium text-primary sm:text-sm">
+                        Fast & Reliable
+                      </p>
+                    </div>
+                  </div> */}
+                </div>
+
+                {/* Right Column: Text */}
+                <div className="w-full md:w-2/3">
+                  <h2 className="mb-4 text-xl font-semibold text-gray-900 sm:text-2xl md:text-3xl">
+                    Serving Luton and Surrounding Areas
+                  </h2>
+                  <p className="mb-4 text-sm leading-relaxed text-justify text-gray-700 sm:text-base">
+                    While Luton is our base, our coverage extends far beyond.We
+                    offer <strong>London Luton transfers</strong> from:
+                  </p>
+                  <p className="text-sm leading-relaxed text-justify text-gray-700 sm:text-base">
+                    <strong>
+                      Milton Keynes, St Albans, Watford, Aylesbury, Stevenage,
+                      Bedford
+                    </strong>
+                    , and <strong>Greater London</strong>.
+                  </p>
+                  <br />
+                  <p className="text-sm leading-relaxed text-justify text-gray-700 sm:text-base">
+                    Whether you need <strong>transport to Luton Airport</strong>{" "}
+                    from a private home, business address, or hotel, our service
+                    is fast, affordable, and available 24 / 7.
+                  </p>
+                </div>
+              </div>
+            </section>
+
+            <section className="max-w-6xl px-4 py-8 mx-auto sm:py-12 md:py-16">
+              <div className="flex flex-col items-start justify-between gap-6 md:flex-row sm:gap-8">
+                {/* Left Column */}
+                <div className="w-full md:w-2/3">
+                  <h2 className="mb-4 text-xl font-semibold text-gray-900 sm:text-2xl md:text-3xl">
+                    Affordable & Reliable Every Time
+                  </h2>
+                  <p className="mb-4 text-sm leading-relaxed text-justify text-gray-700 sm:text-base">
+                    We provide a <strong>cheap taxi to Luton Airport</strong>{" "}
+                    without sacrificing service quality.All fares are fixed and
+                    confirmed at the time of booking.No hidden fees.No surge
+                    pricing.What you see is what you pay.
+                  </p>
+                </div>
+
+                {/* Right Column */}
+                <div className="flex-shrink-0 w-full mt-6 md:w-1/3 md:mt-0">
+                  {/* <div className="p-4 rounded-lg bg-blue-50">
+                    <Image
+                      src={MaskGroup}
+                      alt="Luton Airport Taxi"
+                      className="w-full h-auto rounded-md"
+                    />
+                    <div className="mt-4 text-center">
+                      <h3 className="text-base font-semibold text-gray-900 sm:text-lg">
+                        Luton Airport Taxi
+                      </h3>
+                      <p className="text-xs font-medium text-primary sm:text-sm">
+                        Fast & Reliable
+                      </p>
+                    </div>
+                  </div> */}
+                </div>
+              </div>
+            </section>
+
+            <section className="max-w-6xl px-4 py-8 mx-auto sm:py-12 md:py-16">
+              <div className="flex flex-col-reverse items-start justify-between gap-6 md:flex-row sm:gap-8">
+                {/* Left Column: Image - On mobile, this appears below the text */}
+                <div className="flex-shrink-0 w-full mt-6 md:w-1/3 md:mt-0">
+                  {/* <div className="p-4 border-gray-200 rounded-xl bg-blue-50">
+                    <Image
+                      src={EasyTreveling}
+                      alt="Luton Airport Taxi"
+                      className="w-full h-auto rounded-tl-2xl"
+                    />
+                    <div className="mt-4 text-center">
+                      <h3 className="text-base font-semibold text-gray-900 sm:text-lg">
+                        Luton Airport Taxi
+                      </h3>
+                      <p className="text-xs font-medium text-primary sm:text-sm">
+                        Fast & Reliable
+                      </p>
+                    </div>
+                  </div> */}
+                </div>
+
+                {/* Right Column: Text */}
+                <div className="w-full md:w-2/3">
+                  <h2 className="mb-4 text-xl font-semibold text-gray-900 sm:text-2xl md:text-3xl">
+                    Meet and Greet Service
+                  </h2>
+                  <p className="mb-4 text-sm leading-relaxed text-justify text-gray-700 sm:text-base">
+                    If you're arriving at Luton for the first time or want added
+                    convenience, our <strong>meet and greet</strong> service is
+                    available. Your driver will wait for you inside the terminal
+                    with a name board, help with luggage, and guide you to your
+                    waiting vehicle.
+                  </p>
+                </div>
+              </div>
+            </section>
+
+            <section className="max-w-6xl px-4 py-8 mx-auto sm:py-12 md:py-16">
+              <div className="flex flex-col items-start justify-between gap-6 md:flex-row sm:gap-8">
+                {/* Left Column */}
+                <div className="w-full md:w-2/3">
+                  <h2 className="mb-4 text-xl font-semibold text-gray-900 sm:text-2xl md:text-3xl">
+                    Wheelchair Accessible Taxi
+                  </h2>
+                  <p className="mb-4 text-sm leading-relaxed text-justify text-gray-700 sm:text-base">
+                    Our fleet includes fully equipped wheelchair taxis operated
+                    by trained drivers who provide respectful and safe
+                    assistance.These vehicles offer easy access, secure seating,
+                    and plenty of space for both the passenger and their travel
+                    companions.
+                  </p>
+                  <p className="mb-4 text-sm leading-relaxed text-justify text-gray-700 sm:text-base">
+                    <a className="font-semibold text-primary">
+                      Learn more about our Wheelchair Taxi Service
+                    </a>
+                  </p>
+                </div>
+
+                {/* Right Column */}
+                <div className="flex-shrink-0 w-full mt-6 md:w-1/3 md:mt-0">
+                  {/* <div className="p-4 rounded-lg bg-blue-50">
+                    <Image
+                      src={MaskGroup}
+                      alt="Luton Airport Taxi"
+                      className="w-full h-auto rounded-md"
+                    />
+                    <div className="mt-4 text-center">
+                      <h3 className="text-base font-semibold text-gray-900 sm:text-lg">
+                        Luton Airport Taxi
+                      </h3>
+                      <p className="text-xs font-medium text-primary sm:text-sm">
+                        Fast & Reliable
+                      </p>
+                    </div>
+                  </div> */}
+                </div>
+              </div>
+            </section>
+
+            <section className="max-w-6xl px-4 py-8 mx-auto sm:py-12 md:py-16">
+              <div className="flex flex-col-reverse items-start justify-between gap-6 md:flex-row sm:gap-8">
+                {/* Left Column: Image - On mobile, this appears below the text */}
+                <div className="flex-shrink-0 w-full mt-6 md:w-1/3 md:mt-0">
+                  {/* <div className="p-4 border-gray-200 rounded-xl bg-blue-50">
+                    <Image
+                      src={EasyTreveling}
+                      alt="Luton Airport Taxi"
+                      className="w-full h-auto rounded-tl-2xl"
+                    />
+                    <div className="mt-4 text-center">
+                      <h3 className="text-base font-semibold text-gray-900 sm:text-lg">
+                        Luton Airport Taxi
+                      </h3>
+                      <p className="text-xs font-medium text-primary sm:text-sm">
+                        Fast & Reliable
+                      </p>
+                    </div>
+                  </div> */}
+                </div>
+
+                {/* Right Column: Text */}
+                <div className="w-full md:w-2/3">
+                  <h2 className="mb-4 text-xl font-semibold text-gray-900 sm:text-2xl md:text-3xl">
+                    Minibus Hire with Driver
+                  </h2>
+                  <p className="mb-4 text-sm leading-relaxed text-justify text-gray-700 sm:text-base">
+                    For group travel, our{" "}
+                    <strong>minibus hire with driver</strong> is ideal.We offer
+                    8 to <strong>16 seater minibus taxis</strong> perfect for
+                    family trips, corporate transfers, or holiday group
+                    bookings.These vehicles are spacious, comfortable, and
+                    professionally operated.
+                  </p>
+                  <p className="mb-4 text-sm leading-relaxed text-justify text-gray-700 sm:text-base">
+                    <a className="font-semibold text-primary">
+                      View our Minibus Hire options
+                    </a>
+                  </p>
+                </div>
+              </div>
+            </section>
+
+            <section className="max-w-6xl px-4 py-8 mx-auto sm:py-12 md:py-16">
+              <div className="flex flex-col items-start justify-between gap-6 md:flex-row sm:gap-8">
+                {/* Left Column */}
+                <div className="w-full md:w-2/3">
+                  <h2 className="mb-4 text-xl font-semibold text-gray-900 sm:text-2xl md:text-3xl">
+                    Chauffeur & Executive Transfers
+                  </h2>
+                  <p className="mb-4 text-sm leading-relaxed text-justify text-gray-700 sm:text-base">
+                    For business clients or those seeking an elevated travel
+                    experience, our{" "}
+                    <a className="font-semibold text-primary">
+                      Chauffeur Service
+                    </a>{" "}
+                    delivers premium travel with professional drivers, luxury
+                    vehicles, and full discretion.
+                  </p>
+                </div>
+
+                {/* Right Column */}
+                <div className="flex-shrink-0 w-full mt-6 md:w-1/3 md:mt-0">
+                  {/* <div className="p-4 rounded-lg bg-blue-50">
+                    <Image
+                      src={MaskGroup}
+                      alt="Luton Airport Taxi"
+                      className="w-full h-auto rounded-md"
+                    />
+                    <div className="mt-4 text-center">
+                      <h3 className="text-base font-semibold text-gray-900 sm:text-lg">
+                        Luton Airport Taxi
+                      </h3>
+                      <p className="text-xs font-medium text-primary sm:text-sm">
+                        Fast & Reliable
+                      </p>
+                    </div>
+                  </div> */}
+                </div>
+              </div>
+            </section>
+
+            <section className="max-w-6xl px-4 py-8 mx-auto sm:py-12 md:py-16">
+              <div className="flex flex-col-reverse items-start justify-between gap-6 md:flex-row sm:gap-8">
+                {/* Left Column: Image - On mobile, this appears below the text */}
+                <div className="flex-shrink-0 w-full mt-6 md:w-1/3 md:mt-0">
+                  {/* <div className="p-4 border-gray-200 rounded-xl bg-blue-50">
+                    <Image
+                      src={EasyTreveling}
+                      alt="Luton Airport Taxi"
+                      className="w-full h-auto rounded-tl-2xl"
+                    />
+                    <div className="mt-4 text-center">
+                      <h3 className="text-base font-semibold text-gray-900 sm:text-lg">
+                        Luton Airport Taxi
+                      </h3>
+                      <p className="text-xs font-medium text-primary sm:text-sm">
+                        Fast & Reliable
+                      </p>
+                    </div>
+                  </div> */}
+                </div>
+
+                {/* Right Column: Text */}
+                <div className="w-full md:w-2/3">
+                  <h2 className="mb-4 text-xl font-semibold text-gray-900 sm:text-2xl md:text-3xl">
+                    Airport Parking Partnership
+                  </h2>
+                  <p className="mb-4 text-sm leading-relaxed text-justify text-gray-700 sm:text-base">
+                    If you’re driving yourself to the airport, we’ve partnered
+                    with{" "}
+                    <a
+                      className="font-semibold text-primary"
+                      href="ParkingLutonAirport.co.uk"
+                    >
+                      ParkingLutonAirport.co.uk
+                    </a>{" "}
+                    to offer safe, affordable <strong>airport parking</strong>
+                    .Drop off your vehicle and we’ll handle your{" "}
+                    <strong>airport transfer</strong>, ensuring you reach the
+                    terminal without stress or delays.
+                  </p>
+                  <p className="mb-4 text-sm leading-relaxed text-justify text-gray-700 sm:text-base">
+                    <a className="font-semibold text-primary">
+                      Book Airport Parking
+                    </a>
+                  </p>
+                </div>
+              </div>
+            </section>
+
+            <section className="max-w-6xl px-4 py-8 mx-auto sm:py-12 md:py-16">
+              <div className="flex flex-col items-start justify-between gap-6 md:flex-row sm:gap-8">
+                {/* Left Column */}
+                <div className="w-full md:w-2/3">
+                  <h2 className="mb-4 text-xl font-semibold text-gray-900 sm:text-2xl md:text-3xl">
+                    Book Your Luton Airport Transfer Today
+                  </h2>
+                  <p className="mb-4 text-sm leading-relaxed text-justify text-gray-700 sm:text-base">
+                    Whether you're heading to the airport or returning home,
+                    trust <strong>Luton Airport Taxi</strong> for fast,
+                    affordable, and professional transport. Book your taxi
+                    online, add extras like baby seats or WiFi, and relax
+                    knowing your journey is in expert hands.
+                  </p>
+                  <p className="mb-4 text-sm leading-relaxed text-justify text-gray-700 sm:text-base">
+                    For live flight info, visit the official Luton Airport
+                    Departures page.
+                  </p>
+                  <p className="mb-4 text-sm leading-relaxed text-justify text-gray-700 sm:text-base">
+                    Start your journey right—
+                    <strong>book your Luton Airport transfer now</strong>.
+                  </p>
+                </div>
+
+                {/* Right Column */}
+                <div className="flex-shrink-0 w-full mt-6 md:w-1/3 md:mt-0">
+                  {/* <div className="p-4 rounded-lg bg-blue-50">
+                    <Image
+                      src={MaskGroup}
+                      alt="Luton Airport Taxi"
+                      className="w-full h-auto rounded-md"
+                    />
+                    <div className="mt-4 text-center">
+                      <h3 className="text-base font-semibold text-gray-900 sm:text-lg">
+                        Luton Airport Taxi
+                      </h3>
+                      <p className="text-xs font-medium text-primary sm:text-sm">
+                        Fast & Reliable
+                      </p>
+                    </div>
+                  </div> */}
                 </div>
               </div>
             </section>

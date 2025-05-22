@@ -214,6 +214,53 @@ export default function HomePage() {
               </div>
             </section>
 
+            <section className="max-w-6xl px-4 py-8 mx-auto sm:py-12 md:py-16">
+              <div className="flex flex-col-reverse items-start justify-between gap-6 md:flex-row sm:gap-8">
+                {/* Left Column: Image - On mobile, this appears below the text */}
+                <div className="flex-shrink-0 w-full mt-6 md:w-1/3 md:mt-0">
+                  {/* <div className="p-4 border-gray-200 rounded-xl bg-blue-50">
+                    <Image
+                      src={EasyTreveling}
+                      alt="Luton Airport Taxi"
+                      className="w-full h-auto rounded-tl-2xl"
+                    />
+                    <div className="mt-4 text-center">
+                      <h3 className="text-base font-semibold text-gray-900 sm:text-lg">
+                        Luton Airport Taxi
+                      </h3>
+                      <p className="text-xs font-medium text-primary sm:text-sm">
+                        Fast & Reliable
+                      </p>
+                    </div>
+                  </div> */}
+                </div>
+
+                {/* Right Column: Text */}
+                <div className="w-full md:w-2/3">
+                  <h2 className="mb-4 text-xl font-semibold text-gray-900 sm:text-2xl md:text-3xl">
+                    Milton Keynes Taxi
+                  </h2>
+                  <p className="mb-4 text-sm leading-relaxed text-justify text-gray-700 sm:text-base">
+                    Looking for a trusted{" "}
+                    <strong>Milton Keynes taxi service</strong> to or from
+                    <strong>Luton Airport ? At LutonAirportTaxi.co.uk</strong>,
+                    we specialise in fast, fixed - price airport transfers with
+                    professional drivers and modern vehicles.Whether you're
+                    heading to a hotel, home, or business meeting, we provide
+                    direct, door-to-door service—no delays, no transfers, and no
+                    hidden fees.
+                  </p>
+                  <p className="mb-4 text-sm leading-relaxed text-justify text-gray-700 sm:text-base">
+                    Milton Keynes is a major town in Buckinghamshire known for
+                    its modern layout, excellent shopping, and historic
+                    landmarks.Our drivers cover the entire area—from the city
+                    centre to outlying business parks—ensuring your journey is
+                    smooth and stress - free.
+                  </p>
+                </div>
+              </div>
+            </section>
+
             {/* Milton Keynes to Luton Airport Taxi Time Interval */}
             <section className="max-w-6xl px-4 py-8 mx-auto sm:py-12 md:py-16">
               <div className="flex flex-col items-start justify-between gap-6 md:flex-row sm:gap-8">
@@ -257,6 +304,92 @@ export default function HomePage() {
                       </p>
                     </div>
                   </div>
+                </div>
+              </div>
+            </section>
+
+            <section className="max-w-6xl px-4 py-8 mx-auto sm:py-12 md:py-16">
+              <div className="flex flex-col items-start justify-between gap-6 md:flex-row sm:gap-8">
+                {/* Left Column */}
+                <div className="w-full md:w-2/3">
+                  <h2 className="mb-4 text-xl font-semibold text-gray-900 sm:text-2xl md:text-3xl">
+                    Milton Keynes to Luton Airport
+                  </h2>
+                  <p className="mb-4 text-sm leading-relaxed text-justify text-gray-700 sm:text-base">
+                    We offer 24 / 7 transfers from Milton Keynes to Luton
+                    Airport, with drivers who know the best routes to get you
+                    there quickly and comfortably.Whether you're heading out on
+                    an early flight or arriving home after a trip, our service
+                    is always ready when you are.
+                  </p>
+
+                  <div className="items-start justify-start text-start">
+                    <h3 className="mb-2 text-lg font-semibold text-gray-800">
+                      {" "}
+                      <div className="items-start justify-start text-start">
+                        {/* <h3 className="mb-2 text-lg font-semibold text-gray-800">
+                          {" "}
+                          You’ll enjoy:{" "}
+                        </h3> */}
+                      </div>{" "}
+                    </h3>
+                    <ul className="pl-6 space-y-1 text-sm text-gray-700 list-disc sm:text-base">
+                      <li>Pickup directly from your door </li>
+                      <li>Fixed fares confirmed in advance </li>
+                      <li>Free child seats on request </li>
+                      <li>
+                        {" "}
+                        Group options via{" "}
+                        <a className="font-semibold text-primary" href="">
+                          Minibus Hire
+                        </a>{" "}
+                      </li>
+                      <li>
+                        <a className="font-semibold text-primary" href="">
+                          Wheelchair Accessible Taxis
+                        </a>{" "}
+                        available{" "}
+                      </li>
+                      <li>
+                        {" "}
+                        Executive options through our{" "}
+                        <a className="font-semibold text-primary" href="">
+                          {" "}
+                          Chauffeur Service
+                        </a>{" "}
+                      </li>
+                      <li>
+                        {" "}
+                        <li>24 / 7 customer support </li>{" "}
+                      </li>
+                    </ul>
+                  </div>
+                  <br />
+
+                  <p className="text-sm leading-relaxed text-justify text-gray-700 sm:text-base">
+                    From Centre:MK and Willen Lake to Bletchley Park or Milton
+                    Keynes Coachway, we cover every location with precision
+                    timing and professional care.
+                  </p>
+                </div>
+
+                {/* Right Column */}
+                <div className="flex-shrink-0 w-full mt-6 md:w-1/3 md:mt-0">
+                  {/* <div className="p-4 rounded-lg bg-blue-50">
+                    <Image
+                      src={MaskGroup}
+                      alt="Luton Airport Taxi"
+                      className="w-full h-auto rounded-md"
+                    />
+                    <div className="mt-4 text-center">
+                      <h3 className="text-base font-semibold text-gray-900 sm:text-lg">
+                        Luton Airport Taxi
+                      </h3>
+                      <p className="text-xs font-medium text-primary sm:text-sm">
+                        Fast & Reliable
+                      </p>
+                    </div>
+                  </div> */}
                 </div>
               </div>
             </section>
@@ -307,6 +440,156 @@ export default function HomePage() {
                     time and money.
                   </p>
                 </div>
+              </div>
+            </section>
+
+            <section className="max-w-4xl px-4 py-8 mx-auto sm:py-12 md:py-16">
+              <div className="space-y-6">
+                {/* Heading */}
+                <h2 className="text-xl font-bold text-gray-900 sm:text-2xl md:text-3xl">
+                  Why Book a Taxi Instead of Public Transport ?
+                </h2>
+
+                {/* Subheading */}
+                <h3 className="text-lg font-semibold text-gray-800">
+                  Airport Taxi Milton Keynes
+                </h3>
+                <p className="text-sm leading-relaxed text-gray-700">
+                  Choosing an <strong> airport taxi from Milton Keynes </strong>{" "}
+                  over public transport saves you time, hassle, and
+                  energy—especially when travelling with luggage or children.
+                  Here's how we compare to other transport options:
+                </p>
+
+                {/* Comparison Table */}
+                <div className="overflow-x-auto">
+                  <table className="min-w-full text-sm text-left text-gray-700">
+                    <thead className="text-xs text-gray-500 uppercase border-b">
+                      <tr>
+                        <th className="py-2 pr-4"> Mode </th>
+                        <th className="py-2 pr-4"> Time </th>
+                        <th className="py-2 pr-4"> Cost </th>
+                        <th className="py-2"> Summary </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr className="border-b">
+                        <td className="py-2 pr-4"> Taxi </td>
+                        <td className="py-2 pr-4"> 35–45 mins </td>
+                        <td className="py-2 pr-4">£50–£65 </td>
+                        <td className="py-2">
+                          Direct, door - to - door.Private, 24 / 7. Best for
+                          groups, families, and luggage.
+                        </td>
+                      </tr>
+                      <tr className="border-b">
+                        <td className="py-2 pr-4"> Train </td>
+                        <td className="py-2 pr-4"> 1.5–2 hrs </td>
+                        <td className="py-2 pr-4">£30–£100 pp </td>
+                        <td className="py-2">
+                          No direct route.Multiple changes via
+                          London.Inconvenient.
+                        </td>
+                      </tr>
+                      <tr className="border-b">
+                        <td className="py-2 pr-4"> Bus </td>
+                        <td className="py-2 pr-4"> 1h 20 mins </td>
+                        <td className="py-2 pr-4">£2–£3 pp </td>
+                        <td className="py-2">
+                          Cheap but slow.Multiple stops and less comfort.
+                        </td>
+                      </tr>
+                      <tr className="border-b">
+                        <td className="py-2 pr-4"> Coach </td>
+                        <td className="py-2 pr-4"> ~1 hr </td>
+                        <td className="py-2 pr-4">£10–£20 pp </td>
+                        <td className="py-2">
+                          Stops only at MK Coachway.Requires extra transport to
+                          town centre.
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+                <p className="text-sm leading-relaxed text-gray-700">
+                  With our service, you avoid crowded stations, missed
+                  connections, and long walks with luggage.Just book, meet your
+                  driver, and go.
+                </p>
+
+                {/* About Milton Keynes */}
+                <h3 className="text-lg font-semibold text-gray-800">
+                  {" "}
+                  About Milton Keynes{" "}
+                </h3>
+                <p className="text-sm leading-relaxed text-gray-700 text-start">
+                  Milton Keynes is home to more than 250,000 residents and
+                  offers excellent links to London, Birmingham, and beyond.With
+                  the M1 motorway and fast train services to London Euston, it’s
+                  a hub for commuters, businesses, and visitors alike.
+                </p>
+
+                <div className="text-start">
+                  <ul className="pl-5 text-sm text-gray-700 list-disc">
+                    <li>
+                      <strong>Centre: MK </strong> – Europe’s largest indoor
+                      shopping mall
+                    </li>
+                    <li>
+                      <strong>Bletchley Park </strong> – the WWII codebreaking
+                      site
+                    </li>
+                    <li>
+                      <strong>Willen Lake </strong> – ideal for family
+                      recreation
+                    </li>
+                    <li>
+                      <strong>Xscape MK </strong> – entertainment complex with
+                      indoor skiing, cinema & more
+                    </li>
+                  </ul>
+                </div>
+
+                <p className="text-sm leading-relaxed text-gray-700 text-start">
+                  No matter your destination, our drivers know the area well and
+                  ensure a smooth, direct journey every time.
+                </p>
+
+                {/* Booking CTA */}
+                <h3 className="text-lg font-semibold text-gray-800">
+                  Book Your Milton Keynes Airport Taxi Now
+                </h3>
+                <p className="text-sm leading-relaxed text-gray-700 text-start">
+                  Whether you're arriving at Luton Airport or heading out from
+                  Milton Keynes, book your taxi today with{" "}
+                  <strong>LutonAirportTaxi.co.uk </strong>. We offer the most
+                  efficient, reliable, and customer - focused{" "}
+                  <strong> airport taxi service in Milton Keynes </strong>— with
+                  clear pricing, local drivers, and no surprises.
+                </p>
+
+                <ul className="pl-5 space-y-1 text-sm text-gray-700 list-none">
+                  <li className="flex items-start">
+                    <span className="mr-2 text-primary">✔</span> Instant
+                    booking
+                  </li>
+                  <li className="flex items-start">
+                    <span className="mr-2 text-primary">✔</span> Fixed fares
+                  </li>
+                  <li className="flex items-start">
+                    <span className="mr-2 text-primary">✔</span> 24/7 service
+                  </li>
+                  <li className="flex items-start">
+                    <span className="mr-2 text-primary">✔</span> Professional,
+                    friendly drivers
+                  </li>
+                </ul>
+
+                <p className="text-sm leading-relaxed text-gray-700 text-start">
+                  Make your journey simple. <strong> Book now </strong> and
+                  travel with confidence.
+                </p>
               </div>
             </section>
 
