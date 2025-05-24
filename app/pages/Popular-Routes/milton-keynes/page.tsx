@@ -4,7 +4,7 @@
 import { useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
-import { Button } from "@/components/ui/button";
+// import { Button } from "@/components/ui/button";
 import FAQ from "@/components/landing/FAQ";
 import { routes } from "@/components/PopularRoutes";
 import { FaCarAlt } from "react-icons/fa"; // install with: npm install react-icons
@@ -46,20 +46,20 @@ export default function HomePage() {
 
   return (
     <main className="flex flex-col w-full">
-      <div className="flex flex-col items-start justify-between md:flex-row">
+      <div className="flex flex-col items-start justify-between md:flex-row mb-5">
         {quoteStep === 1 && (
           <div className="w-full px-10 md:mr-12 -mt-28">
             <div className="max-w-6xl mx-auto mt-44">
               <h1 className="mb-4 text-2xl font-bold sm:text-3xl md:text-5xl">
                 Luton To Milton Keynes Taxi Transfers
               </h1>
-              <p className="max-w-xl mx-auto mb-6 text-sm text-gray-700 sm:text-base">
+              <p className="max-w-xl mx-auto mb-6 text-md text-gray-700 sm:text-base">
                 Save up to 40 % by pre - booking your taxi to and from Luton
                 airport transfer with us
               </p>
-              <Button className="px-4 py-2 text-sm font-medium text-white bg-primary hover:bg-btn-hover sm:px-6 sm:py-3 sm:text-sm">
+              {/* <Button className="px-4 py-2 text-sm font-medium text-white bg-primary hover:bg-btn-hover sm:px-6 sm:py-3 sm:text-sm">
                 Book Now
-              </Button>
+              </Button> */}
             </div>
           </div>
         )}
@@ -70,144 +70,203 @@ export default function HomePage() {
       {quoteStep === 1 && (
         <>
           {/* Hero Section */}
-          <section className="w-full px-4 py-8 text-center md:py-20 bg-gradient from-blue-50 to-transparent md:-mt-16 mt-60">
+          <section className="w-full px-0 py-8 text-center md:py-20 md:mt-30">
             {/* Why Book and Why Book With Us */}
-            <section className="px-4 py-10 mx-auto mt-6 max-w-7xl sm:px-8 sm:py-16 bg-blue-50 sm:mt-10 rounded-xl">
+            <section className="px-4 py-8 mx-auto mt-6 max-w-7xl sm:px-6 sm:py-12 bg-blue-50 sm:mt-10 rounded-xl lg:px-8 lg:py-16">
               {/* Container using flex instead of grid */}
-              <div className="flex flex-col gap-10 lg:flex-row lg:items-start sm:gap-20">
+              <div className="flex flex-col gap-8 lg:flex-row lg:items-start lg:gap-16">
                 {/* Left: Why Book A Transfers */}
-                <div className="w-full">
-                  <h2 className="mb-4 text-xl font-semibold text-gray-900 sm:text-2xl sm:mb-6">
+                <div className="w-full lg:w-1/2">
+                  <h2 className="mb-4 text-xl font-semibold text-gray-900 sm:text-2xl lg:text-3xl sm:mb-6 text-left">
                     Why Book A Transfers
                   </h2>
-                  {/* Horizontal scroll container for icons */}
-                  <div
-                    ref={scrollRef}
-                    className="relative flex gap-3 pb-4 overflow-x-auto flex-nowrap sm:gap-4 scrollbar-hide"
-                  >
-                    {/* Card 1 */}
-                    <div className="bg-gray-50 rounded-xl  p-4 sm:p-5 flex flex-col items-center justify-center text-center min-w-[130px] sm:min-w-[160px] min-h-[140px] sm:min-h-[160px]">
-                      <Image
-                        src={SecurityCard}
-                        alt="Price Guarantee"
-                        className="w-8 h-8 mb-2 sm:w-10 sm:h-10"
-                      />
-                      <p className="text-xs font-medium text-gray-700 sm:text-sm">
-                        Price Guarantee
-                      </p>
-                    </div>
-                    {/* Card 2 */}
-                    <div className="bg-gray-50 rounded-xl p-4 sm:p-5 flex flex-col items-center justify-center text-center min-w-[130px] sm:min-w-[160px] min-h-[140px] sm:min-h-[160px]">
-                      <Image
-                        src={UserTick}
-                        alt="Flexible Services"
-                        className="w-8 h-8 mb-2 sm:w-10 sm:h-10"
-                      />
-                      <p className="text-xs font-medium text-gray-700 sm:text-sm">
-                        Flexible Services
-                      </p>
-                    </div>
-                    {/* Card 3 */}
-                    <div className="bg-gray-50 rounded-xl p-4 sm:p-5 flex flex-col items-center justify-center text-center min-w-[130px] sm:min-w-[160px] min-h-[140px] sm:min-h-[160px]">
-                      <Image
-                        src={Drivng}
-                        alt="Vehicle Flexibility"
-                        className="w-8 h-8 mb-2 sm:w-10 sm:h-10"
-                      />
-                      <p className="text-xs font-medium text-gray-700 sm:text-sm">
-                        Vehicle Flexibility
-                      </p>
-                    </div>
-                    {/* Card 4 */}
-                    <div className="bg-gray-50 rounded-xl p-4 sm:p-5 flex flex-col items-center justify-center text-center min-w-[130px] sm:min-w-[160px] min-h-[140px] sm:min-h-[160px]">
-                      <Image
-                        src={Airplane2}
-                        alt="Flight Tracking"
-                        className="w-8 h-8 mb-2 sm:w-10 sm:h-10"
-                      />
-                      <p className="text-xs font-medium text-gray-700 sm:text-sm">
-                        Flight Tracking
-                      </p>
+                  {/* Mobile: Stack cards vertically, Desktop: Horizontal scroll */}
+                  <div className="block sm:hidden">
+                    {/* Mobile: 2x2 Grid */}
+                    <div className="grid grid-cols-2 gap-3">
+                      {/* Card 1 */}
+                      <div className="bg-white shadow-sm rounded-xl p-4 flex flex-col items-center justify-center text-center min-h-[120px] border border-gray-100 hover:shadow-md transition-shadow">
+                        <Image
+                          src={SecurityCard}
+                          alt="Price Guarantee"
+                          className="w-8 h-8 mb-2"
+                        />
+                        <p className="text-xs font-medium text-gray-700 leading-tight">
+                          Price Guarantee
+                        </p>
+                      </div>
+                      {/* Card 2 */}
+                      <div className="bg-white shadow-sm rounded-xl p-4 flex flex-col items-center justify-center text-center min-h-[120px] border border-gray-100 hover:shadow-md transition-shadow">
+                        <Image
+                          src={UserTick}
+                          alt="Flexible Services"
+                          className="w-8 h-8 mb-2"
+                        />
+                        <p className="text-xs font-medium text-gray-700 leading-tight">
+                          Flexible Services
+                        </p>
+                      </div>
+                      {/* Card 3
+                      <div className="bg-white shadow-sm rounded-xl p-4 flex flex-col items-center justify-center text-center min-h-[120px] border border-gray-100 hover:shadow-md transition-shadow">
+                        <Image
+                          src={Drivng}
+                          alt="Vehicle Flexibility"
+                          className="w-8 h-8 mb-2"
+                        />
+                        <p className="text-xs font-medium text-gray-700 leading-tight">
+                          Vehicle Flexibility
+                        </p>
+                      </div> */}
+                      {/* Card 4 */}
+                      <div className="bg-white shadow-sm rounded-xl p-4 flex flex-col items-center justify-center text-center min-h-[120px] border border-gray-100 hover:shadow-md transition-shadow">
+                        <Image
+                          src={Airplane2}
+                          alt="Flight Tracking"
+                          className="w-8 h-8 mb-2"
+                        />
+                        <p className="text-xs font-medium text-gray-700 leading-tight">
+                          Flight Tracking
+                        </p>
+                      </div>
                     </div>
                   </div>
-                  {/* Scroll controls for mobile */}
-                  <div className="flex justify-center gap-2 mt-4 lg:hidden">
-                    <button
-                      onClick={() => scroll("left")}
-                      className="p-2 bg-blue-100 rounded-full text-primary"
-                      aria-label="Scroll left"
+
+                  {/* Tablet and Desktop: Horizontal scroll */}
+                  <div className="hidden sm:block">
+                    <div
+                      ref={scrollRef}
+                      className="relative flex gap-4 pb-4 overflow-x-auto flex-nowrap lg:gap-6 scrollbar-hide"
                     >
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="w-4 h-4"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M15 19l-7-7 7-7"
+                      {/* Card 1 */}
+                      <div className="bg-white shadow-sm rounded-xl p-5 flex flex-col items-center justify-center text-center min-w-[140px] lg:min-w-[160px] min-h-[140px] lg:min-h-[160px] border border-gray-100 hover:shadow-md transition-shadow flex-shrink-0">
+                        <Image
+                          src={SecurityCard}
+                          alt="Price Guarantee"
+                          className="w-10 h-10 mb-3 lg:w-12 lg:h-12"
                         />
-                      </svg>
-                    </button>
-                    <button
-                      onClick={() => scroll("right")}
-                      className="p-2 bg-blue-100 rounded-full text-primary"
-                      aria-label="Scroll right"
-                    >
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="w-4 h-4"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M9 5l7 7-7 7"
+                        <p className="text-sm font-medium text-gray-700 lg:text-base">
+                          Price Guarantee
+                        </p>
+                      </div>
+                      {/* Card 2 */}
+                      <div className="bg-white shadow-sm rounded-xl p-5 flex flex-col items-center justify-center text-center min-w-[140px] lg:min-w-[160px] min-h-[140px] lg:min-h-[160px] border border-gray-100 hover:shadow-md transition-shadow flex-shrink-0">
+                        <Image
+                          src={UserTick}
+                          alt="Flexible Services"
+                          className="w-10 h-10 mb-3 lg:w-12 lg:h-12"
                         />
-                      </svg>
-                    </button>
+                        <p className="text-sm font-medium text-gray-700 lg:text-base">
+                          Flexible Services
+                        </p>
+                      </div>
+                      {/* Card 3
+                      <div className="bg-white shadow-sm rounded-xl p-5 flex flex-col items-center justify-center text-center min-w-[140px] lg:min-w-[160px] min-h-[140px] lg:min-h-[160px] border border-gray-100 hover:shadow-md transition-shadow flex-shrink-0">
+                        <Image
+                          src={Drivng}
+                          alt="Vehicle Flexibility"
+                          className="w-10 h-10 mb-3 lg:w-12 lg:h-12"
+                        />
+                        <p className="text-sm font-medium text-gray-700 lg:text-base">
+                          Vehicle Flexibility
+                        </p>
+                      </div> */}
+                      {/* Card 4 */}
+                      <div className="bg-white shadow-sm rounded-xl p-5 flex flex-col items-center justify-center text-center min-w-[140px] lg:min-w-[160px] min-h-[140px] lg:min-h-[160px] border border-gray-100 hover:shadow-md transition-shadow flex-shrink-0">
+                        <Image
+                          src={Airplane2}
+                          alt="Flight Tracking"
+                          className="w-10 h-10 mb-3 lg:w-12 lg:h-12"
+                        />
+                        <p className="text-sm font-medium text-gray-700 lg:text-base">
+                          Flight Tracking
+                        </p>
+                      </div>
+                    </div>
+                    {/* Scroll controls for tablet */}
+                    {/* <div className="flex justify-center gap-3 mt-4 sm:hidden lg:flex lg:justify-start">
+                      <button
+                        onClick={() => scroll("left")}
+                        className="p-3 bg-white shadow-sm rounded-full text-primary border border-gray-200 hover:shadow-md hover:bg-blue-50 transition-all"
+                        aria-label="Scroll left"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="w-5 h-5"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M15 19l-7-7 7-7"
+                          />
+                        </svg>
+                      </button>
+                      <button
+                        onClick={() => scroll("right")}
+                        className="p-3 bg-white shadow-sm rounded-full text-primary border border-gray-200 hover:shadow-md hover:bg-blue-50 transition-all"
+                        aria-label="Scroll right"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="w-5 h-5"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M9 5l7 7-7 7"
+                          />
+                        </svg>
+                      </button>
+                    </div> */}
                   </div>
                 </div>
 
                 {/* Right: Why Book With Us */}
-                <div className="w-full mt-8 lg:mt-0">
-                  <h2 className="mb-2 text-xl font-semibold text-gray-900 sm:text-2xl">
+                <div className="w-full mt-6 lg:mt-0 lg:w-1/2">
+                  <h2 className="mb-2 text-xl font-semibold text-gray-900 sm:text-2xl lg:text-3xl text-left">
                     Why Book With Us
                   </h2>
-                  <p className="mb-4 text-xs font-semibold uppercase text-primary sm:text-sm">
+                  <p className="mb-6 text-xs font-semibold uppercase text-primary sm:text-sm text-left tracking-wide">
                     Our Features
                   </p>
-                  {/* Using flex-wrap to emulate two columns without grid */}
-                  <ul className="flex flex-wrap -mx-1 text-xs text-gray-800 sm:text-sm">
-                    <li className="flex items-center w-full px-1 mb-3 space-x-1 sm:w-1/2">
-                      <CheckCircle className="flex-shrink-0 w-4 h-4 text-primary" />
-                      <span>24 Hours Service</span>
+                  {/* Mobile: Single column, Desktop: Two columns */}
+                  <ul className="grid grid-cols-1 gap-4 text-sm text-gray-800 sm:grid-cols-2 sm:gap-x-6 sm:gap-y-4 lg:text-base">
+                    <li className="flex items-center space-x-3">
+                      <CheckCircle className="flex-shrink-0 w-5 h-5 text-primary" />
+                      <span className="font-medium">24 Hours Service</span>
                     </li>
-                    <li className="flex items-center w-full px-1 mb-3 space-x-1 sm:w-1/2">
-                      <CheckCircle className="flex-shrink-0 w-4 h-4 text-primary" />
-                      <span>Flight Monitoring</span>
+                    <li className="flex items-center space-x-3">
+                      <CheckCircle className="flex-shrink-0 w-5 h-5 text-primary" />
+                      <span className="font-medium">Flight Monitoring</span>
                     </li>
-                    <li className="flex items-center w-full px-1 mb-3 space-x-1 sm:w-1/2">
-                      <CheckCircle className="flex-shrink-0 w-4 h-4 text-primary" />
-                      <span>Fully Licensed Drivers</span>
+                    <li className="flex items-center space-x-3">
+                      <CheckCircle className="flex-shrink-0 w-5 h-5 text-primary" />
+                      <span className="font-medium">
+                        Fully Licensed Drivers
+                      </span>
                     </li>
-                    <li className="flex items-center w-full px-1 mb-3 space-x-1 sm:w-1/2">
-                      <CheckCircle className="flex-shrink-0 w-4 h-4 text-primary" />
-                      <span>Waiting Time and Parking</span>
+                    <li className="flex items-center space-x-3">
+                      <CheckCircle className="flex-shrink-0 w-5 h-5 text-primary" />
+                      <span className="font-medium">
+                        Waiting Time and Parking
+                      </span>
                     </li>
-                    <li className="flex items-center w-full px-1 mb-3 space-x-1 sm:w-1/2">
-                      <CheckCircle className="flex-shrink-0 w-4 h-4 text-primary" />
-                      <span>Professional Chauffeur</span>
+                    <li className="flex items-center space-x-3">
+                      <CheckCircle className="flex-shrink-0 w-5 h-5 text-primary" />
+                      <span className="font-medium">
+                        Professional Chauffeur
+                      </span>
                     </li>
-                    <li className="flex items-center w-full px-1 mb-3 space-x-1 sm:w-1/2">
-                      <CheckCircle className="flex-shrink-0 w-4 h-4 text-primary" />
-                      <span>Meet & Greet</span>
+                    <li className="flex items-center space-x-3">
+                      <CheckCircle className="flex-shrink-0 w-5 h-5 text-primary" />
+                      <span className="font-medium">Meet & Greet</span>
                     </li>
                   </ul>
                 </div>
@@ -218,7 +277,7 @@ export default function HomePage() {
               <div className="flex flex-col-reverse items-start justify-between gap-6 md:flex-row sm:gap-8">
                 {/* Left Column: Image - On mobile, this appears below the text */}
                 <div className="flex-shrink-0 w-full mt-6 md:w-1/3 md:mt-0">
-                  {/* <div className="p-4 border-gray-200 rounded-xl bg-blue-50">
+                  <div className="p-4 border-gray-200 rounded-xl bg-blue-50">
                     <Image
                       src={EasyTreveling}
                       alt="Luton Airport Taxi"
@@ -232,12 +291,15 @@ export default function HomePage() {
                         Fast & Reliable
                       </p>
                     </div>
-                  </div> */}
+                  </div>
                 </div>
 
                 {/* Right Column: Text */}
-                <div className="w-full md:w-2/3">
-                  <h2 className="mb-4 text-xl font-semibold text-gray-900 sm:text-2xl md:text-3xl">
+                <div className="w-full md:w-2/3 align-start">
+                  <h2
+                    className="mb-5 text-left
+        text-xl font-semibold text-gray-900 sm:text-2xl md:text-3xl"
+                  >
                     Milton Keynes Taxi
                   </h2>
                   <p className="mb-4 text-sm leading-relaxed text-justify text-gray-700 sm:text-base">
@@ -266,8 +328,8 @@ export default function HomePage() {
               <div className="flex flex-col items-start justify-between gap-6 md:flex-row sm:gap-8">
                 {/* Left Column */}
                 <div className="w-full md:w-2/3">
-                  <h2 className="mb-4 text-xl font-semibold text-gray-900 sm:text-2xl md:text-3xl">
-                    Milton Keynes to Luton Airport Taxi Time Interval
+                  <h2 className="mb-4 text-xl font-semibold text-gray-900 sm:text-2xl md:text-3xl text-left">
+                    Milton Keynes to Luton Airport{" "}
                   </h2>
                   <p className="mb-4 text-sm leading-relaxed text-justify text-gray-700 sm:text-base">
                     With our Milton Keynes to Luton Airport taxi, you can reach
@@ -310,9 +372,28 @@ export default function HomePage() {
 
             <section className="max-w-6xl px-4 py-8 mx-auto sm:py-12 md:py-16">
               <div className="flex flex-col items-start justify-between gap-6 md:flex-row sm:gap-8">
+                {/* Right Column */}
+                <div className="flex-shrink-0 w-full mt-6 md:w-1/3 md:mt-0">
+                  <div className="p-4 rounded-lg bg-blue-50">
+                    <Image
+                      src={MaskGroup}
+                      alt="Luton Airport Taxi"
+                      className="w-full h-auto rounded-md"
+                    />
+                    <div className="mt-4 text-center">
+                      <h3 className="text-base font-semibold text-gray-900 sm:text-lg">
+                        Luton Airport Taxi
+                      </h3>
+                      <p className="text-xs font-medium text-primary sm:text-sm">
+                        Fast & Reliable
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
                 {/* Left Column */}
                 <div className="w-full md:w-2/3">
-                  <h2 className="mb-4 text-xl font-semibold text-gray-900 sm:text-2xl md:text-3xl">
+                  <h2 className="mb-4 text-xl font-semibold text-gray-900 sm:text-2xl md:text-3xl text-left">
                     Milton Keynes to Luton Airport
                   </h2>
                   <p className="mb-4 text-sm leading-relaxed text-justify text-gray-700 sm:text-base">
@@ -372,53 +453,15 @@ export default function HomePage() {
                     timing and professional care.
                   </p>
                 </div>
-
-                {/* Right Column */}
-                <div className="flex-shrink-0 w-full mt-6 md:w-1/3 md:mt-0">
-                  {/* <div className="p-4 rounded-lg bg-blue-50">
-                    <Image
-                      src={MaskGroup}
-                      alt="Luton Airport Taxi"
-                      className="w-full h-auto rounded-md"
-                    />
-                    <div className="mt-4 text-center">
-                      <h3 className="text-base font-semibold text-gray-900 sm:text-lg">
-                        Luton Airport Taxi
-                      </h3>
-                      <p className="text-xs font-medium text-primary sm:text-sm">
-                        Fast & Reliable
-                      </p>
-                    </div>
-                  </div> */}
-                </div>
               </div>
             </section>
 
             {/* Traveling To And From Milton Keynes */}
             <section className="max-w-6xl px-4 py-8 mx-auto sm:py-12 md:py-16">
               <div className="flex flex-col-reverse items-start justify-between gap-6 md:flex-row sm:gap-8">
-                {/* Left Column: Image - On mobile, this appears below the text */}
-                <div className="flex-shrink-0 w-full mt-6 md:w-1/3 md:mt-0">
-                  <div className="p-4 border-gray-200 rounded-xl bg-blue-50">
-                    <Image
-                      src={EasyTreveling}
-                      alt="Luton Airport Taxi"
-                      className="w-full h-auto rounded-tl-2xl"
-                    />
-                    <div className="mt-4 text-center">
-                      <h3 className="text-base font-semibold text-gray-900 sm:text-lg">
-                        Luton Airport Taxi
-                      </h3>
-                      <p className="text-xs font-medium text-primary sm:text-sm">
-                        Fast & Reliable
-                      </p>
-                    </div>
-                  </div>
-                </div>
-
                 {/* Right Column: Text */}
                 <div className="w-full md:w-2/3">
-                  <h2 className="mb-4 text-xl font-semibold text-gray-900 sm:text-2xl md:text-3xl">
+                  <h2 className="mb-4 text-xl font-semibold text-gray-900 sm:text-2xl md:text-3xl text-left">
                     Traveling To And From Milton Keynes
                   </h2>
                   <p className="mb-4 text-sm leading-relaxed text-justify text-gray-700 sm:text-base">
@@ -440,156 +483,292 @@ export default function HomePage() {
                     time and money.
                   </p>
                 </div>
+                {/* Left Column: Image - On mobile, this appears below the text */}
+                <div className="flex-shrink-0 w-full mt-6 md:w-1/3 md:mt-0">
+                  <div className="p-4 border-gray-200 rounded-xl bg-blue-50">
+                    <Image
+                      src={EasyTreveling}
+                      alt="Luton Airport Taxi"
+                      className="w-full h-auto rounded-tl-2xl"
+                    />
+                    <div className="mt-4 text-center">
+                      <h3 className="text-base font-semibold text-gray-900 sm:text-lg">
+                        Luton Airport Taxi
+                      </h3>
+                      <p className="text-xs font-medium text-primary sm:text-sm">
+                        Fast & Reliable
+                      </p>
+                    </div>
+                  </div>
+                </div>
               </div>
             </section>
 
-            <section className="max-w-4xl px-4 py-8 mx-auto sm:py-12 md:py-16">
-              <div className="space-y-6">
-                {/* Heading */}
-                <h2 className="text-xl font-bold text-gray-900 sm:text-2xl md:text-3xl">
-                  Why Book a Taxi Instead of Public Transport ?
-                </h2>
-
-                {/* Subheading */}
-                <h3 className="text-lg font-semibold text-gray-800">
-                  Airport Taxi Milton Keynes
-                </h3>
-                <p className="text-sm leading-relaxed text-gray-700">
-                  Choosing an <strong> airport taxi from Milton Keynes </strong>{" "}
-                  over public transport saves you time, hassle, and
-                  energy—especially when travelling with luggage or children.
-                  Here is how we compare to other transport options:
-                </p>
-
-                {/* Comparison Table */}
-                <div className="overflow-x-auto">
-                  <table className="min-w-full text-sm text-left text-gray-700">
-                    <thead className="text-xs text-gray-500 uppercase border-b">
-                      <tr>
-                        <th className="py-2 pr-4"> Mode </th>
-                        <th className="py-2 pr-4"> Time </th>
-                        <th className="py-2 pr-4"> Cost </th>
-                        <th className="py-2"> Summary </th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr className="border-b">
-                        <td className="py-2 pr-4"> Taxi </td>
-                        <td className="py-2 pr-4"> 35–45 mins </td>
-                        <td className="py-2 pr-4">£50–£65 </td>
-                        <td className="py-2">
-                          Direct, door - to - door.Private, 24 / 7. Best for
-                          groups, families, and luggage.
-                        </td>
-                      </tr>
-                      <tr className="border-b">
-                        <td className="py-2 pr-4"> Train </td>
-                        <td className="py-2 pr-4"> 1.5–2 hrs </td>
-                        <td className="py-2 pr-4">£30–£100 pp </td>
-                        <td className="py-2">
-                          No direct route.Multiple changes via
-                          London.Inconvenient.
-                        </td>
-                      </tr>
-                      <tr className="border-b">
-                        <td className="py-2 pr-4"> Bus </td>
-                        <td className="py-2 pr-4"> 1h 20 mins </td>
-                        <td className="py-2 pr-4">£2–£3 pp </td>
-                        <td className="py-2">
-                          Cheap but slow.Multiple stops and less comfort.
-                        </td>
-                      </tr>
-                      <tr className="border-b">
-                        <td className="py-2 pr-4"> Coach </td>
-                        <td className="py-2 pr-4"> ~1 hr </td>
-                        <td className="py-2 pr-4">£10–£20 pp </td>
-                        <td className="py-2">
-                          Stops only at MK Coachway.Requires extra transport to
-                          town centre.
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
+            <section className="max-w-6xl px-4 py-12 mx-auto sm:py-16 md:py-20">
+              <div className="space-y-12">
+                {/* Hero Heading with gradient background */}
+                <div className="text-center">
+                  <div className="inline-block px-6 py-2 mb-4 text-sm font-medium text-blue-700 bg-blue-100 rounded-full">
+                    Milton Keynes Airport Transfer
+                  </div>
+                  <h2 className="text-2xl font-bold text-gray-900 sm:text-3xl md:text-4xl lg:text-5xl">
+                    Why Book a Taxi Instead of Public Transport?
+                  </h2>
                 </div>
 
-                <p className="text-sm leading-relaxed text-gray-700">
-                  With our service, you avoid crowded stations, missed
-                  connections, and long walks with luggage.Just book, meet your
-                  driver, and go.
-                </p>
-
-                {/* About Milton Keynes */}
-                <h3 className="text-lg font-semibold text-gray-800">
-                  {" "}
-                  About Milton Keynes{" "}
-                </h3>
-                <p className="text-sm leading-relaxed text-gray-700 text-start">
-                  Milton Keynes is home to more than 250,000 residents and
-                  offers excellent links to London, Birmingham, and beyond.With
-                  the M1 motorway and fast train services to London Euston, it’s
-                  a hub for commuters, businesses, and visitors alike.
-                </p>
-
-                <div className="text-start">
-                  <ul className="pl-5 text-sm text-gray-700 list-disc">
-                    <li>
-                      <strong>Centre: MK </strong> – Europe’s largest indoor
-                      shopping mall
-                    </li>
-                    <li>
-                      <strong>Bletchley Park </strong> – the WWII codebreaking
-                      site
-                    </li>
-                    <li>
-                      <strong>Willen Lake </strong> – ideal for family
-                      recreation
-                    </li>
-                    <li>
-                      <strong>Xscape MK </strong> – entertainment complex with
-                      indoor skiing, cinema & more
-                    </li>
-                  </ul>
+                {/* Introduction Card */}
+                <div className="p-8 bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl shadow-sm border border-blue-100">
+                  <h3 className="text-xl font-bold text-gray-900 mb-4 sm:text-2xl">
+                    Airport Taxi Milton Keynes
+                  </h3>
+                  <p className="text-base leading-relaxed text-gray-700 sm:text-lg">
+                    Choosing an{" "}
+                    <strong className="text-blue-700">
+                      airport taxi from Milton Keynes
+                    </strong>{" "}
+                    over public transport saves you time, hassle, and
+                    energy—especially when travelling with luggage or children.
+                    Here's how we compare to other transport options:
+                  </p>
                 </div>
 
-                <p className="text-sm leading-relaxed text-gray-700 text-start">
-                  No matter your destination, our drivers know the area well and
-                  ensure a smooth, direct journey every time.
-                </p>
+                {/* Enhanced Comparison Table */}
+                <div className="bg-white rounded-2xl overflow-hidden">
+                  <div className="px-6 py-4 bg-gradient-to-r from-gray-50 to-gray-100">
+                    <h4 className="text-lg font-semibold text-gray-900">
+                      Transport Comparison
+                    </h4>
+                  </div>
 
-                {/* Booking CTA */}
-                <h3 className="text-lg font-semibold text-gray-800">
-                  Book Your Milton Keynes Airport Taxi Now
-                </h3>
-                <p className="text-sm leading-relaxed text-gray-700 text-start">
-                  Whether you are arriving at Luton Airport or heading out from
-                  Milton Keynes, book your taxi today with{" "}
-                  <strong>LutonAirportTaxi.co.uk </strong>. We offer the most
-                  efficient, reliable, and customer - focused{" "}
-                  <strong> airport taxi service in Milton Keynes </strong>— with
-                  clear pricing, local drivers, and no surprises.
-                </p>
+                  <div className="overflow-x-auto">
+                    <table className="min-w-full">
+                      <thead className="bg-gray-50">
+                        <tr>
+                          <th className="px-6 py-4 text-left text-sm font-semibold text-gray-700 uppercase tracking-wider">
+                            Mode
+                          </th>
+                          <th className="px-6 py-4 text-left text-sm font-semibold text-gray-700 uppercase tracking-wider">
+                            Time
+                          </th>
+                          <th className="px-6 py-4 text-left text-sm font-semibold text-gray-700 uppercase tracking-wider">
+                            Cost
+                          </th>
+                          <th className="px-6 py-4 text-left text-sm font-semibold text-gray-700 uppercase tracking-wider">
+                            Summary
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody className="divide-y divide-gray-200">
+                        <tr className="bg-blue-50 hover:bg-green-100 transition-colors">
+                          <td className="px-6 py-4">
+                            <div className="flex items-center">
+                              <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-green-800 mr-2">
+                                Recommended
+                              </span>
+                              <span className="font-semibold text-gray-900">
+                                Taxi
+                              </span>
+                            </div>
+                          </td>
+                          <td className="px-6 py-4 text-sm text-gray-700 font-medium">
+                            35–45 mins
+                          </td>
+                          <td className="px-6 py-4 text-sm text-gray-700 font-medium">
+                            £50–£65
+                          </td>
+                          <td className="px-6 py-4 text-sm text-gray-700">
+                            Direct, door-to-door. Private, 24/7. Best for
+                            groups, families, and luggage.
+                          </td>
+                        </tr>
+                        <tr className="hover:bg-gray-50 transition-colors">
+                          <td className="px-6 py-4 font-semibold text-gray-900">
+                            Train
+                          </td>
+                          <td className="px-6 py-4 text-sm text-gray-700">
+                            1.5–2 hrs
+                          </td>
+                          <td className="px-6 py-4 text-sm text-gray-700">
+                            £30–£100 pp
+                          </td>
+                          <td className="px-6 py-4 text-sm text-gray-700">
+                            No direct route. Multiple changes via London.
+                            Inconvenient.
+                          </td>
+                        </tr>
+                        <tr className="hover:bg-gray-50 transition-colors">
+                          <td className="px-6 py-4 font-semibold text-gray-900">
+                            Bus
+                          </td>
+                          <td className="px-6 py-4 text-sm text-gray-700">
+                            1h 20 mins
+                          </td>
+                          <td className="px-6 py-4 text-sm text-gray-700">
+                            £2–£3 pp
+                          </td>
+                          <td className="px-6 py-4 text-sm text-gray-700">
+                            Cheap but slow. Multiple stops and less comfort.
+                          </td>
+                        </tr>
+                        <tr className="hover:bg-gray-50 transition-colors">
+                          <td className="px-6 py-4 font-semibold text-gray-900">
+                            Coach
+                          </td>
+                          <td className="px-6 py-4 text-sm text-gray-700">
+                            ~1 hr
+                          </td>
+                          <td className="px-6 py-4 text-sm text-gray-700">
+                            £10–£20 pp
+                          </td>
+                          <td className="px-6 py-4 text-sm text-gray-700">
+                            Stops only at MK Coachway. Requires extra transport
+                            to town centre.
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
 
-                <ul className="pl-5 space-y-1 text-sm text-gray-700 list-none">
-                  <li className="flex items-start">
-                    <span className="mr-2 text-primary">✔</span> Instant
-                    booking
-                  </li>
-                  <li className="flex items-start">
-                    <span className="mr-2 text-primary">✔</span> Fixed fares
-                  </li>
-                  <li className="flex items-start">
-                    <span className="mr-2 text-primary">✔</span> 24/7 service
-                  </li>
-                  <li className="flex items-start">
-                    <span className="mr-2 text-primary">✔</span> Professional,
-                    friendly drivers
-                  </li>
-                </ul>
+                {/* Benefit highlight */}
+                <div className="p-6 bg-gradient-to-r from-blue-50 to-blue-50 rounded-xl border border-blue-200">
+                  <p className="text-base leading-relaxed text-gray-700 text-center sm:text-lg">
+                    With our service, you avoid crowded stations, missed
+                    connections, and long walks with luggage. Just book, meet
+                    your driver, and go.
+                  </p>
+                </div>
 
-                <p className="text-sm leading-relaxed text-gray-700 text-start">
-                  Make your journey simple. <strong> Book now </strong> and
-                  travel with confidence.
-                </p>
+                {/* About Milton Keynes - Two Column Layout */}
+                <div className="grid lg:grid-cols-2 gap-8 items-start">
+                  <div className="space-y-6">
+                    <div>
+                      <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                        About Milton Keynes
+                      </h3>
+                      <p className="text-base leading-relaxed text-gray-700 sm:text-lg">
+                        Milton Keynes is home to more than 250,000 residents and
+                        offers excellent links to London, Birmingham, and
+                        beyond. With the M1 motorway and fast train services to
+                        London Euston, it's a hub for commuters, businesses, and
+                        visitors alike.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="space-y-6">
+                    <h4 className="text-lg font-semibold text-gray-900 mb-4">
+                      Popular Destinations
+                    </h4>
+                    <div className="grid sm:grid-cols-2 gap-4">
+                      <div className="p-4 bg-white rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+                        <h5 className="font-bold text-gray-900 mb-2">
+                          Centre: MK
+                        </h5>
+                        <p className="text-sm text-gray-600">
+                          Europe's largest indoor shopping mall
+                        </p>
+                      </div>
+                      <div className="p-4 bg-white rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+                        <h5 className="font-bold text-gray-900 mb-2">
+                          Bletchley Park
+                        </h5>
+                        <p className="text-sm text-gray-600">
+                          The WWII codebreaking site
+                        </p>
+                      </div>
+                      <div className="p-4 bg-white rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+                        <h5 className="font-bold text-gray-900 mb-2">
+                          Willen Lake
+                        </h5>
+                        <p className="text-sm text-gray-600">
+                          Ideal for family recreation
+                        </p>
+                      </div>
+                      <div className="p-4 bg-white rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+                        <h5 className="font-bold text-gray-900 mb-2">
+                          Xscape MK
+                        </h5>
+                        <p className="text-sm text-gray-600">
+                          Entertainment complex with indoor skiing, cinema &
+                          more
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="text-center p-6 bg-gray-50 rounded-xl">
+                  <p className="text-base leading-relaxed text-gray-700 sm:text-lg">
+                    No matter your destination, our drivers know the area well
+                    and ensure a smooth, direct journey every time.
+                  </p>
+                </div>
+
+                {/* Enhanced CTA Section */}
+                <div className="bg-gradient-to-br from-blue-600 to-indigo-700 rounded-2xl p-8 text-white ">
+                  <div className="text-center mb-8">
+                    <h3 className="text-2xl font-bold mb-4 sm:text-3xl">
+                      Book Your Milton Keynes Airport Taxi Now
+                    </h3>
+                    <p className="text-lg leading-relaxed text-blue-100 max-w-3xl mx-auto">
+                      Whether you're arriving at Luton Airport or heading out
+                      from Milton Keynes, book your taxi today with{" "}
+                      <strong className="text-white">
+                        LutonAirportTaxi.co.uk
+                      </strong>
+                      . We offer the most efficient, reliable, and
+                      customer-focused{" "}
+                      <strong className="text-white">
+                        airport taxi service in Milton Keynes
+                      </strong>{" "}
+                      — with clear pricing, local drivers, and no surprises.
+                    </p>
+                  </div>
+
+                  <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+                    <div className="flex items-center p-4 bg-white/10 rounded-xl backdrop-blur-sm">
+                      <span className="text-2xl mr-3">✓</span>
+                      <span className="font-medium">Instant booking</span>
+                    </div>
+                    <div className="flex items-center p-4 bg-white/10 rounded-xl backdrop-blur-sm">
+                      <span className="text-2xl mr-3">✓</span>
+                      <span className="font-medium">Fixed fares</span>
+                    </div>
+                    <div className="flex items-center p-4 bg-white/10 rounded-xl backdrop-blur-sm">
+                      <span className="text-2xl mr-3">✓</span>
+                      <span className="font-medium">24/7 service</span>
+                    </div>
+                    <div className="flex items-center p-4 bg-white/10 rounded-xl backdrop-blur-sm">
+                      <span className="text-2xl mr-3">✓</span>
+                      <span className="font-medium">Professional drivers</span>
+                    </div>
+                  </div>
+
+                  <div className="text-center">
+                    <p className="text-lg font-medium text-blue-100 mb-6">
+                      Make your journey simple.{" "}
+                      <strong className="text-white">Book now</strong> and
+                      travel with confidence.
+                    </p>
+                    <button className="inline-flex items-center px-8 py-4 bg-white text-blue-600 font-bold rounded-xl hover:bg-blue-50 transform hover:scale-105 transition-all duration-200 shadow-lg">
+                      Book Your Taxi Now
+                      <svg
+                        className="ml-2 w-5 h-5"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M9 5l7 7-7 7"
+                        />
+                      </svg>
+                    </button>
+                  </div>
+                </div>
               </div>
             </section>
 

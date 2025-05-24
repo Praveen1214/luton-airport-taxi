@@ -9,6 +9,8 @@ const HeroSection = () => {
   return (
     <div className="flex flex-col md:pr-8 lg:pr-16 ">
       {/* Mobile Heading */}
+    <meta name="description" content="Reliable Luton Airport taxi transfers to and from all UK destinations. Fixed pricing, meet & greet, 24/7 service. Book your airport taxi online now." />
+
       <h1 className="block md:hidden text-center text-4xl font-semibold">
         <span className="text-black bg-gradient-to-r from-btn-hover to-primary bg-clip-text">
           Travel Made Easy with

@@ -13,9 +13,9 @@ const Hero = ({ name, description1, description2 }) => {
         <p className="mb-8 text-sm text-gray-600 md:text-base">
           {description2}
         </p>
-        <button className="px-6 py-2 font-medium text-white transition duration-300 rounded bg-primary hover:bg-btn-hover">
+        {/* <button className="px-6 py-2 font-medium text-white transition duration-300 rounded bg-primary hover:bg-btn-hover">
           Book Now
-        </button>
+        </button> */}
       </div>
     </div>
   );

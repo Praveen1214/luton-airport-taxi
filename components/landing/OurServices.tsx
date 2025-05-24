@@ -34,7 +34,7 @@ const AirportServices = () => {
         'We closely <a href="#" class="text-blue-600 hover:underline">monitor flight</a> arrivals and departures at <a href="#" class="text-blue-600 hover:underline">Luton Airport</a> for seamless service.',
     },
     {
-      title: "Business Travel",
+      title: "Business Travel & Executive Vehicles",
       imageSrc: C2,
       description:
         'Our professional chauffeurs provide personalized <a href="#" class="text-blue-600 hover:underline">luxury transfers</a> from Luton.',
@@ -46,7 +46,7 @@ const AirportServices = () => {
         'The wheelchair-accessible taxis provide safe, comfortable transportation from <a href="#" class="text-blue-600 hover:underline">Luton Airport</a>.',
     },
     {
-      title: "Baby Seat Service",
+      title: "Baby Seat & Assisted Travel Options",
       imageSrc: C4,
       description:
         'Our taxis offer secure <a href="#" class="text-blue-600 hover:underline">baby/child seats</a> for families arriving or departing Luton.',
@@ -58,7 +58,7 @@ const AirportServices = () => {
         'Specialized focus on premium <a href="#" class="text-blue-600 hover:underline">airport transfer</a> services from Luton Airport.',
     },
     {
-      title: "Meet and Greet",
+      title: "Meet & Greet Available",
       imageSrc: C6,
       description:
         'Our driver will wait to <a href="#" class="text-blue-600 hover:underline">meet & assist</a> you in the terminal.',
