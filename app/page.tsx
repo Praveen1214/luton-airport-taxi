@@ -10,7 +10,7 @@ import Confirmation from "./steps/Confirmation";
 import StepIndicator from "./steps/StepIndicator";
 import AlertToast from "@/components/alertToast";
 import Loader from "@/components/common/Loader";
-import Services from "@/components/landing/Services";
+// import Services from "@/components/landing/Services";
 // import BookingSteps from "@/components/landing/BookingSteps";
 import Stress from "@/components/landing/Stress";
 import OurServices from "@/components/landing/OurServices";

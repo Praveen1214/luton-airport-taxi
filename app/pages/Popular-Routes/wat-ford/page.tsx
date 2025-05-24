@@ -253,7 +253,7 @@ export default function HomePage() {
                     known for its strong transport links, shopping, and
                     entertainment.With key locations like{" "}
                     <strong> Watford Junction, Intu Shopping Centre </strong>,
-                    and the <strong>Warner Bros. Studio Tour</strong>, it’s a
+                    and the <strong>Warner Bros. Studio Tour</strong>, it is a
                     hub for both residents and visitors.And thanks to its
                     proximity to the M1 and M25, getting from Watford to{" "}
                     <strong> London Luton Airport </strong> is quick and
@@ -263,7 +263,7 @@ export default function HomePage() {
                     Our typical journey time from{" "}
                     <strong> Watford to Luton Airport </strong> is around{" "}
                     <strong>30 to 40 minutes</strong>, depending on the pickup
-                    point and traffic.Whether you're based in{" "}
+                    point and traffic.Whether you re based in{" "}
                     <strong>North Watford, Croxley</strong>, or the{" "}
                     <strong>town centre</strong>, our drivers know the routes
                     and always plan ahead to keep your journey on time.
@@ -431,7 +431,7 @@ export default function HomePage() {
                   </h2>
                   <p className="mb-4 text-sm leading-relaxed text-justify text-gray-700 sm:text-base">
                     Public transport from Watford to Luton usually requires
-                    multiple changes, whether you're using the train, coach, or
+                    multiple changes, whether you are using the train, coach, or
                     bus. That means delays, dragging luggage through stations,
                     and extra time.
                   </p>

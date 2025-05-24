@@ -1,5 +1,5 @@
 import React from "react";
-import { OUR1, OUR2, OUR3 } from "../../assets";
+import { OUR1 } from "../../assets";
 import Image from "next/image";
 
 const OurSection = ({ title, description, image, imageAlt, isReversed }) => {
@@ -33,7 +33,7 @@ const Our = () => {
         <>
           When you choose <strong>Luton Airport Taxi</strong>, you choose a
           reliable, professional service tailored to your exact travel
-          needs.Whether you're flying in or out of Luton, planning a city visit,
+          needs.Whether you are flying in or out of Luton, planning a city visit,
           or organizing group transport, our services are designed to deliver
           punctuality, comfort, and peace of mind.
           <br />
@@ -120,7 +120,7 @@ const Our = () => {
           tight flight connections.That’s why we monitor every flight linked to
           your booking, whether it’s domestic, international, delayed, or
           early.Your driver is dispatched based on live flight data to ensure
-          you're never left waiting. You'll also be notified of any important
+          you are never left waiting. You will also be notified of any important
           updates.
           <br />
           <br />
@@ -144,7 +144,7 @@ const Our = () => {
           professional <strong>chauffeur services</strong> at Luton Airport and
           surrounding areas.Our experienced drivers are trained in premium
           service delivery and will ensure your journey is private, efficient,
-          and exceptionally comfortable.Whether you're attending an event, a
+          and exceptionally comfortable.Whether you are attending an event, a
           meeting, or arriving from a long-haul flight, our chauffeur service
           Luton Airport transfer offers the highest level of personal transport.
         </>
@@ -204,7 +204,7 @@ const Our = () => {
           <strong>Luton Airport</strong>.Our vehicles are available around the
           clock and are always kept to the highest safety and cleanliness
           standards.With our location just minutes from the terminal, we’re able
-          to dispatch quickly and operate on tight timelines.Whether you're
+          to dispatch quickly and operate on tight timelines.Whether you are
           heading home, to a hotel, or connecting elsewhere, our{" "}
           <strong>airport shuttle service</strong> keeps your journey smooth
           from start to finish.
@@ -277,7 +277,7 @@ const Our = () => {
       title: "Car Hire with Driver",
       description: (
         <>
-          If you're looking to explore the region or need local transport
+          If you are looking to explore the region or need local transport
           without self-driving, our <strong>car hire with driver</strong>{" "}
           service offers comfort, flexibility, and reliability. With a wide
           choice of vehicles available, you can{" "}

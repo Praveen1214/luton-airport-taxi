@@ -245,7 +245,7 @@ export default function HomePage() {
                     <strong>Milton Keynes taxi service</strong> to or from
                     <strong>Luton Airport ? At LutonAirportTaxi.co.uk</strong>,
                     we specialise in fast, fixed - price airport transfers with
-                    professional drivers and modern vehicles.Whether you're
+                    professional drivers and modern vehicles.Whether you are
                     heading to a hotel, home, or business meeting, we provide
                     direct, door-to-door service—no delays, no transfers, and no
                     hidden fees.
@@ -318,7 +318,7 @@ export default function HomePage() {
                   <p className="mb-4 text-sm leading-relaxed text-justify text-gray-700 sm:text-base">
                     We offer 24 / 7 transfers from Milton Keynes to Luton
                     Airport, with drivers who know the best routes to get you
-                    there quickly and comfortably.Whether you're heading out on
+                    there quickly and comfortably.Whether you are heading out on
                     an early flight or arriving home after a trip, our service
                     is always ready when you are.
                   </p>
@@ -458,7 +458,7 @@ export default function HomePage() {
                   Choosing an <strong> airport taxi from Milton Keynes </strong>{" "}
                   over public transport saves you time, hassle, and
                   energy—especially when travelling with luggage or children.
-                  Here's how we compare to other transport options:
+                  Here is how we compare to other transport options:
                 </p>
 
                 {/* Comparison Table */}
@@ -561,7 +561,7 @@ export default function HomePage() {
                   Book Your Milton Keynes Airport Taxi Now
                 </h3>
                 <p className="text-sm leading-relaxed text-gray-700 text-start">
-                  Whether you're arriving at Luton Airport or heading out from
+                  Whether you are arriving at Luton Airport or heading out from
                   Milton Keynes, book your taxi today with{" "}
                   <strong>LutonAirportTaxi.co.uk </strong>. We offer the most
                   efficient, reliable, and customer - focused{" "}

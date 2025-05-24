@@ -254,7 +254,7 @@ export default function HomePage() {
                     Our company is located just{" "}
                     <strong>1 mile from Luton Airport</strong>, giving us a
                     major advantage when it comes to quick dispatch and flexible
-                    booking.Whether you're heading out on holiday, travelling
+                    booking.Whether you are heading out on holiday, travelling
                     for work, or arriving back in the UK, we offer a smooth,
                     door-to-door service with no delays or hidden costs.
                   </p>
@@ -482,8 +482,8 @@ export default function HomePage() {
                   <p className="text-sm leading-relaxed text-justify text-gray-700 sm:text-base">
                     Many of our bookings come from regular customers travelling
                     between St Albans and Luton for business or family
-                    holidays.Whether you're being picked up early in the morning
-                    or late at night, we’re ready when you are.
+                    holidays.Whether you are being picked up early in the morning
+                    or late at night, we are ready when you are.
                   </p>
                 </div>
               </div>
@@ -532,7 +532,7 @@ export default function HomePage() {
                 {/* Footer note */}
                 <p className="text-sm leading-relaxed text-gray-700">
                   We monitor flights and traffic in real time to make sure
-                  you're always on time for your departure — and never waiting
+                  you are always on time for your departure — and never waiting
                   on arrival.
                 </p>
               </div>

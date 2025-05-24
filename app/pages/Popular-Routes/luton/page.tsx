@@ -491,7 +491,7 @@ export default function HomePage() {
                     Meet and Greet Service
                   </h2>
                   <p className="mb-4 text-sm leading-relaxed text-justify text-gray-700 sm:text-base">
-                    If you're arriving at Luton for the first time or want added
+                    If you are arriving at Luton for the first time or want added
                     convenience, our <strong>meet and greet</strong> service is
                     available. Your driver will wait for you inside the terminal
                     with a name board, help with luggage, and guide you to your
@@ -682,7 +682,7 @@ export default function HomePage() {
                     Book Your Luton Airport Transfer Today
                   </h2>
                   <p className="mb-4 text-sm leading-relaxed text-justify text-gray-700 sm:text-base">
-                    Whether you're heading to the airport or returning home,
+                    Whether you are heading to the airport or returning home,
                     trust <strong>Luton Airport Taxi</strong> for fast,
                     affordable, and professional transport. Book your taxi
                     online, add extras like baby seats or WiFi, and relax

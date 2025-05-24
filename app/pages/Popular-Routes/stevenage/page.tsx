@@ -246,7 +246,7 @@ export default function HomePage() {
                     <strong>
                       airport taxi transfers from Stevenage to Luton Airport.
                     </strong>{" "}
-                    Whether you're flying for work, leisure, or need a return
+                    Whether you are flying for work, leisure, or need a return
                     pickup, our 24/7 service ensures you get there safely and on
                     time — without the stress of public transport or confusing
                     connections.

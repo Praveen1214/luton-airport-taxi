@@ -15,7 +15,7 @@ const SaveUp = () => {
           <div className="space-y-4 text-justify text-gray-700">
             <p>
               Our base on Kimpton Road puts us less than 5 minutes from Luton
-              Airport.If you're searching for a{" "}
+              Airport.If you are searching for a{" "}
               <strong>taxi near Luton Airport,</strong> we’re the closest and
               fastest option. Vehicles are dispatched instantly, with real-time
               availability and full tracking.

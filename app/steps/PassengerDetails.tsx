@@ -182,20 +182,20 @@ const PassengerDetails = ({
     bookingData.selectedDate,
   ]);
 
-  const Row = ({
-    label,
-    value,
-    note,
-  }: {
-    label: string;
-    value?: number;
-    note?: string;
-  }) => (
-    <div className="flex justify-between py-2 w-full">
-      <span className="text-gray-600">{label}:</span>
-      <span className="font-medium">{note ?? `£${value!.toFixed(2)}`}</span>
-    </div>
-  );
+  // const Row = ({
+  //   label,
+  //   value,
+  //   note,
+  // }: {
+  //   label: string;
+  //   value?: number;
+  //   note?: string;
+  // }) => (
+  //   <div className="flex justify-between py-2 w-full">
+  //     <span className="text-gray-600">{label}:</span>
+  //     <span className="font-medium">{note ?? `£${value!.toFixed(2)}`}</span>
+  //   </div>
+  // );
 
   /* keep parent in sync */
   useEffect(() => {
