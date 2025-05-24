@@ -17,29 +17,26 @@ const Stress = () => {
             Luton Airport Taxi Transfer
           </h1>
 
-          <p className="leading-relaxed text-justify text-gray-700 mb-4">
-            Do you need an affordable airport taxi service from/to Luton
-            Airport?
+          <p className="mb-4 leading-relaxed text-justify text-gray-700">
+            We specialise in professional{" "}
+            <strong>Luton Airport taxi transfers.</strong> Whether it’s a one -
+            way journey or round - trip, we deliver consistent and punctual
+            service.Every transfer is managed by our trained drivers who monitor
+            live flight data and use efficient routes throughout the UK.
           </p>
 
-          <p className="leading-relaxed text-justify text-gray-700 mb-4">
-            Then you are in luck! With over 20 years of experience, Luton
-            Airport Taxi is the way to go. We are a reputable service just 2
-            miles from the London Luton Airport.
-          </p>
-          <p className="leading-relaxed text-justify text-gray-700 mb-4">
-            Moreover, we are not just your regular Taxi service. We have
-            excellent, experienced drivers, we track all flights and drivers to
-            ensure to get you to your destination on time.
-          </p>
-          <p className="leading-relaxed text-justify text-gray-700 mb-4">
-            Regarding price, we are transparent with no hidden fees.
-            Additionally, you can book online to receive an instant quote.
-          </p>
-
-          <p className="leading-relaxed text-justify text-gray-700">
-            Choose Luton Taxi Airport for fast, affordable airport transfers by
-            local taxi drivers.
+          <p className="mb-4 leading-relaxed text-justify text-gray-700">
+            Our fleet includes standard cars, executive saloons, and MPVs for
+            group travel.Prices are confirmed at the time of booking.No surge
+            pricing, no surprises.All services support options like{" "}
+            <a href="#" className="font-medium text-primary">
+              {" "}
+              meet & greet, business travel,{" "}
+            </a>{" "}
+            and{" "}
+            <a href="#" className="font-medium text-primary">
+              pre - paid accounts.
+            </a>
           </p>
         </div>
 

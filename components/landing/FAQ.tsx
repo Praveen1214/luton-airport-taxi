@@ -5,35 +5,59 @@ import { ChevronDown, ChevronUp } from "lucide-react";
 const FAQ = () => {
   const faqs = [
     {
-      question: "Can I get a taxi from Luton Airport?",
-      answer:
-        "You can easily get a taxi from Luton Airport upon arrival. You may call our booking line or book online, although we highly recommend pre-booking in advance for a smoother and hassle-free experience.",
+      question: "How do I book a taxi from Luton Airport?",
+      answer: (
+        <>
+          Use our online booking system to reserve your{" "}
+          <strong> taxi from Luton Airport </strong> instantly. Enter your
+          arrival time, flight details, and destination.Your driver will be
+          dispatched based on real - time flight tracking.
+        </>
+      ),
     },
     {
-      question: "How long will it take to get to Luton Airport by taxi?",
-      answer:
-        "The travel time to Luton Airport by taxi varies depending on your pick-up location, traffic conditions, and other factors. We recommend arriving at the airport at least three hours before your flight. Our taxi service uses a flight monitor to keep track of all flights and allocate drivers accordingly to ensure timely pick-up and drop-off.",
+      question: "Are your Luton Airport taxi prices fixed?",
+      answer: (
+        <>
+          Yes.All <strong> Luton Airport taxi prices </strong> are fixed at the
+          time of booking. No hidden charges, no surge pricing.What you see at
+          checkout is what you pay.
+        </>
+      ),
     },
     {
-      question: "Are Luton Airport taxis available 24/7?",
-      answer:
-        "Yes, Luton Airport taxis are available 24/7. You can easily book a taxi online at any time or call our booking line, which is also available around the clock.",
+      question:
+        "Do you provide airport taxi transfers to and from other towns?",
+      answer: (
+        <>
+          Yes.We offer <strong> airport taxi transfers </strong> to and from
+          Luton Airport covering{" "}
+          <strong> Milton Keynes, Watford, St Albans, Bedford, London </strong>,
+          and surrounding areas.All journeys are direct and professionally
+          managed.
+        </>
+      ),
     },
     {
-      question: "Can I request a specific type of vehicle?",
-      answer:
-        "At Luton Airport Taxi, we understand that our customers have different preferences and needs. Therefore, we offer a range of vehicle types, including standard cars, executive cars, MPVs, and minibuses.",
+      question: "Is Meet & Greet available at Luton Airport?",
+      answer: (
+        <>
+          Yes.Our <strong> Meet & Greet </strong> service includes terminal
+          entry, a name-board display, and assistance with luggage.Ideal for
+          first - time visitors or business clients using our{" "}
+          <strong>Luton Airport taxi service </strong>.
+        </>
+      ),
     },
   ];
 
-  // All FAQs open by default
   const [openIndexes, setOpenIndexes] = useState(faqs.map((_, i) => i));
 
   const toggleFAQ = (index) => {
     if (openIndexes.includes(index)) {
-      setOpenIndexes(openIndexes.filter((i) => i !== index)); // Close
+      setOpenIndexes(openIndexes.filter((i) => i !== index));
     } else {
-      setOpenIndexes([...openIndexes, index]); // Open
+      setOpenIndexes([...openIndexes, index]);
     }
   };
 

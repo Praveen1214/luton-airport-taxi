@@ -95,13 +95,13 @@ const BookingSummary: React.FC<BookingSummaryProps> = ({
 
 
 
-  const Row = ({ label, value }: { label: string; value?: number }) =>
-    value ? (
-      <div className="flex justify-between py-1">
-        <span className="text-gray-600 text-sm">{label}</span>
-        <span className="font-medium text-sm">£{value.toFixed(2)}</span>
-      </div>
-    ) : null;
+  // const Row = ({ label, value }: { label: string; value?: number }) =>
+  //   value ? (
+  //     <div className="flex justify-between py-1">
+  //       <span className="text-gray-600 text-sm">{label}</span>
+  //       <span className="font-medium text-sm">£{value.toFixed(2)}</span>
+  //     </div>
+  //   ) : null;
 
   if (!bookingData) {
     return (
