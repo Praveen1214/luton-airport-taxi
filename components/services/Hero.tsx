@@ -21,9 +21,9 @@ const Hero = () => {
           Airport Transfer With Us
         </p>
         <Link href="/">
-          <button className="px-6 py-2 font-medium text-white transition duration-300 rounded bg-primary hover:bg-btn-hover">
+          {/* <button className="px-6 py-2 font-medium text-white transition duration-300 rounded bg-primary hover:bg-btn-hover">
             Book Now
-          </button>
+          </button> */}
         </Link>
       </div>
     </div>

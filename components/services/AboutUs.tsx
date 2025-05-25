@@ -2,7 +2,7 @@ import React from "react";
 
 const AboutUs = () => {
   return (
-    <section className="max-w-6xl px-4 mx-auto">
+    <section className="max-w-6xl px-4 mx-auto mt-5">
       <div className="flex flex-col gap-8 md:flex-row">
         <div className="w-full md:w-1/2">
           <div className="mb-2 font-semibold text-primary">

@@ -1,5 +1,5 @@
 import React from "react";
-import { OUR1 } from "../../assets";
+import { OUR1,OUR2,OUR3 } from "../../assets";
 import Image from "next/image";
 
 const OurSection = ({ title, description, image, imageAlt, isReversed }) => {
@@ -129,7 +129,7 @@ const Our = () => {
           moment you land.
         </>
       ),
-      image: "",
+      image: OUR2,
       imageAlt: "Ease Of Traveling",
       heading1: "Ease Of",
       heading2: "Traveling",
@@ -149,7 +149,7 @@ const Our = () => {
           Luton Airport transfer offers the highest level of personal transport.
         </>
       ),
-      image: "",
+      image: OUR2,
       imageAlt: "Ease Of Traveling",
       heading1: "Ease Of",
       heading2: "Traveling",
@@ -189,7 +189,7 @@ const Our = () => {
           of mind whether you’re arriving or departing from Luton.
         </>
       ),
-      image: "",
+      image: OUR2,
       imageAlt: "Ease Of Traveling",
       heading1: "Ease Of",
       heading2: "Traveling",
@@ -210,7 +210,7 @@ const Our = () => {
           from start to finish.
         </>
       ),
-      image: "",
+      image: OUR2,
       imageAlt: "Ease Of Traveling",
       heading1: "Ease Of",
       heading2: "Traveling",
@@ -304,7 +304,7 @@ const Our = () => {
           secure, and professional transfers day and night.
         </>
       ),
-      image: "",
+      image: OUR2,
       imageAlt: "Ease Of Traveling",
       heading1: "Ease Of",
       heading2: "Traveling",
@@ -330,7 +330,7 @@ const Our = () => {
           </a>
         </>
       ),
-      image: "",
+      image: OUR3,
       imageAlt: "Ease Of Traveling",
       heading1: "Ease Of",
       heading2: "Traveling",

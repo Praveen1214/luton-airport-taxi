@@ -40,7 +40,7 @@ export default function HomePage() {
   // };
 
   const handleClick = (slug: string) => {
-    router.push(`/routes/${slug}`);
+    router.push(`/pages/Popular-Routes/${slug}`);
   };
 
   return (

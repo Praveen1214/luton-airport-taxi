@@ -22,7 +22,7 @@ const Page: React.FC = () => {
   const [quoteStep, setQuoteStep] = useState(1);
 
   const router = useRouter();
-  const handleClick = (slug: string) => router.push(`/routes/${slug}`);
+  const handleClick = (slug: string) => router.push(`/pages/Popular-Routes/${slug}`);
 
   return (
     <div className="min-h-screen bg-white">
