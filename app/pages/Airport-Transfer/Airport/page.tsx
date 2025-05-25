@@ -21,6 +21,7 @@ import ShopingCenter from "@/assets/images/shopping-center.png";
 import campbellPark from "@/assets/images/campbel-park.png";
 import bletchleyPark from "@/assets/images/bletchley-park.png";
 import InstantQuoteGlobal from "@/app/InstantQuoteGlobal";
+import Head from "next/head";
 
 export default function HomePage() {
   const [quoteStep, setQuoteStep] = useState(1);
@@ -45,6 +46,13 @@ export default function HomePage() {
 
   return (
     <main className="flex flex-col w-full">
+      <Head>
+        <title>Airport Transfers - Luton Taxi</title>
+        <meta
+          name="description"
+          content="Book your airport transfers with Luton Taxi. Enjoy reliable, affordable, and comfortable rides to and from the airport."
+        />
+      </Head>
       <div className="flex flex-col items-start justify-between md:flex-row mb-5">
         {quoteStep === 1 && (
           <div className="w-full px-10 md:mr-12 -mt-28">
@@ -550,11 +558,11 @@ export default function HomePage() {
                     Meet and Greet Service
                   </h2>
                   <p className="mb-4 text-sm leading-relaxed text-justify text-gray-700 sm:text-base">
-                    If you are arriving at Luton for the first time or want added
-                    convenience, our <strong>meet and greet</strong> service is
-                    available. Your driver will wait for you inside the terminal
-                    with a name board, help with luggage, and guide you to your
-                    waiting vehicle.
+                    If you are arriving at Luton for the first time or want
+                    added convenience, our <strong>meet and greet</strong>{" "}
+                    service is available. Your driver will wait for you inside
+                    the terminal with a name board, help with luggage, and guide
+                    you to your waiting vehicle.
                   </p>
                 </div>
               </div>

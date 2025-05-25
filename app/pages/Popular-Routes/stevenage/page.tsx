@@ -22,6 +22,7 @@ import campbellPark from "@/assets/images/campbel-park.png";
 import bletchleyPark from "@/assets/images/bletchley-park.png";
 import EasyTreveling from "@/assets/images/easy-traveling.png";
 import InstantQuoteGlobal from "@/app/InstantQuoteGlobal";
+import Head from "next/head";
 
 export default function HomePage() {
   const [quoteStep, setQuoteStep] = useState(1);
@@ -46,6 +47,13 @@ export default function HomePage() {
 
   return (
     <main className="flex flex-col w-full">
+      <Head>
+        <title>Luton to Stevenage Taxi Transfers - LutonAirportTaxi.co.uk</title>
+        <meta
+          name="description"
+          content="Book your Luton to Stevenage taxi transfers with us and save up to 40%. Fast, reliable, and fixed-price airport transfers."
+        />
+      </Head>
       <div className="flex flex-col items-start justify-between md:flex-row mb-5">
         {quoteStep === 1 && (
           <div className="w-full px-10 md:mr-12 -mt-28">

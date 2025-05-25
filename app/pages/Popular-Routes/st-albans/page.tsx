@@ -9,7 +9,7 @@ import FAQ from "@/components/landing/FAQ";
 import { routes } from "@/components/PopularRoutes";
 import { FaCarAlt } from "react-icons/fa"; // install with: npm install react-icons
 import FeedBack from "@/components/landing/Feedback";
-import { CheckCircle} from "lucide-react";
+import { CheckCircle } from "lucide-react";
 
 // Images
 import Airplane2 from "@/assets/images/airplane2.png";
@@ -22,6 +22,7 @@ import campbellPark from "@/assets/images/campbel-park.png";
 import bletchleyPark from "@/assets/images/bletchley-park.png";
 import EasyTreveling from "@/assets/images/easy-traveling.png";
 import InstantQuoteGlobal from "@/app/InstantQuoteGlobal";
+import Head from "next/head";
 
 export default function HomePage() {
   const [quoteStep, setQuoteStep] = useState(1);
@@ -45,12 +46,24 @@ export default function HomePage() {
   };
 
   return (
-    
     <main className="flex flex-col w-full">
-      <meta name="description"  content="Book a St Albans taxi to Luton Airport with fixed fares. Local drivers, 24/7 service, child seats, wheelchair taxis & professional meet and greet." />
-      <title>St Albans Taxi to Luton Airport | Fast Airport Transfers 24/7</title>
+      <Head>
+        <title>
+          St Albans Taxi to Luton Airport | Fast Airport Transfers 24/7
+        </title>{" "}
+        <meta
+          name="description"
+          content="Book a St Albans taxi to Luton Airport with fixed fares. Local drivers, 24/7 service, child seats, wheelchair taxis & professional meet and greet."
+        />
+      </Head>
+      <meta
+        name="description"
+        content="Book a St Albans taxi to Luton Airport with fixed fares. Local drivers, 24/7 service, child seats, wheelchair taxis & professional meet and greet."
+      />
+      <title>
+        St Albans Taxi to Luton Airport | Fast Airport Transfers 24/7
+      </title>
       <div className="flex flex-col items-start justify-between md:flex-row mb-5">
-
         {quoteStep === 1 && (
           <div className="w-full px-10 md:mr-12 -mt-28">
             <div className="max-w-6xl mx-auto mt-44">
@@ -73,7 +86,7 @@ export default function HomePage() {
       </div>
       {quoteStep === 1 && (
         <>
-           {/* Hero Section */}
+          {/* Hero Section */}
           <section className="w-full px-0 py-8 text-center md:py-20 md:mt-30">
             {/* Why Book and Why Book With Us */}
             <section className="px-4 py-8 mx-auto mt-6 max-w-7xl sm:px-6 sm:py-12 bg-blue-50 sm:mt-10 rounded-xl lg:px-8 lg:py-16">
@@ -545,163 +558,177 @@ export default function HomePage() {
                   <p className="text-sm leading-relaxed text-justify text-gray-700 sm:text-base">
                     Many of our bookings come from regular customers travelling
                     between St Albans and Luton for business or family
-                    holidays.Whether you are being picked up early in the morning
-                    or late at night, we are ready when you are.
+                    holidays.Whether you are being picked up early in the
+                    morning or late at night, we are ready when you are.
                   </p>
                 </div>
               </div>
             </section>
 
-             <section className="max-w-6xl px-4 py-8 mx-auto sm:py-12 md:py-16">
-      <div className="space-y-8">
-        {/* Heading */}
-        <div className="text-center">
-          <h2 className="text-3xl font-bold text-gray-900 mb-2">
-            Transport Comparison
-          </h2>
-          <p className="text-gray-600">
-            Choose the best option for your journey to Luton Airport
-          </p>
-        </div>
+            <section className="max-w-6xl px-4 py-8 mx-auto sm:py-12 md:py-16">
+              <div className="space-y-8">
+                {/* Heading */}
+                <div className="text-center">
+                  <h2 className="text-3xl font-bold text-gray-900 mb-2">
+                    Transport Comparison
+                  </h2>
+                  <p className="text-gray-600">
+                    Choose the best option for your journey to Luton Airport
+                  </p>
+                </div>
 
-        {/* Comparison Table */}
-        <div className="bg-white rounded-2xl overflow-hidden">
-          <div className="overflow-x-auto">
-            <table className="min-w-full">
-              <thead className="bg-gradient-to-r from-gray-50 to-gray-100 border-b border-gray-200">
-                <tr>
-                  <th className="py-5 px-6 text-left text-sm font-semibold text-gray-800 uppercase tracking-wider">
-                    <div className="flex items-center gap-2">
-                      Mode
-                    </div>
-                  </th>
-                  <th className="py-5 px-6 text-left text-sm font-semibold text-gray-800 uppercase tracking-wider">
-                    <div className="flex items-center gap-2">
-                      Time
-                    </div>
-                  </th>
-                  <th className="py-5 px-6 text-left text-sm font-semibold text-gray-800 uppercase tracking-wider">
-                    <div className="flex items-center gap-2">
-                      Cost
-                    </div>
-                  </th>
-                  <th className="py-5 px-6 text-left text-sm font-semibold text-gray-800 uppercase tracking-wider">
-                    <div className="flex items-center gap-2">
-                      Summary
-                    </div>
-                  </th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-gray-100">
-                {/* Taxi - Recommended */}
-                <tr className="bg-gradient-to-r from-blue-50 to-blue-50 hover:from-blue-100 hover:to-blue-100 transition-all duration-300 border-l-4 border-blue-500">
-                  <td className="py-6 px-6">
-                    <div className="flex items-center gap-3">
-                      <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-blue-600 text-white">
-                        Recommended
-                      </span>
-                      <span className="font-semibold text-gray-900 text-md">Taxi</span>
-                    </div>
-                  </td>
-                  <td className="py-6 px-6">
-                    <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-regular bg-blue-100 text-blue-800">
-                      35-45 mins
-                    </span>
-                  </td>
-                  <td className="py-6 px-6">
-                    <span className="font-semibold text-sm text-gray-900">£50-£65</span>
-                  </td>
-                  <td className="py-6 px-6">
-                    <div className="flex items-start gap-2">
-                      <CheckCircle className="w-4 h-4 text-blue-600 mt-1 flex-shrink-0" />
-                      <span className="text-gray-700 leading-relaxed">
-                        Direct, door-to-door. Private, 24/7. Best for groups, families, and luggage.
-                      </span>
-                    </div>
-                  </td>
-                </tr>
+                {/* Comparison Table */}
+                <div className="bg-white rounded-2xl overflow-hidden">
+                  <div className="overflow-x-auto">
+                    <table className="min-w-full">
+                      <thead className="bg-gradient-to-r from-gray-50 to-gray-100 border-b border-gray-200">
+                        <tr>
+                          <th className="py-5 px-6 text-left text-sm font-semibold text-gray-800 uppercase tracking-wider">
+                            <div className="flex items-center gap-2">Mode</div>
+                          </th>
+                          <th className="py-5 px-6 text-left text-sm font-semibold text-gray-800 uppercase tracking-wider">
+                            <div className="flex items-center gap-2">Time</div>
+                          </th>
+                          <th className="py-5 px-6 text-left text-sm font-semibold text-gray-800 uppercase tracking-wider">
+                            <div className="flex items-center gap-2">Cost</div>
+                          </th>
+                          <th className="py-5 px-6 text-left text-sm font-semibold text-gray-800 uppercase tracking-wider">
+                            <div className="flex items-center gap-2">
+                              Summary
+                            </div>
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody className="divide-y divide-gray-100">
+                        {/* Taxi - Recommended */}
+                        <tr className="bg-gradient-to-r from-blue-50 to-blue-50 hover:from-blue-100 hover:to-blue-100 transition-all duration-300 border-l-4 border-blue-500">
+                          <td className="py-6 px-6">
+                            <div className="flex items-center gap-3">
+                              <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-blue-600 text-white">
+                                Recommended
+                              </span>
+                              <span className="font-semibold text-gray-900 text-md">
+                                Taxi
+                              </span>
+                            </div>
+                          </td>
+                          <td className="py-6 px-6">
+                            <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-regular bg-blue-100 text-blue-800">
+                              35-45 mins
+                            </span>
+                          </td>
+                          <td className="py-6 px-6">
+                            <span className="font-semibold text-sm text-gray-900">
+                              £50-£65
+                            </span>
+                          </td>
+                          <td className="py-6 px-6">
+                            <div className="flex items-start gap-2">
+                              <CheckCircle className="w-4 h-4 text-blue-600 mt-1 flex-shrink-0" />
+                              <span className="text-gray-700 leading-relaxed">
+                                Direct, door-to-door. Private, 24/7. Best for
+                                groups, families, and luggage.
+                              </span>
+                            </div>
+                          </td>
+                        </tr>
 
-                {/* Train */}
-                <tr className="hover:bg-gray-50 transition-colors duration-200">
-                  <td className="py-6 px-6">
-                    <span className="font-medium text-gray-900 text-lg">Train</span>
-                  </td>
-                  <td className="py-6 px-6">
-                    <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium  text-orange-800">
-                      1.5-2 hrs
-                    </span>
-                  </td>
-                  <td className="py-6 px-6">
-                    <span className="font-semibold text-sm text-gray-900">£30-£100 pp</span>
-                  </td>
-                  <td className="py-6 px-6">
-                    <span className="text-gray-700 leading-relaxed">
-                      No direct route. Multiple changes via London. Inconvenient.
-                    </span>
-                  </td>
-                </tr>
+                        {/* Train */}
+                        <tr className="hover:bg-gray-50 transition-colors duration-200">
+                          <td className="py-6 px-6">
+                            <span className="font-medium text-gray-900 text-lg">
+                              Train
+                            </span>
+                          </td>
+                          <td className="py-6 px-6">
+                            <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium  text-orange-800">
+                              1.5-2 hrs
+                            </span>
+                          </td>
+                          <td className="py-6 px-6">
+                            <span className="font-semibold text-sm text-gray-900">
+                              £30-£100 pp
+                            </span>
+                          </td>
+                          <td className="py-6 px-6">
+                            <span className="text-gray-700 leading-relaxed">
+                              No direct route. Multiple changes via London.
+                              Inconvenient.
+                            </span>
+                          </td>
+                        </tr>
 
-                {/* Bus */}
-                <tr className="hover:bg-gray-50 transition-colors duration-200">
-                  <td className="py-6 px-6">
-                    <span className="font-medium text-gray-900 text-md">Bus</span>
-                  </td>
-                  <td className="py-6 px-6">
-                    <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium text-red-800">
-                      1h 20 mins
-                    </span>
-                  </td>
-                  <td className="py-6 px-6">
-                    <span className="font-semibold text-sm text-gray-900">£2-£3 pp</span>
-                  </td>
-                  <td className="py-6 px-6">
-                    <span className="text-gray-700 leading-relaxed">
-                      Cheap but slow. Multiple stops and less comfort.
-                    </span>
-                  </td>
-                </tr>
+                        {/* Bus */}
+                        <tr className="hover:bg-gray-50 transition-colors duration-200">
+                          <td className="py-6 px-6">
+                            <span className="font-medium text-gray-900 text-md">
+                              Bus
+                            </span>
+                          </td>
+                          <td className="py-6 px-6">
+                            <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium text-red-800">
+                              1h 20 mins
+                            </span>
+                          </td>
+                          <td className="py-6 px-6">
+                            <span className="font-semibold text-sm text-gray-900">
+                              £2-£3 pp
+                            </span>
+                          </td>
+                          <td className="py-6 px-6">
+                            <span className="text-gray-700 leading-relaxed">
+                              Cheap but slow. Multiple stops and less comfort.
+                            </span>
+                          </td>
+                        </tr>
 
-                {/* Coach */}
-                <tr className="hover:bg-gray-50 transition-colors duration-200">
-                  <td className="py-6 px-6">
-                    <span className="font-medium text-gray-900 text-md">Coach</span>
-                  </td>
-                  <td className="py-6 px-6">
-                    <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium  text-yellow-800">
-                      ~1 hr
-                    </span>
-                  </td>
-                  <td className="py-6 px-6">
-                    <span className="font-semibold text-sm text-gray-900">£10-£20 pp</span>
-                  </td>
-                  <td className="py-6 px-6">
-                    <span className="text-gray-700 leading-relaxed">
-                      Stops only at MK Coachway. Requires extra transport to town centre.
-                    </span>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
+                        {/* Coach */}
+                        <tr className="hover:bg-gray-50 transition-colors duration-200">
+                          <td className="py-6 px-6">
+                            <span className="font-medium text-gray-900 text-md">
+                              Coach
+                            </span>
+                          </td>
+                          <td className="py-6 px-6">
+                            <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium  text-yellow-800">
+                              ~1 hr
+                            </span>
+                          </td>
+                          <td className="py-6 px-6">
+                            <span className="font-semibold text-sm text-gray-900">
+                              £10-£20 pp
+                            </span>
+                          </td>
+                          <td className="py-6 px-6">
+                            <span className="text-gray-700 leading-relaxed">
+                              Stops only at MK Coachway. Requires extra
+                              transport to town centre.
+                            </span>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
 
-        {/* Call-to-action section */}
-        <div className="bg-gradient-to-r from-blue-100 to-blue-100 border border-blue-200 rounded-xl p-8">
-          <div className="text-center max-w-4xl mx-auto">
-            <div className="flex items-center justify-center gap-3 mb-4">
-              <CheckCircle className="w-6 h-6 text-blue-600" />
-              <h3 className="text-xl font-semibold text-blue-900">
-                Why Choose Our Service?
-              </h3>
-            </div>
-            <p className="text-blue-800 leading-relaxed text-lg">
-              With our service, you avoid crowded stations, missed connections, and long walks with luggage. 
-              Just book, meet your driver, and go.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
+                {/* Call-to-action section */}
+                <div className="bg-gradient-to-r from-blue-100 to-blue-100 border border-blue-200 rounded-xl p-8">
+                  <div className="text-center max-w-4xl mx-auto">
+                    <div className="flex items-center justify-center gap-3 mb-4">
+                      <CheckCircle className="w-6 h-6 text-blue-600" />
+                      <h3 className="text-xl font-semibold text-blue-900">
+                        Why Choose Our Service?
+                      </h3>
+                    </div>
+                    <p className="text-blue-800 leading-relaxed text-lg">
+                      With our service, you avoid crowded stations, missed
+                      connections, and long walks with luggage. Just book, meet
+                      your driver, and go.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </section>
 
             <section className="max-w-6xl px-4 py-8 mx-auto sm:py-12 md:py-16">
               <div className="flex flex-col items-start justify-between gap-6 md:flex-row sm:gap-8">

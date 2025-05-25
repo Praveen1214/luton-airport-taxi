@@ -28,20 +28,6 @@ const Page = () => {
           name="description"
           content="Book a wheelchair accessible taxi in Luton with trained drivers and ramp-equipped vehicles. Accessible transfers to and from Luton Airport, 24/7."
         />
-        <meta
-          name="keywords"
-          content="wheelchair taxi Luton, accessible taxi Luton, Luton Airport taxi, disabled transport Luton, mobility taxi UK"
-        />
-        <meta property="og:title" content="Wheelchair Taxi Luton – Accessible Travel to and from Luton Airport" />
-        <meta
-          property="og:description"
-          content="Trained drivers and ramp-equipped vehicles for safe, respectful, and accessible Luton Airport transfers 24/7."
-        />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://yourdomain.com/wheelchair-taxi-luton" />
-        <meta property="og:image" content="https://yourdomain.com/images/wheelchair-taxi-luton.jpg" />
-        <meta name="robots" content="index, follow" />
-        <link rel="canonical" href="https://yourdomain.com/wheelchair-taxi-luton" />
       </Head>
 
       <div className="w-full">
@@ -77,7 +63,7 @@ const Page = () => {
                       <h2 className="text-2xl font-bold text-gray-900 m-0">Your Trusted Accessible Transport Partner</h2>
                     </div>
                     <p className="text-lg text-gray-700 mb-6 leading-relaxed">
-                      At <strong className="text-blue-700">Luton Airport Taxi</strong>, we believe travel should be accessible to everyone. That's why our
+                      At <strong className="text-blue-700">Luton Airport Taxi</strong>, we believe travel should be accessible to everyone. That is why our
                       <strong className="text-blue-700"> wheelchair taxi service in Luton</strong> is designed to ensure safe, respectful, and reliable
                       transportation to and from <strong className="text-blue-700">London Luton Airport</strong> and surrounding areas.
                     </p>
@@ -99,7 +85,7 @@ const Page = () => {
                     <h2 className="text-2xl font-bold text-gray-900">Luton Airport Accessibility: A Fully Inclusive Hub</h2>
                   </div>
                   <p className="text-lg text-gray-700 mb-6 leading-relaxed">
-                    Luton Airport is one of the UK's most accessibility-friendly travel hubs. Key facilities include:
+                    Luton Airport is one of the UK is most accessibility-friendly travel hubs. Key facilities include:
                   </p>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     {[
@@ -198,7 +184,7 @@ const Page = () => {
                     Accessible travel made easy. Get an instant quote or call us for custom bookings.
                   </p>
                   <p className="text-lg mb-6 opacity-80">
-                    We're here 24/7 to support your mobility needs.
+                    We are here 24/7 to support your mobility needs.
                   </p>
                   <div className="bg-white bg-opacity-20 p-4 rounded-lg inline-block">
                     <p className="text-lg font-medium">

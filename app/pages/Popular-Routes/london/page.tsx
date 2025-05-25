@@ -22,6 +22,7 @@ import campbellPark from "@/assets/images/campbel-park.png";
 import bletchleyPark from "@/assets/images/bletchley-park.png";
 import EasyTreveling from "@/assets/images/easy-traveling.png";
 import InstantQuoteGlobal from "@/app/InstantQuoteGlobal";
+import Head from "next/head";
 
 export default function HomePage() {
   const [quoteStep, setQuoteStep] = useState(1);
@@ -46,6 +47,13 @@ export default function HomePage() {
 
   return (
     <main className="flex flex-col w-full">
+      <Head>
+        <title>Luton To London Taxi Transfers</title>
+        <meta
+          name="description"
+          content="Save up to 40% by pre-booking your London airport transfer with us. Reliable and affordable taxi services from Luton to London."
+        />
+      </Head>
       <div className="flex flex-col items-start justify-between md:flex-row mb-5">
         {quoteStep === 1 && (
           <div className="w-full px-10 md:mr-12 -mt-28">

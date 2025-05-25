@@ -22,6 +22,7 @@ import campbellPark from "@/assets/images/campbel-park.png";
 import bletchleyPark from "@/assets/images/bletchley-park.png";
 import EasyTreveling from "@/assets/images/easy-traveling.png";
 import InstantQuoteGlobal from "@/app/InstantQuoteGlobal";
+import Head from "next/head";
 
 export default function HomePage() {
   const [quoteStep, setQuoteStep] = useState(1);
@@ -46,6 +47,15 @@ export default function HomePage() {
 
   return (
     <main className="flex flex-col w-full">
+      <Head>
+        <title>
+          Milton Keynes Taxi | Airport Transfers to and from Luton Airport
+        </title>
+        <meta
+          name="description"
+          content="Book a Milton Keynes taxi to or from Luton Airport. 24/7 airport transfers, fixed prices, child seats, and local drivers. Private, door-to-door service."
+        />
+      </Head>
       <div className="flex flex-col items-start justify-between md:flex-row mb-5">
         {quoteStep === 1 && (
           <div className="w-full px-10 md:mr-12 -mt-28">
@@ -650,8 +660,8 @@ export default function HomePage() {
                         Milton Keynes is home to more than 250,000 residents and
                         offers excellent links to London, Birmingham, and
                         beyond. With the M1 motorway and fast train services to
-                        London Euston, it is a hub for commuters, businesses, and
-                        visitors alike.
+                        London Euston, it is a hub for commuters, businesses,
+                        and visitors alike.
                       </p>
                     </div>
                   </div>

@@ -21,6 +21,7 @@ import ShopingCenter from "@/assets/images/shopping-center.png";
 import campbellPark from "@/assets/images/campbel-park.png";
 import bletchleyPark from "@/assets/images/bletchley-park.png";
 import InstantQuoteGlobal from "@/app/InstantQuoteGlobal";
+import Head from "next/head";
 
 export default function HomePage() {
   const [quoteStep, setQuoteStep] = useState(1);
@@ -45,8 +46,10 @@ export default function HomePage() {
 
   return (
     <main className="flex flex-col w-full">
+      <Head>
       <title>Luton Airport Taxi Transfer | London Luton Airport Transfers & Booking</title>
       <meta name="description" content="Book your Luton Airport taxi transfer online with fixed prices, real-time flight tracking, wheelchair taxis, minibus hire, chauffeur service, and more."></meta>
+      </Head>
       <div className="flex flex-col items-start justify-between md:flex-row mb-5">
         {quoteStep === 1 && (
           <div className="w-full px-10 md:mr-12 -mt-28">
