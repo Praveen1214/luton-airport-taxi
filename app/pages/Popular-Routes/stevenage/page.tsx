@@ -15,7 +15,7 @@ import { CheckCircle } from "lucide-react";
 import Airplane2 from "@/assets/images/airplane2.png";
 import SecurityCard from "@/assets/images/security-card.png";
 import UserTick from "@/assets/images/user-tick.png";
-import Drivng from "@/assets/images/driving.png";
+// import Drivng from "@/assets/images/driving.png";
 import MaskGroup from "@/assets/images/mask-group.png";
 import ShopingCenter from "@/assets/images/shopping-center.png";
 import campbellPark from "@/assets/images/campbel-park.png";
@@ -28,17 +28,17 @@ export default function HomePage() {
   const scrollRef = useRef<HTMLDivElement>(null);
   const router = useRouter();
 
-  const scroll = (direction: "left" | "right") => {
-    const container = scrollRef.current;
-    if (!container) return;
+  // const scroll = (direction: "left" | "right") => {
+  //   const container = scrollRef.current;
+  //   if (!container) return;
 
-    const scrollAmount = 320; // adjust if needed
+  //   const scrollAmount = 320; // adjust if needed
 
-    container.scrollBy({
-      left: direction === "left" ? -scrollAmount : scrollAmount,
-      behavior: "smooth",
-    });
-  };
+  //   container.scrollBy({
+  //     left: direction === "left" ? -scrollAmount : scrollAmount,
+  //     behavior: "smooth",
+  //   });
+  // };
 
   const handleClick = (slug: string) => {
     router.push(`/routes/${slug}`);
@@ -46,7 +46,7 @@ export default function HomePage() {
 
   return (
     <main className="flex flex-col w-full">
-      <div className="flex flex-col items-start justify-between md:flex-row">
+      <div className="flex flex-col items-start justify-between md:flex-row mb-5">
         {quoteStep === 1 && (
           <div className="w-full px-10 md:mr-12 -mt-28">
             <div className="max-w-6xl mx-auto mt-44">
@@ -70,144 +70,203 @@ export default function HomePage() {
       {quoteStep === 1 && (
         <>
           {/* Hero Section */}
-          <section className="w-full px-4 py-8 text-center md:py-20 bg-gradient from-blue-50 to-transparent md:-mt-16 mt-60">
+          <section className="w-full px-0 py-8 text-center md:py-20 md:mt-30">
             {/* Why Book and Why Book With Us */}
-            <section className="px-4 py-10 mx-auto mt-6 max-w-7xl sm:px-8 sm:py-16 bg-blue-50 sm:mt-10 rounded-xl">
+            <section className="px-4 py-8 mx-auto mt-6 max-w-7xl sm:px-6 sm:py-12 bg-blue-50 sm:mt-10 rounded-xl lg:px-8 lg:py-16">
               {/* Container using flex instead of grid */}
-              <div className="flex flex-col gap-10 lg:flex-row lg:items-start sm:gap-20">
+              <div className="flex flex-col gap-8 lg:flex-row lg:items-start lg:gap-16">
                 {/* Left: Why Book A Transfers */}
-                <div className="w-full">
-                  <h2 className="mb-4 text-xl font-semibold text-gray-900 sm:text-2xl sm:mb-6">
+                <div className="w-full lg:w-1/2">
+                  <h2 className="mb-4 text-xl font-semibold text-gray-900 sm:text-2xl lg:text-3xl sm:mb-6 text-left">
                     Why Book A Transfers
                   </h2>
-                  {/* Horizontal scroll container for icons */}
-                  <div
-                    ref={scrollRef}
-                    className="relative flex gap-3 pb-4 overflow-x-auto flex-nowrap sm:gap-4 scrollbar-hide"
-                  >
-                    {/* Card 1 */}
-                    <div className="bg-gray-50 rounded-xl  p-4 sm:p-5 flex flex-col items-center justify-center text-center min-w-[130px] sm:min-w-[160px] min-h-[140px] sm:min-h-[160px]">
-                      <Image
-                        src={SecurityCard}
-                        alt="Price Guarantee"
-                        className="w-8 h-8 mb-2 sm:w-10 sm:h-10"
-                      />
-                      <p className="text-xs font-medium text-gray-700 sm:text-sm">
-                        Price Guarantee
-                      </p>
-                    </div>
-                    {/* Card 2 */}
-                    <div className="bg-gray-50 rounded-xl p-4 sm:p-5 flex flex-col items-center justify-center text-center min-w-[130px] sm:min-w-[160px] min-h-[140px] sm:min-h-[160px]">
-                      <Image
-                        src={UserTick}
-                        alt="Flexible Services"
-                        className="w-8 h-8 mb-2 sm:w-10 sm:h-10"
-                      />
-                      <p className="text-xs font-medium text-gray-700 sm:text-sm">
-                        Flexible Services
-                      </p>
-                    </div>
-                    {/* Card 3 */}
-                    <div className="bg-gray-50 rounded-xl p-4 sm:p-5 flex flex-col items-center justify-center text-center min-w-[130px] sm:min-w-[160px] min-h-[140px] sm:min-h-[160px]">
-                      <Image
-                        src={Drivng}
-                        alt="Vehicle Flexibility"
-                        className="w-8 h-8 mb-2 sm:w-10 sm:h-10"
-                      />
-                      <p className="text-xs font-medium text-gray-700 sm:text-sm">
-                        Vehicle Flexibility
-                      </p>
-                    </div>
-                    {/* Card 4 */}
-                    <div className="bg-gray-50 rounded-xl p-4 sm:p-5 flex flex-col items-center justify-center text-center min-w-[130px] sm:min-w-[160px] min-h-[140px] sm:min-h-[160px]">
-                      <Image
-                        src={Airplane2}
-                        alt="Flight Tracking"
-                        className="w-8 h-8 mb-2 sm:w-10 sm:h-10"
-                      />
-                      <p className="text-xs font-medium text-gray-700 sm:text-sm">
-                        Flight Tracking
-                      </p>
+                  {/* Mobile: Stack cards vertically, Desktop: Horizontal scroll */}
+                  <div className="block sm:hidden">
+                    {/* Mobile: 2x2 Grid */}
+                    <div className="grid grid-cols-2 gap-3">
+                      {/* Card 1 */}
+                      <div className="bg-white shadow-sm rounded-xl p-4 flex flex-col items-center justify-center text-center min-h-[120px] border border-gray-100 hover:shadow-md transition-shadow">
+                        <Image
+                          src={SecurityCard}
+                          alt="Price Guarantee"
+                          className="w-8 h-8 mb-2"
+                        />
+                        <p className="text-xs font-medium text-gray-700 leading-tight">
+                          Price Guarantee
+                        </p>
+                      </div>
+                      {/* Card 2 */}
+                      <div className="bg-white shadow-sm rounded-xl p-4 flex flex-col items-center justify-center text-center min-h-[120px] border border-gray-100 hover:shadow-md transition-shadow">
+                        <Image
+                          src={UserTick}
+                          alt="Flexible Services"
+                          className="w-8 h-8 mb-2"
+                        />
+                        <p className="text-xs font-medium text-gray-700 leading-tight">
+                          Flexible Services
+                        </p>
+                      </div>
+                      {/* Card 3
+                      <div className="bg-white shadow-sm rounded-xl p-4 flex flex-col items-center justify-center text-center min-h-[120px] border border-gray-100 hover:shadow-md transition-shadow">
+                        <Image
+                          src={Drivng}
+                          alt="Vehicle Flexibility"
+                          className="w-8 h-8 mb-2"
+                        />
+                        <p className="text-xs font-medium text-gray-700 leading-tight">
+                          Vehicle Flexibility
+                        </p>
+                      </div> */}
+                      {/* Card 4 */}
+                      <div className="bg-white shadow-sm rounded-xl p-4 flex flex-col items-center justify-center text-center min-h-[120px] border border-gray-100 hover:shadow-md transition-shadow">
+                        <Image
+                          src={Airplane2}
+                          alt="Flight Tracking"
+                          className="w-8 h-8 mb-2"
+                        />
+                        <p className="text-xs font-medium text-gray-700 leading-tight">
+                          Flight Tracking
+                        </p>
+                      </div>
                     </div>
                   </div>
-                  {/* Scroll controls for mobile */}
-                  <div className="flex justify-center gap-2 mt-4 lg:hidden">
-                    <button
-                      onClick={() => scroll("left")}
-                      className="p-2 bg-blue-100 rounded-full text-primary"
-                      aria-label="Scroll left"
+
+                  {/* Tablet and Desktop: Horizontal scroll */}
+                  <div className="hidden sm:block">
+                    <div
+                      ref={scrollRef}
+                      className="relative flex gap-4 pb-4 overflow-x-auto flex-nowrap lg:gap-6 scrollbar-hide"
                     >
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="w-4 h-4"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M15 19l-7-7 7-7"
+                      {/* Card 1 */}
+                      <div className="bg-white shadow-sm rounded-xl p-5 flex flex-col items-center justify-center text-center min-w-[140px] lg:min-w-[160px] min-h-[140px] lg:min-h-[160px] border border-gray-100 hover:shadow-md transition-shadow flex-shrink-0">
+                        <Image
+                          src={SecurityCard}
+                          alt="Price Guarantee"
+                          className="w-10 h-10 mb-3 lg:w-12 lg:h-12"
                         />
-                      </svg>
-                    </button>
-                    <button
-                      onClick={() => scroll("right")}
-                      className="p-2 bg-blue-100 rounded-full text-primary"
-                      aria-label="Scroll right"
-                    >
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="w-4 h-4"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M9 5l7 7-7 7"
+                        <p className="text-sm font-medium text-gray-700 lg:text-base">
+                          Price Guarantee
+                        </p>
+                      </div>
+                      {/* Card 2 */}
+                      <div className="bg-white shadow-sm rounded-xl p-5 flex flex-col items-center justify-center text-center min-w-[140px] lg:min-w-[160px] min-h-[140px] lg:min-h-[160px] border border-gray-100 hover:shadow-md transition-shadow flex-shrink-0">
+                        <Image
+                          src={UserTick}
+                          alt="Flexible Services"
+                          className="w-10 h-10 mb-3 lg:w-12 lg:h-12"
                         />
-                      </svg>
-                    </button>
+                        <p className="text-sm font-medium text-gray-700 lg:text-base">
+                          Flexible Services
+                        </p>
+                      </div>
+                      {/* Card 3
+                      <div className="bg-white shadow-sm rounded-xl p-5 flex flex-col items-center justify-center text-center min-w-[140px] lg:min-w-[160px] min-h-[140px] lg:min-h-[160px] border border-gray-100 hover:shadow-md transition-shadow flex-shrink-0">
+                        <Image
+                          src={Drivng}
+                          alt="Vehicle Flexibility"
+                          className="w-10 h-10 mb-3 lg:w-12 lg:h-12"
+                        />
+                        <p className="text-sm font-medium text-gray-700 lg:text-base">
+                          Vehicle Flexibility
+                        </p>
+                      </div> */}
+                      {/* Card 4 */}
+                      <div className="bg-white shadow-sm rounded-xl p-5 flex flex-col items-center justify-center text-center min-w-[140px] lg:min-w-[160px] min-h-[140px] lg:min-h-[160px] border border-gray-100 hover:shadow-md transition-shadow flex-shrink-0">
+                        <Image
+                          src={Airplane2}
+                          alt="Flight Tracking"
+                          className="w-10 h-10 mb-3 lg:w-12 lg:h-12"
+                        />
+                        <p className="text-sm font-medium text-gray-700 lg:text-base">
+                          Flight Tracking
+                        </p>
+                      </div>
+                    </div>
+                    {/* Scroll controls for tablet */}
+                    {/* <div className="flex justify-center gap-3 mt-4 sm:hidden lg:flex lg:justify-start">
+                      <button
+                        onClick={() => scroll("left")}
+                        className="p-3 bg-white shadow-sm rounded-full text-primary border border-gray-200 hover:shadow-md hover:bg-blue-50 transition-all"
+                        aria-label="Scroll left"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="w-5 h-5"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M15 19l-7-7 7-7"
+                          />
+                        </svg>
+                      </button>
+                      <button
+                        onClick={() => scroll("right")}
+                        className="p-3 bg-white shadow-sm rounded-full text-primary border border-gray-200 hover:shadow-md hover:bg-blue-50 transition-all"
+                        aria-label="Scroll right"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="w-5 h-5"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M9 5l7 7-7 7"
+                          />
+                        </svg>
+                      </button>
+                    </div> */}
                   </div>
                 </div>
 
                 {/* Right: Why Book With Us */}
-                <div className="w-full mt-8 lg:mt-0">
-                  <h2 className="mb-2 text-xl font-semibold text-gray-900 sm:text-2xl">
+                <div className="w-full mt-6 lg:mt-0 lg:w-1/2">
+                  <h2 className="mb-2 text-xl font-semibold text-gray-900 sm:text-2xl lg:text-3xl text-left">
                     Why Book With Us
                   </h2>
-                  <p className="mb-4 text-xs font-semibold uppercase text-primary sm:text-sm">
+                  <p className="mb-6 text-xs font-semibold uppercase text-primary sm:text-sm text-left tracking-wide">
                     Our Features
                   </p>
-                  {/* Using flex-wrap to emulate two columns without grid */}
-                  <ul className="flex flex-wrap -mx-1 text-xs text-gray-800 sm:text-sm">
-                    <li className="flex items-center w-full px-1 mb-3 space-x-1 sm:w-1/2">
-                      <CheckCircle className="flex-shrink-0 w-4 h-4 text-primary" />
-                      <span>24 Hours Service</span>
+                  {/* Mobile: Single column, Desktop: Two columns */}
+                  <ul className="grid grid-cols-1 gap-4 text-sm text-gray-800 sm:grid-cols-2 sm:gap-x-6 sm:gap-y-4 lg:text-base">
+                    <li className="flex items-center space-x-3">
+                      <CheckCircle className="flex-shrink-0 w-5 h-5 text-primary" />
+                      <span className="font-medium">24 Hours Service</span>
                     </li>
-                    <li className="flex items-center w-full px-1 mb-3 space-x-1 sm:w-1/2">
-                      <CheckCircle className="flex-shrink-0 w-4 h-4 text-primary" />
-                      <span>Flight Monitoring</span>
+                    <li className="flex items-center space-x-3">
+                      <CheckCircle className="flex-shrink-0 w-5 h-5 text-primary" />
+                      <span className="font-medium">Flight Monitoring</span>
                     </li>
-                    <li className="flex items-center w-full px-1 mb-3 space-x-1 sm:w-1/2">
-                      <CheckCircle className="flex-shrink-0 w-4 h-4 text-primary" />
-                      <span>Fully Licensed Drivers</span>
+                    <li className="flex items-center space-x-3">
+                      <CheckCircle className="flex-shrink-0 w-5 h-5 text-primary" />
+                      <span className="font-medium">
+                        Fully Licensed Drivers
+                      </span>
                     </li>
-                    <li className="flex items-center w-full px-1 mb-3 space-x-1 sm:w-1/2">
-                      <CheckCircle className="flex-shrink-0 w-4 h-4 text-primary" />
-                      <span>Waiting Time and Parking</span>
+                    <li className="flex items-center space-x-3">
+                      <CheckCircle className="flex-shrink-0 w-5 h-5 text-primary" />
+                      <span className="font-medium">
+                        Waiting Time and Parking
+                      </span>
                     </li>
-                    <li className="flex items-center w-full px-1 mb-3 space-x-1 sm:w-1/2">
-                      <CheckCircle className="flex-shrink-0 w-4 h-4 text-primary" />
-                      <span>Professional Chauffeur</span>
+                    <li className="flex items-center space-x-3">
+                      <CheckCircle className="flex-shrink-0 w-5 h-5 text-primary" />
+                      <span className="font-medium">
+                        Professional Chauffeur
+                      </span>
                     </li>
-                    <li className="flex items-center w-full px-1 mb-3 space-x-1 sm:w-1/2">
-                      <CheckCircle className="flex-shrink-0 w-4 h-4 text-primary" />
-                      <span>Meet & Greet</span>
+                    <li className="flex items-center space-x-3">
+                      <CheckCircle className="flex-shrink-0 w-5 h-5 text-primary" />
+                      <span className="font-medium">Meet & Greet</span>
                     </li>
                   </ul>
                 </div>
@@ -218,7 +277,7 @@ export default function HomePage() {
               <div className="flex flex-col-reverse items-start justify-between gap-6 md:flex-row sm:gap-8">
                 {/* Left Column: Image - On mobile, this appears below the text */}
                 <div className="flex-shrink-0 w-full mt-6 md:w-1/3 md:mt-0">
-                  {/* <div className="p-4 border-gray-200 rounded-xl bg-blue-50">
+                  <div className="p-4 border-gray-200 rounded-xl bg-blue-50">
                     <Image
                       src={EasyTreveling}
                       alt="Luton Airport Taxi"
@@ -232,12 +291,12 @@ export default function HomePage() {
                         Fast & Reliable
                       </p>
                     </div>
-                  </div> */}
+                  </div>
                 </div>
 
                 {/* Right Column: Text */}
                 <div className="w-full md:w-2/3">
-                  <h2 className="mb-4 text-xl font-semibold text-gray-900 sm:text-2xl md:text-3xl">
+                  <h2 className="mb-4 text-xl font-semibold text-gray-900 sm:text-2xl md:text-3xl text-left">
                     Stevenage Taxi
                   </h2>
                   <p className="mb-4 text-sm leading-relaxed text-justify text-gray-700 sm:text-base">
@@ -271,7 +330,7 @@ export default function HomePage() {
               <div className="flex flex-col items-start justify-between gap-6 md:flex-row sm:gap-8">
                 {/* Left Column */}
                 <div className="w-full md:w-2/3">
-                  <h2 className="mb-4 text-xl font-semibold text-gray-900 sm:text-2xl md:text-3xl">
+                  <h2 className="mb-4 text-xl font-semibold text-gray-900 sm:text-2xl md:text-3xl text-left">
                     Stevenage to Luton Airport Taxi Time Interval
                   </h2>
                   <p className="mb-4 text-sm leading-relaxed text-justify text-gray-700 sm:text-base">
@@ -313,294 +372,204 @@ export default function HomePage() {
               </div>
             </section>
 
-            {/* Traveling To And From Milton Keynes */}
             <section className="max-w-6xl px-4 py-8 mx-auto sm:py-12 md:py-16">
-              <div className="flex flex-col-reverse items-start justify-between gap-6 md:flex-row sm:gap-8">
-                {/* Left Column: Image - On mobile, this appears below the text */}
-                <div className="flex-shrink-0 w-full mt-6 md:w-1/3 md:mt-0">
-                  <div className="p-4 border-gray-200 rounded-xl bg-blue-50">
-                    <Image
-                      src={EasyTreveling}
-                      alt="Luton Airport Taxi"
-                      className="w-full h-auto rounded-tl-2xl"
-                    />
-                    <div className="mt-4 text-center">
-                      <h3 className="text-base font-semibold text-gray-900 sm:text-lg">
-                        Luton Airport Taxi
-                      </h3>
-                      <p className="text-xs font-medium text-primary sm:text-sm">
-                        Fast & Reliable
-                      </p>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Right Column: Text */}
-                <div className="w-full md:w-2/3">
-                  <h2 className="mb-4 text-xl font-semibold text-gray-900 sm:text-2xl md:text-3xl">
-                    Traveling To And From Stevenage
-                  </h2>
-                  <p className="mb-4 text-sm leading-relaxed text-justify text-gray-700 sm:text-base">
-                    Luton Airport Taxi is a leading taxi company in Luton.Our
-                    Compony is not only one of the best Luton airport taxi
-                    service providers but also famous in surrounding areas such
-                    as Bedfordshire and Stevenage.Our Stevenage to Luton airport
-                    taxi is a sound, secure, accurate, and cheap taxi
-                    service.You can easily hire a taxi with an online booking
-                    system.
-                  </p>
-                  <p className="text-sm leading-relaxed text-justify text-gray-700 sm:text-base">
-                    We have multiple and updated vehicles, which are equipped
-                    and connected to the satellite system.Our Stevenage to Luton
-                    airport taxi includes a baby seat, meet & greet, and
-                    more.Beware of booking with those service providers which
-                    are ranking and having 200 % expensive prices.So, book
-                    Stevenage to Luton airport taxi with us now to save your
-                    time and money.
-                  </p>
-                </div>
-              </div>
-            </section>
-
-            <section className="max-w-6xl px-4 py-8 mx-auto sm:py-12 md:py-16">
-              <div className="flex flex-col items-start justify-between gap-6 md:flex-row sm:gap-8">
-                {/* Left Column */}
-                <div className="w-full md:w-2/3">
-                  <h2 className="mb-4 text-xl font-semibold text-gray-900 sm:text-2xl md:text-3xl">
-                    Stevenage to Luton Airport Transfers – Reliable and Direct
-                  </h2>
-                  <p className="mb-4 text-sm leading-relaxed text-justify text-gray-700 sm:text-base">
-                    Stevenage is around <strong>18 miles</strong> from Luton
-                    Airport — a typical journey takes{" "}
-                    <strong>25–35 minutes</strong>, depending on traffic.Unlike
-                    trains or buses, we offer a{" "}
-                    <strong>door - to - door service</strong> that starts at
-                    your front door and ends right at the airport terminal.
-                  </p>
-
-                  <div className="items-start justify-start text-start">
-                    <h3 className="mb-2 text-lg font-semibold text-gray-800">
-                      {" "}
-                      <div className="items-start justify-start text-start">
-                        <h3 className="mb-2 text-lg font-semibold text-gray-800">
-                          {" "}
-                          We offer:{" "}
-                        </h3>
-                      </div>{" "}
-                    </h3>
-                    <ul className="pl-6 space-y-1 text-sm text-gray-700 list-disc sm:text-base">
-                      <li>Fixed fares with no surge pricing </li>
-                      <li>Meet & Greet at the terminal(optional) </li>
-                      <li>Luggage assistance and child seats available </li>
-                      <li>
-                        {" "}
-                        <a className="font-semibold text-primary" href="">
-                          Minibus Hire
-                        </a>{" "}
-                        for larger families or corporate groups{" "}
-                      </li>
-                      <li>
-                        <a className="font-semibold text-primary" href="">
-                          Wheelchair Accessible Taxis
-                        </a>{" "}
-                        for passengers with mobility needs{" "}
-                      </li>
-                      <li>
-                        {" "}
-                        <a className="font-semibold text-primary" href="">
-                          {" "}
-                          Chauffeur Service
-                        </a>{" "}
-                        for a premium travel experience{" "}
-                      </li>
-                      <li>
-                        {" "}
-                        <li>
-                          {" "}
-                          Flight monitoring to ensure on - time pickups and drop
-                          - offs{" "}
-                        </li>{" "}
-                      </li>
-                    </ul>
-                  </div>
-                  <br />
-
-                  <p className="text-sm leading-relaxed text-justify text-gray-700 sm:text-base">
-                    You’ll never need to carry your bags through stations or
-                    rely on limited service hours — we’re available 24 / 7 and
-                    always on schedule.
-                  </p>
-                </div>
-
-                {/* Right Column */}
-                <div className="flex-shrink-0 w-full mt-6 md:w-1/3 md:mt-0">
-                  {/* <div className="p-4 rounded-lg bg-blue-50">
-                    <Image
-                      src={MaskGroup}
-                      alt="Luton Airport Taxi"
-                      className="w-full h-auto rounded-md"
-                    />
-                    <div className="mt-4 text-center">
-                      <h3 className="text-base font-semibold text-gray-900 sm:text-lg">
-                        Luton Airport Taxi
-                      </h3>
-                      <p className="text-xs font-medium text-primary sm:text-sm">
-                        Fast & Reliable
-                      </p>
-                    </div>
-                  </div> */}
-                </div>
-              </div>
-            </section>
-
-            <section className="max-w-6xl px-4 py-8 mx-auto sm:py-12 md:py-16">
-              <div className="flex flex-col-reverse items-start justify-between gap-6 md:flex-row sm:gap-8">
-                {/* Left Column: Image - On mobile, this appears below the text */}
-                <div className="flex-shrink-0 w-full mt-6 md:w-1/3 md:mt-0">
-                  {/* <div className="p-4 border-gray-200 rounded-xl bg-blue-50">
-                    <Image
-                      src={EasyTreveling}
-                      alt="Luton Airport Taxi"
-                      className="w-full h-auto rounded-tl-2xl"
-                    />
-                    <div className="mt-4 text-center">
-                      <h3 className="text-base font-semibold text-gray-900 sm:text-lg">
-                        Luton Airport Taxi
-                      </h3>
-                      <p className="text-xs font-medium text-primary sm:text-sm">
-                        Fast & Reliable
-                      </p>
-                    </div>
-                  </div> */}
-                </div>
-
-                {/* Right Column: Text */}
-                <div className="w-full md:w-2/3">
-                  <h2 className="mb-4 text-xl font-semibold text-gray-900 sm:text-2xl md:text-3xl">
-                    Why Our Airport Taxi Service is Better Than Public Transport
-                  </h2>
-                  <p className="mb-4 text-sm leading-relaxed text-justify text-gray-700 sm:text-base">
-                    Public transport between Stevenage and Luton Airport
-                    typically involves multiple changes.Trains may require
-                    transfers at <strong>Hitchin</strong> or{" "}
-                    <strong>Luton Airport Parkway</strong>, followed by a
-                    shuttle bus to the terminal.Travel times can stretch well
-                    over an hour, with long waits between services.
-                  </p>
-                  <div className="items-start justify-start text-start">
-                    <h3 className="mb-2 text-lg font-semibold text-gray-800">
-                      {" "}
-                      Our service gives you:{" "}
-                    </h3>
-                    <ul className="pl-6 space-y-1 text-sm text-gray-700 list-disc sm:text-base">
-                      <li>One vehicle — no changes, no waiting </li>
-                      <li> Flexible pickup times </li>
-                      <li>More luggage space </li>
-                      <li>
-                        Safer, private travel — perfect for families and
-                        business clients{" "}
-                      </li>
-                    </ul>
-                  </div>{" "}
-                  <br />
-                  <p className="mb-6 text-sm leading-relaxed text-justify text-gray-700 sm:text-base">
-                    With our taxi, you arrive relaxed and ready — not flustered
-                    or late.
-                  </p>
-                </div>
-              </div>
-            </section>
-
-            <section className="max-w-4xl px-4 py-8 mx-auto sm:py-12 md:py-16">
-              <div className="space-y-6">
-                {/* Heading */}
-                <h2 className="text-xl font-bold text-gray-900 sm:text-2xl md:text-3xl">
-                  Travel Times from Stevenage to Luton Airport
+        <div className="flex flex-col items-start justify-between gap-8 md:flex-row">
+          {/* Left Column */}
+          <div className="w-full ">
+            <div className="bg-white rounded-2xl p-8">
+              <div className="flex items-center gap-3 mb-6">
+                <h2 className="text-2xl font-bold text-gray-900 sm:text-3xl md:text-4xl">
+                  Stevenage to Luton Airport Transfers – Reliable and Direct
                 </h2>
-
-                {/* Table */}
-                <div className="overflow-x-auto">
-                  <table className="min-w-full text-sm text-left text-gray-700">
-                    <thead className="text-xs text-gray-500 uppercase border-b">
-                      <tr>
-                        <th className="py-2 pr-4"> Pickup Area </th>
-                        <th className="py-2"> Approx.Travel Time </th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr className="border-b">
-                        <td className="py-2 pr-4"> Stevenage Town Centre </td>
-                        <td className="py-2"> 30 minutes </td>
-                      </tr>
-                      <tr className="border-b">
-                        <td className="py-2 pr-4"> Great Ashby </td>
-                        <td className="py-2"> 35 minutes </td>
-                      </tr>
-                      <tr className="border-b">
-                        <td className="py-2 pr-4"> Chells </td>
-                        <td className="py-2"> 28 minutes </td>
-                      </tr>
-                      <tr className="border-b">
-                        <td className="py-2 pr-4"> Stevenage Old Town </td>
-                        <td className="py-2"> 30 minutes </td>
-                      </tr>
-                      <tr>
-                        <td className="py-2 pr-4"> Broadwater </td>
-                        <td className="py-2"> 32 minutes </td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-
-                {/* Footer note */}
-                <p className="text-sm leading-relaxed text-gray-700">
-                  We monitor live traffic data and flight updates to ensure your
-                  ride is perfectly timed.
+              </div>
+              
+              <div className="bg-blue-50 border-l-4 border-blue-500 p-4 mb-6 rounded-r-lg">
+                <p className="text-base leading-relaxed text-blue-900">
+                  Stevenage is around <span className="font-bold text-blue-700">18 miles</span> from Luton
+                  Airport — a typical journey takes <span className="font-bold text-blue-700">25–35 minutes</span>, 
+                  depending on traffic. Unlike trains or buses, we offer a 
+                  <span className="font-bold text-blue-700"> door-to-door service</span> that starts at
+                  your front door and ends right at the airport terminal.
                 </p>
               </div>
-            </section>
 
-            <section className="max-w-6xl px-4 py-8 mx-auto sm:py-12 md:py-16">
-              <div className="flex flex-col items-start justify-between gap-6 md:flex-row sm:gap-8">
-                {/* Left Column */}
-                <div className="w-full md:w-2/3">
-                  <h2 className="mb-4 text-xl font-semibold text-gray-900 sm:text-2xl md:text-3xl">
-                    Book Your Stevenage to Luton Airport Taxi Today
-                  </h2>
-                  <p className="mb-4 text-sm leading-relaxed text-justify text-gray-700 sm:text-base">
-                    With fast dispatch, experienced drivers, and fixed fares,
-                    we’re the go - to provider for{" "}
-                    <strong>Stevenage to Luton Airport taxis.</strong> Use our
-                    easy online booking tool or contact our team to reserve your
-                    journey — anytime, day or night
-                  </p>
-                  <p className="text-sm leading-relaxed text-justify text-gray-700 sm:text-base">
-                    Choose <strong>LutonAirportTaxi.co.uk</strong> and enjoy a
-                    better way to travel. <strong>Book now</strong> for a stress
-                    - free transfer from Stevenage to Luton Airport.
-                  </p>
-                </div>
-
-                {/* Right Column */}
-                <div className="flex-shrink-0 w-full mt-6 md:w-1/3 md:mt-0">
-                  {/* <div className="p-4 rounded-lg bg-blue-50">
-                    <Image
-                      src={MaskGroup}
-                      alt="Luton Airport Taxi"
-                      className="w-full h-auto rounded-md"
-                    />
-                    <div className="mt-4 text-center">
-                      <h3 className="text-base font-semibold text-gray-900 sm:text-lg">
-                        Luton Airport Taxi
-                      </h3>
-                      <p className="text-xs font-medium text-primary sm:text-sm">
-                        Fast & Reliable
-                      </p>
+              <div className="mb-6">
+                <h3 className="mb-4 text-xl font-semibold text-gray-800 flex items-center gap-2">
+                  We offer:
+                </h3>
+                <div className="grid gap-3">
+                  {[
+                    "Fixed fares with no surge pricing",
+                    "Meet & Greet at the terminal (optional)",
+                    "Luggage assistance and child seats available",
+                    "Minibus Hire for larger families or corporate groups",
+                    "Wheelchair Accessible Taxis for passengers with mobility needs",
+                    "Chauffeur Service for a premium travel experience",
+                    "Flight monitoring to ensure on-time pickups and drop-offs"
+                  ].map((item, index) => (
+                    <div key={index} className="flex items-start gap-3 p-3 bg-blue-50 rounded-lg border border-blue-100">
+                      <CheckCircle className="w-5 h-5 text-blue-600 mt-0.5 flex-shrink-0" />
+                      <span className="text-gray-700">{item}</span>
                     </div>
-                  </div> */}
+                  ))}
                 </div>
               </div>
-            </section>
+
+              <div className="bg-gradient-to-r from-blue-600 to-blue-700 text-white p-6 rounded-xl">
+                <p className="text-lg leading-relaxed">
+                  You will never need to carry your bags through stations or rely on limited service hours — 
+                  we are available <span className="font-bold">24/7</span> and always on schedule.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Comparison Section */}
+      <section className="max-w-6xl px-4 py-8 mx-auto sm:py-12 md:py-16">
+        <div className="flex flex-col items-start justify-between gap-8 md:flex-row">
+          <div className="w-full">
+            <div className="bg-white rounded-2xl p-8">
+              <div className="flex items-center gap-3 mb-6">
+                <h2 className="text-2xl font-bold text-gray-900 sm:text-3xl md:text-4xl">
+                  Why Our Airport Taxi Service is Better Than Public Transport
+                </h2>
+              </div>
+              
+              <div className="bg-red-50 border-l-4 border-red-400 p-4 mb-6 rounded-r-lg">
+                <p className="text-base leading-relaxed text-red-900">
+                  Public transport between Stevenage and Luton Airport typically involves multiple changes. 
+                  Trains may require transfers at <span className="font-bold">Hitchin</span> or 
+                  <span className="font-bold"> Luton Airport Parkway</span>, followed by a shuttle bus to the terminal. 
+                  Travel times can stretch well over an hour, with long waits between services.
+                </p>
+              </div>
+
+              <div className="mb-6">
+                <h3 className="mb-4 text-xl font-semibold text-gray-800 flex items-center gap-2">
+                  Our service gives you:
+                </h3>
+                <div className="grid gap-3">
+                  {[
+                    "One vehicle — no changes, no waiting",
+                    "Flexible pickup times",
+                    "More luggage space",
+                    "Safer, private travel — perfect for families and business clients"
+                  ].map((item, index) => (
+                    <div key={index} className="flex items-start gap-3 p-3 bg-blue-50 rounded-lg border border-blue-100">
+                      <CheckCircle className="w-5 h-5 text-blue-600 mt-0.5 flex-shrink-0" />
+                      <span className="text-gray-700">{item}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="text-black p-6 rounded-xl">
+                <p className="text-lg leading-relaxed">
+                  With our taxi, you arrive <span className="font-bold">relaxed and ready</span> — not flustered or late.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Travel Times Table */}
+      <section className="w-full px-4 py-8 mx-auto sm:py-12 md:py-16">
+        <div className="bg-white rounded-2xl overflow-hidden">
+          <div className="bg-gradient-to-r from-blue-600 to-blue-700 p-6">
+            <div className="flex items-center gap-3">
+              <h2 className="text-2xl font-bold text-white">
+                Travel Times from Stevenage to Luton Airport
+              </h2>
+            </div>
+          </div>
+
+          <div className="overflow-x-auto">
+            <table className="min-w-full">
+              <thead className="bg-blue-50 border-b border-blue-200">
+                <tr>
+                  <th className="py-4 px-6 text-left text-sm font-semibold text-gray-800 uppercase tracking-wider">
+                    <div className="flex items-center gap-2">
+                      Pickup Area
+                    </div>
+                  </th>
+                  <th className="py-4 px-6 text-left text-sm font-semibold text-gray-800 uppercase tracking-wider">
+                    <div className="flex items-center gap-2">
+                      Approx. Travel Time
+                    </div>
+                  </th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-gray-100">
+                {[
+                  { area: "Stevenage Town Centre", time: "30 minutes" },
+                  { area: "Great Ashby", time: "35 minutes" },
+                  { area: "Chells", time: "28 minutes" },
+                  { area: "Stevenage Old Town", time: "30 minutes" },
+                  { area: "Broadwater", time: "32 minutes" }
+                ].map((row, index) => (
+                  <tr key={index} className="hover:bg-blue-50 transition-colors duration-200">
+                    <td className="py-5 px-6 font-medium text-gray-900">
+                      {row.area}
+                    </td>
+                    <td className="py-5 px-6">
+                      <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-100 text-blue-800">
+                        {row.time}
+                      </span>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+          <div className="bg-blue-50 border-t border-blue-200 p-6">
+            <div className="flex items-start gap-3">
+              <p className="text-sm leading-relaxed text-blue-800">
+                We monitor live traffic data and flight updates to ensure your ride is perfectly timed.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Booking CTA Section */}
+      <section className="max-w-6xl px-4 py-8 mx-auto sm:py-12 md:py-16">
+        <div className="bg-gradient-to-r from-blue-600 to-blue-800 rounded-2xl p-8 md:p-12 text-white">
+          <div className="max-w-4xl mx-auto text-center">
+            <div className="flex items-center justify-center gap-3 mb-6">
+              <h2 className="text-3xl font-bold md:text-4xl">
+                Book Your Stevenage to Luton Airport Taxi Today
+              </h2>
+            </div>
+            
+            <div className="space-y-6 mb-8">
+              <p className="text-lg leading-relaxed text-blue-100">
+                With fast dispatch, experienced drivers, and fixed fares, we are the go-to provider for 
+                <span className="font-bold text-white"> Stevenage to Luton Airport taxis.</span> Use our
+                easy online booking tool or contact our team to reserve your journey — anytime, day or night.
+              </p>
+              
+              <p className="text-lg leading-relaxed text-blue-100">
+                Choose <span className="font-bold text-white">LutonAirportTaxi.co.uk</span> and enjoy a
+                better way to travel. <span className="font-bold text-white">Book now</span> for a stress-free 
+                transfer from Stevenage to Luton Airport.
+              </p>
+            </div>
+
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <button className="bg-white text-blue-700 px-8 py-4 rounded-xl font-semibold text-lg hover:bg-blue-50 transition-colors duration-200 flex items-center gap-2 shadow-lg">
+                Book Now Online
+              </button>
+              <button className="border-2 border-white text-white px-8 py-4 rounded-xl font-semibold text-lg hover:bg-white hover:text-blue-700 transition-colors duration-200">
+                Call Us 24/7
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
 
             {/* Ways to travel section - Fixed the excessive margin */}
             <section className="max-w-6xl px-4 py-8 mx-auto sm:py-12 md:py-16">

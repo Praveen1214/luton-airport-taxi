@@ -15,7 +15,7 @@ import { CheckCircle } from "lucide-react";
 import Airplane2 from "@/assets/images/airplane2.png";
 import SecurityCard from "@/assets/images/security-card.png";
 import UserTick from "@/assets/images/user-tick.png";
-import Drivng from "@/assets/images/driving.png";
+// import Drivng from "@/assets/images/driving.png";
 import MaskGroup from "@/assets/images/mask-group.png";
 import ShopingCenter from "@/assets/images/shopping-center.png";
 import campbellPark from "@/assets/images/campbel-park.png";
@@ -28,17 +28,17 @@ export default function HomePage() {
   const scrollRef = useRef<HTMLDivElement>(null);
   const router = useRouter();
 
-  const scroll = (direction: "left" | "right") => {
-    const container = scrollRef.current;
-    if (!container) return;
+  // const scroll = (direction: "left" | "right") => {
+  //   const container = scrollRef.current;
+  //   if (!container) return;
 
-    const scrollAmount = 320; // adjust if needed
+  //   const scrollAmount = 320; // adjust if needed
 
-    container.scrollBy({
-      left: direction === "left" ? -scrollAmount : scrollAmount,
-      behavior: "smooth",
-    });
-  };
+  //   container.scrollBy({
+  //     left: direction === "left" ? -scrollAmount : scrollAmount,
+  //     behavior: "smooth",
+  //   });
+  // };
 
   const handleClick = (slug: string) => {
     router.push(`/routes/${slug}`);
@@ -528,7 +528,7 @@ export default function HomePage() {
                     </strong>{" "}
                     over public transport saves you time, hassle, and
                     energy—especially when travelling with luggage or children.
-                    Here's how we compare to other transport options:
+                    Here is how we compare to other transport options:
                   </p>
                 </div>
 
@@ -650,7 +650,7 @@ export default function HomePage() {
                         Milton Keynes is home to more than 250,000 residents and
                         offers excellent links to London, Birmingham, and
                         beyond. With the M1 motorway and fast train services to
-                        London Euston, it's a hub for commuters, businesses, and
+                        London Euston, it is a hub for commuters, businesses, and
                         visitors alike.
                       </p>
                     </div>
@@ -666,7 +666,7 @@ export default function HomePage() {
                           Centre: MK
                         </h5>
                         <p className="text-sm text-gray-600">
-                          Europe's largest indoor shopping mall
+                          Europe is largest indoor shopping mall
                         </p>
                       </div>
                       <div className="p-4 bg-white rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
@@ -712,7 +712,7 @@ export default function HomePage() {
                       Book Your Milton Keynes Airport Taxi Now
                     </h3>
                     <p className="text-lg leading-relaxed text-blue-100 max-w-3xl mx-auto">
-                      Whether you're arriving at Luton Airport or heading out
+                      Whether youare arriving at Luton Airport or heading out
                       from Milton Keynes, book your taxi today with{" "}
                       <strong className="text-white">
                         LutonAirportTaxi.co.uk

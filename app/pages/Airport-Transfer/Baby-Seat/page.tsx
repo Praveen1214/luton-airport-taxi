@@ -20,7 +20,7 @@ const Page = () => {
             {quoteStep === 1 && (
               <div className="w-full md:mr-12">
                 <Hero
-                  name="Airport Transfer"
+                  name="Baby Seat"
                   description1="Save Up to 40% By Pre‑Booking Your Luton"
                   description2="Airport Transfer With Us"
                 />

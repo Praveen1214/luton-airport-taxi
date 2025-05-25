@@ -8,7 +8,7 @@ const Loader = () => {
 
       {/* Text matching the exact design */}
       <p className="mt-6 text-lg font-normal text-gray-600">
-        Finding the best deals for you...
+        Loading...
       </p>
     </div>
   );

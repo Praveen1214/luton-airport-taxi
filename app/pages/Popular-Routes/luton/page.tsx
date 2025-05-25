@@ -4,7 +4,7 @@
 import { useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
-import { Button } from "@/components/ui/button";
+// import { Button } from "@/components/ui/button";
 import FAQ from "@/components/landing/FAQ";
 import { routes } from "@/components/PopularRoutes";
 import { FaCarAlt } from "react-icons/fa"; // install with: npm install react-icons
@@ -15,7 +15,7 @@ import { CheckCircle } from "lucide-react";
 import Airplane2 from "@/assets/images/airplane2.png";
 import SecurityCard from "@/assets/images/security-card.png";
 import UserTick from "@/assets/images/user-tick.png";
-import Drivng from "@/assets/images/driving.png";
+// import Drivng from "@/assets/images/driving.png";
 import MaskGroup from "@/assets/images/mask-group.png";
 import ShopingCenter from "@/assets/images/shopping-center.png";
 import campbellPark from "@/assets/images/campbel-park.png";
@@ -27,17 +27,17 @@ export default function HomePage() {
   const scrollRef = useRef<HTMLDivElement>(null);
   const router = useRouter();
 
-  const scroll = (direction: "left" | "right") => {
-    const container = scrollRef.current;
-    if (!container) return;
+  // const scroll = (direction: "left" | "right") => {
+  //   const container = scrollRef.current;
+  //   if (!container) return;
 
-    const scrollAmount = 320; // adjust if needed
+  //   const scrollAmount = 320; // adjust if needed
 
-    container.scrollBy({
-      left: direction === "left" ? -scrollAmount : scrollAmount,
-      behavior: "smooth",
-    });
-  };
+  //   container.scrollBy({
+  //     left: direction === "left" ? -scrollAmount : scrollAmount,
+  //     behavior: "smooth",
+  //   });
+  // };
 
   const handleClick = (slug: string) => {
     router.push(`/routes/${slug}`);
@@ -45,7 +45,9 @@ export default function HomePage() {
 
   return (
     <main className="flex flex-col w-full">
-      <div className="flex flex-col items-start justify-between md:flex-row">
+      <title>Luton Airport Taxi Transfer | London Luton Airport Transfers & Booking</title>
+      <meta name="description" content="Book your Luton Airport taxi transfer online with fixed prices, real-time flight tracking, wheelchair taxis, minibus hire, chauffeur service, and more."></meta>
+      <div className="flex flex-col items-start justify-between md:flex-row mb-5">
         {quoteStep === 1 && (
           <div className="w-full px-10 md:mr-12 -mt-28">
             <div className="max-w-6xl mx-auto mt-44">
@@ -56,9 +58,9 @@ export default function HomePage() {
                 Save Up to 40 % By Pre Booking Your Luton Taci Transfers Airport
                 Transfer With Us
               </p>
-              <Button className="px-4 py-2 text-sm font-medium text-white bg-primary hover:bg-btn-hover sm:px-6 sm:py-3 sm:text-sm">
+              {/* <Button className="px-4 py-2 text-sm font-medium text-white bg-primary hover:bg-btn-hover sm:px-6 sm:py-3 sm:text-sm">
                 Book Now
-              </Button>
+              </Button> */}
             </div>
           </div>
         )}
@@ -70,144 +72,203 @@ export default function HomePage() {
       {quoteStep === 1 && (
         <>
           {/* Hero Section */}
-          <section className="w-full px-4 py-8 text-center md:py-20 bg-gradient from-blue-50 to-transparent md:-mt-16 mt-60">
+          <section className="w-full px-0 py-8 text-center md:py-20 md:mt-30">
             {/* Why Book and Why Book With Us */}
-            <section className="px-4 py-10 mx-auto mt-6 max-w-7xl sm:px-8 sm:py-16 bg-blue-50 sm:mt-10 rounded-xl">
+            <section className="px-4 py-8 mx-auto mt-6 max-w-7xl sm:px-6 sm:py-12 bg-blue-50 sm:mt-10 rounded-xl lg:px-8 lg:py-16">
               {/* Container using flex instead of grid */}
-              <div className="flex flex-col gap-10 lg:flex-row lg:items-start sm:gap-20">
+              <div className="flex flex-col gap-8 lg:flex-row lg:items-start lg:gap-16">
                 {/* Left: Why Book A Transfers */}
-                <div className="w-full">
-                  <h2 className="mb-4 text-xl font-semibold text-gray-900 sm:text-2xl sm:mb-6">
+                <div className="w-full lg:w-1/2">
+                  <h2 className="mb-4 text-xl font-semibold text-gray-900 sm:text-2xl lg:text-3xl sm:mb-6 text-left">
                     Why Book A Transfers
                   </h2>
-                  {/* Horizontal scroll container for icons */}
-                  <div
-                    ref={scrollRef}
-                    className="relative flex gap-3 pb-4 overflow-x-auto flex-nowrap sm:gap-4 scrollbar-hide"
-                  >
-                    {/* Card 1 */}
-                    <div className="bg-gray-50 rounded-xl  p-4 sm:p-5 flex flex-col items-center justify-center text-center min-w-[130px] sm:min-w-[160px] min-h-[140px] sm:min-h-[160px]">
-                      <Image
-                        src={SecurityCard}
-                        alt="Price Guarantee"
-                        className="w-8 h-8 mb-2 sm:w-10 sm:h-10"
-                      />
-                      <p className="text-xs font-medium text-gray-700 sm:text-sm">
-                        Price Guarantee
-                      </p>
-                    </div>
-                    {/* Card 2 */}
-                    <div className="bg-gray-50 rounded-xl p-4 sm:p-5 flex flex-col items-center justify-center text-center min-w-[130px] sm:min-w-[160px] min-h-[140px] sm:min-h-[160px]">
-                      <Image
-                        src={UserTick}
-                        alt="Flexible Services"
-                        className="w-8 h-8 mb-2 sm:w-10 sm:h-10"
-                      />
-                      <p className="text-xs font-medium text-gray-700 sm:text-sm">
-                        Flexible Services
-                      </p>
-                    </div>
-                    {/* Card 3 */}
-                    <div className="bg-gray-50 rounded-xl p-4 sm:p-5 flex flex-col items-center justify-center text-center min-w-[130px] sm:min-w-[160px] min-h-[140px] sm:min-h-[160px]">
-                      <Image
-                        src={Drivng}
-                        alt="Vehicle Flexibility"
-                        className="w-8 h-8 mb-2 sm:w-10 sm:h-10"
-                      />
-                      <p className="text-xs font-medium text-gray-700 sm:text-sm">
-                        Vehicle Flexibility
-                      </p>
-                    </div>
-                    {/* Card 4 */}
-                    <div className="bg-gray-50 rounded-xl p-4 sm:p-5 flex flex-col items-center justify-center text-center min-w-[130px] sm:min-w-[160px] min-h-[140px] sm:min-h-[160px]">
-                      <Image
-                        src={Airplane2}
-                        alt="Flight Tracking"
-                        className="w-8 h-8 mb-2 sm:w-10 sm:h-10"
-                      />
-                      <p className="text-xs font-medium text-gray-700 sm:text-sm">
-                        Flight Tracking
-                      </p>
+                  {/* Mobile: Stack cards vertically, Desktop: Horizontal scroll */}
+                  <div className="block sm:hidden">
+                    {/* Mobile: 2x2 Grid */}
+                    <div className="grid grid-cols-2 gap-3">
+                      {/* Card 1 */}
+                      <div className="bg-white shadow-sm rounded-xl p-4 flex flex-col items-center justify-center text-center min-h-[120px] border border-gray-100 hover:shadow-md transition-shadow">
+                        <Image
+                          src={SecurityCard}
+                          alt="Price Guarantee"
+                          className="w-8 h-8 mb-2"
+                        />
+                        <p className="text-xs font-medium text-gray-700 leading-tight">
+                          Price Guarantee
+                        </p>
+                      </div>
+                      {/* Card 2 */}
+                      <div className="bg-white shadow-sm rounded-xl p-4 flex flex-col items-center justify-center text-center min-h-[120px] border border-gray-100 hover:shadow-md transition-shadow">
+                        <Image
+                          src={UserTick}
+                          alt="Flexible Services"
+                          className="w-8 h-8 mb-2"
+                        />
+                        <p className="text-xs font-medium text-gray-700 leading-tight">
+                          Flexible Services
+                        </p>
+                      </div>
+                      {/* Card 3
+                      <div className="bg-white shadow-sm rounded-xl p-4 flex flex-col items-center justify-center text-center min-h-[120px] border border-gray-100 hover:shadow-md transition-shadow">
+                        <Image
+                          src={Drivng}
+                          alt="Vehicle Flexibility"
+                          className="w-8 h-8 mb-2"
+                        />
+                        <p className="text-xs font-medium text-gray-700 leading-tight">
+                          Vehicle Flexibility
+                        </p>
+                      </div> */}
+                      {/* Card 4 */}
+                      <div className="bg-white shadow-sm rounded-xl p-4 flex flex-col items-center justify-center text-center min-h-[120px] border border-gray-100 hover:shadow-md transition-shadow">
+                        <Image
+                          src={Airplane2}
+                          alt="Flight Tracking"
+                          className="w-8 h-8 mb-2"
+                        />
+                        <p className="text-xs font-medium text-gray-700 leading-tight">
+                          Flight Tracking
+                        </p>
+                      </div>
                     </div>
                   </div>
-                  {/* Scroll controls for mobile */}
-                  <div className="flex justify-center gap-2 mt-4 lg:hidden">
-                    <button
-                      onClick={() => scroll("left")}
-                      className="p-2 bg-blue-100 rounded-full text-primary"
-                      aria-label="Scroll left"
+
+                  {/* Tablet and Desktop: Horizontal scroll */}
+                  <div className="hidden sm:block">
+                    <div
+                      ref={scrollRef}
+                      className="relative flex gap-4 pb-4 overflow-x-auto flex-nowrap lg:gap-6 scrollbar-hide"
                     >
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="w-4 h-4"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M15 19l-7-7 7-7"
+                      {/* Card 1 */}
+                      <div className="bg-white shadow-sm rounded-xl p-5 flex flex-col items-center justify-center text-center min-w-[140px] lg:min-w-[160px] min-h-[140px] lg:min-h-[160px] border border-gray-100 hover:shadow-md transition-shadow flex-shrink-0">
+                        <Image
+                          src={SecurityCard}
+                          alt="Price Guarantee"
+                          className="w-10 h-10 mb-3 lg:w-12 lg:h-12"
                         />
-                      </svg>
-                    </button>
-                    <button
-                      onClick={() => scroll("right")}
-                      className="p-2 bg-blue-100 rounded-full text-primary"
-                      aria-label="Scroll right"
-                    >
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="w-4 h-4"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M9 5l7 7-7 7"
+                        <p className="text-sm font-medium text-gray-700 lg:text-base">
+                          Price Guarantee
+                        </p>
+                      </div>
+                      {/* Card 2 */}
+                      <div className="bg-white shadow-sm rounded-xl p-5 flex flex-col items-center justify-center text-center min-w-[140px] lg:min-w-[160px] min-h-[140px] lg:min-h-[160px] border border-gray-100 hover:shadow-md transition-shadow flex-shrink-0">
+                        <Image
+                          src={UserTick}
+                          alt="Flexible Services"
+                          className="w-10 h-10 mb-3 lg:w-12 lg:h-12"
                         />
-                      </svg>
-                    </button>
+                        <p className="text-sm font-medium text-gray-700 lg:text-base">
+                          Flexible Services
+                        </p>
+                      </div>
+                      {/* Card 3
+                      <div className="bg-white shadow-sm rounded-xl p-5 flex flex-col items-center justify-center text-center min-w-[140px] lg:min-w-[160px] min-h-[140px] lg:min-h-[160px] border border-gray-100 hover:shadow-md transition-shadow flex-shrink-0">
+                        <Image
+                          src={Drivng}
+                          alt="Vehicle Flexibility"
+                          className="w-10 h-10 mb-3 lg:w-12 lg:h-12"
+                        />
+                        <p className="text-sm font-medium text-gray-700 lg:text-base">
+                          Vehicle Flexibility
+                        </p>
+                      </div> */}
+                      {/* Card 4 */}
+                      <div className="bg-white shadow-sm rounded-xl p-5 flex flex-col items-center justify-center text-center min-w-[140px] lg:min-w-[160px] min-h-[140px] lg:min-h-[160px] border border-gray-100 hover:shadow-md transition-shadow flex-shrink-0">
+                        <Image
+                          src={Airplane2}
+                          alt="Flight Tracking"
+                          className="w-10 h-10 mb-3 lg:w-12 lg:h-12"
+                        />
+                        <p className="text-sm font-medium text-gray-700 lg:text-base">
+                          Flight Tracking
+                        </p>
+                      </div>
+                    </div>
+                    {/* Scroll controls for tablet */}
+                    {/* <div className="flex justify-center gap-3 mt-4 sm:hidden lg:flex lg:justify-start">
+                      <button
+                        onClick={() => scroll("left")}
+                        className="p-3 bg-white shadow-sm rounded-full text-primary border border-gray-200 hover:shadow-md hover:bg-blue-50 transition-all"
+                        aria-label="Scroll left"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="w-5 h-5"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M15 19l-7-7 7-7"
+                          />
+                        </svg>
+                      </button>
+                      <button
+                        onClick={() => scroll("right")}
+                        className="p-3 bg-white shadow-sm rounded-full text-primary border border-gray-200 hover:shadow-md hover:bg-blue-50 transition-all"
+                        aria-label="Scroll right"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="w-5 h-5"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M9 5l7 7-7 7"
+                          />
+                        </svg>
+                      </button>
+                    </div> */}
                   </div>
                 </div>
 
                 {/* Right: Why Book With Us */}
-                <div className="w-full mt-8 lg:mt-0">
-                  <h2 className="mb-2 text-xl font-semibold text-gray-900 sm:text-2xl">
+                <div className="w-full mt-6 lg:mt-0 lg:w-1/2">
+                  <h2 className="mb-2 text-xl font-semibold text-gray-900 sm:text-2xl lg:text-3xl text-left">
                     Why Book With Us
                   </h2>
-                  <p className="mb-4 text-xs font-semibold uppercase text-primary sm:text-sm">
+                  <p className="mb-6 text-xs font-semibold uppercase text-primary sm:text-sm text-left tracking-wide">
                     Our Features
                   </p>
-                  {/* Using flex-wrap to emulate two columns without grid */}
-                  <ul className="flex flex-wrap -mx-1 text-xs text-gray-800 sm:text-sm">
-                    <li className="flex items-center w-full px-1 mb-3 space-x-1 sm:w-1/2">
-                      <CheckCircle className="flex-shrink-0 w-4 h-4 text-primary" />
-                      <span>24 Hours Service</span>
+                  {/* Mobile: Single column, Desktop: Two columns */}
+                  <ul className="grid grid-cols-1 gap-4 text-sm text-gray-800 sm:grid-cols-2 sm:gap-x-6 sm:gap-y-4 lg:text-base">
+                    <li className="flex items-center space-x-3">
+                      <CheckCircle className="flex-shrink-0 w-5 h-5 text-primary" />
+                      <span className="font-medium">24 Hours Service</span>
                     </li>
-                    <li className="flex items-center w-full px-1 mb-3 space-x-1 sm:w-1/2">
-                      <CheckCircle className="flex-shrink-0 w-4 h-4 text-primary" />
-                      <span>Flight Monitoring</span>
+                    <li className="flex items-center space-x-3">
+                      <CheckCircle className="flex-shrink-0 w-5 h-5 text-primary" />
+                      <span className="font-medium">Flight Monitoring</span>
                     </li>
-                    <li className="flex items-center w-full px-1 mb-3 space-x-1 sm:w-1/2">
-                      <CheckCircle className="flex-shrink-0 w-4 h-4 text-primary" />
-                      <span>Fully Licensed Drivers</span>
+                    <li className="flex items-center space-x-3">
+                      <CheckCircle className="flex-shrink-0 w-5 h-5 text-primary" />
+                      <span className="font-medium">
+                        Fully Licensed Drivers
+                      </span>
                     </li>
-                    <li className="flex items-center w-full px-1 mb-3 space-x-1 sm:w-1/2">
-                      <CheckCircle className="flex-shrink-0 w-4 h-4 text-primary" />
-                      <span>Waiting Time and Parking</span>
+                    <li className="flex items-center space-x-3">
+                      <CheckCircle className="flex-shrink-0 w-5 h-5 text-primary" />
+                      <span className="font-medium">
+                        Waiting Time and Parking
+                      </span>
                     </li>
-                    <li className="flex items-center w-full px-1 mb-3 space-x-1 sm:w-1/2">
-                      <CheckCircle className="flex-shrink-0 w-4 h-4 text-primary" />
-                      <span>Professional Chauffeur</span>
+                    <li className="flex items-center space-x-3">
+                      <CheckCircle className="flex-shrink-0 w-5 h-5 text-primary" />
+                      <span className="font-medium">
+                        Professional Chauffeur
+                      </span>
                     </li>
-                    <li className="flex items-center w-full px-1 mb-3 space-x-1 sm:w-1/2">
-                      <CheckCircle className="flex-shrink-0 w-4 h-4 text-primary" />
-                      <span>Meet & Greet</span>
+                    <li className="flex items-center space-x-3">
+                      <CheckCircle className="flex-shrink-0 w-5 h-5 text-primary" />
+                      <span className="font-medium">Meet & Greet</span>
                     </li>
                   </ul>
                 </div>
@@ -219,7 +280,7 @@ export default function HomePage() {
               <div className="flex flex-col items-start justify-between gap-6 md:flex-row sm:gap-8">
                 {/* Left Column */}
                 <div className="w-full md:w-2/3">
-                  <h2 className="mb-4 text-xl font-semibold text-gray-900 sm:text-2xl md:text-3xl">
+                  <h2 className="mb-4 text-xl font-semibold text-gray-900 sm:text-2xl md:text-3xl text-left">
                     Luton Airport Taxi Transfer
                   </h2>
                   <p className="mb-4 text-sm leading-relaxed text-justify text-gray-700 sm:text-base">
@@ -285,9 +346,9 @@ export default function HomePage() {
               <div className="flex flex-col-reverse items-start justify-between gap-6 md:flex-row sm:gap-8">
                 {/* Left Column: Image - On mobile, this appears below the text */}
                 <div className="flex-shrink-0 w-full mt-6 md:w-1/3 md:mt-0">
-                  {/* <div className="p-4 border-gray-200 rounded-xl bg-blue-50">
+                  <div className="p-4 border-gray-200 rounded-xl bg-blue-50">
                     <Image
-                      src={EasyTreveling}
+                      src={MaskGroup}
                       alt="Luton Airport Taxi"
                       className="w-full h-auto rounded-tl-2xl"
                     />
@@ -299,12 +360,12 @@ export default function HomePage() {
                         Fast & Reliable
                       </p>
                     </div>
-                  </div> */}
+                  </div>
                 </div>
 
                 {/* Right Column: Text */}
                 <div className="w-full md:w-2/3">
-                  <h2 className="mb-4 text-xl font-semibold text-gray-900 sm:text-2xl md:text-3xl">
+                  <h2 className="mb-4 text-xl font-semibold text-gray-900 sm:text-2xl md:text-3xl text-left">
                     Airport Transfers with Service at Heart
                   </h2>
                   <p className="mb-4 text-sm leading-relaxed text-justify text-gray-700 sm:text-base">
@@ -339,7 +400,7 @@ export default function HomePage() {
               <div className="flex flex-col items-start justify-between gap-6 md:flex-row sm:gap-8">
                 {/* Left Column */}
                 <div className="w-full md:w-2/3">
-                  <h2 className="mb-4 text-xl font-semibold text-gray-900 sm:text-2xl md:text-3xl">
+                  <h2 className="mb-4 text-xl font-semibold text-gray-900 sm:text-2xl md:text-3xl text-left">
                     Fast Booking and Real - Time Tracking
                   </h2>
                   <p className="mb-4 text-sm leading-relaxed text-justify text-gray-700 sm:text-base">
@@ -362,7 +423,7 @@ export default function HomePage() {
 
                 {/* Right Column */}
                 <div className="flex-shrink-0 w-full mt-6 md:w-1/3 md:mt-0">
-                  {/* <div className="p-4 rounded-lg bg-blue-50">
+                  <div className="p-4 rounded-lg bg-blue-50">
                     <Image
                       src={MaskGroup}
                       alt="Luton Airport Taxi"
@@ -376,7 +437,7 @@ export default function HomePage() {
                         Fast & Reliable
                       </p>
                     </div>
-                  </div> */}
+                  </div>
                 </div>
               </div>
             </section>
@@ -385,9 +446,9 @@ export default function HomePage() {
               <div className="flex flex-col-reverse items-start justify-between gap-6 md:flex-row sm:gap-8">
                 {/* Left Column: Image - On mobile, this appears below the text */}
                 <div className="flex-shrink-0 w-full mt-6 md:w-1/3 md:mt-0">
-                  {/* <div className="p-4 border-gray-200 rounded-xl bg-blue-50">
+                  <div className="p-4 border-gray-200 rounded-xl bg-blue-50">
                     <Image
-                      src={EasyTreveling}
+                      src={MaskGroup}
                       alt="Luton Airport Taxi"
                       className="w-full h-auto rounded-tl-2xl"
                     />
@@ -399,12 +460,12 @@ export default function HomePage() {
                         Fast & Reliable
                       </p>
                     </div>
-                  </div> */}
+                  </div>
                 </div>
 
                 {/* Right Column: Text */}
                 <div className="w-full md:w-2/3">
-                  <h2 className="mb-4 text-xl font-semibold text-gray-900 sm:text-2xl md:text-3xl">
+                  <h2 className="mb-4 text-xl font-semibold text-gray-900 sm:text-2xl md:text-3xl text-left">
                     Serving Luton and Surrounding Areas
                   </h2>
                   <p className="mb-4 text-sm leading-relaxed text-justify text-gray-700 sm:text-base">
@@ -432,7 +493,7 @@ export default function HomePage() {
               <div className="flex flex-col items-start justify-between gap-6 md:flex-row sm:gap-8">
                 {/* Left Column */}
                 <div className="w-full md:w-2/3">
-                  <h2 className="mb-4 text-xl font-semibold text-gray-900 sm:text-2xl md:text-3xl">
+                  <h2 className="mb-4 text-xl font-semibold text-gray-900 sm:text-2xl md:text-3xl text-left">
                     Affordable & Reliable Every Time
                   </h2>
                   <p className="mb-4 text-sm leading-relaxed text-justify text-gray-700 sm:text-base">
@@ -470,7 +531,7 @@ export default function HomePage() {
                 <div className="flex-shrink-0 w-full mt-6 md:w-1/3 md:mt-0">
                   {/* <div className="p-4 border-gray-200 rounded-xl bg-blue-50">
                     <Image
-                      src={EasyTreveling}
+                      src={MaskGroup}
                       alt="Luton Airport Taxi"
                       className="w-full h-auto rounded-tl-2xl"
                     />
@@ -487,7 +548,7 @@ export default function HomePage() {
 
                 {/* Right Column: Text */}
                 <div className="w-full md:w-2/3">
-                  <h2 className="mb-4 text-xl font-semibold text-gray-900 sm:text-2xl md:text-3xl">
+                  <h2 className="mb-4 text-xl font-semibold text-gray-900 sm:text-2xl md:text-3xl text-left">
                     Meet and Greet Service
                   </h2>
                   <p className="mb-4 text-sm leading-relaxed text-justify text-gray-700 sm:text-base">
@@ -505,7 +566,7 @@ export default function HomePage() {
               <div className="flex flex-col items-start justify-between gap-6 md:flex-row sm:gap-8">
                 {/* Left Column */}
                 <div className="w-full md:w-2/3">
-                  <h2 className="mb-4 text-xl font-semibold text-gray-900 sm:text-2xl md:text-3xl">
+                  <h2 className="mb-4 text-xl font-semibold text-gray-900 sm:text-2xl md:text-3xl text-left">
                     Wheelchair Accessible Taxi
                   </h2>
                   <p className="mb-4 text-sm leading-relaxed text-justify text-gray-700 sm:text-base">
@@ -566,7 +627,7 @@ export default function HomePage() {
 
                 {/* Right Column: Text */}
                 <div className="w-full md:w-2/3">
-                  <h2 className="mb-4 text-xl font-semibold text-gray-900 sm:text-2xl md:text-3xl">
+                  <h2 className="mb-4 text-xl font-semibold text-gray-900 sm:text-2xl md:text-3xl text-left">
                     Minibus Hire with Driver
                   </h2>
                   <p className="mb-4 text-sm leading-relaxed text-justify text-gray-700 sm:text-base">
@@ -590,7 +651,7 @@ export default function HomePage() {
               <div className="flex flex-col items-start justify-between gap-6 md:flex-row sm:gap-8">
                 {/* Left Column */}
                 <div className="w-full md:w-2/3">
-                  <h2 className="mb-4 text-xl font-semibold text-gray-900 sm:text-2xl md:text-3xl">
+                  <h2 className="mb-4 text-xl font-semibold text-gray-900 sm:text-2xl md:text-3xl text-left">
                     Chauffeur & Executive Transfers
                   </h2>
                   <p className="mb-4 text-sm leading-relaxed text-justify text-gray-700 sm:text-base">
@@ -648,7 +709,7 @@ export default function HomePage() {
 
                 {/* Right Column: Text */}
                 <div className="w-full md:w-2/3">
-                  <h2 className="mb-4 text-xl font-semibold text-gray-900 sm:text-2xl md:text-3xl">
+                  <h2 className="mb-4 text-xl font-semibold text-gray-900 sm:text-2xl md:text-3xl text-left">
                     Airport Parking Partnership
                   </h2>
                   <p className="mb-4 text-sm leading-relaxed text-justify text-gray-700 sm:text-base">
@@ -678,7 +739,7 @@ export default function HomePage() {
               <div className="flex flex-col items-start justify-between gap-6 md:flex-row sm:gap-8">
                 {/* Left Column */}
                 <div className="w-full md:w-2/3">
-                  <h2 className="mb-4 text-xl font-semibold text-gray-900 sm:text-2xl md:text-3xl">
+                  <h2 className="mb-4 text-xl font-semibold text-gray-900 sm:text-2xl md:text-3xl text-left">
                     Book Your Luton Airport Transfer Today
                   </h2>
                   <p className="mb-4 text-sm leading-relaxed text-justify text-gray-700 sm:text-base">
@@ -725,7 +786,7 @@ export default function HomePage() {
             <section className="max-w-6xl px-4 py-8 mx-auto sm:py-12 md:py-16">
               <div className="max-w-6xl mx-auto space-y-4 sm:space-y-6">
                 {/* Heading */}
-                <h2 className="text-xl font-bold text-gray-900 sm:text-2xl md:text-3xl">
+                <h2 className="text-xl font-bold text-gray-900 sm:text-2xl md:text-3xl text-le">
                   Ways to travel to Luton
                 </h2>
                 {/* Paragraphs */}
