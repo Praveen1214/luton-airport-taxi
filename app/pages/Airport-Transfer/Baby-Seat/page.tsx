@@ -1,5 +1,5 @@
 "use client";
-
+import Head from "next/head";
 import Hero from "@/components/taxi-from-luton/Hero";
 import React, { useState } from "react";
 import { TR4 } from "../../../../assets";
@@ -13,7 +13,16 @@ import InstantQuoteGlobal from "@/app/InstantQuoteGlobal";
 const Page = () => {
   const [quoteStep, setQuoteStep] = useState(1);
   return (
+    
     <div className="min-h-screen bg-white ">
+       {/* SEO Meta Tags */}
+      <Head>
+        <title>Baby Seat Services</title>
+        <meta
+          name="description"
+          content="Baby Seat Services Accessible transfers to and from Luton Airport, 24/7."
+        />
+      </Head>
       <div className="w-full bg-gradient from-blue-50 to-transparent">
         <div className="container px-4 py-8 mx-auto md:px-6 lg:px-8">
           <div className="flex flex-col items-start justify-between md:flex-row">
