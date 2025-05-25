@@ -4,7 +4,7 @@
 import { useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
-import { Button } from "@/components/ui/button";
+// import { Button } from "@/components/ui/button";
 import FAQ from "@/components/landing/FAQ";
 import { routes } from "@/components/PopularRoutes";
 import { FaCarAlt } from "react-icons/fa"; // install with: npm install react-icons
@@ -15,8 +15,8 @@ import { CheckCircle } from "lucide-react";
 import Airplane2 from "@/assets/images/airplane2.png";
 import SecurityCard from "@/assets/images/security-card.png";
 import UserTick from "@/assets/images/user-tick.png";
-import Drivng from "@/assets/images/driving.png";
-import MaskGroup from "@/assets/images/mask-group.png";
+// import Drivng from "@/assets/images/driving.png";
+// import MaskGroup from "@/assets/images/mask-group.png";
 import ShopingCenter from "@/assets/images/shopping-center.png";
 import campbellPark from "@/assets/images/campbel-park.png";
 import bletchleyPark from "@/assets/images/bletchley-park.png";
@@ -28,17 +28,17 @@ export default function HomePage() {
   const scrollRef = useRef<HTMLDivElement>(null);
   const router = useRouter();
 
-  const scroll = (direction: "left" | "right") => {
-    const container = scrollRef.current;
-    if (!container) return;
+  // const scroll = (direction: "left" | "right") => {
+  //   const container = scrollRef.current;
+  //   if (!container) return;
 
-    const scrollAmount = 320; // adjust if needed
+  //   const scrollAmount = 320; // adjust if needed
 
-    container.scrollBy({
-      left: direction === "left" ? -scrollAmount : scrollAmount,
-      behavior: "smooth",
-    });
-  };
+  //   container.scrollBy({
+  //     left: direction === "left" ? -scrollAmount : scrollAmount,
+  //     behavior: "smooth",
+  //   });
+  // };
 
   const handleClick = (slug: string) => {
     router.push(`/pages/Popular-Routes/${slug}`);
