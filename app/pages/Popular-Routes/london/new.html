@@ -1,0 +1,923 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leveraging Observability Signals for Auto-Scaling Research</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Slide Navigation */
+        .slide-nav {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .nav-btn {
+            padding: 10px 15px;
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            border-radius: 25px;
+            color: white;
+            cursor: pointer;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            font-size: 0.9em;
+        }
+
+        .nav-btn:hover, .nav-btn.active {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+
+        /* Slides */
+        .slide {
+            min-height: 100vh;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 0;
+            animation: slideIn 0.6s ease-out;
+        }
+
+        .slide.active {
+            display: flex;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Card Styles */
+        .card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            max-width: 1000px;
+            width: 100%;
+        }
+
+        /* Typography */
+        h1 {
+            font-size: 3.5em;
+            font-weight: 700;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 2.5em;
+            font-weight: 600;
+            margin-bottom: 30px;
+            color: #4a5568;
+            text-align: center;
+        }
+
+        h3 {
+            font-size: 1.8em;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #2d3748;
+        }
+
+        .subtitle {
+            font-size: 1.3em;
+            color: #718096;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        /* Problem/Solution Cards */
+        .problem-solution {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin: 30px 0;
+        }
+
+        .problem-card, .solution-card {
+            padding: 25px;
+            border-radius: 15px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .problem-card {
+            background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+            color: white;
+        }
+
+        .solution-card {
+            background: linear-gradient(135deg, #4ecdc4, #44a08d);
+            color: white;
+        }
+
+        .problem-card::before, .solution-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.1);
+            transform: rotate(45deg);
+            transition: all 0.3s ease;
+        }
+
+        .problem-card:hover::before, .solution-card:hover::before {
+            right: -30%;
+        }
+
+        /* Feature Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+
+        .feature-card {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            padding: 25px;
+            border-radius: 15px;
+            color: white;
+            text-align: center;
+            transform: translateY(0);
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .feature-icon {
+            font-size: 3em;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        /* Evidence List */
+        .evidence-list {
+            background: #f7fafc;
+            border-radius: 15px;
+            padding: 25px;
+            margin: 20px 0;
+        }
+
+        .evidence-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+            padding: 15px;
+            background: white;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .evidence-icon {
+            font-size: 1.5em;
+            margin-right: 15px;
+            color: #667eea;
+        }
+
+        /* Student Roles */
+        .students-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+            margin: 30px 0;
+        }
+
+        .student-card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            border-top: 4px solid;
+            transition: all 0.3s ease;
+        }
+
+        .student-card:nth-child(1) { border-top-color: #ff6b6b; }
+        .student-card:nth-child(2) { border-top-color: #4ecdc4; }
+        .student-card:nth-child(3) { border-top-color: #45b7d1; }
+        .student-card:nth-child(4) { border-top-color: #f9ca24; }
+
+        .student-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+
+        .student-role {
+            font-size: 1.2em;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            margin: 40px 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(to bottom, #667eea, #764ba2);
+            border-radius: 2px;
+        }
+
+        .timeline-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .timeline-item:nth-child(odd) {
+            flex-direction: row;
+        }
+
+        .timeline-item:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .timeline-content {
+            background: white;
+            padding: 20px 25px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            width: 45%;
+            margin: 0 30px;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 20px;
+            background: #667eea;
+            border-radius: 50%;
+            border: 4px solid white;
+            box-shadow: 0 0 0 4px #667eea;
+        }
+
+        /* Impact Section */
+        .impact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+
+        .impact-card {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            padding: 30px;
+            border-radius: 15px;
+            color: white;
+            text-align: center;
+        }
+
+        .impact-number {
+            font-size: 3em;
+            font-weight: 700;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        /* Buttons */
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 15px 30px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #667eea;
+            border: 2px solid #667eea;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Slide Counter */
+        .slide-counter {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5em;
+            }
+            
+            h2 {
+                font-size: 2em;
+            }
+            
+            .problem-solution {
+                grid-template-columns: 1fr;
+            }
+            
+            .students-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .timeline::before {
+                left: 20px;
+            }
+            
+            .timeline-item {
+                flex-direction: row !important;
+            }
+            
+            .timeline-content {
+                width: calc(100% - 60px);
+                margin-left: 40px;
+                margin-right: 0;
+            }
+            
+            .timeline-dot {
+                left: 20px;
+            }
+            
+            .slide-nav {
+                flex-direction: column;
+                right: 10px;
+                top: 10px;
+            }
+            
+            .card {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <div class="slide-nav">
+        <button class="nav-btn active" onclick="showSlide(0)">Start</button>
+        <button class="nav-btn" onclick="showSlide(1)">Problem</button>
+        <button class="nav-btn" onclick="showSlide(2)">Evidence</button>
+        <button class="nav-btn" onclick="showSlide(3)">Solution</button>
+        <button class="nav-btn" onclick="showSlide(4)">Team</button>
+        <button class="nav-btn" onclick="showSlide(5)">Timeline</button>
+        <button class="nav-btn" onclick="showSlide(6)">Impact</button>
+        <button class="nav-btn" onclick="showSlide(7)">Conclusion</button>
+    </div>
+
+    <!-- Slide Counter -->
+    <div class="slide-counter">
+        <span id="current-slide">1</span> / <span id="total-slides">8</span>
+    </div>
+
+    <!-- Slide 1: Title -->
+    <div class="slide active" id="slide0">
+        <div class="container">
+            <div class="card">
+                <h1>Leveraging Observability Signals for Auto-Scaling</h1>
+                <p class="subtitle">Addressing Current Gaps in Cloud Computing</p>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <span class="feature-icon">🚀</span>
+                        <h3>Real Problem</h3>
+                        <p>Addresses current industry gaps in cloud auto-scaling</p>
+                    </div>
+                    <div class="feature-card">
+                        <span class="feature-icon">🧠</span>
+                        <h3>Smart Solution</h3>
+                        <p>Uses AI and multiple data sources for intelligent scaling</p>
+                    </div>
+                    <div class="feature-card">
+                        <span class="feature-icon">🔬</span>
+                        <h3>Academic Research</h3>
+                        <p>Novel approach with 4 distinct research components</p>
+                    </div>
+                    <div class="feature-card">
+                        <span class="feature-icon">💡</span>
+                        <h3>Practical Impact</h3>
+                        <p>Saves money and improves user experience</p>
+                    </div>
+                </div>
+                <div class="cta-buttons">
+                    <button class="btn btn-primary" onclick="showSlide(1)">Explore the Problem</button>
+                    <button class="btn btn-secondary" onclick="showSlide(3)">See Our Solution</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 2: Problem -->
+    <div class="slide" id="slide1">
+        <div class="container">
+            <div class="card">
+                <h2>🚨 The Real Problem</h2>
+                <div class="problem-solution">
+                    <div class="problem-card">
+                        <h3>❌ Current Auto-Scaling is DUMB</h3>
+                        <p><strong>Like a Basic Thermostat:</strong></p>
+                        <ul style="margin: 15px 0; line-height: 1.8;">
+                            <li>Only looks at CPU usage</li>
+                            <li>Waits for problems to happen</li>
+                            <li>Reacts too late (2-3 minutes delay)</li>
+                            <li>Wastes money on unnecessary servers</li>
+                            <li>Causes poor user experience</li>
+                        </ul>
+                    </div>
+                    <div class="solution-card">
+                        <h3>✅ What We Need: SMART Scaling</h3>
+                        <p><strong>Like a Smart Home System:</strong></p>
+                        <ul style="margin: 15px 0; line-height: 1.8;">
+                            <li>Uses multiple data sources</li>
+                            <li>Predicts future needs</li>
+                            <li>Acts before problems occur</li>
+                            <li>Optimizes for cost and performance</li>
+                            <li>Provides excellent user experience</li>
+                        </ul>
+                    </div>
+                </div>
+                <div style="text-align: center; margin-top: 30px; padding: 20px; background: #fff3cd; border-radius: 10px; border-left: 4px solid #ffc107;">
+                    <h3 style="color: #856404;">💰 Real-World Impact</h3>
+                    <p style="color: #856404; font-size: 1.1em; margin: 10px 0;">Companies waste millions on inefficient auto-scaling and lose customers due to slow websites during traffic spikes!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 3: Evidence -->
+    <div class="slide" id="slide2">
+        <div class="container">
+            <div class="card">
+                <h2>📊 Proof This is a REAL Problem (2024 Evidence)</h2>
+                <div class="evidence-list">
+                    <div class="evidence-item">
+                        <span class="evidence-icon">📚</span>
+                        <div>
+                            <strong>Recent Academic Paper (2024):</strong>
+                            <p>"Auto-Scaling Techniques in Cloud Computing: Issues and Research Directions" confirms "persisting challenges in the field"</p>
+                        </div>
+                    </div>
+                    <div class="evidence-item">
+                        <span class="evidence-icon">🏛️</span>
+                        <div>
+                            <strong>ACM Conference 2024:</strong>
+                            <p>"Mainstream auto-scaling methods exhibit various limitations, either being unsuitable for online environments or inadequately ensuring QoS"</p>
+                        </div>
+                    </div>
+                    <div class="evidence-item">
+                        <span class="evidence-icon">☁️</span>
+                        <div>
+                            <strong>Current Cloud Practice:</strong>
+                            <p>"Reactive autoscaling approach... resources scale up and down as traffic spikes occur... often with cooldown periods where resources stay elevated even as traffic drops"</p>
+                        </div>
+                    </div>
+                    <div class="evidence-item">
+                        <span class="evidence-icon">🏢</span>
+                        <div>
+                            <strong>Industry Example:</strong>
+                            <p>Companies are creating custom workarounds because Azure/AWS can't handle complex scaling scenarios (like message queue scaling)</p>
+                        </div>
+                    </div>
+                    <div class="evidence-item">
+                        <span class="evidence-icon">🔍</span>
+                        <div>
+                            <strong>Research Gap:</strong>
+                            <p>Multiple 2024 papers are still trying to solve this problem - proving it's NOT solved yet!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 4: Solution -->
+    <div class="slide" id="slide3">
+        <div class="container">
+            <div class="card">
+                <h2>💡 Our Smart Solution</h2>
+                <div style="text-align: center; margin: 30px 0; padding: 25px; background: linear-gradient(135deg, #4ecdc4, #44a08d); color: white; border-radius: 15px;">
+                    <h3>🧠 Multi-Signal Intelligent Auto-Scaler</h3>
+                    <p style="font-size: 1.2em; margin: 15px 0;">Instead of just CPU, use ALL available data to make smart decisions</p>
+                </div>
+                
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <span class="feature-icon">📊</span>
+                        <h3>Multiple Data Sources</h3>
+                        <p>CPU + Memory + Response Time + Error Logs + User Traffic + Custom Metrics</p>
+                    </div>
+                    <div class="feature-card">
+                        <span class="feature-icon">🔮</span>
+                        <h3>Predictive Scaling</h3>
+                        <p>Analyzes trends to scale BEFORE problems occur, not after</p>
+                    </div>
+                    <div class="feature-card">
+                        <span class="feature-icon">🎯</span>
+                        <h3>Precise Targeting</h3>
+                        <p>Identifies exactly which service needs scaling using trace analysis</p>
+                    </div>
+                    <div class="feature-card">
+                        <span class="feature-icon">💰</span>
+                        <h3>Cost Optimization</h3>
+                        <p>Minimizes cloud costs while maintaining performance</p>
+                    </div>
+                </div>
+
+                <div style="background: #e8f5e8; padding: 25px; border-radius: 15px; margin: 30px 0; text-align: center;">
+                    <h3 style="color: #2d5a27;">🎯 Expected Results</h3>
+                    <div class="problem-solution" style="margin-top: 20px;">
+                        <div style="background: #d4edda; color: #155724; padding: 20px; border-radius: 10px;">
+                            <strong>⚡ 50% Faster Response</strong>
+                            <p>to traffic spikes</p>
+                        </div>
+                        <div style="background: #d4edda; color: #155724; padding: 20px; border-radius: 10px;">
+                            <strong>💸 30% Cost Reduction</strong>
+                            <p>through smarter scaling</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 5: Team Structure -->
+    <div class="slide" id="slide4">
+        <div class="container">
+            <div class="card">
+                <h2>👥 Four Novel Research Components</h2>
+                <p class="subtitle">Each student leads a distinct, innovative part</p>
+                
+                <div class="students-grid">
+                    <div class="student-card">
+                        <div class="student-role" style="color: #ff6b6b;">🔍 Student 1: Data Detective</div>
+                        <h3>Observability Data Pipeline</h3>
+                        <p><strong>Novel Contribution:</strong> First system to combine metrics, logs, and traces for auto-scaling</p>
+                        <ul style="margin: 15px 0; line-height: 1.6;">
+                            <li>Collect ALL available data from Azure</li>
+                            <li>Create intelligent "health scores"</li>
+                            <li>Find patterns humans can't see</li>
+                        </ul>
+                        <div style="background: #fff5f5; padding: 10px; border-radius: 8px; margin-top: 15px;">
+                            <strong>Outcome:</strong> Smart data fusion that predicts problems early
+                        </div>
+                    </div>
+
+                    <div class="student-card">
+                        <div class="student-role" style="color: #4ecdc4;">🧠 Student 2: Algorithm Designer</div>
+                        <h3>Intelligent Decision Algorithm</h3>
+                        <p><strong>Novel Contribution:</strong> Predictive algorithm that combines multiple signals</p>
+                        <ul style="margin: 15px 0; line-height: 1.6;">
+                            <li>Design predictive scaling logic</li>
+                            <li>Balance performance vs cost</li>
+                            <li>Handle complex scenarios</li>
+                        </ul>
+                        <div style="background: #f0fdfa; padding: 10px; border-radius: 8px; margin-top: 15px;">
+                            <strong>Outcome:</strong> AI-powered scaling that works before problems hit
+                        </div>
+                    </div>
+
+                    <div class="student-card">
+                        <div class="student-role" style="color: #45b7d1;">🔨 Student 3: System Builder</div>
+                        <h3>Azure Integration & Implementation</h3>
+                        <p><strong>Novel Contribution:</strong> First multi-signal auto-scaler on Azure</p>
+                        <ul style="margin: 15px 0; line-height: 1.6;">
+                            <li>Build working prototype on Azure</li>
+                            <li>Integrate with Azure APIs</li>
+                            <li>Handle real-world challenges</li>
+                        </ul>
+                        <div style="background: #f0f9ff; padding: 10px; border-radius: 8px; margin-top: 15px;">
+                            <strong>Outcome:</strong> Proof that this actually works in real cloud
+                        </div>
+                    </div>
+
+                    <div class="student-card">
+                        <div class="student-role" style="color: #f9ca24;">📊 Student 4: Performance Validator</div>
+                        <h3>Experimental Evaluation</h3>
+                        <p><strong>Novel Contribution:</strong> New testing methodology for complex auto-scaling</p>
+                        <ul style="margin: 15px 0; line-height: 1.6;">
+                            <li>Design comprehensive experiments</li>
+                            <li>Prove performance improvements</li>
+                            <li>Validate cost savings</li>
+                        </ul>
+                        <div style="background: #fffbeb; padding: 10px; border-radius: 8px; margin-top: 15px;">
+                            <strong>Outcome:</strong> Scientific proof our solution works better
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 6: Timeline -->
+    <div class="slide" id="slide5">
+        <div class="container">
+            <div class="card">
+                <h2>📅 8-Month Research Timeline</h2>
+                
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h3>Months 1-2: Foundation</h3>
+                            <p><strong>Literature Review & Problem Analysis</strong></p>
+                            <ul>
+                                <li>Study current auto-scaling limitations</li>
+                                <li>Analyze Azure's capabilities</li>
+                                <li>Define project requirements</li>
+                            </ul>
+                        </div>
+                        <div class="timeline-dot"></div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h3>Months 2-3: Design</h3>
+                            <p><strong>System Architecture & Planning</strong></p>
+                            <ul>
+                                <li>Finalize algorithm design</li>
+                                <li>Plan data pipeline architecture</li>
+                                <li>Create implementation roadmap</li>
+                            </ul>
+                        </div>
+                        <div class="timeline-dot"></div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h3>Months 3-6: Development</h3>
+                            <p><strong>Parallel Component Implementation</strong></p>
+                            <ul>
+                                <li>Build data collection system</li>
+                                <li>Implement scaling algorithm</li>
+                                <li>Create Azure prototype</li>
+                                <li>Continuous integration testing</li>
+                            </ul>
+                        </div>
+                        <div class="timeline-dot"></div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h3>Month 7: Testing</h3>
+                            <p><strong>Comprehensive Evaluation</strong></p>
+                            <ul>
+                                <li>Run performance experiments</li>
+                                <li>Compare with baseline systems</li>
+                                <li>Analyze results and optimize</li>
+                            </ul>
+                        </div>
+                        <div class="timeline-dot"></div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h3>Month 8: Documentation</h3>
+                            <p><strong>Final Deliverables</strong></p>
+                            <ul>
+                                <li>Complete research documentation</li>
+                                <li>Prepare academic paper</li>
+                                <li>Create demonstration materials</li>
+                            </ul>
+                        </div>
+                        <div class="timeline-dot"></div>
+                    </div>
+                </div>
+
+                <div style="background: #e8f5e8; padding: 20px; border-radius: 15px; text-align: center; margin-top: 30px;">
+                    <h3 style="color: #2d5a27;">✅ Feasibility Assured</h3>
+                    <p style="color: #2d5a27;">Azure provides free student credits, comprehensive APIs, and excellent documentation. Timeline includes buffer for unexpected challenges.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 7: Impact -->
+    <div class="slide" id="slide6">
+        <div class="container">
+            <div class="card">
+                <h2>🎯 Expected Impact & Why This Matters</h2>
+                
+                <div class="impact-grid">
+                    <div class="impact-card">
+                        <span class="impact-number">📚</span>
+                        <h3>Academic Impact</h3>
+                        <p>New knowledge about multi-signal auto-scaling that other researchers can build upon</p>
+                    </div>
+                    <div class="impact-card">
+                        <span class="impact-number">🏢</span>
+                        <h3>Industry Impact</h3>
+                        <p>Solution that companies can actually use to improve their cloud operations</p>
+                    </div>
+                    <div class="impact-card">
+                        <span class="impact-number">💰</span>
+                        <h3>Economic Impact</h3>
+                        <p>Potential to save companies millions in cloud costs through smarter scaling</p>
+                    <div class="impact-card">
+                        <span class="impact-number">📈</span>
+                        <h3>Research Novelty</h3>
+                        <p>First to combine all observability data types (metrics, logs, traces) for smart auto-scaling on a major cloud platform</p>
+                    </div>
+                    <div class="impact-card">
+                        <span class="impact-number">👨‍🎓</span>
+                        <h3>Student Value</h3>
+                        <p>Provides practical experience and research publication opportunities for undergraduates</p>
+                    </div>
+                </div>
+                <div style="background: #fff3cd; padding: 18px; border-radius: 10px; margin: 35px 0 0 0; border-left: 4px solid #ffc107; color: #856404; font-size: 1.1em;">
+                    <strong>Why Now?</strong> <br>
+                    The problem is not solved: 2024 evidence shows companies still struggle with inefficient scaling and cloud providers rely on basic approaches.<br>
+                    <strong>Our project is the first to offer a truly data-driven, predictive solution that can inspire future academic and commercial work.</strong>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 8: Conclusion -->
+    <div class="slide" id="slide7">
+        <div class="container">
+            <div class="card">
+                <h2>📋 Conclusion & Supervisor Summary</h2>
+                <div style="text-align: center; margin-bottom: 25px;">
+                    <span style="font-size:2.5em;">✅</span>
+                </div>
+                <p style="font-size:1.2em; text-align: center; margin-bottom: 25px;">
+                    <strong>This research tackles a REAL and <span style="color:#764ba2;">unsolved</span> problem at the intersection of cloud computing and AI.</strong>
+                </p>
+                <ul style="margin-bottom: 22px; line-height: 1.7; font-size: 1.1em;">
+                    <li>💸 <b>Addresses major industry pain points:</b> wasted money, slow user experience, and operational headaches.</li>
+                    <li>🧠 <b>Novelty at every stage:</b> Each student leads an original, research-driven contribution, from smart data collection to evaluation.</li>
+                    <li>⚡ <b>Demonstrates real-world impact:</b> Companies and cloud providers could benefit from these results and methodology.</li>
+                    <li>🛠️ <b>Feasible and well-structured:</b> Timeline, scope, and resources are suitable for undergraduates, with strong academic and practical value.</li>
+                    <li>📈 <b>Potential for publication:</b> Results suitable for student conferences or workshops in cloud computing and systems research.</li>
+                </ul>
+                <div style="background: #e8f5e8; padding: 18px; border-radius: 10px; text-align: center;">
+                    <strong>Ready to make a real difference in cloud computing research!</strong>
+                    <br>
+                    <span style="font-size:1.1em;">Thank you for considering our project.<br>
+                    <em>Questions? We're excited to discuss further!</em></span>
+                </div>
+                <div class="cta-buttons">
+                    <a href="mailto:studentgroup@email.com" class="btn btn-primary">Contact Us</a>
+                    <button class="btn btn-secondary" onclick="showSlide(0)">Back to Start</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        // Slide navigation
+        const slides = document.querySelectorAll('.slide');
+        const navButtons = document.querySelectorAll('.nav-btn');
+        const currentSlideText = document.getElementById('current-slide');
+        const totalSlidesText = document.getElementById('total-slides');
+
+        let currentSlideIndex = 0;
+        totalSlidesText.textContent = slides.length;
+
+        function showSlide(index) {
+            slides[currentSlideIndex].classList.remove('active');
+            navButtons[currentSlideIndex].classList.remove('active');
+            currentSlideIndex = index;
+            slides[currentSlideIndex].classList.add('active');
+            navButtons[currentSlideIndex].classList.add('active');
+            currentSlideText.textContent = currentSlideIndex + 1;
+        }
+
+        // Initial setup
+        showSlide(0);
+        // Slide counter update
+        function updateSlideCounter() {
+            currentSlideText.textContent = currentSlideIndex + 1;
+        }   
+        // Add event listeners to nav buttons
+        navButtons.forEach((button, index) => {
+            button.addEventListener('click', () => {
+                showSlide(index);
+                updateSlideCounter();
+            });
+        });
+        // Add keyboard navigation
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'ArrowRight' && currentSlideIndex < slides.length - 1) {
+                showSlide(currentSlideIndex + 1);
+                updateSlideCounter();
+            } else if (event.key === 'ArrowLeft' && currentSlideIndex > 0) {
+                showSlide(currentSlideIndex - 1);
+                updateSlideCounter();
+            }
+        });
+        // Add swipe navigation for touch devices
+
+        let touchStartX = 0;
+        let touchEndX = 0;
+        document.addEventListener('touchstart', (event) => {
+            touchStartX = event.changedTouches[0].screenX;
+        });
+        document.addEventListener('touchend', (event) => {
+            touchEndX = event.changedTouches[0].screenX;
+            handleSwipe();
+        });
+        function handleSwipe() {
+            if (touchEndX < touchStartX && currentSlideIndex < slides.length - 1) {
+                showSlide(currentSlideIndex + 1);
+                updateSlideCounter();
+            } else if (touchEndX > touchStartX && currentSlideIndex > 0) {
+                showSlide(currentSlideIndex - 1);
+                updateSlideCounter();
+            }
+        }
+        // Add auto-slide functionality
+        let autoSlideInterval = setInterval(() => {
+            if (currentSlideIndex < slides.length - 1) {
+                showSlide(currentSlideIndex + 1);
+                updateSlideCounter();
+            } else {
+                clearInterval(autoSlideInterval);
+            }
+        }, 10000); // Change slide every 10 seconds
+        // Pause auto-slide on interaction
+        document.addEventListener('click', () => {
+            clearInterval(autoSlideInterval);
+        });
+        document.addEventListener('touchstart', () => {
+            clearInterval(autoSlideInterval);
+        });
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Enter' || event.key === ' ') {
+                clearInterval(autoSlideInterval);
+            }
+        });
+
+    </script>
+</body>
+</html>
