@@ -13,7 +13,7 @@ const nextConfig = {
       },
       {
         protocol: 'https',
-        hostname: 'https://lutonbackend-fsfnekbacdbycras.westus-01.azurewebsites.net',
+        hostname: 'lutonbackend-fsfnekbacdbycras.westus-01.azurewebsites.net',
         pathname: '/uploads/**',
       },
     ],
