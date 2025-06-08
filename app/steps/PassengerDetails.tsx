@@ -388,7 +388,7 @@ const PassengerDetails = ({
           sendSmsToEmail: passengerFormData.sendSmsToEmail,
         },
         payment: {
-          type: passengerFormData.paymentType,
+          type: paymentType,
           miles: bookingData.returnBooking
             ? (
                 parseFloat(bookingData.miles) +
